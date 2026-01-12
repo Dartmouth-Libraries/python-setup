@@ -9,7 +9,7 @@
 <link href="00_setup_slides_files/libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
-  <meta name="author" content="Author Name">
+  <meta name="author" content="Jeremy Mikecz">
   <meta name="dcterms.date" content="2026-01-13">
   <title>Python Setup Workshop</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -199,7 +199,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Author Name 
+Jeremy Mikecz 
 </div>
         <p class="quarto-title-affiliation">
             Research Faciliation, Dartmouth Libraries
@@ -237,7 +237,10 @@ Here's the reality: AI coding assistants are powerful, BUT:-->
 <ul>
 <li>highly readable language (good for beginners)</li>
 </ul>
-<div id="4281a85f" class="cell" data-execution_count="1">
+</section>
+<section id="python-example" class="slide level2">
+<h2>Python Example</h2>
+<div id="b31f280c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb1-2"><a href=""></a>average <span class="op">=</span> <span class="bu">sum</span>(numbers) <span class="op">/</span> <span class="bu">len</span>(numbers)</span>
 <span id="cb1-3"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Average: </span><span class="sc">{</span>average<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -245,9 +248,15 @@ Here's the reality: AI coding assistants are powerful, BUT:-->
 <pre><code>Average: 3.0</code></pre>
 </div>
 </div>
+</section>
+<section id="r" class="slide level2">
+<h2>R</h2>
 <pre><code>numbers &lt;- c(1, 2, 3, 4, 5)
 average &lt;- mean(numbers)
 print(paste("Average:", average))</code></pre>
+</section>
+<section id="java" class="slide level2">
+<h2>Java</h2>
 <pre><code>public class AverageCalculator {
     public static void main(String[] args) {
         int[] numbers = {1, 2, 3, 4, 5};
@@ -261,6 +270,9 @@ print(paste("Average:", average))</code></pre>
         System.out.println("Average: " + average);
     }
 }</code></pre>
+</section>
+<section id="c" class="slide level2">
+<h2>C++</h2>
 <pre><code>#include &lt;iostream&gt;
 #include &lt;vector&gt;
 #include &lt;numeric&gt;
@@ -273,14 +285,12 @@ int main() {
     std::cout &lt;&lt; "Average: " &lt;&lt; average &lt;&lt; std::endl;
     return 0;
 }</code></pre>
+</section>
+<section id="javascript" class="slide level2">
+<h2>Javascript</h2>
 <pre><code>const numbers = [1, 2, 3, 4, 5];
 const average = numbers.reduce((sum, num) =&gt; sum + num, 0) / numbers.length;
 console.log(`Average: ${average}`);</code></pre>
-</section></section>
-<section>
-<section id="visual-comparison-for-workshop-slide" class="title-slide slide level1 center">
-<h1>Visual Comparison for Workshop Slide</h1>
-
 </section>
 <section id="code-length-comparison" class="slide level2">
 <h2>Code Length Comparison</h2>
@@ -396,7 +406,6 @@ console.log(`Average: ${average}`);</code></pre>
 <li class="fragment"><p><code>Permission denied</code></p></li>
 </ul>
 </section></section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <ol type="1">
@@ -412,14 +421,33 @@ console.log(`Average: ${average}`);</code></pre>
 <li>Download and Import Existing Project (notebook 03)</li>
 </ol>
 </section>
-<section id="python-set-up-approach-uv-vsc" class="slide level2">
-<h2>Python Set Up Approach: UV + VSC</h2>
+
+<section>
+<section id="python-setup" class="title-slide slide level1 center">
+<h1>Python Setup</h1>
+
+</section>
+<section id="typical-python-setup" class="slide level2">
+<h2>Typical Python Setup</h2>
+<ol type="1">
+<li>Install Python</li>
+<li>install an IDE (Integrated Development Environment): software that combines tools for writing, editing, compiling, and debugging code.</li>
+</ol>
+</section>
+<section id="recommended-python-set-up-approach-uv-vsc" class="slide level2">
+<h2>Recommended Python Set Up Approach: UV + VSC</h2>
 <ol type="1">
 <li><strong>uv</strong>: A new, fast tool that manages everything—Python versions,virtual environments, and packages—all in one place.</li>
 <li><strong>Visual Studio Code</strong>: A modern editor that works seamlessly with uv and Python.</li>
 <li>Best practices: We’re building good habits from day one, not adding them later.</li>
 </ol>
 </section></section>
+<section id="hands-on-setup" class="title-slide slide level1 center">
+<h1>Hands-on Setup</h1>
+<p>Go to 01_setup-instructions (qmd, pdf, or html)</p>
+<p><em>Slides below offer “best practices” recommendations for setting up a Python project on your computer. For workshop participants, we will introduce these as we go. For asynchronous learners, you may want to review these on your own before continuing to notebook 01.</em></p>
+</section>
+
 <section>
 <section id="python-programming-best-practices" class="title-slide slide level1 center">
 <h1>Python / Programming Best Practices</h1>
@@ -437,8 +465,7 @@ console.log(`Average: ${average}`);</code></pre>
 ├── data/
 │   ├── raw/              # Original, untouched data
 │   └── processed/        # Cleaned, transformed data
-├── scripts/              # Python scripts (.py files)
-├── notebooks/            # Jupyter notebooks for exploration
+├── code                  # this may include Python scripts (.py) and coding notebooks
 ├── results/
 │   ├── figures/          # Plots and visualizations
 │   └── tables/           # Output tables/statistics
@@ -469,6 +496,7 @@ console.log(`Average: ${average}`);</code></pre>
 <li><p><strong>Lowercase with underscores</strong>: <code>my-script.py</code> or <code>my_script.py</code></p></li>
 <li><p><strong>Be descriptive</strong>: Names should tell you what the file contains or does</p></li>
 <li><p><strong>NO SPACES</strong>: For file names, you should replace whitespace with hyphens or underscores instead. Spaces cause issues in terminals. <strong>For Python code and folders containing Python code, it is recommended to avoid hyphens too as Python has difficulty importing code from folders or files with hyphens or any special characters besides underscores. Using hyphens for data files is perfectly fine.</strong></p></li>
+<li><p><strong>Avoid special characters</strong> with exception of underscore <code>_</code> whenever possible.</p></li>
 <li><p><strong>Use number prefixes for sequences</strong>: <code>01_</code>, <code>02_</code>, <code>03_</code> keeps scripts in order</p></li>
 <li><p><strong>Include dates if relevant</strong>: <code>YYYY_MM_DD</code> or <code>YYYYMMDD</code> to format sorts chronologically (you may also use hyphens, i.e.&nbsp;<code>YYYY-MM-DD</code> for data files and other files or folders that DO NOT contain Python code).</p></li>
 <li><p><strong>Consistent within a project</strong>: Pick a style and stick with it</p></li>
@@ -502,7 +530,17 @@ console.log(`Average: ${average}`);</code></pre>
 <section id="ides-integrated-development-environments" class="slide level2">
 <h2>IDEs (Integrated Development Environments)</h2>
 <p>An IDE is your coding workspace. Some examples (Visual Studio Code, Pycharm, Spyder, etc.). Today we are using Visual Studio Code (VSC) because”:</p>
-<p>Free and open source Excellent Python support Built-in git integration Integrated terminal IntelliSense (code completion) Debugging tools Works with both .py scripts and Jupyter notebooks Huge extension ecosystem Works on Windows, Mac, and Linux</p>
+<ul>
+<li><p>Free and open source</p></li>
+<li><p>Excellent Python support</p></li>
+<li><p>Built-in git integration</p></li>
+<li><p>Integrated terminal</p></li>
+<li><p>IntelliSense (code completion)</p></li>
+<li><p>Debugging tools</p></li>
+<li><p>Works with both .py scripts and Jupyter notebooks</p></li>
+<li><p>Huge extension ecosystem</p></li>
+<li><p>Works on Windows, Mac, and Linux</p></li>
+</ul>
 </section>
 <section id="documentation" class="slide level2">
 <h2>Documentation</h2>
@@ -528,9 +566,8 @@ console.log(`Average: ${average}`);</code></pre>
 Quick interactive poll: "Who currently uses any of these practices? Don't worry if you don't—we're starting today!"
 -->
 </section>
-<section id="hands-on-setup" class="slide level2">
-<h2>Hands-on Setup</h2>
-<p>Go to 01_setup-instructions (qmd, pdf, or html)</p>
+<section id="section" class="slide level2">
+<h2></h2>
 
 </section></section>
     </div>

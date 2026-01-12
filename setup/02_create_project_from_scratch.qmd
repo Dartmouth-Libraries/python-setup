@@ -14,13 +14,15 @@ This document provides detailed instructions for setting up your Python environm
 ## Table of Contents
 
 1.  setup project in Visual Studio Code
-2.  set up virtual environment
-3.  write your first markdown document
+2.  write your first markdown document
+3.  set up virtual environment
 4.  write your first script
 5.  write your first notebook
 6.  import external data
 
-## Set up sample project folder
+## 1. Setup Project in Visual Studio Code
+
+### 1a. Set up sample project folder
 
 1.  Create a new folder for your sample project in a place which you can easily find again. Follow recommended file naming projects (outlined in [00_setup_slides](00_setup_slides.html)) such as using underscores `_` in place of whitespace, avoiding special characters, etc. i.e.:
 
@@ -28,7 +30,7 @@ This document provides detailed instructions for setting up your Python environm
     ~/Users/your-user-name/Documents/python_code/sample_project
     ```
 
-## Open Project Folder in Visual Studio Code
+### 1b. Open Project Folder in Visual Studio Code
 
 Visual Studio Code and other IDEs allow you to load an entire project at once. Thus, you can easily switch between projects and when you return to a given project all the same files that were open before are opened once again. Below, we will open our sample project folder and modify it.
 
@@ -53,7 +55,7 @@ Visual Studio Code and other IDEs allow you to load an entire project at once. T
 
 ![](images/screenshot_vsc-folder-setup.png){fig-alt="screenshot of sample folder as seen in VSC after setting up code, data, docs, and results folders."}
 
-## Write your first markdown document
+## 2. Write your first markdown document
 
 A **markdown** file is a text file that allows you to use simple symbols to specify its formatting. This notebook and the **00_setup_slides** presentation were both created using markdown.
 
@@ -83,19 +85,17 @@ Create a skeletal outline of a README file using headers of different levels, bo
 
 Save the file.
 
-## Setting Up the Python Environment
+## 3. Setting Up the Python Environment
 
 \[explanation\]
 
-### Open the command line in VSC
+### 3a. Open the command line in VSC
 
 1.  Select the **Terminal** tab at the top of VSC –\> **New Terminal**
 2.  A new terminal should appear at the bottom.
-3.  If you are using a PC, it is recommended you use a **Bash** terminal instead of **Powershell**. To open Bash, select the `+` symbol at the far right side of the terminal pane, and select **Git Bash**.
+3.  If you are using a PC, it is recommended you use a **Bash** terminal instead of **Powershell**. To open Bash, select the `+` symbol at the far right side of the terminal pane, and select **Command Prompt**.
 
-# \[install Bash??\] \[Powershell UV code?\]
-
-### Confirm VSC can find your Python and uv installations
+### 3b. Confirm VSC can find your Python and uv installations
 
 1.  In the terminal, you can test to see if VSC can find your Python and uv installations (just as we did in notebook 01) by running the following code:
 
@@ -107,26 +107,38 @@ uv --version
 uv python list
 ```
 
-### Create Virtual Environment
+### 3c. Create Virtual Environment
 
-Run the following in the terminal (make sure you are in the project root folder, i.e.:
+Make sure you are in the project root folder, i.e. your terminal should look like something like this (with a path to your project directory shown):
 
 ![](images/screenshot_bash_rootdir.png)
 
+If you are not in the project root directory you can navigate to it by using the `cd` (change directory) command. Some tips:
+
+1.  to navigate up one directory type `cd ..`
+2.  to navigate up 3 directories type `cd ../../..`
+3.  to navigate from the current working directory into your code folder type `cd code`.
+4.  to navigate down two directories, type something like this: `cd code/scripts` (assuming the code folder is in your current working directory and a scripts folder is inside of that.
+
+Now, run the following in your project's root directory from the terminal:
+
 ```         
+
 # This initiaties a new uv environment for your project
 uv init
 ```
 
-This command:
+You will see in the **Explorer pane** on the left side of VSC several new files and folders were created. The above command:
 
--   Creates the `.venv/` folder, where uv will store code for any packages / dependencies installed as part of this project.
+-   Created the `.venv/` folder, where uv will store code for any packages / dependencies installed as part of this project.
 
--   Installs Python if the correct version isn't available
+-   Installed Python if the correct version isn't available
 
--   Creates a `pyproject.toml` file, where uv will store information about the packages / dependencies used in this project.
+-   Created a `pyproject.toml` file, where uv will store information about the packages / dependencies used in this project.
 
--   Creates a `.python-version` file to store the version of Python used for this project.
+-   Created a `.python-version` file to store the version of Python used for this project.
+
+-   Created a `uv.lock` file which may be used by others (or by yourself in a different environment) to reproduce the exact same computing environment for your project.
 
 Let's view which version of Python is being used by this project:
 
@@ -134,9 +146,7 @@ Let's view which version of Python is being used by this project:
 uv run python --version
 ```
 
--   Creates a `uv.lock` file which may be used by others (or by yourself in a different environment) to reproduce the exact same computing environment for your project.
-
-## Write your first Python script
+## 4. Write your first Python script
 
 1.  Create a Python script in your **code/** folder and name it something like this: `greeting.py`. Note: using the correct extension is essential so the computer knows how to read it. A `.py` file is a plain text file containing Python code that can be run with software like VSC or from the command line.
 2.  Type / paste in the following code (modifying it to make it your own):
@@ -176,7 +186,7 @@ else:
     print(f"Hello, {name}! {color.title()} is a wonderful color!")
 ```
 
-## Create a Script Requiring External Code from a Python Package
+### 4b. Create a Script Requiring External Code from a Python Package
 
 You can only do a few simple things with core Python code. Anything more complex - from data analysis to statistics, working with images and text, etc. - you will need to:
 
@@ -202,7 +212,7 @@ You can confirm the installation of this package to your local environment in mu
 3.  Reviewing code files for the rich package stored in `.venv/Lib/site-packages`.
 4.  Typing `uv pip list` or `uv pip freeze` in the command line / terminal.
 
-NOTE: Never manually modify any of the above unless you know what you are doing. These files and folders are manually updated by **uv** when you run uv commands.
+*NOTE: Never manually modify any of the above unless you know what you are doing. These files and folders are manually updated by **uv** when you run uv commands.*
 
 Then paste / type the following into a new script called 'compliment_generator.py\`.
 
@@ -239,164 +249,250 @@ Note: to acquire these and other emojis, you can acquire emojis:
 
 Try running this script from the command line using the same procedure introduced in the previous step.
 
-## Write your first Jupyter Notebook
+## 5. Write your first Jupyter Notebook
 
-## Troubleshooting
+**Coding notebooks** allow a user to create a more interactive, modular code script. These notebooks allow users to mix markdown texts (with human-readable instructions and explanations) with code cells, which can be run one at a time or all at once. They also allow users to view various intermediary results (i.e. data tables or visualizations) right within their notebook.
 
-### Issue: `uv: command not found`
+**Jupyter** is the most commonly used type of coding notebook for Python.
 
-**Solution:** The installation directory isn't in your PATH.
+### 5a. Install Jupyter
 
-**Windows:**\
-Add `%USERPROFILE%\.cargo\bin` to your PATH environment variable.
-
-**macOS/Linux:**\
-Add this to your `~/.bashrc`, `~/.zshrc`, or equivalent:
-
-```{bash}
-export PATH="$HOME/.cargo/bin:$PATH"
-```
-
-Then run: `source ~/.bashrc` (or `~/.zshrc`)
-
-### Issue: "Python version X.Y required but X.Z found"
-
-**Solution:** uv can install Python for you:
-
-```{bash}
-uv python install 3.11
-uv sync
-```
-
-### Issue: Package installation fails with compilation errors
-
-**Solution 1:** Ensure you have build tools installed
-
-**Windows:**
-
--   Install [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
-
-**macOS**:
-
-```{bash}
-xcode-select --install
-```
-
-Linux (Ubuntu/Debian):
-
-```{bash}
-sudo apt-get install build-essential python3-dev
-```
-
-**Solution 2:** Try installing pre-built wheels:
-
-```{bash}
-uv pip install --only-binary :all: [package-name]
-```
-
-### Issue: VS Code doesn't recognize the .venv interpreter
-
-**Solution:**
-
-1.  Make sure `.venv` folder exists in your project root
-
-2.  Reload VS Code (Ctrl+Shift+P → "Developer: Reload Window")
-
-3.  Manually browse to the interpreter:
+1.  To use Jupyter first we need to install it using **uv**. Run the following in the terminal:
 
 ```         
--   Windows: `.venv\Scripts\python.exe`
-
--   Mac/Linux: `.venv/bin/python`
+uv add jupyter
 ```
 
-### Issue: Jupyter notebooks won't run
+### 5b. Create a New Notebook
+
+1.  **Right-click** in the Explorer sidebar (where your files are)
+
+2.  Click **"New File"**
+
+3.  Name it: `my_first_notebook.ipynb`
+
+```         
+-   The `.ipynb` extension is important!
+```
+
+4.  Press Enter
+
+### 5c. Select Your Python Environment
+
+1.  When the notebook opens, look at the **top-right corner**
+
+2.  Click **"Select Kernel"**
+
+3.  Choose **"Python Environments..."**
+
+4.  Select the one that says **`.venv`** or **`uv`**
+
+### 5d. Start Coding
+
+1.  Click in the first cell
+
+2.  Type some Python code
+
+3.  Press **Shift + Enter** to run the cell
+
+4.  That's it! 🎉
+
+### 5e. Fun Practice Notebook Contents
+
+A short cheatsheet for working with Jupyter notebooks (or click [here](https://media.datacamp.com/legacy/image/upload/v1676302533/Marketing/Blog/Jupyterlab_Cheat_Sheet.pdf) for a more extensive cheatsheet:
+
+```         
+╔══════════════════════════════════════════════╗
+║      JUPYTER NOTEBOOK SHORTCUTS              ║
+╠══════════════════════════════════════════════╣
+║                                              ║
+║  RUN CELL:                                   ║
+║  • Shift + Enter  (run and move to next)     ║
+║  • Ctrl + Enter   (run and stay)             ║
+║                                              ║
+║  ADD CELLS:                                  ║
+║  • Click "+ Code" or "+ Markdown" buttons    ║
+║  • Or use the + icon at top                  ║
+║                                              ║
+║  CHANGE CELL TYPE:                           ║
+║  • Use dropdown: "Code" or "Markdown"        ║
+║                                              ║
+║  DELETE CELL:                                ║
+║  • Click trash icon on left of cell          ║
+║                                              ║
+║  SAVE NOTEBOOK:                              ║
+║  • Ctrl + S (or Cmd + S on Mac)              ║
+║                                              ║
+║  RESTART KERNEL:                             ║
+║  • Click "Restart" icon at top               ║
+║  • Use when things get stuck                 ║
+║                                              ║
+╚══════════════════════════════════════════════╝
+```
+
+Copy and paste these cells into your notebook to practice:
+
+#### 📝 Cell 1: Markdown (Introduction)
+
+**Click the cell, then change it to "Markdown" using the dropdown at the top**
+
+```{markdown}
+# 🎉 My First Jupyter Notebook
+
+Welcome to my coding adventure! Today I'm learning about Jupyter notebooks.
+
+## What I'll practice:
+- Running Python code in cells
+- Using **markdown** for notes
+- Making calculations
+- Creating simple visualizations
+
+---
+
+**Date:** January 2025  
+**Mood:** Excited! 🚀
+```
+
+#### Cell 2: Code (Simple Math)
+
+```{python}
+# Let's do some calculations!
+print("🧮 Quick Math Practice")
+print("-" * 30)
+
+my_age = 25  # Change this to your age!
+python_age = 2025 - 1991  # Python was created in 1991
+
+print(f"I am {my_age} years old")
+print(f"Python is {python_age} years old")
+print(f"Python is {python_age - my_age} years older than me!")
+```
+
+#### 📝 Cell 3: Markdown (Observations)
+
+```{markdown}
+## 💭 My Observations
+
+The cool thing about notebooks is that I can:
+1. Write code
+2. See the results immediately
+3. Add notes about what I learned
+
+> **Tip:** Press `Shift + Enter` to run a cell!
+```
+
+### 5f. Create a basic visualization
+
+Let's experiment by creating a data visualization using some popular Python packages.
+
+1.  Create a new notebook and name it `plotting_penguins.ipynb` or something like that.
+2.  Next, we need to install the following Python libraries / packages:
+    -   **pandas** - for working with data tables
+
+    -   **matplotlib** - for creating data visualizations
+
+    -   **seaborn** - some additional functionality and assistance working with matplotlib
+
+To install these, we will use **uv** in the terminal:
+
+```         
+uv add pandas matplotlib seaborn
+```
+
+*Note: we can install multiple packages at once using this syntax.*
+
+3.  In the first code cell in the new notebook, let's install the necessary packages:
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
+
+4.  Next, we can import a preloaded dataset from **seaborn** and preview its data:
+
+```{python}
+# Load a built-in dataset (no files needed!)
+penguins = sns.load_dataset('penguins')
+
+# Take a quick look at the data
+print("🐧 Palmer Penguins Dataset")
+print("=" * 50)
+print(penguins.head())
+print(f"\nTotal penguins: {len(penguins)}")
+print(f"Species: {penguins['species'].unique()}")
+```
+
+5.  Now, let's create a pair plot of this data:
+
+```{python}
+# Create visualization in ONE line!
+sns.pairplot(penguins, hue='species', palette='husl')
+
+plt.suptitle('🐧 Penguin Data Overview', y=1.01, fontsize=16, fontweight='bold')
+plt.show()
+```
+
+Or, we can add additional customization:
+
+```{python}
+# Create a colorful visualization
+sns.set_style("whitegrid")
+plt.figure(figsize=(10, 6))
+
+# Scatter plot: flipper length vs body mass, colored by species
+sns.scatterplot(
+    data=penguins,
+    x='flipper_length_mm',
+    y='body_mass_g',
+    hue='species',
+    size='body_mass_g',
+    sizes=(50, 400),
+    alpha=0.7,
+    palette='Set2'
+)
+```
+
+## Troubleshooting Section
+
+### Problem 1: "Select Kernel" Button Missing
 
 **Solution:**
 
-1.  Ensure Jupyter extension is installed
+-   Make sure you saved the file with `.ipynb` extension
 
-2.  Install ipykernel in your environment:
+-   Close and reopen the file
 
-```{bash}
-uv pip install ipykernel
-```
+-   Install the Jupyter extension: Click Extensions (sidebar) → search "Jupyter" → Install
 
-1.  Select the `.venv` kernel when opening a notebook
-
-2.  Restart VS Code if needed
-
-### Issue: "Import could not be resolved" warnings in VS Code
+### Problem 2: Kernel Won't Start
 
 **Solution:**
 
-1.  Ensure you've selected the correct Python interpreter
+-   Open Terminal and run: `uv add ipykernel`
 
-2.  Check that `python.analysis.extraPaths` includes your project root
+-   Reload VS Code: Press `Ctrl+Shift+P`, type "Reload Window", press Enter
 
-3.  Reload VS Code window
+-   Try selecting the kernel again
 
-### Issue: Cannot write to `.venv` directory (permission errors)
+### Problem 3: Code Cell Won't Run
+
+**Symptoms:** Nothing happens when you press Shift+Enter
 
 **Solution:**
 
--   Don't use `sudo` with uv commands
+-   Check if kernel is connected (top-right should show Python version)
 
--   Ensure you have write permissions to the project directory
+-   Click the kernel name and select it again
 
--   On Windows, run terminal as regular user (not administrator)
+-   Restart kernel: Click "Restart" icon at the top
 
-### Issue: `uv sync` is very slow
+### Problem 4: Matplotlib Charts Don't Show
 
-**Possible causes:**
+**Solution:**
 
--   First run always takes longer
+-   Make sure you ran the installation cell (Cell 6)
 
--   Slow internet connection
+-   Add this line before your plotting code:
 
--   Antivirus scanning
+    python
 
-**Solutions:**
-
--   Be patient on first run
-
--   Disable antivirus temporarily for `.venv` folder
-
--   Use `uv sync --offline` if you've run it before
-
-## Best Practices for This Course
-
-### File Organization
-
--   Keep all work within this project folder
-
--   Use relative paths (or `pathlib`)
-
--   Save scripts with descriptive names: `verb_noun.py` (e.g., `analyze_sales.py`)
-
-### Naming Conventions
-
-**Good:**
-
--   `clean_data.py`
-
--   `2024_01_15_sales_report.csv`
-
--   `figure_01_scatterplot.png`
-
-**Bad:**
-
--   `script1.py`
-
--   `final FINAL (2) copy.py`
-
--   `sales data.csv` (spaces can be problematic)
-
-### Running Python Code
-
-**In Terminal:**
-
-```{bash}
-# Always use uv run to ensure correct environment
-uv run python scripts
-```

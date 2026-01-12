@@ -3,10 +3,7 @@ title: "Python Setup Workshop"
 author: "Jeremy Mikecz"
 institute: "Research Faciliation, Dartmouth Libraries"
 date: "Jan 13, 2026"
-format: 
-  revealjs:
-    theme: night
-    navigation-mode: vertical
+format: pdf
 editor: visual
 ---
 
@@ -256,25 +253,7 @@ For general file management naming conventions see [Harvard's guide to file nami
 
 For Python specific naming conventions (for files and folders, but also for the names of variables, functions, classes, etc. see [The Pep 8 Style Guide](https://peps.python.org/pep-0008/#naming-conventions).
 
-## Documentation
-
-Most important document: README.md file. This is where users go to first to learn more about a project.
-
-What goes in a README:
-
-1.  project title & overview
-2.  how to set up / get started
-3.  how to use
-4.  data description
-5.  description of other content
-6.  how to cite
-7.  license information
-
-```{=html}
-<!-- "Always include a README.md that explains:      What your project does     How to install dependencies     How to run your code     Future you (and other researchers) will thank present you!"  Quick interactive poll: "Who currently uses any of these practices? Don't worry if you don't—we're starting today!" -->
-```
-
-## Dependency Conflicts
+## Virtual Environments
 
 **Problem**
 
@@ -282,56 +261,12 @@ What goes in a README:
 
 -   Project B (new project) needs pandas version 2.0
 
-If you just install your Python dependencies to a global environment (meaning they can be accessed anywhere on your personal computer) then your Python setup can only work for one of these packages. For example, if you try to run Project A, but you have pandas 2.0 installed on your computer, then you may receive a `dependency conflict` error.
+\[Show slide with virtual environment concept diagram\]
 
-## Solution: Virtual Environments
-
-A **virtual environment** is like a **separate, isolated workspace** for each Python project on your computer.
-
-A virtual environment keeps each project's packages separate and organized, preventing conflicts and making your code easy to share
-
-Think of it as:
-
--   A **project-specific toolbox** that contains only the tools (packages) you need for that project
-
--   A **separate room** for each project, so things don't get mixed up
-
--   A **backpack** you pack differently for each trip/project
-
-### Value of Virtual Environments
-
-1.  avoid conflicts
-2.  keep things clean
-3.  easy sharing
-4.  protect your system
-
-### Visual
-
-```         
-WITHOUT Virtual Environments:
-┌─────────────────────────────┐
-│   YOUR COMPUTER             │
-│                             │
-│  All Projects → One Big     │
-│  Messy Pile of Packages 😵  │
-│                             │
-│  (Conflicts! Confusion!)    │
-└─────────────────────────────┘
-
-
-WITH Virtual Environments:
-┌─────────────────────────────┐
-│   YOUR COMPUTER             │
-│                             │
-│  Project A → 📦 Its packages │
-│  Project B → 📦 Its packages │
-│  Project C → 📦 Its packages │
-│                             │
-│  (Clean! Organized! 😊)     │
-└─────────────────────────────┘
+```{=html}
+<!--"
+-->
 ```
-
-<!--[Show slide with virtual environment concept diagram]-->
 
 ## Version Control (Git)
 
@@ -368,5 +303,32 @@ An IDE is your coding workspace. Some examples (Visual Studio Code, Pycharm, Spy
 -   Huge extension ecosystem
 
 -   Works on Windows, Mac, and Linux
+
+## Documentation
+
+Most important document: README.md file. This is where users go to first to learn more about a project.
+
+What goes in a README:
+
+1.  project title & overview
+2.  how to set up / get started
+3.  how to use
+4.  data description
+5.  description of other content
+6.  how to cite
+7.  license information
+
+```{=html}
+<!--
+"Always include a README.md that explains:
+
+    What your project does
+    How to install dependencies
+    How to run your code
+    Future you (and other researchers) will thank present you!"
+
+Quick interactive poll: "Who currently uses any of these practices? Don't worry if you don't—we're starting today!"
+-->
+```
 
 ##

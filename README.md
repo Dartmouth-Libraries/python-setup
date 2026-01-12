@@ -4,13 +4,13 @@
 
 This repository contains tutorials to walk you through installing Python and getting started with your first Python project on your own computer.
 
-There are many ways to install and run Python. Here, we provide instructions to our recommended set up for new Python users that involves:
+There are many ways to install and run Python. Here, we provide instructions for our recommended set up for new Python users that involves:
 
 1. installing and using the coding editor and IDE (Integrated Development Environment) software **Visual Studio Code**
 
 2. installing and using `uv` to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
 
-3. following best practices suggestions to set up a computational project.
+3. following computational and coding best practices to set up a Python project.
 
 ## 2. Creator(s) / Author(s)
 
@@ -35,8 +35,7 @@ Upon completing the lessons offered here, the student will be able to:
 
 ## 5. Instructor(s) and Years Taught (if taught live)
 
-+ Jane Doe, Research Facilitiation (Intro to R Workshops, W2026 and F2028)
-+ John Q Public, Research Computing (R Essentials, F2031)
++ Jeremy Mikecz, Research Facilitiation (Python Setup, W2026)
 
 ## 6. Other Instructional Information
 
@@ -61,31 +60,14 @@ To complete the set up tutorial, open the **setup/** folder and do the following
 
 4. Complete the Python Setup Tutorial [01_python_setup_instructions](code/01_python_setup_instructions.html)
 
-### Software Installation
 
+## Required Software
 
-#### Required Software
+Instructions for installing the following are in the Set Up tutorials outlined in Step 7 above.
 
-- **Python** (version 3.10 or higher): Download from [python.org](https://www.python.org/downloads/)
-- **Visual Studio Code**: Download from [code.visualstudio.com](https://code.visualstudio.com/)
-- **uv** (package manager): Install instructions at [astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/)
-
-
-#### Installing uv
-
-**Windows (PowerShell):**
-```powershell
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-**macOS/Linux**:
-
-```{bash}
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-2. Clone or Download This Repository
-
-Option A: Using Git (recommended)
-
+- **Python** (version 3.12 or higher)
+- **Visual Studio Code**
+- **uv** (package manager)
 
 <!-->
 ## 8. Overview of Materials

@@ -51,17 +51,19 @@ Or use the menu: Terminal → New Terminal
 
 ### Windows (PowerShell)
 
+Windows - Type in a Powershell terminal
 ```{powershell}
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-#### macOS/Linux
+### macOS/Linux or Windows via Command Prompt
 
+Type the following in a Mac/Linux terminal or in Windows Command Prompt or Git Bash (if installed)
 ```{bash}
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-#### Verify Installation
+### Verify Installation
 
 After installation completes:
 
@@ -69,7 +71,7 @@ After installation completes:
 
 2.  **Open a new terminal** (Ctrl/Cmd + \` again)
 
-3.  Verify installation by typing:
+3.  Verify installation by running the following (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
 ```{bash}
 uv --version
@@ -87,6 +89,7 @@ You should see something like `uv 0.4.x` or higher.
 
 With `uv` we don't need to install Python separately. When we create our first project, uv will automatically install the right Python version for us. But let's verify uv can find or install Python:
 
+Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 ```{bash}
 uv python list
 ```
@@ -95,6 +98,7 @@ This shows all Python versions uv knows about. Don't worry if it's empty - uv wi
 
 If you want to pre-install Python 3.12 (the current stable version):
 
+Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 ```{bash}
 uv python install 3.12
 ```
@@ -103,6 +107,7 @@ This downloads and installs Python 3.12, managed by uv. No PATH configuration ne
 
 Verify:
 
+Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 ```{bash}
 uv python list
 ```
