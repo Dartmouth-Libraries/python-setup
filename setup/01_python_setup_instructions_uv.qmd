@@ -1,0 +1,112 @@
+---
+title: "Python Setup"
+author: "Jeremy Mikecz"
+institute: "Research Faciliation, Dartmouth Libraries"
+date: "Jan 13, 2026"
+format: html
+editor: visual
+---
+
+# Setup Instructions
+
+This document provides detailed instructions for installing and setting up Visual Studio Code and Python (via uv)
+
+## Table of Contents
+
+## Step 1: Install Visual Studio Code
+
+-   Go to <https://code.visualstudio.com/>
+
+-   Download for your operating system (it auto-detects)
+
+-   Install VS Code with default options
+
+-   Launch VS Code
+
+Once opened, let's install essential extensions (click Extensions icon - looks like four squares - in sidebar or press Ctrl+Shift+X):
+
+1.  Search for **'Python'** - install the one by Microsoft
+
+2.  Search for **'Jupyter'** - install the one by Microsoft
+
+3.  Search for **'Quarto'** - use to create and work with Quarto notebooks and presentations
+
+4.  Search for **'Git History'** (optional but useful)
+
+These extensions will help VS Code work with Python.
+
+## Step 2: Install uv (5 minutes)
+
+Now we install `uv`, which will handle EVERYTHING else for us - including Python itself. This is the modern way to manage Python projects. `uv` is a fast Python package and project manager that we'll use for managing dependencies.
+
+Open the integrated terminal in VS Code:
+
+-   **Windows/Linux**: Press ``` Ctrl + `` ``` (that's the backtick key, usually above Tab)
+
+-   **Mac**: Press ``` Cmd + `` ```
+
+Or use the menu: Terminal → New Terminal
+
+### Windows (PowerShell)
+
+```{powershell}
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+#### macOS/Linux
+
+```{bash}
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+#### Verify Installation
+
+After installation completes:
+
+1.  **Close the terminal tab** in VS Code (click the trash can icon)
+
+2.  **Open a new terminal** (Ctrl/Cmd + \` again)
+
+3.  Verify installation by typing:
+
+```{bash}
+uv --version
+```
+
+You should see something like `uv 0.4.x` or higher.
+
+*Troubleshooting time: Common issues*
+
+-   "If 'uv' is not recognized: The installation script may need admin rights, or you may need to restart VS Code"
+
+-   "Mac users: If you get a security warning, go to System Preferences → Security & Privacy → Allow"
+
+## Step 3: Let uv Install Python (3 minutes)
+
+With `uv` we don't need to install Python separately. When we create our first project, uv will automatically install the right Python version for us. But let's verify uv can find or install Python:
+
+```{bash}
+uv python list
+```
+
+This shows all Python versions uv knows about. Don't worry if it's empty - uv will download Python when we need it.
+
+If you want to pre-install Python 3.12 (the current stable version):
+
+```{bash}
+uv python install 3.12
+```
+
+This downloads and installs Python 3.12, managed by uv. No PATH configuration needed, no installers to run, no clicking through installation wizards.
+
+Verify:
+
+```{bash}
+uv python list
+```
+
+## Advantages of using uv for Python Installation
+
+1.  No need to go to python.org, download an installer
+2.  don't need to worry about "Add to PATH" (a common error in Python installation, when a Python IDE like VSC cannot find Python or cannot find the version of Python you want to use)
+3.  don't need to worry about conflicting with other Python installations
