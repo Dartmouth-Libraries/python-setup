@@ -13,8 +13,8 @@ This document provides detailed instructions for setting up your Python environm
 
 ## Table of Contents
 
-1.  setup project in Visual Studio Code
-2.  write your first markdown document
+1.  setup project in Visual Studio Code (10 mins.)
+2.  write your first markdown document (10)
 3.  set up virtual environment
 4.  write your first script
 5.  write your first notebook
@@ -36,15 +36,13 @@ Visual Studio Code and other IDEs allow you to load an entire project at once. T
 
 1.  Open Visual Studio Code, which you installed with [notebook 01](01_python_setup_instructions_uv.qmd).
 
-2.  We are going to
+2.  Click on **File** –\> **Open Folder**. Navigate to your new project folder and open it.
 
-3.  Click on **File** –\> **Open Folder**. Navigate to your new project folder and open it.
-
-4.  In the left pane of VSC, click on the **Explorer** icon (looks like pages or files) and you will see your empty folder there.
+3.  In the left pane of VSC, click on the **Explorer** icon (looks like pages or files) and you will see your empty folder there.
 
     ![](images/screenshot_vsc-explorer.png)
 
-5.  Add the following folders using the \*\*+ Folder icon \*\*:
+4.  Add the following folders using the \*\*+ Folder icon \*\*:
 
 ```         
 |--code
@@ -85,9 +83,11 @@ Create a skeletal outline of a README file using headers of different levels, bo
 
 Save the file.
 
-## 3. Setting Up the Python Environment
+## 3. Setting Up a Python Virtual Environment for your project
 
-\[explanation\]
+As noted in the opening slides presentation ([html](00_setup_slides.html) or [pdf](00_setup_slides.pdf)) "A virtual environment keeps each project's packages separate and organized, preventing conflicts and making your code easy to share."
+
+We will now use `uv` to create a virtual environment for our sample project.
 
 ### 3a. Open the command line in VSC
 
@@ -97,7 +97,7 @@ Save the file.
 
 ### 3b. Confirm VSC can find your Python and uv installations
 
-1.  In the terminal, you can test to see if VSC can find your Python and uv installations (just as we did in notebook 01) by running the following code:
+1.  In the **terminal**, you can test to see if VSC can find your Python and uv installations (just as we did in notebook 01) by running the following code:
 
 ```         
 uv --version
@@ -120,10 +120,9 @@ If you are not in the project root directory you can navigate to it by using the
 3.  to navigate from the current working directory into your code folder type `cd code`.
 4.  to navigate down two directories, type something like this: `cd code/scripts` (assuming the code folder is in your current working directory and a scripts folder is inside of that.
 
-Now, run the following in your project's root directory from the terminal:
+Now, run the following in your project's root directory from the **terminal**:
 
 ```         
-
 # This initiaties a new uv environment for your project
 uv init
 ```
@@ -140,7 +139,7 @@ You will see in the **Explorer pane** on the left side of VSC several new files 
 
 -   Created a `uv.lock` file which may be used by others (or by yourself in a different environment) to reproduce the exact same computing environment for your project.
 
-Let's view which version of Python is being used by this project:
+Let's view which version of Python is being used by this project. Run the following in the **terminal**:
 
 ```         
 uv run python --version
@@ -148,8 +147,13 @@ uv run python --version
 
 ## 4. Write your first Python script
 
-1.  Create a Python script in your **code/** folder and name it something like this: `greeting.py`. Note: using the correct extension is essential so the computer knows how to read it. A `.py` file is a plain text file containing Python code that can be run with software like VSC or from the command line.
-2.  Type / paste in the following code (modifying it to make it your own):
+1.  Create a Python script in your **code/** folder and name it something like this: `greeting.py`.
+    1.  Create a new script either by navigating to the code/ folder, right-clicking it, and selecting `New File`. Be sure to give the file the `.py` extension.
+
+    2.  OR **File** –\> **New File** and then give your file a name and place it in the `code` folder.
+
+        \*Note: using the correct extension is essential so the computer knows how to read it. A `.py` file is a plain text file containing Python code that can be run with software like VSC or from the command line.\*
+2.  Type / paste in the following code (modifying it to make it your own) in the **Python script**:
 
 ```         
 # Get the user's name
@@ -159,7 +163,7 @@ name = input("What's your name? ")
 ```
 
 3.  Save the script (important: when you run a script it will only run the most recently saved version).
-4.  Run your script in the terminal using uv:
+4.  Run your script in the **terminal** using uv:
 
 ```         
 uv run code/greeting.py
@@ -171,6 +175,7 @@ uv run code/greeting.py
 
 ### Optional additions to script:
 
+add to your **Python script**:
 ```         
 # Get their favorite color
 color = input("What's your favorite color? ")
@@ -199,7 +204,7 @@ We will create a **random compliments generator** in a Python script, which requ
 
 -   **rich** (which DOES NEED to be installed AND imported).
 
-To install **rich** run the following in the terminal:
+To install **rich** run the following in the **terminal**:
 
 ```         
 uv add rich 
@@ -214,7 +219,7 @@ You can confirm the installation of this package to your local environment in mu
 
 *NOTE: Never manually modify any of the above unless you know what you are doing. These files and folders are manually updated by **uv** when you run uv commands.*
 
-Then paste / type the following into a new script called 'compliment_generator.py\`.
+Then paste / type the following into a **new Python script called `compliment_generator.py`**.
 
 ```         
 import random
@@ -257,7 +262,7 @@ Try running this script from the command line using the same procedure introduce
 
 ### 5a. Install Jupyter
 
-1.  To use Jupyter first we need to install it using **uv**. Run the following in the terminal:
+1.  To use Jupyter first we need to install it using **uv**. Run the following in the **terminal**:
 
 ```         
 uv add jupyter
@@ -432,7 +437,7 @@ plt.suptitle('🐧 Penguin Data Overview', y=1.01, fontsize=16, fontweight='bold
 plt.show()
 ```
 
-Or, we can add additional customization:
+Or, we can create a scatterplot with additional customization:
 
 ```{python}
 # Create a colorful visualization
@@ -451,6 +456,46 @@ sns.scatterplot(
     palette='Set2'
 )
 ```
+
+# Brief Cheatsheet
+
+*the brief, no explanation need version:*
+
+1.  Set up a sample project folder, i.e. `~/Users/your-user-name/Documents/python_code/sample_project`
+
+2.  Open VSC and set up a link to this project folder, by selecting **File** –\> **Open Folder** and open the folder you created above.
+
+3.  In Explorers pane, create the following subfolders in your project folder: `code`, `data`, `docs`, `results`.
+
+4.  Create a `README.md` file with important explanatory information about your project. Use markdown syntax to format the text.
+
+5.  Set up a virtual environment for your project
+
+    1.  Terminal (Mac/Linux or Windows Command): `uv --version`
+
+    2.  Create virtual environment: `uv init`
+
+6.  Create a Python script in your `code` folder, giving it the extension: `.py`.
+
+7.  Write code (see Step 4 above for an example script) and save your script.
+
+8.  Run your script with `uv run code/script-name.py`.
+
+9.  To run code requiring external packages:
+
+    1.  install packages with `uv add package_name`.
+
+    2.  when needed, import a package with the code `import package_name` placed at the top of the document.
+
+10. To create a Jupyter notebook:
+
+    1.  install Jupyter via the Terminal with `uv add jupyter`.
+
+    2.  Create a new Jupyter notebook in your `code`folder (with the extension `.ipynb`).
+
+    3.  select your Python environment: top-right corner --\> **Select Kernel** --\> Choose "Python Environments" --\> select the one that says `.venv` or `uv`.
+
+    4.  See Steps 5e and 5f above for sample code.
 
 ## Troubleshooting Section
 
@@ -494,5 +539,69 @@ sns.scatterplot(
 
 -   Add this line before your plotting code:
 
-    python
+    ```{python}
+    %matplotlib inline
+    ```
 
+    ```         
+    Restart the kernel and run all cells again
+    ```
+
+Problem 5: Input() Not Working
+
+Symptoms: Input prompt doesn't appear or freezes
+
+Solution:
+
+```         
+This is normal in Jupyter! Look for the input box at the TOP of the cell output
+Make sure you're running the cell (not just clicking it)
+If stuck, click "Interrupt" button at top, then try again
+```
+
+Problem 6: Can't Install Packages
+
+Error: "uv: command not found" or similar
+
+Solution:
+
+````         
+Use pip instead:
+```{python}
+pip install matplotlib
+```
+````
+
+### Problem 5: Input() Not Working
+
+**Symptoms:** Input prompt doesn't appear or freezes
+
+**Solution:**
+
+-   This is normal in Jupyter! Look for the input box at the TOP of the cell output
+
+-   Make sure you're running the cell (not just clicking it)
+
+-   If stuck, click "Interrupt" button at top, then try again
+
+### Problem 6: Markdown Cell Shows Code Instead of Formatted Text
+
+**Solution:**
+
+-   Make sure the cell type is set to "Markdown" (check dropdown at top)
+
+-   Run the cell with Shift+Enter to render it
+
+-   If still showing code, change to Markdown and run again
+
+### Problem 7: Notebook is Slow or Unresponsive
+
+**Solution:**
+
+-   Restart the kernel: Click "Restart" icon at top
+
+-   Clear all outputs: Click "..." menu → "Clear All Outputs"
+
+-   Close other programs to free up memory
+
+-   Save and reload VS Code

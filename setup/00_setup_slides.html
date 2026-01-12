@@ -112,6 +112,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -209,8 +210,8 @@ Jeremy Mikecz
 
   <p class="date">2026-01-13</p>
 </section>
-<section id="why-program-why-program-in-a-world-of-ai" class="title-slide slide level1 center">
-<h1>Why Program? Why Program in a World of AI?</h1>
+<section id="why-program-why-program-in-a-world-of-ai" class="slide level2">
+<h2>Why Program? Why Program in a World of AI?</h2>
 <!--Show of hands: How many of you have used ChatGPT or GitHub Copilot for coding?
 
 Here's the reality: AI coding assistants are powerful, BUT:-->
@@ -223,24 +224,27 @@ Here's the reality: AI coding assistants are powerful, BUT:-->
 </ul>
 <p>Think of AI as an assistant, but YOU are still the researcher who needs to understand and validate the work</p>
 </section>
-
 <section>
 <section id="why-python" class="title-slide slide level1 center">
 <h1>Why Python?</h1>
+
+</section>
+<section id="why-python-its-popular" class="slide level2">
+<h2>Why Python?: It’s popular</h2>
 <ul>
 <li><p>Most popular language in research <!--(show trend graph if available)--></p></li>
 <li><p>Massive ecosystem for research: pandas, numpy, scipy, matplotlib, scikit-learn, etc.</p></li>
 </ul>
 </section>
-<section id="why-python-1" class="slide level2">
-<h2>Why Python?</h2>
+<section id="why-python-its-beginner-friendly" class="slide level2">
+<h2>Why Python? It’s beginner-friendly</h2>
 <ul>
 <li>highly readable language (good for beginners)</li>
 </ul>
 </section>
 <section id="python-example" class="slide level2">
 <h2>Python Example</h2>
-<div id="b31f280c" class="cell" data-execution_count="1">
+<div id="2742384f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb1-2"><a href=""></a>average <span class="op">=</span> <span class="bu">sum</span>(numbers) <span class="op">/</span> <span class="bu">len</span>(numbers)</span>
 <span id="cb1-3"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Average: </span><span class="sc">{</span>average<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -376,8 +380,8 @@ console.log(`Average: ${average}`);</code></pre>
 </tbody>
 </table>
 </section>
-<section id="why-python-2" class="slide level2">
-<h2>Why Python?</h2>
+<section id="why-python-other-reasons" class="slide level2">
+<h2>Why Python? Other Reasons</h2>
 <ul>
 <li><p>Strong community support</p></li>
 <li><p>Free and open source</p></li>
@@ -388,14 +392,26 @@ console.log(`Average: ${average}`);</code></pre>
 <section>
 <section id="problem-python-setup-is-difficult" class="title-slide slide level1 center">
 <h1>Problem: Python setup is difficult</h1>
-<p>Some common problems:</p>
-<ul>
-<li><p>Code that worked on one computer but broke on another?</p></li>
-<li><p>Confusion about pip vs conda vs virtualenv vs venv?</p></li>
-<li><p>‘Python is not recognized as a command’ errors?</p></li>
-<li><p>Breaking your Python installation by installing the wrong package?</p></li>
-<li><p>Multiple Python versions fighting each other?</p></li>
-</ul>
+
+</section>
+<section id="typical-python-setup" class="slide level2 scrollable">
+<h2>Typical Python Setup</h2>
+<ol type="1">
+<li>Install Python</li>
+<li>install an IDE (Integrated Development Environment): software that combines tools for writing, editing, compiling, and debugging code.</li>
+<li>Install Python packages to “global” environment on your computer</li>
+</ol>
+</section>
+<section id="resulting-problems" class="slide level2 scrollable">
+<h2>Resulting Problems</h2>
+<ol type="1">
+<li>IDE can’t find Python (‘Python is not recognized as a command’ errors?)</li>
+<li>Code that worked on one computer but broke on another? (dependency conflicts)</li>
+<li>updating one project causes another not to work</li>
+<li>installing the wrong package causes your Python installation to break</li>
+<li>Multiple Python versions fighting each other?</li>
+<li>your project code works differently on different computers (making collaboration difficult)</li>
+</ol>
 </section>
 <section id="common-error-messages" class="slide level2">
 <h2>Common error messages:</h2>
@@ -406,8 +422,13 @@ console.log(`Average: ${average}`);</code></pre>
 <li class="fragment"><p><code>Permission denied</code></p></li>
 </ul>
 </section></section>
-<section id="agenda" class="title-slide slide level1 center">
-<h1>Agenda</h1>
+<section>
+<section id="this-lesson" class="title-slide slide level1 center">
+<h1>This Lesson</h1>
+
+</section>
+<section id="contents" class="slide level2 scrollable">
+<h2>Contents</h2>
 <ol type="1">
 <li>Introductory presentation</li>
 <li>Install: <strong>Visual Studio Code</strong> + <strong>uv</strong> + <strong>Python</strong> (notebook 01)</li>
@@ -420,26 +441,21 @@ console.log(`Average: ${average}`);</code></pre>
 </ol></li>
 <li>Download and Import Existing Project (notebook 03)</li>
 </ol>
-</section>
-
+</section></section>
 <section>
 <section id="python-setup" class="title-slide slide level1 center">
 <h1>Python Setup</h1>
 
 </section>
-<section id="typical-python-setup" class="slide level2">
-<h2>Typical Python Setup</h2>
-<ol type="1">
-<li>Install Python</li>
-<li>install an IDE (Integrated Development Environment): software that combines tools for writing, editing, compiling, and debugging code.</li>
-</ol>
-</section>
-<section id="recommended-python-set-up-approach-uv-vsc" class="slide level2">
+<section id="recommended-python-set-up-approach-uv-vsc" class="slide level2 scrollable">
 <h2>Recommended Python Set Up Approach: UV + VSC</h2>
 <ol type="1">
 <li><strong>uv</strong>: A new, fast tool that manages everything—Python versions,virtual environments, and packages—all in one place.</li>
 <li><strong>Visual Studio Code</strong>: A modern editor that works seamlessly with uv and Python.</li>
-<li>Best practices: We’re building good habits from day one, not adding them later.</li>
+<li>Project best practices: folder/file organization; file-naming; virtual environment for each project; rigorous documentation
+<ol type="1">
+<li>We’re building good habits from day one, not adding them later.</li>
+</ol></li>
 </ol>
 </section></section>
 <section id="hands-on-setup" class="title-slide slide level1 center">
@@ -489,7 +505,7 @@ console.log(`Average: ${average}`);</code></pre>
 + Results should be generated by code, not manually created
 + One project = one self-contained folder"</code></pre>
 </section>
-<section id="file-naming-conventions" class="slide level2">
+<section id="file-naming-conventions" class="slide level2 scrollable">
 <h2>File Naming Conventions</h2>
 <p>Some common conventions:</p>
 <ol type="1">
@@ -504,16 +520,70 @@ console.log(`Average: ${average}`);</code></pre>
 <p>For general file management naming conventions see <a href="https://datamanagement.hms.harvard.edu/plan-design/file-naming-conventions">Harvard’s guide to file naming</a>.</p>
 <p>For Python specific naming conventions (for files and folders, but also for the names of variables, functions, classes, etc. see <a href="https://peps.python.org/pep-0008/#naming-conventions">The Pep 8 Style Guide</a>.</p>
 </section>
-<section id="virtual-environments" class="slide level2">
-<h2>Virtual Environments</h2>
+<section id="documentation" class="slide level2 scrollable">
+<h2>Documentation</h2>
+<p>Most important document: README.md file. This is where users go to first to learn more about a project.</p>
+<p>What goes in a README:</p>
+<ol type="1">
+<li>project title &amp; overview</li>
+<li>how to set up / get started</li>
+<li>how to use</li>
+<li>data description</li>
+<li>description of other content</li>
+<li>how to cite</li>
+<li>license information</li>
+</ol>
+<!-- "Always include a README.md that explains:      What your project does     How to install dependencies     How to run your code     Future you (and other researchers) will thank present you!"  Quick interactive poll: "Who currently uses any of these practices? Don't worry if you don't—we're starting today!" -->
+</section>
+<section id="dependency-conflicts" class="slide level2">
+<h2>Dependency Conflicts</h2>
 <p><strong>Problem</strong></p>
 <ul>
 <li><p>Project A (from 2022) needs pandas version 1.3</p></li>
 <li><p>Project B (new project) needs pandas version 2.0</p></li>
 </ul>
-<p>[Show slide with virtual environment concept diagram]</p>
-<!--"
--->
+<p>If you just install your Python dependencies to a global environment (meaning they can be accessed anywhere on your personal computer) then your Python setup can only work for one of these packages. For example, if you try to run Project A, but you have pandas 2.0 installed on your computer, then you may receive a <code>dependency conflict</code> error.</p>
+</section>
+<section id="solution-virtual-environments" class="slide level2 scrollable">
+<h2>Solution: Virtual Environments</h2>
+<p>A <strong>virtual environment</strong> is like a <strong>separate, isolated workspace</strong> for each Python project on your computer.</p>
+<p>A virtual environment keeps each project’s packages separate and organized, preventing conflicts and making your code easy to share</p>
+<p>Think of it as:</p>
+<ul>
+<li><p>A <strong>project-specific toolbox</strong> that contains only the tools (packages) you need for that project</p></li>
+<li><p>A <strong>separate room</strong> for each project, so things don’t get mixed up</p></li>
+<li><p>A <strong>backpack</strong> you pack differently for each trip/project</p></li>
+</ul>
+<h3 id="value-of-virtual-environments">Value of Virtual Environments</h3>
+<ol type="1">
+<li>avoid conflicts</li>
+<li>keep things clean</li>
+<li>easy sharing</li>
+<li>protect your system</li>
+</ol>
+<h3 id="visual">Visual</h3>
+<pre><code>WITHOUT Virtual Environments:
+┌─────────────────────────────┐
+│   YOUR COMPUTER             │
+│                             │
+│  All Projects → One Big     │
+│  Messy Pile of Packages 😵  │
+│                             │
+│  (Conflicts! Confusion!)    │
+└─────────────────────────────┘
+
+
+WITH Virtual Environments:
+┌─────────────────────────────┐
+│   YOUR COMPUTER             │
+│                             │
+│  Project A → 📦 Its packages │
+│  Project B → 📦 Its packages │
+│  Project C → 📦 Its packages │
+│                             │
+│  (Clean! Organized! 😊)     │
+└─────────────────────────────┘</code></pre>
+<!--[Show slide with virtual environment concept diagram]-->
 </section>
 <section id="version-control-git" class="slide level2">
 <h2>Version Control (Git)</h2>
@@ -541,30 +611,6 @@ console.log(`Average: ${average}`);</code></pre>
 <li><p>Huge extension ecosystem</p></li>
 <li><p>Works on Windows, Mac, and Linux</p></li>
 </ul>
-</section>
-<section id="documentation" class="slide level2">
-<h2>Documentation</h2>
-<p>Most important document: README.md file. This is where users go to first to learn more about a project.</p>
-<p>What goes in a README:</p>
-<ol type="1">
-<li>project title &amp; overview</li>
-<li>how to set up / get started</li>
-<li>how to use</li>
-<li>data description</li>
-<li>description of other content</li>
-<li>how to cite</li>
-<li>license information</li>
-</ol>
-<!--
-"Always include a README.md that explains:
-
-    What your project does
-    How to install dependencies
-    How to run your code
-    Future you (and other researchers) will thank present you!"
-
-Quick interactive poll: "Who currently uses any of these practices? Don't worry if you don't—we're starting today!"
--->
 </section>
 <section id="section" class="slide level2">
 <h2></h2>

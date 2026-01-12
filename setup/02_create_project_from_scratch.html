@@ -126,8 +126,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ol type="1">
-<li>setup project in Visual Studio Code</li>
-<li>write your first markdown document</li>
+<li>setup project in Visual Studio Code (10 mins.)</li>
+<li>write your first markdown document (10)</li>
 <li>set up virtual environment</li>
 <li>write your first script</li>
 <li>write your first notebook</li>
@@ -148,7 +148,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Visual Studio Code and other IDEs allow you to load an entire project at once. Thus, you can easily switch between projects and when you return to a given project all the same files that were open before are opened once again. Below, we will open our sample project folder and modify it.</p>
 <ol type="1">
 <li><p>Open Visual Studio Code, which you installed with <a href="01_python_setup_instructions_uv.qmd">notebook 01</a>.</p></li>
-<li><p>We are going to</p></li>
 <li><p>Click on <strong>File</strong> –&gt; <strong>Open Folder</strong>. Navigate to your new project folder and open it.</p></li>
 <li><p>In the left pane of VSC, click on the <strong>Explorer</strong> icon (looks like pages or files) and you will see your empty folder there.</p>
 <p><img src="images/screenshot_vsc-explorer.png" class="img-fluid"></p></li>
@@ -185,9 +184,10 @@ place code blocks between sets of 3 back ticks
 </ol>
 <p>Save the file.</p>
 </section>
-<section id="setting-up-the-python-environment" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-the-python-environment">3. Setting Up the Python Environment</h2>
-<p>[explanation]</p>
+<section id="setting-up-a-python-virtual-environment-for-your-project" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-a-python-virtual-environment-for-your-project">3. Setting Up a Python Virtual Environment for your project</h2>
+<p>As noted in the opening slides presentation (<a href="00_setup_slides.html">html</a> or <a href="00_setup_slides.pdf">pdf</a>) “A virtual environment keeps each project’s packages separate and organized, preventing conflicts and making your code easy to share.”</p>
+<p>We will now use <code>uv</code> to create a virtual environment for our sample project.</p>
 <section id="a.-open-the-command-line-in-vsc" class="level3">
 <h3 class="anchored" data-anchor-id="a.-open-the-command-line-in-vsc">3a. Open the command line in VSC</h3>
 <ol type="1">
@@ -199,7 +199,7 @@ place code blocks between sets of 3 back ticks
 <section id="b.-confirm-vsc-can-find-your-python-and-uv-installations" class="level3">
 <h3 class="anchored" data-anchor-id="b.-confirm-vsc-can-find-your-python-and-uv-installations">3b. Confirm VSC can find your Python and uv installations</h3>
 <ol type="1">
-<li>In the terminal, you can test to see if VSC can find your Python and uv installations (just as we did in notebook 01) by running the following code:</li>
+<li>In the <strong>terminal</strong>, you can test to see if VSC can find your Python and uv installations (just as we did in notebook 01) by running the following code:</li>
 </ol>
 <pre><code>uv --version</code></pre>
 <pre><code>uv python list</code></pre>
@@ -215,9 +215,8 @@ place code blocks between sets of 3 back ticks
 <li>to navigate from the current working directory into your code folder type <code>cd code</code>.</li>
 <li>to navigate down two directories, type something like this: <code>cd code/scripts</code> (assuming the code folder is in your current working directory and a scripts folder is inside of that.</li>
 </ol>
-<p>Now, run the following in your project’s root directory from the terminal:</p>
-<pre><code>
-# This initiaties a new uv environment for your project
+<p>Now, run the following in your project’s root directory from the <strong>terminal</strong>:</p>
+<pre><code># This initiaties a new uv environment for your project
 uv init</code></pre>
 <p>You will see in the <strong>Explorer pane</strong> on the left side of VSC several new files and folders were created. The above command:</p>
 <ul>
@@ -227,15 +226,20 @@ uv init</code></pre>
 <li><p>Created a <code>.python-version</code> file to store the version of Python used for this project.</p></li>
 <li><p>Created a <code>uv.lock</code> file which may be used by others (or by yourself in a different environment) to reproduce the exact same computing environment for your project.</p></li>
 </ul>
-<p>Let’s view which version of Python is being used by this project:</p>
+<p>Let’s view which version of Python is being used by this project. Run the following in the <strong>terminal</strong>:</p>
 <pre><code>uv run python --version</code></pre>
 </section>
 </section>
 <section id="write-your-first-python-script" class="level2">
 <h2 class="anchored" data-anchor-id="write-your-first-python-script">4. Write your first Python script</h2>
 <ol type="1">
-<li>Create a Python script in your <strong>code/</strong> folder and name it something like this: <code>greeting.py</code>. Note: using the correct extension is essential so the computer knows how to read it. A <code>.py</code> file is a plain text file containing Python code that can be run with software like VSC or from the command line.</li>
-<li>Type / paste in the following code (modifying it to make it your own):</li>
+<li>Create a Python script in your <strong>code/</strong> folder and name it something like this: <code>greeting.py</code>.
+<ol type="1">
+<li><p>Create a new script either by navigating to the code/ folder, right-clicking it, and selecting <code>New File</code>. Be sure to give the file the <code>.py</code> extension.</p></li>
+<li><p>OR <strong>File</strong> –&gt; <strong>New File</strong> and then give your file a name and place it in the <code>code</code> folder.</p>
+<p>*Note: using the correct extension is essential so the computer knows how to read it. A <code>.py</code> file is a plain text file containing Python code that can be run with software like VSC or from the command line.*</p></li>
+</ol></li>
+<li>Type / paste in the following code (modifying it to make it your own) in the <strong>Python script</strong>:</li>
 </ol>
 <pre><code># Get the user's name
 name = input("What's your name? ")
@@ -243,7 +247,7 @@ name = input("What's your name? ")
 # print(name, "is a beautiful name.")</code></pre>
 <ol start="3" type="1">
 <li>Save the script (important: when you run a script it will only run the most recently saved version).</li>
-<li>Run your script in the terminal using uv:</li>
+<li>Run your script in the <strong>terminal</strong> using uv:</li>
 </ol>
 <pre><code>uv run code/greeting.py</code></pre>
 <ol start="5" type="1">
@@ -255,6 +259,7 @@ name = input("What's your name? ")
 </ol>
 <section id="optional-additions-to-script" class="level3">
 <h3 class="anchored" data-anchor-id="optional-additions-to-script">Optional additions to script:</h3>
+<p>add to your <strong>Python script</strong>:</p>
 <pre><code># Get their favorite color
 color = input("What's your favorite color? ")
 
@@ -280,7 +285,7 @@ else:
 <li><p><strong>random</strong> (which is part of the core Python installation and thus DOES NOT need to be installed, but DOES need to be imported) and</p></li>
 <li><p><strong>rich</strong> (which DOES NEED to be installed AND imported).</p></li>
 </ul>
-<p>To install <strong>rich</strong> run the following in the terminal:</p>
+<p>To install <strong>rich</strong> run the following in the <strong>terminal</strong>:</p>
 <pre><code>uv add rich </code></pre>
 <p>You can confirm the installation of this package to your local environment in multiple ways.</p>
 <ol type="1">
@@ -290,7 +295,7 @@ else:
 <li>Typing <code>uv pip list</code> or <code>uv pip freeze</code> in the command line / terminal.</li>
 </ol>
 <p><em>NOTE: Never manually modify any of the above unless you know what you are doing. These files and folders are manually updated by <strong>uv</strong> when you run uv commands.</em></p>
-<p>Then paste / type the following into a new script called ’compliment_generator.py`.</p>
+<p>Then paste / type the following into a <strong>new Python script called <code>compliment_generator.py</code></strong>.</p>
 <pre><code>import random
 from rich import print
 
@@ -329,7 +334,7 @@ print(f"[green]{chosen_compliment}[/green]\n")</code></pre>
 <section id="a.-install-jupyter" class="level3">
 <h3 class="anchored" data-anchor-id="a.-install-jupyter">5a. Install Jupyter</h3>
 <ol type="1">
-<li>To use Jupyter first we need to install it using <strong>uv</strong>. Run the following in the terminal:</li>
+<li>To use Jupyter first we need to install it using <strong>uv</strong>. Run the following in the <strong>terminal</strong>:</li>
 </ol>
 <pre><code>uv add jupyter</code></pre>
 </section>
@@ -413,7 +418,7 @@ Welcome to my coding adventure! Today I'm learning about Jupyter notebooks.
 </section>
 <section id="cell-2-code-simple-math" class="level4">
 <h4 class="anchored" data-anchor-id="cell-2-code-simple-math">Cell 2: Code (Simple Math)</h4>
-<div id="72218d32" class="cell" data-execution_count="1">
+<div id="52b3543f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's do some calculations!</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"🧮 Quick Math Practice"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
@@ -463,14 +468,14 @@ The cool thing about notebooks is that I can:
 <ol start="3" type="1">
 <li>In the first code cell in the new notebook, let’s install the necessary packages:</li>
 </ol>
-<div id="53380268" class="cell" data-execution_count="2">
+<div id="412eb4b4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
 <li>Next, we can import a preloaded dataset from <strong>seaborn</strong> and preview its data:</li>
 </ol>
-<div id="897288bb" class="cell" data-execution_count="3">
+<div id="35b58448" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a built-in dataset (no files needed!)</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -502,9 +507,9 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </div>
 <ol start="5" type="1">
-<li>Now, let’s create a scatterplot of this data:</li>
+<li>Now, let’s create a pair plot of this data:</li>
 </ol>
-<div id="45dfcb9f" class="cell" data-execution_count="4">
+<div id="7ac0073b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization in ONE line!</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'species'</span>, palette<span class="op">=</span><span class="st">'husl'</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,8 +527,8 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </div>
 </div>
-<p>Or, we can add additional customization:</p>
-<div id="26b9d511" class="cell" data-execution_count="5">
+<p>Or, we can create a scatterplot with additional customization:</p>
+<div id="595d38f6" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colorful visualization</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -549,6 +554,36 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </section>
 </section>
+</section>
+<section id="brief-cheatsheet" class="level1">
+<h1>Brief Cheatsheet</h1>
+<p><em>the brief, no explanation need version:</em></p>
+<ol type="1">
+<li><p>Set up a sample project folder, i.e.&nbsp;<code>~/Users/your-user-name/Documents/python_code/sample_project</code></p></li>
+<li><p>Open VSC and set up a link to this project folder, by selecting <strong>File</strong> –&gt; <strong>Open Folder</strong> and open the folder you created above.</p></li>
+<li><p>In Explorers pane, create the following subfolders in your project folder: <code>code</code>, <code>data</code>, <code>docs</code>, <code>results</code>.</p></li>
+<li><p>Create a <code>README.md</code> file with important explanatory information about your project. Use markdown syntax to format the text.</p></li>
+<li><p>Set up a virtual environment for your project</p>
+<ol type="1">
+<li><p>Terminal (Mac/Linux or Windows Command): <code>uv --version</code></p></li>
+<li><p>Create virtual environment: <code>uv init</code></p></li>
+</ol></li>
+<li><p>Create a Python script in your <code>code</code> folder, giving it the extension: <code>.py</code>.</p></li>
+<li><p>Write code (see Step 4 above for an example script) and save your script.</p></li>
+<li><p>Run your script with <code>uv run code/script-name.py</code>.</p></li>
+<li><p>To run code requiring external packages:</p>
+<ol type="1">
+<li><p>install packages with <code>uv add package_name</code>.</p></li>
+<li><p>when needed, import a package with the code <code>import package_name</code> placed at the top of the document.</p></li>
+</ol></li>
+<li><p>To create a Jupyter notebook:</p>
+<ol type="1">
+<li><p>install Jupyter via the Terminal with <code>uv add jupyter</code>.</p></li>
+<li><p>Create a new Jupyter notebook in your <code>code</code>folder (with the extension <code>.ipynb</code>).</p></li>
+<li><p>select your Python environment: top-right corner –&gt; <strong>Select Kernel</strong> –&gt; Choose “Python Environments” –&gt; select the one that says <code>.venv</code> or <code>uv</code>.</p></li>
+<li><p>See Steps 5e and 5f above for sample code.</p></li>
+</ol></li>
+</ol>
 <section id="troubleshooting-section" class="level2">
 <h2 class="anchored" data-anchor-id="troubleshooting-section">Troubleshooting Section</h2>
 <section id="problem-1-select-kernel-button-missing" class="level3">
@@ -585,40 +620,70 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ul>
 <li><p>Make sure you ran the installation cell (Cell 6)</p></li>
 <li><p>Add this line before your plotting code:</p>
-<p>python</p></li>
+<div id="30797e4a" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>Restart the kernel and run all cells again</code></pre></li>
 </ul>
+<p>Problem 5: Input() Not Working</p>
+<p>Symptoms: Input prompt doesn’t appear or freezes</p>
+<p>Solution:</p>
+<pre><code>This is normal in Jupyter! Look for the input box at the TOP of the cell output
+Make sure you're running the cell (not just clicking it)
+If stuck, click "Interrupt" button at top, then try again</code></pre>
+<p>Problem 6: Can’t Install Packages</p>
+<p>Error: “uv: command not found” or similar</p>
+<p>Solution:</p>
+<pre><code>Use pip instead:
+
+::: {#6b1f8114 .cell execution_count=7}
+``` {.python .cell-code}
+pip install matplotlib
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+Note: you may need to restart the kernel to use updated packages.
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+C:\Users\F0040RP\Documents\DartLib_RDS\projects\python-setup\.venv\Scripts\pythonw.exe: No module named pip
+```
+:::
+:::
+
+</code></pre>
 </section>
-</section>
-<section id="best-practices-for-this-course" class="level2">
-<h2 class="anchored" data-anchor-id="best-practices-for-this-course">Best Practices for This Course</h2>
-<section id="file-organization" class="level3">
-<h3 class="anchored" data-anchor-id="file-organization">File Organization</h3>
+<section id="problem-5-input-not-working" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5-input-not-working">Problem 5: Input() Not Working</h3>
+<p><strong>Symptoms:</strong> Input prompt doesn’t appear or freezes</p>
+<p><strong>Solution:</strong></p>
 <ul>
-<li><p>Keep all work within this project folder</p></li>
-<li><p>Use relative paths (or <code>pathlib</code>)</p></li>
-<li><p>Save scripts with descriptive names: <code>verb_noun.py</code> (e.g., <code>analyze_sales.py</code>)</p></li>
+<li><p>This is normal in Jupyter! Look for the input box at the TOP of the cell output</p></li>
+<li><p>Make sure you’re running the cell (not just clicking it)</p></li>
+<li><p>If stuck, click “Interrupt” button at top, then try again</p></li>
 </ul>
 </section>
-<section id="naming-conventions" class="level3">
-<h3 class="anchored" data-anchor-id="naming-conventions">Naming Conventions</h3>
-<p><strong>Good:</strong></p>
+<section id="problem-6-markdown-cell-shows-code-instead-of-formatted-text" class="level3">
+<h3 class="anchored" data-anchor-id="problem-6-markdown-cell-shows-code-instead-of-formatted-text">Problem 6: Markdown Cell Shows Code Instead of Formatted Text</h3>
+<p><strong>Solution:</strong></p>
 <ul>
-<li><p><code>clean_data.py</code></p></li>
-<li><p><code>2024_01_15_sales_report.csv</code></p></li>
-<li><p><code>figure_01_scatterplot.png</code></p></li>
-</ul>
-<p><strong>Bad:</strong></p>
-<ul>
-<li><p><code>script1.py</code></p></li>
-<li><p><code>final FINAL (2) copy.py</code></p></li>
-<li><p><code>sales data.csv</code> (spaces can be problematic)</p></li>
+<li><p>Make sure the cell type is set to “Markdown” (check dropdown at top)</p></li>
+<li><p>Run the cell with Shift+Enter to render it</p></li>
+<li><p>If still showing code, change to Markdown and run again</p></li>
 </ul>
 </section>
-<section id="running-python-code" class="level3">
-<h3 class="anchored" data-anchor-id="running-python-code">Running Python Code</h3>
-<p><strong>In Terminal:</strong></p>
-<pre class="{bash}"><code># Always use uv run to ensure correct environment
-uv run python scripts</code></pre>
+<section id="problem-7-notebook-is-slow-or-unresponsive" class="level3">
+<h3 class="anchored" data-anchor-id="problem-7-notebook-is-slow-or-unresponsive">Problem 7: Notebook is Slow or Unresponsive</h3>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p>Restart the kernel: Click “Restart” icon at top</p></li>
+<li><p>Clear all outputs: Click “…” menu → “Clear All Outputs”</p></li>
+<li><p>Close other programs to free up memory</p></li>
+<li><p>Save and reload VS Code</p></li>
+</ul>
 </section>
 </section>
 </section>

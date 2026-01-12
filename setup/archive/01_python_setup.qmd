@@ -52,6 +52,7 @@ Or use the menu: Terminal → New Terminal
 ### Windows (PowerShell)
 
 Windows - Type in a Powershell terminal
+
 ```{powershell}
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
@@ -59,6 +60,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ### macOS/Linux or Windows via Command Prompt
 
 Type the following in a Mac/Linux terminal or in Windows Command Prompt or Git Bash (if installed)
+
 ```{bash}
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
@@ -90,24 +92,33 @@ You should see something like `uv 0.4.x` or higher.
 With `uv` we don't need to install Python separately. When we create our first project, uv will automatically install the right Python version for us. But let's verify uv can find or install Python:
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
+
 ```{bash}
 uv python list
 ```
 
 This shows all Python versions uv knows about. Don't worry if it's empty - uv will download Python when we need it.
 
-If you want to pre-install Python 3.12 (the current stable version):
+We can install the latest version of Python with:
+
+```{bash}
+uv python install
+```
+
+This downloads and installs the latest stable version of Python, managed by uv. No PATH configuration needed, no installers to run, no clicking through installation wizards.
+
+Or we can specify an older version to install:
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
+
 ```{bash}
 uv python install 3.12
 ```
 
-This downloads and installs Python 3.12, managed by uv. No PATH configuration needed, no installers to run, no clicking through installation wizards.
-
 Verify:
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
+
 ```{bash}
 uv python list
 ```
@@ -117,3 +128,15 @@ uv python list
 1.  No need to go to python.org, download an installer
 2.  don't need to worry about "Add to PATH" (a common error in Python installation, when a Python IDE like VSC cannot find Python or cannot find the version of Python you want to use)
 3.  don't need to worry about conflicting with other Python installations
+
+# Brief Cheatsheet
+
+*the brief, no explanation need version:*
+
+1.  Install [Visual Studio Code](https://code.visualstudio.com/)
+2.  Open VSC, install **Python**, **Jupyter**, **Quarto** (optional), and **Git** (optional) extensions.
+3.  install uv
+    1.  in Windows Powershell: `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`
+    2.  on Mac/Linux terminal: `curl -LsSf https://astral.sh/uv/install.sh | sh`
+4.  Check installation with `uv --version`.
+5.  Install Python with `uv python install`.

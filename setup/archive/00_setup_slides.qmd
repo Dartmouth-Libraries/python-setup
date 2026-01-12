@@ -7,10 +7,11 @@ format:
   revealjs:
     theme: night
     navigation-mode: vertical
+    scrollable: true
 editor: visual
 ---
 
-# Why Program? Why Program in a World of AI?
+## Why Program? Why Program in a World of AI?
 
 ```{=html}
 <!--Show of hands: How many of you have used ChatGPT or GitHub Copilot for coding?
@@ -32,11 +33,13 @@ Think of AI as an assistant, but YOU are still the researcher who needs to under
 
 # Why Python?
 
+## Why Python?: It's popular
+
 -   Most popular language in research <!--(show trend graph if available)-->
 
 -   Massive ecosystem for research: pandas, numpy, scipy, matplotlib, scikit-learn, etc.
 
-## Why Python?
+## Why Python? It's beginner-friendly
 
 -   highly readable language (good for beginners)
 
@@ -119,7 +122,7 @@ console.log(`Average: ${average}`);
 | Go         | 13            | ⭐⭐⭐ Complex        |
 | C          | 14            | ⭐⭐⭐⭐ Very Complex |
 
-## Why Python?
+## Why Python? Other Reasons
 
 -   Strong community support
 
@@ -131,17 +134,20 @@ console.log(`Average: ${average}`);
 
 # Problem: Python setup is difficult
 
-Some common problems:
+## Typical Python Setup
 
--   Code that worked on one computer but broke on another?
+1.  Install Python
+2.  install an IDE (Integrated Development Environment): software that combines tools for writing, editing, compiling, and debugging code.
+3.  Install Python packages to "global" environment on your computer
 
--   Confusion about pip vs conda vs virtualenv vs venv?
+## Resulting Problems
 
--   'Python is not recognized as a command' errors?
-
--   Breaking your Python installation by installing the wrong package?
-
--   Multiple Python versions fighting each other?
+1.  IDE can't find Python ('Python is not recognized as a command' errors?)
+2.  Code that worked on one computer but broke on another? (dependency conflicts)
+3.  updating one project causes another not to work
+4.  installing the wrong package causes your Python installation to break
+5.  Multiple Python versions fighting each other?
+6.  your project code works differently on different computers (making collaboration difficult)
 
 ## Common error messages:
 
@@ -155,7 +161,9 @@ Some common problems:
 -   `Permission denied`
 :::
 
-# Agenda
+# This Lesson
+
+## Contents
 
 1.  Introductory presentation
 2.  Install: **Visual Studio Code** + **uv** + **Python** (notebook 01)
@@ -168,16 +176,12 @@ Some common problems:
 
 # Python Setup
 
-## Typical Python Setup
-
-1.  Install Python
-2.  install an IDE (Integrated Development Environment): software that combines tools for writing, editing, compiling, and debugging code.
-
 ## Recommended Python Set Up Approach: UV + VSC
 
 1.  **uv**: A new, fast tool that manages everything—Python versions,virtual environments, and packages—all in one place.
 2.  **Visual Studio Code**: A modern editor that works seamlessly with uv and Python.
-3.  Best practices: We're building good habits from day one, not adding them later.
+3.  Project best practices: folder/file organization; file-naming; virtual environment for each project; rigorous documentation
+    1.  We're building good habits from day one, not adding them later.
 
 # Hands-on Setup
 
@@ -270,9 +274,7 @@ What goes in a README:
 6.  how to cite
 7.  license information
 
-```{=html}
 <!-- "Always include a README.md that explains:      What your project does     How to install dependencies     How to run your code     Future you (and other researchers) will thank present you!"  Quick interactive poll: "Who currently uses any of these practices? Don't worry if you don't—we're starting today!" -->
-```
 
 ## Dependency Conflicts
 

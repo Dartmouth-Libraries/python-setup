@@ -151,10 +151,12 @@ ul.task-list li input[type="checkbox"] {
 <p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
 <pre class="{bash}"><code>uv python list</code></pre>
 <p>This shows all Python versions uv knows about. Don’t worry if it’s empty - uv will download Python when we need it.</p>
-<p>If you want to pre-install Python 3.12 (the current stable version):</p>
+<p>We can install the latest version of Python with:</p>
+<pre class="{bash}"><code>uv python install</code></pre>
+<p>This downloads and installs the latest stable version of Python, managed by uv. No PATH configuration needed, no installers to run, no clicking through installation wizards.</p>
+<p>Or we can specify an older version to install:</p>
 <p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
 <pre class="{bash}"><code>uv python install 3.12</code></pre>
-<p>This downloads and installs Python 3.12, managed by uv. No PATH configuration needed, no installers to run, no clicking through installation wizards.</p>
 <p>Verify:</p>
 <p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
 <pre class="{bash}"><code>uv python list</code></pre>
@@ -167,6 +169,21 @@ ul.task-list li input[type="checkbox"] {
 <li>don’t need to worry about conflicting with other Python installations</li>
 </ol>
 </section>
+</section>
+<section id="brief-cheatsheet" class="level1">
+<h1>Brief Cheatsheet</h1>
+<p><em>the brief, no explanation need version:</em></p>
+<ol type="1">
+<li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li>Open VSC, install <strong>Python</strong>, <strong>Jupyter</strong>, <strong>Quarto</strong> (optional), and <strong>Git</strong> (optional) extensions.</li>
+<li>install uv
+<ol type="1">
+<li>in Windows Powershell: <code>powershell -c "irm https://astral.sh/uv/install.ps1 | iex"</code></li>
+<li>on Mac/Linux terminal: <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></li>
+</ol></li>
+<li>Check installation with <code>uv --version</code>.</li>
+<li>Install Python with <code>uv python install</code>.</li>
+</ol>
 </section>
 
 </main>
