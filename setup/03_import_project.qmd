@@ -1,159 +1,26 @@
 ---
-title: "Setup"
+title: "Import Python Project Tutorial with UV"
 author: "Jeremy Mikecz"
-date: "2026-01-07"
+institute: "Research Faciliation, Dartmouth Libraries"
+date: "Jan 13, 2026"
 format: html
 editor: visual
 ---
 
-# Setup Instructions
+# Importing an existing Python Project with VSC and UV
 
-This document provides detailed instructions for setting up your Python environment for this course/workshop.
+This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup-instructions.qmd).
 
 ## Table of Contents
 
-[Installing Python](#installing-python)
-
-[Installing Visual Studio Code](#installing-visual-studio-code)
-
-[Installing uv](#installing-uv)
-
-[Downloading Course Materials](#downloading-course-materials)
-
-[Setting Up the Python Environment](#setting-up-the-python-environment)
-
-[Configuring Visual Studio Code](#configuring-visual-studio-code)
-
-[Verifying Your Setup](#verifying-your-setup)
-
-[Troubleshooting](#troubleshooting)
-
-## Installing Python {#installing-python}
-
-### Check if Python is Already Installed
-
-Open a terminal/command prompt and run:
-
-```{bash}
-python --version
-```
-
-or:
-
-```{bash}
-python3 --version
-```
-
-You need Python **3.10 or higher**. If you have an older version, proceed with installation.
-
-### Installation Steps
-
-#### Windows
-
-1.  Go to <https://www.python.org/downloads/>
-
-2.  Download the latest Python 3.x installer (3.10+)
-
-3.  **Important:** Check "Add Python to PATH" during installation
-
-4.  Click "Install Now"
-
-5.  Verify installation by opening Command Prompt and typing `python --version`
-
-#### macOS
-
-**Option 1: Official Installer**
-
-1.  Go to <https://www.python.org/downloads/>
-
-2.  Download the latest macOS installer
-
-3.  Run the installer
-
-4.  Verify: `python3 --version`
-
-**Option 2: Using Homebrew (if installed)**
-
-```{bash}
-brew install python@3.14
-```
-
-Linux (Ubuntu/Debian)
-
-```{bash}
-sudo apt update
-sudo apt install python3.14 python3.14-venv python3-pip
-```
-
-For other distributions, use your package manager.
-
-## Installing Visual Studio Code {#installing-visual-studio-code}
-
-1.  Go to <https://code.visualstudio.com/>
-
-2.  Download the installer for your operating system
-
-3.  Install VS Code
-
-4.  Launch VS Code
-
-### Essential Extensions
-
-Install these extensions (click Extensions icon in sidebar or press Ctrl+Shift+X):
-
-1.  **Python** (by Microsoft) - Essential for Python development
-
-2.  **Jupyter** (by Microsoft) - For working with Jupyter notebooks
-
-3.  **Pylance** (by Microsoft) - Advanced Python language support
-
-**Optional but Recommended:**
-
--   **autoDocstring** - Generates docstring templates
-
--   **Better Comments** - Improves comment readability
-
--   **GitLens** - Enhanced Git integration
-
-## Installing uv {#installing-uv}
-
-`uv` is a fast Python package and project manager that we'll use for managing dependencies.
-
-### Windows (PowerShell)
-
-```{powershell}
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
-#### macOS/Linux
-
-```{bash}
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-#### Verify Installation
-
-```{bash}
-uv --version
-```
-
-### Alternative: Install via pip
-
-If the above methods don't work:
-
-```{bash}
-pip install uv
-```
-
-## Downloading Course Materials {#downloading-course-materials}
+## Downloading Course Materials
 
 ### Option 1: Using Git (Recommended)
 
 If you have Git installed:
 
 ```{bash}
-git clone [REPOSITORY-URL]
-cd [repository-name]
+git clone [REPOSITORY-URL] cd [repository-name]
 ```
 
 To update materials throughout the course:
@@ -172,7 +39,7 @@ git pull origin main
 
 4.  **Important:** To get updates, you'll need to re-download
 
-## Setting Up the Python Environment {#setting-up-the-python-environment}
+## Setting Up the Python Environment
 
 ### Step 1: Navigate to the Project Directory
 
@@ -197,17 +64,16 @@ This command:
 
 -   Creates/updates `uv.lock` for reproducibility
 
-**Note:** This may take 5-10 minutes on first run.
-
 ### Step 3: Verify Installation
+
+**Note:** This may take 5-10 minutes on first run.
 
 ```{bash}
 # Run the setup verification script
 uv run python scripts/00_setup.py
-
 ```
 
-## Configuring Visual Studio Code {#configuring-visual-studio-code}
+## Configuring Visual Studio Code
 
 ### Step 1: Open the Project
 
@@ -247,7 +113,7 @@ When you open a `.ipynb` file:
 
 3.  Right-click in the editor → "Run Python File in Terminal"
 
-## Verifying Your Setup {#verifying-your-setup}
+## Verifying Your Setup
 
 ### Quick Verification
 
@@ -271,7 +137,7 @@ uv run python -c "import pandas; import numpy; import matplotlib; print('All pac
 uv pip list
 ```
 
-## Troubleshooting {#troubleshooting}
+## Troubleshooting
 
 ### Issue: `uv: command not found`
 
@@ -294,7 +160,7 @@ Then run: `source ~/.bashrc` (or `~/.zshrc`)
 **Solution:** uv can install Python for you:
 
 ```{bash}
-uv python install 3.14
+uv python install 3.11
 uv sync
 ```
 
@@ -306,7 +172,7 @@ uv sync
 
 -   Install [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
 
-**macOS:**
+**macOS**:
 
 ```{bash}
 xcode-select --install
@@ -352,9 +218,9 @@ uv pip install --only-binary :all: [package-name]
 uv pip install ipykernel
 ```
 
--   Select the `.venv` kernel when opening a notebook
+1.  Select the `.venv` kernel when opening a notebook
 
--   Restart VS Code if needed
+2.  Restart VS Code if needed
 
 ### Issue: "Import could not be resolved" warnings in VS Code
 

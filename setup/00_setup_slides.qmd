@@ -1,6 +1,6 @@
 ---
 title: "Python Setup Workshop"
-author: "Author Name"
+author: "Jeremy Mikecz"
 institute: "Research Faciliation, Dartmouth Libraries"
 date: "Jan 13, 2026"
 format: 
@@ -137,19 +137,45 @@ Some common problems:
 
 ## Common error messages:
 
-```         
-'python' is not recognized as an internal or external command
-ModuleNotFoundError: No module named 'pandas'
-Python version mismatch
-Permission denied
-externally-managed-environment
-```
+::: incremental
+-   `'python' is not recognized as an internal or external command`
 
-## Python Set Up Approach
+-   `ModuleNotFoundError: No module named 'pandas'`
 
-1.  uv: A new, fast tool that manages everything—Python versions,virtual environments, and packages—all in one place.
-2.  VS Code: A modern editor that works seamlessly with uv and Python.
+-   `Python version mismatch`
+
+-   `Permission denied`
+:::
+
+# Agenda
+
+1.  Introductory presentation
+2.  Install: **Visual Studio Code** + **uv** + **Python** (notebook 01)
+3.  Create Python Project from Scratch within VSC (notebook 02)
+    1.  set up project folder
+    2.  write your first markdown document
+    3.  write your first script
+    4.  write your first notebook
+4.  Download and Import Existing Project (notebook 03)
+
+# Python Setup
+
+## Typical Python Setup
+
+1.  Install Python
+2.  install an IDE (Integrated Development Environment): software that combines tools for writing, editing, compiling, and debugging code.
+
+## Recommended Python Set Up Approach: UV + VSC
+
+1.  **uv**: A new, fast tool that manages everything—Python versions,virtual environments, and packages—all in one place.
+2.  **Visual Studio Code**: A modern editor that works seamlessly with uv and Python.
 3.  Best practices: We're building good habits from day one, not adding them later.
+
+# Hands-on Setup
+
+Go to 01_setup-instructions (qmd, pdf, or html)
+
+*Slides below offer "best practices" recommendations for setting up a Python project on your computer. For workshop participants, we will introduce these as we go. For asynchronous learners, you may want to review these on your own before continuing to notebook 01.*
 
 # Python / Programming Best Practices
 
@@ -168,8 +194,7 @@ my-research-project/
 ├── data/
 │   ├── raw/              # Original, untouched data
 │   └── processed/        # Cleaned, transformed data
-├── scripts/              # Python scripts (.py files)
-├── notebooks/            # Jupyter notebooks for exploration
+├── code                  # this may include Python scripts (.py) and coding notebooks
 ├── results/
 │   ├── figures/          # Plots and visualizations
 │   └── tables/           # Output tables/statistics
@@ -205,20 +230,21 @@ Key principles:
 
 Some common conventions:
 
-
 1.  **Lowercase with underscores**: `my-script.py` or `my_script.py`
 
 2.  **Be descriptive**: Names should tell you what the file contains or does
 
 3.  **NO SPACES**: For file names, you should replace whitespace with hyphens or underscores instead. Spaces cause issues in terminals. **For Python code and folders containing Python code, it is recommended to avoid hyphens too as Python has difficulty importing code from folders or files with hyphens or any special characters besides underscores. Using hyphens for data files is perfectly fine.**
 
-4.  **Use number prefixes for sequences**: `01_`, `02_`, `03_` keeps scripts in order
+4.  **Avoid special characters** with exception of underscore `_` whenever possible.
 
-5.  **Include dates if relevant**: `YYYY_MM_DD` or `YYYYMMDD` to format sorts chronologically (you may also use hyphens, i.e. `YYYY-MM-DD` for data files and other files or folders that DO NOT contain Python code).
+5.  **Use number prefixes for sequences**: `01_`, `02_`, `03_` keeps scripts in order
 
-6.  **Consistent within a project**: Pick a style and stick with it
+6.  **Include dates if relevant**: `YYYY_MM_DD` or `YYYYMMDD` to format sorts chronologically (you may also use hyphens, i.e. `YYYY-MM-DD` for data files and other files or folders that DO NOT contain Python code).
 
-For general file management naming conventions see [Harvard's guide to file naming](https://datamanagement.hms.harvard.edu/plan-design/file-naming-conventions). 
+7.  **Consistent within a project**: Pick a style and stick with it
+
+For general file management naming conventions see [Harvard's guide to file naming](https://datamanagement.hms.harvard.edu/plan-design/file-naming-conventions).
 
 For Python specific naming conventions (for files and folders, but also for the names of variables, functions, classes, etc. see [The Pep 8 Style Guide](https://peps.python.org/pep-0008/#naming-conventions).
 
@@ -255,7 +281,23 @@ For Python specific naming conventions (for files and folders, but also for the 
 
 An IDE is your coding workspace. Some examples (Visual Studio Code, Pycharm, Spyder, etc.). Today we are using Visual Studio Code (VSC) because":
 
-Free and open source Excellent Python support Built-in git integration Integrated terminal IntelliSense (code completion) Debugging tools Works with both .py scripts and Jupyter notebooks Huge extension ecosystem Works on Windows, Mac, and Linux
+-   Free and open source
+
+-   Excellent Python support
+
+-   Built-in git integration
+
+-   Integrated terminal
+
+-   IntelliSense (code completion)
+
+-   Debugging tools
+
+-   Works with both .py scripts and Jupyter notebooks
+
+-   Huge extension ecosystem
+
+-   Works on Windows, Mac, and Linux
 
 ## Documentation
 
@@ -284,6 +326,4 @@ Quick interactive poll: "Who currently uses any of these practices? Don't worry 
 -->
 ```
 
-## Hands-on Setup
-
-Go to 01_setup-instructions (qmd, pdf, or html)
+##

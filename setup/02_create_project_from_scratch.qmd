@@ -1,0 +1,402 @@
+---
+title: "Create Python Project from Scratch"
+author: "Jeremy Mikecz"
+institute: "Research Faciliation, Dartmouth Libraries"
+date: "Jan 13, 2026"
+format: html
+editor: visual
+---
+
+# Create a Python Project from Scratch with Visual Studio Code & UV
+
+This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup-instructions.qmd).
+
+## Table of Contents
+
+1.  setup project in Visual Studio Code
+2.  set up virtual environment
+3.  write your first markdown document
+4.  write your first script
+5.  write your first notebook
+6.  import external data
+
+## Set up sample project folder
+
+1.  Create a new folder for your sample project in a place which you can easily find again. Follow recommended file naming projects (outlined in [00_setup_slides](00_setup_slides.html)) such as using underscores `_` in place of whitespace, avoiding special characters, etc. i.e.:
+
+    ```         
+    ~/Users/your-user-name/Documents/python_code/sample_project
+    ```
+
+## Open Project Folder in Visual Studio Code
+
+Visual Studio Code and other IDEs allow you to load an entire project at once. Thus, you can easily switch between projects and when you return to a given project all the same files that were open before are opened once again. Below, we will open our sample project folder and modify it.
+
+1.  Open Visual Studio Code, which you installed with [notebook 01](01_python_setup_instructions_uv.qmd).
+
+2.  We are going to
+
+3.  Click on **File** –\> **Open Folder**. Navigate to your new project folder and open it.
+
+4.  In the left pane of VSC, click on the **Explorer** icon (looks like pages or files) and you will see your empty folder there.
+
+    ![](images/screenshot_vsc-explorer.png)
+
+5.  Add the following folders using the \*\*+ Folder icon \*\*:
+
+```         
+|--code
+|--data
+|--docs
+|--results
+```
+
+![](images/screenshot_vsc-folder-setup.png){fig-alt="screenshot of sample folder as seen in VSC after setting up code, data, docs, and results folders."}
+
+## Write your first markdown document
+
+A **markdown** file is a text file that allows you to use simple symbols to specify its formatting. This notebook and the **00_setup_slides** presentation were both created using markdown.
+
+Some commonly used symbols:
+
+````         
+# Header level 1 (note '#' should be the first symbol on the line and followed by a single whitespace)
+## Header level 2
+### Header level 3
+**bold**
+*italics*
+[filename](link/to/file)   # to create hyperlinks
+```
+place code blocks between sets of 3 back ticks
+```
+````
+
+In the Explorer pane on the left, create a new file using the **+ File icon** and name it `README.md` (**.md** is the extension for a markdown file).
+
+Create a skeletal outline of a README file using headers of different levels, bold, italics, links, and code blocks (see the symbol directory above or the Markdown Guide's [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/) for more examples of Markdown syntax). Include the following information:
+
+1.  tentative name of your project
+2.  name(s) of author(s) (you!)
+3.  Overview section
+4.  Data section
+5.  Methods section
+
+Save the file.
+
+## Setting Up the Python Environment
+
+\[explanation\]
+
+### Open the command line in VSC
+
+1.  Select the **Terminal** tab at the top of VSC –\> **New Terminal**
+2.  A new terminal should appear at the bottom.
+3.  If you are using a PC, it is recommended you use a **Bash** terminal instead of **Powershell**. To open Bash, select the `+` symbol at the far right side of the terminal pane, and select **Git Bash**.
+
+# \[install Bash??\] \[Powershell UV code?\]
+
+### Confirm VSC can find your Python and uv installations
+
+1.  In the terminal, you can test to see if VSC can find your Python and uv installations (just as we did in notebook 01) by running the following code:
+
+```         
+uv --version
+```
+
+```         
+uv python list
+```
+
+### Create Virtual Environment
+
+Run the following in the terminal (make sure you are in the project root folder, i.e.:
+
+![](images/screenshot_bash_rootdir.png)
+
+```         
+# This initiaties a new uv environment for your project
+uv init
+```
+
+This command:
+
+-   Creates the `.venv/` folder, where uv will store code for any packages / dependencies installed as part of this project.
+
+-   Installs Python if the correct version isn't available
+
+-   Creates a `pyproject.toml` file, where uv will store information about the packages / dependencies used in this project.
+
+-   Creates a `.python-version` file to store the version of Python used for this project.
+
+Let's view which version of Python is being used by this project:
+
+```         
+uv run python --version
+```
+
+-   Creates a `uv.lock` file which may be used by others (or by yourself in a different environment) to reproduce the exact same computing environment for your project.
+
+## Write your first Python script
+
+1.  Create a Python script in your **code/** folder and name it something like this: `greeting.py`. Note: using the correct extension is essential so the computer knows how to read it. A `.py` file is a plain text file containing Python code that can be run with software like VSC or from the command line.
+2.  Type / paste in the following code (modifying it to make it your own):
+
+```         
+# Get the user's name
+name = input("What's your name? ")
+
+# print(name, "is a beautiful name.")
+```
+
+3.  Save the script (important: when you run a script it will only run the most recently saved version).
+4.  Run your script in the terminal using uv:
+
+```         
+uv run code/greeting.py
+```
+
+5.  Other options to run this file:
+    5.  **Right-click** anywhere within **greeting.py** (in VSC) and select **Run Python** –\> **Run Python File in Terminal**
+    6.  You can also run the script by selecting the **Play icon button** at the top of the editor window where you have `greeting.py`. Note: since, with this method, you are NOT using uv to run the script, VSC may not know which Python version on your computer to run or it may choose a version that doesn't work. If you get an error, choose the version that looks something like this: `Python 3.XX.X (sample-project) .\.venv\Scripts\python.exe              Workspace`.
+
+### Optional additions to script:
+
+```         
+# Get their favorite color
+color = input("What's your favorite color? ")
+
+# Respond based on their color choice
+if color.lower() == "blue":
+    print(f"Hello, {name}! Blue is a calm and peaceful color. Great choice!")
+elif color.lower() == "red":
+    print(f"Hello, {name}! Red is bold and energetic. I like it!")
+elif color.lower() == "green":
+    print(f"Hello, {name}! Green is the color of nature. Very refreshing!")
+else:
+    print(f"Hello, {name}! {color.title()} is a wonderful color!")
+```
+
+## Create a Script Requiring External Code from a Python Package
+
+You can only do a few simple things with core Python code. Anything more complex - from data analysis to statistics, working with images and text, etc. - you will need to:
+
+1.  install the package to your local environment using uv (do this once per project)
+2.  import the package into any scripts or notebooks that use it (must include in each code script or notebook)
+
+We will create a **random compliments generator** in a Python script, which requires the use of two packages:
+
+-   **random** (which is part of the core Python installation and thus DOES NOT need to be installed, but DOES need to be imported) and
+
+-   **rich** (which DOES NEED to be installed AND imported).
+
+To install **rich** run the following in the terminal:
+
+```         
+uv add rich 
+```
+
+You can confirm the installation of this package to your local environment in multiple ways.
+
+1.  Open the `pyproject.toml` file and you should see it listed among the dependencies.
+2.  Open `uv.lock` and you can see information about the installed **rich** package.
+3.  Reviewing code files for the rich package stored in `.venv/Lib/site-packages`.
+4.  Typing `uv pip list` or `uv pip freeze` in the command line / terminal.
+
+NOTE: Never manually modify any of the above unless you know what you are doing. These files and folders are manually updated by **uv** when you run uv commands.
+
+Then paste / type the following into a new script called 'compliment_generator.py\`.
+
+```         
+import random
+from rich import print
+
+# List of compliments
+compliments = [
+    "You're doing an amazing job learning Python! 🎉",  # \U0001F389
+    "Your curiosity is inspiring! 🌟",                  # \U00002B50
+    "You have great potential as a programmer! 💻",
+    "Keep up the excellent work! 🚀",                   # \U0001F680"
+    "You're braver than you think for trying something new! 💪"
+    "✨"
+]
+
+# Get user's name
+name = input("What's your name? ")
+
+# Pick a random compliment
+chosen_compliment = random.choice(compliments)
+
+# Print with color using rich
+print(f"\n[bold cyan]Hey {name}![/bold cyan]")
+print(f"[green]{chosen_compliment}[/green]\n")
+```
+
+Note: to acquire these and other emojis, you can acquire emojis:
+
+1.  on a **PC** press `Windows + .` or `Windows + ;`
+2.  On a Mac type `Command + Control + Space`.
+3.  On a Linux type `Ctrl + .` or `Ctrl + ;`.
+
+Try running this script from the command line using the same procedure introduced in the previous step.
+
+## Write your first Jupyter Notebook
+
+## Troubleshooting
+
+### Issue: `uv: command not found`
+
+**Solution:** The installation directory isn't in your PATH.
+
+**Windows:**\
+Add `%USERPROFILE%\.cargo\bin` to your PATH environment variable.
+
+**macOS/Linux:**\
+Add this to your `~/.bashrc`, `~/.zshrc`, or equivalent:
+
+```{bash}
+export PATH="$HOME/.cargo/bin:$PATH"
+```
+
+Then run: `source ~/.bashrc` (or `~/.zshrc`)
+
+### Issue: "Python version X.Y required but X.Z found"
+
+**Solution:** uv can install Python for you:
+
+```{bash}
+uv python install 3.11
+uv sync
+```
+
+### Issue: Package installation fails with compilation errors
+
+**Solution 1:** Ensure you have build tools installed
+
+**Windows:**
+
+-   Install [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
+
+**macOS**:
+
+```{bash}
+xcode-select --install
+```
+
+Linux (Ubuntu/Debian):
+
+```{bash}
+sudo apt-get install build-essential python3-dev
+```
+
+**Solution 2:** Try installing pre-built wheels:
+
+```{bash}
+uv pip install --only-binary :all: [package-name]
+```
+
+### Issue: VS Code doesn't recognize the .venv interpreter
+
+**Solution:**
+
+1.  Make sure `.venv` folder exists in your project root
+
+2.  Reload VS Code (Ctrl+Shift+P → "Developer: Reload Window")
+
+3.  Manually browse to the interpreter:
+
+```         
+-   Windows: `.venv\Scripts\python.exe`
+
+-   Mac/Linux: `.venv/bin/python`
+```
+
+### Issue: Jupyter notebooks won't run
+
+**Solution:**
+
+1.  Ensure Jupyter extension is installed
+
+2.  Install ipykernel in your environment:
+
+```{bash}
+uv pip install ipykernel
+```
+
+1.  Select the `.venv` kernel when opening a notebook
+
+2.  Restart VS Code if needed
+
+### Issue: "Import could not be resolved" warnings in VS Code
+
+**Solution:**
+
+1.  Ensure you've selected the correct Python interpreter
+
+2.  Check that `python.analysis.extraPaths` includes your project root
+
+3.  Reload VS Code window
+
+### Issue: Cannot write to `.venv` directory (permission errors)
+
+**Solution:**
+
+-   Don't use `sudo` with uv commands
+
+-   Ensure you have write permissions to the project directory
+
+-   On Windows, run terminal as regular user (not administrator)
+
+### Issue: `uv sync` is very slow
+
+**Possible causes:**
+
+-   First run always takes longer
+
+-   Slow internet connection
+
+-   Antivirus scanning
+
+**Solutions:**
+
+-   Be patient on first run
+
+-   Disable antivirus temporarily for `.venv` folder
+
+-   Use `uv sync --offline` if you've run it before
+
+## Best Practices for This Course
+
+### File Organization
+
+-   Keep all work within this project folder
+
+-   Use relative paths (or `pathlib`)
+
+-   Save scripts with descriptive names: `verb_noun.py` (e.g., `analyze_sales.py`)
+
+### Naming Conventions
+
+**Good:**
+
+-   `clean_data.py`
+
+-   `2024_01_15_sales_report.csv`
+
+-   `figure_01_scatterplot.png`
+
+**Bad:**
+
+-   `script1.py`
+
+-   `final FINAL (2) copy.py`
+
+-   `sales data.csv` (spaces can be problematic)
+
+### Running Python Code
+
+**In Terminal:**
+
+```{bash}
+# Always use uv run to ensure correct environment
+uv run python scripts
+```

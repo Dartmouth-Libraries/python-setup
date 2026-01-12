@@ -7,13 +7,13 @@ format: html
 editor: visual
 ---
 
-# Setup Instructions
+# Install & Set up Python with Visual Studio Code and UV
 
 This document provides detailed instructions for installing and setting up Visual Studio Code and Python (via uv)
 
 ## Table of Contents
 
-## Step 1: Install Visual Studio Code
+## Step 1: Install Visual Studio Code (10 minutes)
 
 -   Go to <https://code.visualstudio.com/>
 
@@ -38,6 +38,8 @@ These extensions will help VS Code work with Python.
 ## Step 2: Install uv (5 minutes)
 
 Now we install `uv`, which will handle EVERYTHING else for us - including Python itself. This is the modern way to manage Python projects. `uv` is a fast Python package and project manager that we'll use for managing dependencies.
+
+**Dependencies** are other software that are needed for a program to run. For Python, this often means
 
 Open the integrated terminal in VS Code:
 
