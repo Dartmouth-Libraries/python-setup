@@ -54,11 +54,11 @@ To complete the set up tutorial, open the **setup/** folder and do the following
 
 1. Review the [00_setup_slides](setup/00_setup_slides.html) presentation (optional, but provides from useful background)
 
-2. Complete the Python Setup Tutorial [01_python_setup_instructions](code/01_python_setup_instructions.html)
+2. Complete the Python Setup Tutorial (Notebook 01 in `setup/` folder)
 
-3. Complete the Python Setup Tutorial [01_python_setup_instructions](code/01_python_setup_instructions.html)
+3. Complete the Create a New Python Project from Scratch Tutorial (Notebook 02 in `setup/` folder)
 
-4. Complete the Python Setup Tutorial [01_python_setup_instructions](code/01_python_setup_instructions.html)
+4. Complete the Python Setup Tutorial (Notebook 03 in `setup/` folder)
 
 
 ## Required Software
