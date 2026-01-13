@@ -1,0 +1,2351 @@
+# Complete Tutorial: Python Development with UV and VS Code
+
+---
+
+## Part 1: Quick Reference Cheatsheet
+
+### Installation Commands
+
+```bash
+# Install uv (Windows PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Install uv (macOS/Linux)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install Python via uv
+uv python install 3.12
+
+# Verify installations
+uv --version
+uv python list
+```
+
+### Project Lifecycle Commands
+
+```bash
+# Create new project
+uv init my-project
+cd my-project
+
+# Add dependencies
+uv add requests              # Add package
+uv add pytest --dev          # Add dev dependency
+uv add "flask>=2.0,<3.0"     # Add with version constraints
+
+# Remove dependencies
+uv remove requests
+
+# Run commands
+uv run python main.py        # Run script
+uv run pytest                # Run tests
+uv run python                # Interactive Python
+
+# Sync environment
+uv sync                      # Install all dependencies from lockfile
+uv sync --frozen             # Strict sync (fail if lockfile outdated)
+
+# Update dependencies
+uv lock --upgrade            # Update all packages
+uv lock --upgrade-package requests  # Update specific package
+```
+
+### VS Code Setup Checklist
+
+1. ✅ Install VS Code
+2. ✅ Install Python extension (ms-python.python)
+3. ✅ Open project folder
+4. ✅ Select interpreter: `Ctrl+Shift+P` → "Python: Select Interpreter" → `.venv`
+5. ✅ Configure terminal to use uv
+
+### Key Files in UV Projects
+
+```
+my-project/
+├── .venv/              # Virtual environment (auto-created)
+├── .python-version     # Python version pin
+├── pyproject.toml      # Project config & dependencies
+├── uv.lock            # Locked dependency versions
+├── src/               # Source code (optional)
+│   └── my_project/
+└── README.md
+```
+
+---
+
+## Part 2: Detailed Tutorial with Explanations
+
+---
+
+## Chapter 1: Understanding the Tools
+
+### What is UV?
+
+UV is a modern Python package and project manager written in Rust. It replaces multiple tools:
+
+| Traditional Tool | UV Equivalent | Purpose |
+|-----------------|---------------|---------|
+| pyenv | `uv python` | Python version management |
+| pip | `uv pip` / `uv add` | Package installation |
+| venv | `uv venv` | Virtual environments |
+| pip-tools | `uv lock` | Dependency locking |
+| poetry/pipenv | `uv init/add/sync` | Project management |
+
+**Why UV?**
+- 10-100x faster than pip
+- Single tool for everything
+- Automatic virtual environment management
+- Cross-platform consistency
+- Deterministic builds with lockfile
+
+### What is VS Code?
+
+Visual Studio Code is a free, lightweight code editor with powerful Python support through extensions. It provides:
+- Syntax highlighting and IntelliSense
+- Integrated terminal
+- Debugging capabilities
+- Git integration
+- Extension ecosystem
+
+---
+
+## Chapter 2: Installing Visual Studio Code
+
+### Windows Installation
+
+1. **Download VS Code**
+   - Visit https://code.visualstudio.com
+   - Click "Download for Windows"
+   - Run the installer (.exe file)
+
+2. **Installation Options** (Recommended selections)
+   ```
+   ☑ Add "Open with Code" action to Windows Explorer file context menu
+   ☑ Add "Open with Code" action to Windows Explorer directory context menu
+   ☑ Register Code as an editor for supported file types
+   ☑ Add to PATH (requires shell restart)
+   ```
+
+3. **Verify Installation**
+   - Open a new terminal/PowerShell window
+   ```bash
+   code --version
+   ```
+
+### macOS Installation
+
+1. **Download and Install**
+   ```bash
+   # Option 1: Direct download from https://code.visualstudio.com
+   # Drag to Applications folder
+   
+   # Option 2: Using Homebrew
+   brew install --cask visual-studio-code
+   ```
+
+2. **Add to PATH**
+   - Open VS Code
+   - Press `Cmd+Shift+P`
+   - Type "shell command"
+   - Select "Shell Command: Install 'code' command in PATH"
+
+### Linux Installation
+
+```bash
+# Ubuntu/Debian
+sudo apt update
+sudo apt install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt install code
+
+# Fedora
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+sudo dnf install code
+
+# Arch Linux
+sudo pacman -S code
+```
+
+### Installing Essential VS Code Extensions
+
+1. **Open Extensions Panel**
+   - Click the Extensions icon in the sidebar (or press `Ctrl+Shift+X` / `Cmd+Shift+X`)
+
+2. **Install Required Extensions**
+
+   **Python Extension** (Required)
+   ```
+   Name: Python
+   Publisher: Microsoft
+   ID: ms-python.python
+   ```
+   
+   **Recommended Additional Extensions:**
+   ```
+   - Pylance (ms-python.vscode-pylance) - Enhanced IntelliSense
+   - Python Debugger (ms-python.debugpy) - Debugging support
+   - Even Better TOML (tamasfe.even-better-toml) - For pyproject.toml
+   - Ruff (charliermarsh.ruff) - Fast linting (pairs well with uv)
+   ```
+
+3. **Install via Command Line** (Alternative)
+   ```bash
+   code --install-extension ms-python.python
+   code --install-extension ms-python.vscode-pylance
+   code --install-extension tamasfe.even-better-toml
+   code --install-extension charliermarsh.ruff
+   ```
+
+---
+
+## Chapter 3: Installing UV
+
+### Windows Installation
+
+**Option 1: PowerShell (Recommended)**
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+**Option 2: Using winget**
+```powershell
+winget install --id=astral-sh.uv -e
+```
+
+**Option 3: Using Scoop**
+```powershell
+scoop install uv
+```
+
+**Post-Installation (Windows)**
+1. Close and reopen your terminal
+2. Verify installation:
+   ```powershell
+   uv --version
+   ```
+
+> **Troubleshooting Windows:**
+> If `uv` is not recognized:
+> 1. Check if `%USERPROFILE%\.local\bin` is in your PATH
+> 2. Add manually: System Properties → Environment Variables → Path → Add the directory
+> 3. Restart your terminal
+
+### macOS Installation
+
+**Option 1: Shell Script (Recommended)**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**Option 2: Using Homebrew**
+```bash
+brew install uv
+```
+
+**Post-Installation (macOS)**
+```bash
+# If using the shell script, add to your shell profile
+# For zsh (default on modern macOS):
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+
+# For bash:
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# Verify
+uv --version
+```
+
+### Linux Installation
+
+```bash
+# Shell script (works on most distributions)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Add to PATH (add to ~/.bashrc or ~/.zshrc)
+export PATH="$HOME/.local/bin:$PATH"
+
+# Reload shell
+source ~/.bashrc  # or source ~/.zshrc
+
+# Verify
+uv --version
+```
+
+> **Troubleshooting Linux:**
+> - If `curl` is not installed: `sudo apt install curl` (Ubuntu/Debian)
+> - Permission denied: The script installs to `~/.local/bin`, which shouldn't require sudo
+
+---
+
+## Chapter 4: Installing Python with UV
+
+### Installing Python
+
+UV can manage Python installations without requiring system Python or pyenv.
+
+```bash
+# List available Python versions
+uv python list
+
+# Install latest Python 3.12
+uv python install 3.12
+
+# Install specific version
+uv python install 3.11.8
+
+# Install multiple versions
+uv python install 3.10 3.11 3.12
+
+# Find installed Pythons
+uv python find
+```
+
+**Example Output:**
+```
+$ uv python list
+cpython-3.12.4-windows-x86_64    <download available>
+cpython-3.12.4-windows-x86      <download available>
+cpython-3.11.9-windows-x86_64    <download available>
+...
+
+$ uv python install 3.12
+Installed Python 3.12.4 in 3.2s
+ + cpython-3.12.4-windows-x86_64
+```
+
+### Setting a Default Python Version
+
+```bash
+# Pin Python version globally (creates ~/.python-version)
+uv python pin 3.12
+
+# Pin for current directory only
+cd my-project
+uv python pin 3.11
+```
+
+> **Troubleshooting Python Installation:**
+> 
+> **Issue:** "No download found for Python version X.Y"
+> - UV downloads pre-built Python binaries. Some platforms/versions may not be available.
+> - Solution: Use a slightly different version (e.g., 3.12.3 instead of 3.12.4)
+>
+> **Issue:** Python installs but isn't found
+> - UV installs Python to its own managed location
+> - Always use `uv run python` or create a project with `uv init`
+> - For direct access: `uv python find 3.12` shows the path
+
+---
+
+## Chapter 5: Creating Your First UV Project
+
+### Step 1: Create the Project
+
+```bash
+# Navigate to your projects directory
+cd ~/projects  # or wherever you keep projects
+
+# Create new project
+uv init my-first-project
+
+# Enter the project directory
+cd my-first-project
+```
+
+**What This Creates:**
+```
+my-first-project/
+├── .python-version      # Contains: 3.12
+├── README.md           # Empty readme
+├── pyproject.toml      # Project configuration
+└── hello.py            # Sample Python file
+```
+
+### Step 2: Understand pyproject.toml
+
+```toml
+[project]
+name = "my-first-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+```
+
+**Key Sections Explained:**
+- `[project]` - Basic project metadata
+- `requires-python` - Minimum Python version
+- `dependencies` - Runtime dependencies (populated by `uv add`)
+- `[build-system]` - How to build the package
+
+### Step 3: Open in VS Code
+
+```bash
+# From within the project directory
+code .
+```
+
+Or:
+1. Open VS Code
+2. File → Open Folder
+3. Navigate to `my-first-project`
+4. Click "Select Folder"
+
+### Step 4: Configure VS Code Python Interpreter
+
+When you first open a UV project in VS Code:
+
+1. **Wait for Virtual Environment Creation**
+   - UV automatically creates `.venv` when needed
+   - Run any UV command to trigger this: `uv sync`
+
+2. **Select the Interpreter**
+   - Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS)
+   - Type "Python: Select Interpreter"
+   - Choose the interpreter from `.venv`:
+     - Windows: `.\.venv\Scripts\python.exe`
+     - macOS/Linux: `./.venv/bin/python`
+
+3. **Verify Selection**
+   - Look at the bottom status bar in VS Code
+   - Should show something like: `Python 3.12.4 ('.venv': venv)`
+
+**VS Code Settings for UV Projects (Optional)**
+
+Create `.vscode/settings.json` in your project:
+
+```json
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    }
+}
+```
+
+For Windows, use:
+```json
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe"
+}
+```
+
+---
+
+## Chapter 6: Managing Dependencies
+
+### Adding Dependencies
+
+```bash
+# Add a package
+uv add requests
+
+# Add multiple packages
+uv add flask sqlalchemy
+
+# Add with version constraints
+uv add "requests>=2.28.0"
+uv add "flask>=2.0,<3.0"
+uv add "django~=4.2"  # Compatible release (>=4.2, <5.0)
+
+# Add from git
+uv add git+https://github.com/user/repo.git
+
+# Add from git with specific branch/tag
+uv add git+https://github.com/user/repo.git@main
+uv add git+https://github.com/user/repo.git@v1.0.0
+```
+
+**What Happens When You Run `uv add`:**
+1. Resolves dependencies (finds compatible versions)
+2. Updates `pyproject.toml` with the new dependency
+3. Updates `uv.lock` with exact versions
+4. Installs packages into `.venv`
+
+### Adding Development Dependencies
+
+Development dependencies are only needed during development (testing, linting, etc.):
+
+```bash
+# Add dev dependencies
+uv add --dev pytest
+uv add --dev black ruff mypy
+uv add --dev pytest-cov pytest-mock
+
+# These go into a separate group in pyproject.toml
+```
+
+**Resulting pyproject.toml:**
+```toml
+[project]
+name = "my-first-project"
+version = "0.1.0"
+dependencies = [
+    "requests>=2.31.0",
+    "flask>=2.0,<3.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+]
+```
+
+### Removing Dependencies
+
+```bash
+# Remove a package
+uv remove requests
+
+# Remove dev dependency
+uv remove --dev pytest
+```
+
+### Understanding the Lockfile
+
+The `uv.lock` file contains:
+- Exact versions of all dependencies
+- Hashes for security verification
+- Resolution for all platforms
+
+**Example uv.lock snippet:**
+```toml
+[[package]]
+name = "requests"
+version = "2.31.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "certifi" },
+    { name = "charset-normalizer" },
+    { name = "idna" },
+    { name = "urllib3" },
+]
+```
+
+> **Important:** Always commit `uv.lock` to version control!
+> This ensures reproducible builds across all environments.
+
+### Syncing Dependencies
+
+```bash
+# Install all dependencies from lockfile
+uv sync
+
+# Install including dev dependencies (default)
+uv sync
+
+# Install without dev dependencies (for production)
+uv sync --no-dev
+
+# Strict sync - fail if lockfile is outdated
+uv sync --frozen
+```
+
+### Updating Dependencies
+
+```bash
+# Update all dependencies to latest compatible versions
+uv lock --upgrade
+
+# Update specific package only
+uv lock --upgrade-package requests
+
+# Apply updates to environment
+uv sync
+```
+
+---
+
+## Chapter 7: Running Python Code
+
+### Using `uv run`
+
+Always use `uv run` to execute Python code within your UV project. This ensures the correct virtual environment is used.
+
+```bash
+# Run a Python script
+uv run python main.py
+
+# Run with arguments
+uv run python main.py --config settings.json
+
+# Run a module
+uv run python -m pytest
+uv run python -m http.server 8000
+
+# Run interactive Python shell
+uv run python
+
+# Run installed CLI tools
+uv run pytest
+uv run ruff check .
+uv run black .
+```
+
+**Why `uv run` Instead of Direct `python`?**
+
+| Command | Behavior |
+|---------|----------|
+| `python main.py` | Uses system Python or activated venv |
+| `uv run python main.py` | Always uses project's `.venv`, auto-syncs dependencies |
+
+### Running in VS Code
+
+**Option 1: Integrated Terminal**
+1. Open terminal in VS Code: `` Ctrl+` `` or View → Terminal
+2. Use `uv run` commands as normal
+
+**Option 2: Run Button (After Interpreter Selection)**
+1. Open a Python file
+2. Click the "Run" button (▶️) in the top-right
+3. Or press `F5` for debugging
+
+**Option 3: Configure Tasks**
+
+Create `.vscode/tasks.json`:
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Python",
+            "type": "shell",
+            "command": "uv run python ${file}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Run Tests",
+            "type": "shell",
+            "command": "uv run pytest",
+            "group": "test"
+        }
+    ]
+}
+```
+
+Run tasks with: `Ctrl+Shift+B` (build) or `Ctrl+Shift+P` → "Tasks: Run Task"
+
+---
+
+## Chapter 8: Debugging Python in VS Code
+
+### Basic Debug Configuration
+
+Create `.vscode/launch.json`:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Python: Main Module",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Python: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["-v"],
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
+```
+
+**For Windows, change the python path:**
+```json
+"python": "${workspaceFolder}/.venv/Scripts/python.exe"
+```
+
+### Using the Debugger
+
+1. **Set Breakpoints**
+   - Click in the left margin of any line (red dot appears)
+   - Or press `F9` on a line
+
+2. **Start Debugging**
+   - Press `F5` or click "Run and Debug" in sidebar
+   - Select your configuration
+
+3. **Debug Controls**
+   - `F5` - Continue
+   - `F10` - Step Over
+   - `F11` - Step Into
+   - `Shift+F11` - Step Out
+   - `Shift+F5` - Stop
+
+4. **Debug Panel Features**
+   - Variables: View current variable values
+   - Watch: Monitor specific expressions
+   - Call Stack: See execution path
+   - Breakpoints: Manage all breakpoints
+
+---
+
+## Chapter 9: Project Structure Best Practices
+
+### Recommended Project Layout
+
+```
+my-project/
+├── .github/                    # GitHub Actions workflows
+│   └── workflows/
+│       └── ci.yml
+├── .vscode/                    # VS Code settings
+│   ├── settings.json
+│   ├── launch.json
+│   └── tasks.json
+├── .venv/                      # Virtual environment (git-ignored)
+├── src/                        # Source code
+│   └── my_project/
+│       ├── __init__.py
+│       ├── main.py
+│       ├── models/
+│       │   ├── __init__.py
+│       │   └── user.py
+│       └── utils/
+│           ├── __init__.py
+│           └── helpers.py
+├── tests/                      # Test files
+│   ├── __init__.py
+│   ├── conftest.py            # Pytest fixtures
+│   ├── test_main.py
+│   └── test_models/
+│       └── test_user.py
+├── docs/                       # Documentation
+├── .gitignore
+├── .python-version
+├── pyproject.toml
+├── uv.lock
+└── README.md
+```
+
+### Creating This Structure
+
+```bash
+# Initialize project with src layout
+uv init my-project --package
+
+# This creates:
+# my-project/
+# ├── src/
+# │   └── my_project/
+# │       └── __init__.py
+# ├── pyproject.toml
+# └── ...
+```
+
+### Configure pyproject.toml for src Layout
+
+```toml
+[project]
+name = "my-project"
+version = "0.1.0"
+description = "My awesome project"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.31.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.4.0",
+    "mypy>=1.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+```
+
+### Recommended .gitignore
+
+```gitignore
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+```
+
+---
+
+## Chapter 10: Testing with Pytest
+
+### Setting Up Testing
+
+```bash
+# Add pytest and related tools
+uv add --dev pytest pytest-cov pytest-mock
+```
+
+### Writing Tests
+
+**tests/test_main.py:**
+```python
+import pytest
+from my_project.main import add_numbers, divide_numbers
+
+
+def test_add_numbers():
+    assert add_numbers(2, 3) == 5
+    assert add_numbers(-1, 1) == 0
+
+
+def test_add_numbers_floats():
+    result = add_numbers(0.1, 0.2)
+    assert result == pytest.approx(0.3)
+
+
+def test_divide_numbers():
+    assert divide_numbers(10, 2) == 5
+
+
+def test_divide_by_zero():
+    with pytest.raises(ValueError, match="Cannot divide by zero"):
+        divide_numbers(10, 0)
+
+
+class TestCalculator:
+    """Group related tests in a class."""
+    
+    def test_addition(self):
+        assert add_numbers(1, 1) == 2
+    
+    @pytest.mark.parametrize("a,b,expected", [
+        (1, 2, 3),
+        (0, 0, 0),
+        (-1, -1, -2),
+    ])
+    def test_add_parametrized(self, a, b, expected):
+        assert add_numbers(a, b) == expected
+```
+
+**tests/conftest.py** (Shared fixtures):
+```python
+import pytest
+
+
+@pytest.fixture
+def sample_data():
+    """Provide sample data for tests."""
+    return {
+        "users": ["alice", "bob", "charlie"],
+        "count": 3
+    }
+
+
+@pytest.fixture
+def temp_file(tmp_path):
+    """Create a temporary file for testing."""
+    file_path = tmp_path / "test.txt"
+    file_path.write_text("test content")
+    return file_path
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+uv run pytest
+
+# Run with verbose output
+uv run pytest -v
+
+# Run specific test file
+uv run pytest tests/test_main.py
+
+# Run specific test function
+uv run pytest tests/test_main.py::test_add_numbers
+
+# Run tests matching a pattern
+uv run pytest -k "add"
+
+# Run with coverage
+uv run pytest --cov=src --cov-report=html
+
+# Run and stop on first failure
+uv run pytest -x
+
+# Run last failed tests
+uv run pytest --lf
+```
+
+### VS Code Test Integration
+
+**settings.json addition:**
+```json
+{
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "tests",
+        "-v"
+    ]
+}
+```
+
+After configuration:
+1. Click the beaker icon in the sidebar (Testing)
+2. Click "Configure Python Tests"
+3. Select "pytest"
+4. Select "tests" directory
+5. Tests appear in the Test Explorer
+
+---
+
+## Chapter 11: Code Quality Tools
+
+### Setting Up Ruff (Linting and Formatting)
+
+```bash
+# Add ruff
+uv add --dev ruff
+```
+
+**pyproject.toml configuration:**
+```toml
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+exclude = [
+    ".venv",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes
+    "I",      # isort
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "SIM",    # flake8-simplify
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["my_project"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+```
+
+**Usage:**
+```bash
+# Check for linting issues
+uv run ruff check .
+
+# Fix auto-fixable issues
+uv run ruff check . --fix
+
+# Format code
+uv run ruff format .
+
+# Check formatting without changes
+uv run ruff format . --check
+```
+
+### Setting Up Type Checking with MyPy
+
+```bash
+# Add mypy
+uv add --dev mypy
+```
+
+**pyproject.toml configuration:**
+```toml
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+exclude = [
+    "tests/",
+    ".venv/",
+]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+```
+
+**Usage:**
+```bash
+# Run type checking
+uv run mypy src/
+
+# Run with specific settings
+uv run mypy src/ --ignore-missing-imports
+```
+
+### VS Code Integration for Code Quality
+
+**settings.json:**
+```json
+{
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        }
+    },
+    "ruff.lint.run": "onSave",
+    "python.analysis.typeCheckingMode": "basic"
+}
+```
+
+---
+
+## Chapter 12: Common Workflows
+
+### Workflow 1: Starting a New Feature
+
+```bash
+# 1. Make sure you're up to date
+git pull origin main
+uv sync
+
+# 2. Create a feature branch
+git checkout -b feature/new-feature
+
+# 3. Add any new dependencies needed
+uv add some-package
+
+# 4. Write code and tests
+# ... edit files ...
+
+# 5. Run quality checks
+uv run ruff check . --fix
+uv run ruff format .
+uv run mypy src/
+uv run pytest
+
+# 6. Commit and push
+git add .
+git commit -m "Add new feature"
+git push origin feature/new-feature
+```
+
+### Workflow 2: Cloning an Existing UV Project
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/user/project.git
+cd project
+
+# 2. Sync dependencies (creates .venv automatically)
+uv sync
+
+# 3. Open in VS Code
+code .
+
+# 4. Select the Python interpreter (.venv)
+# Ctrl+Shift+P → "Python: Select Interpreter"
+
+# 5. Run the project
+uv run python main.py
+```
+
+### Workflow 3: Updating Dependencies
+
+```bash
+# 1. See what's outdated (optional, manual check)
+uv run pip list --outdated
+
+# 2. Update all dependencies
+uv lock --upgrade
+
+# 3. Update only specific packages
+uv lock --upgrade-package requests
+
+# 4. Apply updates
+uv sync
+
+# 5. Run tests to verify nothing broke
+uv run pytest
+
+# 6. Commit the updated lockfile
+git add uv.lock
+git commit -m "Update dependencies"
+```
+
+### Workflow 4: Adding a Script Entry Point
+
+**pyproject.toml:**
+```toml
+[project.scripts]
+my-cli = "my_project.cli:main"
+```
+
+**src/my_project/cli.py:**
+```python
+def main():
+    print("Hello from CLI!")
+
+if __name__ == "__main__":
+    main()
+```
+
+**Usage:**
+```bash
+# Run via uv
+uv run my-cli
+
+# Or install in editable mode
+uv pip install -e .
+my-cli
+```
+
+---
+
+## Chapter 13: Troubleshooting Guide
+
+### Issue: "uv: command not found"
+
+**Cause:** UV is not in your PATH.
+
+**Solutions:**
+
+*Windows:*
+```powershell
+# Check if installed
+ls $env:USERPROFILE\.local\bin\uv.exe
+
+# Add to PATH (PowerShell profile)
+$env:PATH += ";$env:USERPROFILE\.local\bin"
+
+# Or add permanently via System Properties → Environment Variables
+```
+
+*macOS/Linux:*
+```bash
+# Check if installed
+ls ~/.local/bin/uv
+
+# Add to shell profile
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+---
+
+### Issue: VS Code Not Finding the Virtual Environment
+
+**Symptoms:**
+- Import errors in editor
+- Wrong Python interpreter shown
+- IntelliSense not working
+
+**Solutions:**
+
+1. **Ensure .venv exists:**
+   ```bash
+   uv sync
+
+   # Verify .venv was created
+   ls .venv/
+   ```
+
+2. **Manually select interpreter:**
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+   - Type "Python: Select Interpreter"
+   - Click "Enter interpreter path..."
+   - Browse to:
+     - Windows: `.venv\Scripts\python.exe`
+     - macOS/Linux: `.venv/bin/python`
+
+3. **Reload VS Code window:**
+   - Press `Ctrl+Shift+P`
+   - Type "Developer: Reload Window"
+
+4. **Check settings.json:**
+   ```json
+   {
+       "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+   }
+   ```
+
+---
+
+### Issue: "No module named 'xxx'" When Running Code
+
+**Cause:** Dependencies not installed or wrong environment.
+
+**Solutions:**
+
+1. **Sync dependencies:**
+   ```bash
+   uv sync
+   ```
+
+2. **Use `uv run` instead of direct python:**
+   ```bash
+   # Wrong (might use system Python)
+   python main.py
+   
+   # Correct
+   uv run python main.py
+   ```
+
+3. **Verify the package is in pyproject.toml:**
+   ```bash
+   # If missing, add it
+   uv add missing-package
+   ```
+
+4. **Check if it's a dev dependency issue:**
+   ```bash
+   # Dev dependencies might not be installed
+   uv sync  # Includes dev deps by default
+   ```
+
+---
+
+### Issue: Lockfile Conflicts or Corruption
+
+**Symptoms:**
+- `uv sync` fails with resolution errors
+- Strange dependency conflicts
+
+**Solutions:**
+
+1. **Regenerate the lockfile:**
+   ```bash
+   # Remove and regenerate
+   rm uv.lock
+   uv lock
+   uv sync
+   ```
+
+2. **Clear UV cache:**
+   ```bash
+   uv cache clean
+   ```
+
+3. **Check for incompatible version constraints:**
+   ```toml
+   # In pyproject.toml, look for conflicts like:
+   dependencies = [
+       "package-a>=2.0",      # Requires dependency-x<2.0
+       "package-b>=3.0",      # Requires dependency-x>=2.0
+   ]
+   ```
+
+---
+
+### Issue: Different Behavior on Different Machines
+
+**Cause:** Lockfile not committed or different Python versions.
+
+**Solutions:**
+
+1. **Always commit uv.lock:**
+   ```bash
+   git add uv.lock
+   git commit -m "Update lockfile"
+   ```
+
+2. **Pin Python version:**
+   ```bash
+   # Create .python-version file
+   uv python pin 3.12
+   git add .python-version
+   git commit -m "Pin Python version"
+   ```
+
+3. **Use frozen sync in CI:**
+   ```bash
+   # Fails if lockfile doesn't match pyproject.toml
+   uv sync --frozen
+   ```
+
+---
+
+### Issue: Permission Denied Errors
+
+**Windows:**
+```powershell
+# Run PowerShell as Administrator for system-wide changes
+# Or use per-user installation (default)
+
+# Check execution policy
+Get-ExecutionPolicy
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+**macOS/Linux:**
+```bash
+# Don't use sudo with uv
+# uv installs to user directory by default
+
+# If you accidentally used sudo, fix ownership:
+sudo chown -R $USER:$USER ~/.local/bin
+sudo chown -R $USER:$USER ~/.cache/uv
+```
+
+---
+
+### Issue: VS Code Terminal Not Using Virtual Environment
+
+**Symptoms:**
+- Terminal shows system Python
+- `which python` shows wrong path
+
+**Solutions:**
+
+1. **Configure terminal activation:**
+   ```json
+   // settings.json
+   {
+       "python.terminal.activateEnvironment": true,
+       "python.terminal.activateEnvInCurrentTerminal": true
+   }
+   ```
+
+2. **Use UV run consistently:**
+   ```bash
+   # Always prefix with uv run
+   uv run python --version
+   uv run pytest
+   ```
+
+3. **Manually activate (if needed):**
+   ```bash
+   # Windows
+   .\.venv\Scripts\Activate.ps1
+   
+   # macOS/Linux
+   source .venv/bin/activate
+   ```
+
+---
+
+### Issue: Slow Performance or High Disk Usage
+
+**Solutions:**
+
+1. **Clean UV cache:**
+   ```bash
+   # See cache size
+   uv cache dir
+   du -sh $(uv cache dir)
+   
+   # Clean cache
+   uv cache clean
+   ```
+
+2. **Remove unused Python versions:**
+   ```bash
+   # List installed versions
+   uv python list --only-installed
+   
+   # Uninstall unused versions
+   uv python uninstall 3.10
+   ```
+
+3. **Prune virtual environment:**
+   ```bash
+   # Remove and recreate .venv
+   rm -rf .venv
+   uv sync
+   ```
+
+---
+
+### Issue: Git Shows Too Many Changed Files
+
+**Cause:** Virtual environment or cache committed.
+
+**Solution:** Update .gitignore and remove tracked files:
+
+```bash
+# Add to .gitignore
+echo ".venv/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+
+# Remove from git tracking (keeps local files)
+git rm -r --cached .venv/
+git rm -r --cached __pycache__/
+
+# Commit
+git add .gitignore
+git commit -m "Update gitignore, remove cached files"
+```
+
+---
+
+## Chapter 14: CI/CD Integration
+
+### GitHub Actions Workflow
+
+Create `.github/workflows/ci.yml`:
+
+```yaml
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Run linting
+        run: uv run ruff check .
+
+      - name: Run type checking
+        run: uv run mypy src/
+
+      - name: Run tests
+        run: uv run pytest --cov=src --cov-report=xml
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage.xml
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Build package
+        run: uv build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+```
+
+### GitLab CI Configuration
+
+Create `.gitlab-ci.yml`:
+
+```yaml
+stages:
+  - test
+  - build
+
+variables:
+  UV_CACHE_DIR: .uv-cache
+
+cache:
+  paths:
+    - .uv-cache/
+    - .venv/
+
+.uv-setup: &uv-setup
+  before_script:
+    - curl -LsSf https://astral.sh/uv/install.sh | sh
+    - export PATH="$HOME/.local/bin:$PATH"
+    - uv python install 3.12
+    - uv sync --frozen
+
+test:
+  stage: test
+  <<: *uv-setup
+  script:
+    - uv run ruff check .
+    - uv run mypy src/
+    - uv run pytest --cov=src
+
+build:
+  stage: build
+  <<: *uv-setup
+  script:
+    - uv build
+  artifacts:
+    paths:
+      - dist/
+```
+
+---
+
+## Chapter 15: Complete Example Project
+
+Let's build a small but complete project to tie everything together.
+
+### Project: Weather CLI Tool
+
+**Step 1: Initialize Project**
+```bash
+uv init weather-cli --package
+cd weather-cli
+```
+
+**Step 2: Add Dependencies**
+```bash
+uv add httpx rich typer
+uv add --dev pytest pytest-mock ruff mypy
+```
+
+**Step 3: Project Structure**
+```
+weather-cli/
+├── .vscode/
+│   ├── settings.json
+│   └── launch.json
+├── src/
+│   └── weather_cli/
+│       ├── __init__.py
+│       ├── cli.py
+│       ├── api.py
+│       └── models.py
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── test_api.py
+│   └── test_cli.py
+├── .gitignore
+├── .python-version
+├── pyproject.toml
+├── uv.lock
+└── README.md
+```
+
+**Step 4: Source Code**
+
+**src/weather_cli/__init__.py:**
+```python
+"""Weather CLI - A simple weather lookup tool."""
+
+__version__ = "0.1.0"
+```
+
+**src/weather_cli/models.py:**
+```python
+"""Data models for weather information."""
+
+from dataclasses import dataclass
+
+
+@dataclass
+class Weather:
+    """Represents weather data for a location."""
+    
+    location: str
+    temperature: float
+    description: str
+    humidity: int
+    wind_speed: float
+
+    def to_dict(self) -> dict:
+        """Convert weather data to dictionary."""
+        return {
+            "location": self.location,
+            "temperature": self.temperature,
+            "description": self.description,
+            "humidity": self.humidity,
+            "wind_speed": self.wind_speed,
+        }
+```
+
+**src/weather_cli/api.py:**
+```python
+"""API client for weather data."""
+
+import httpx
+
+from weather_cli.models import Weather
+
+
+class WeatherAPIError(Exception):
+    """Raised when API request fails."""
+    pass
+
+
+class WeatherClient:
+    """Client for fetching weather data."""
+    
+    BASE_URL = "https://wttr.in"
+    
+    def __init__(self, timeout: float = 10.0) -> None:
+        self.timeout = timeout
+    
+    def get_weather(self, location: str) -> Weather:
+        """Fetch weather for a location.
+        
+        Args:
+            location: City name or location string.
+            
+        Returns:
+            Weather object with current conditions.
+            
+        Raises:
+            WeatherAPIError: If the API request fails.
+        """
+        try:
+            url = f"{self.BASE_URL}/{location}?format=j1"
+            response = httpx.get(url, timeout=self.timeout)
+            response.raise_for_status()
+            data = response.json()
+            
+            current = data["current_condition"][0]
+            
+            return Weather(
+                location=data["nearest_area"][0]["areaName"][0]["value"],
+                temperature=float(current["temp_C"]),
+                description=current["weatherDesc"][0]["value"],
+                humidity=int(current["humidity"]),
+                wind_speed=float(current["windspeedKmph"]),
+            )
+        except httpx.HTTPError as e:
+            raise WeatherAPIError(f"Failed to fetch weather: {e}") from e
+        except (KeyError, IndexError) as e:
+            raise WeatherAPIError(f"Invalid API response: {e}") from e
+```
+
+**src/weather_cli/cli.py:**
+```python
+"""Command-line interface for weather tool."""
+
+import typer
+from rich.console import Console
+from rich.table import Table
+
+from weather_cli.api import WeatherClient, WeatherAPIError
+
+app = typer.Typer(help="Get weather information for any location.")
+console = Console()
+
+
+@app.command()
+def get(
+    location: str = typer.Argument(..., help="City name or location"),
+    json_output: bool = typer.Option(False, "--json", "-j", help="Output as JSON"),
+) -> None:
+    """Get current weather for a location."""
+    client = WeatherClient()
+    
+    try:
+        with console.status(f"Fetching weather for {location}..."):
+            weather = client.get_weather(location)
+        
+        if json_output:
+            import json
+            console.print_json(json.dumps(weather.to_dict()))
+        else:
+            table = Table(title=f"Weather for {weather.location}")
+            table.add_column("Metric", style="cyan")
+            table.add_column("Value", style="green")
+            
+            table.add_row("Temperature", f"{weather.temperature}°C")
+            table.add_row("Conditions", weather.description)
+            table.add_row("Humidity", f"{weather.humidity}%")
+            table.add_row("Wind Speed", f"{weather.wind_speed} km/h")
+            
+            console.print(table)
+            
+    except WeatherAPIError as e:
+        console.print(f"[red]Error:[/red] {e}")
+        raise typer.Exit(1)
+
+
+@app.command()
+def version() -> None:
+    """Show version information."""
+    from weather_cli import __version__
+    console.print(f"weather-cli version {__version__}")
+
+
+def main() -> None:
+    """Entry point for the CLI."""
+    app()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**Step 5: Tests**
+
+**tests/conftest.py:**
+```python
+"""Pytest configuration and fixtures."""
+
+import pytest
+
+from weather_cli.models import Weather
+
+
+@pytest.fixture
+def sample_weather() -> Weather:
+    """Provide sample weather data for tests."""
+    return Weather(
+        location="London",
+        temperature=15.0,
+        description="Partly cloudy",
+        humidity=72,
+        wind_speed=12.5,
+    )
+```
+
+**tests/test_api.py:**
+```python
+"""Tests for the API client."""
+
+import pytest
+from unittest.mock import Mock, patch
+
+from weather_cli.api import WeatherClient, WeatherAPIError
+
+
+class TestWeatherClient:
+    """Tests for WeatherClient."""
+    
+    def test_get_weather_success(self):
+        """Test successful weather fetch."""
+        mock_response = {
+            "current_condition": [{
+                "temp_C": "15",
+                "weatherDesc": [{"value": "Sunny"}],
+                "humidity": "65",
+                "windspeedKmph": "10",
+            }],
+            "nearest_area": [{
+                "areaName": [{"value": "London"}],
+            }],
+        }
+        
+        with patch("httpx.get") as mock_get:
+            mock_get.return_value = Mock(
+                json=Mock(return_value=mock_response),
+                raise_for_status=Mock(),
+            )
+            
+            client = WeatherClient()
+            weather = client.get_weather("London")
+            
+            assert weather.location == "London"
+            assert weather.temperature == 15.0
+            assert weather.description == "Sunny"
+    
+    def test_get_weather_api_error(self):
+        """Test handling of API errors."""
+        with patch("httpx.get") as mock_get:
+            mock_get.side_effect = Exception("Connection failed")
+            
+            client = WeatherClient()
+            
+            with pytest.raises(WeatherAPIError):
+                client.get_weather("InvalidLocation")
+```
+
+**tests/test_models.py:**
+```python
+"""Tests for data models."""
+
+from weather_cli.models import Weather
+
+
+class TestWeather:
+    """Tests for Weather model."""
+    
+    def test_weather_creation(self, sample_weather):
+        """Test creating a Weather instance."""
+        assert sample_weather.location == "London"
+        assert sample_weather.temperature == 15.0
+    
+    def test_weather_to_dict(self, sample_weather):
+        """Test converting weather to dictionary."""
+        result = sample_weather.to_dict()
+        
+        assert result["location"] == "London"
+        assert result["temperature"] == 15.0
+        assert "description"
+
+    in result
+        assert "humidity" in result
+        assert "wind_speed" in result
+```
+
+**Step 6: Configuration Files**
+
+**pyproject.toml:**
+```toml
+[project]
+name = "weather-cli"
+version = "0.1.0"
+description = "A simple weather CLI tool"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.27.0",
+    "rich>=13.7.0",
+    "typer>=0.12.0",
+]
+
+[project.scripts]
+weather = "weather_cli.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.12.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.4.0",
+    "mypy>=1.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["weather_cli"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+```
+
+**.vscode/settings.json:**
+```json
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": ["tests", "-v"],
+    
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        ".pytest_cache": true,
+        ".mypy_cache": true,
+        ".ruff_cache": true
+    }
+}
+```
+
+**.vscode/launch.json:**
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src"
+            }
+        },
+        {
+            "name": "Weather CLI: Get London",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "weather_cli.cli",
+            "args": ["get", "London"],
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/src"
+            }
+        },
+        {
+            "name": "Python: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["-v", "-s"],
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
+```
+
+**.gitignore:**
+```gitignore
+# Virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Type checking
+.mypy_cache/
+
+# Linting
+.ruff_cache/
+
+# IDE
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+```
+
+**README.md:**
+```markdown
+# Weather CLI
+
+A simple command-line tool to fetch weather information.
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/weather-cli.git
+cd weather-cli
+
+# Install dependencies
+uv sync
+```
+
+## Usage
+
+```bash
+# Get weather for a location
+uv run weather get London
+
+# Output as JSON
+uv run weather get "New York" --json
+
+# Show version
+uv run weather version
+```
+
+## Development
+
+```bash
+# Install dev dependencies
+uv sync
+
+# Run tests
+uv run pytest
+
+# Run linting
+uv run ruff check .
+
+# Run type checking
+uv run mypy src/
+
+# Format code
+uv run ruff format .
+```
+
+## License
+
+MIT
+```
+
+**Step 7: Run Everything**
+
+```bash
+# Sync all dependencies
+uv sync
+
+# Run the CLI
+uv run weather get London
+uv run weather get "New York" --json
+
+# Run quality checks
+uv run ruff check .
+uv run ruff format .
+uv run mypy src/
+
+# Run tests
+uv run pytest
+
+# Run tests with coverage
+uv run pytest --cov=src --cov-report=html
+```
+
+---
+
+## Appendix A: UV Command Reference
+
+### Python Management
+
+| Command | Description |
+|---------|-------------|
+| `uv python list` | List available Python versions |
+| `uv python install 3.12` | Install Python version |
+| `uv python uninstall 3.11` | Remove Python version |
+| `uv python find` | Find installed Python |
+| `uv python pin 3.12` | Pin version for project |
+
+### Project Management
+
+| Command | Description |
+|---------|-------------|
+| `uv init project-name` | Create new project |
+| `uv init --package` | Create with src layout |
+| `uv add package` | Add dependency |
+| `uv add --dev package` | Add dev dependency |
+| `uv remove package` | Remove dependency |
+| `uv sync` | Install all dependencies |
+| `uv sync --frozen` | Strict install from lockfile |
+| `uv sync --no-dev` | Install without dev deps |
+| `uv lock` | Generate/update lockfile |
+| `uv lock --upgrade` | Update all packages |
+| `uv run command` | Run command in venv |
+| `uv build` | Build package |
+
+### Virtual Environment
+
+| Command | Description |
+|---------|-------------|
+| `uv venv` | Create .venv in current dir |
+| `uv venv myenv` | Create named venv |
+| `uv venv --python 3.11` | Create with specific Python |
+
+### Cache Management
+
+| Command | Description |
+|---------|-------------|
+| `uv cache dir` | Show cache location |
+| `uv cache clean` | Clear all caches |
+| `uv cache prune` | Remove unused cache entries |
+
+### Pip Compatibility
+
+| Command | Description |
+|---------|-------------|
+| `uv pip install package` | Install like pip |
+| `uv pip install -r requirements.txt` | Install from requirements |
+| `uv pip freeze` | List installed packages |
+| `uv pip list` | List with versions |
+| `uv pip show package` | Show package info |
+
+---
+
+## Appendix B: VS Code Keyboard Shortcuts
+
+### General
+
+| Shortcut (Win/Linux) | Shortcut (macOS) | Action |
+|---------------------|------------------|--------|
+| `Ctrl+Shift+P` | `Cmd+Shift+P` | Command Palette |
+| `Ctrl+P` | `Cmd+P` | Quick Open File |
+| `Ctrl+,` | `Cmd+,` | Settings |
+| `` Ctrl+` `` | `` Cmd+` `` | Toggle Terminal |
+| `Ctrl+B` | `Cmd+B` | Toggle Sidebar |
+| `Ctrl+Shift+E` | `Cmd+Shift+E` | Explorer |
+| `Ctrl+Shift+F` | `Cmd+Shift+F` | Search |
+| `Ctrl+Shift+G` | `Cmd+Shift+G` | Source Control |
+
+### Python Specific
+
+| Shortcut | Action |
+|----------|--------|
+| `F5` | Start Debugging |
+| `F9` | Toggle Breakpoint |
+| `F10` | Step Over |
+| `F11` | Step Into |
+| `Shift+F11` | Step Out |
+| `Ctrl+Shift+P` → "Python: Select Interpreter" | Change Python |
+| `Ctrl+Shift+P` → "Python: Run File" | Run current file |
+
+### Editing
+
+| Shortcut (Win/Linux) | Shortcut (macOS) | Action |
+|---------------------|------------------|--------|
+| `Ctrl+D` | `Cmd+D` | Select next occurrence |
+| `Ctrl+/` | `Cmd+/` | Toggle comment |
+| `Alt+Up/Down` | `Option+Up/Down` | Move line |
+| `Shift+Alt+Up/Down` | `Shift+Option+Up/Down` | Copy line |
+| `Ctrl+Space` | `Cmd+Space` | Trigger IntelliSense |
+| `F2` | `F2` | Rename symbol |
+| `F12` | `F12` | Go to definition |
+| `Shift+F12` | `Shift+F12` | Find all references |
+
+---
+
+## Appendix C: Migration from Other Tools
+
+### From pip + venv
+
+**Before:**
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install requests flask
+pip freeze > requirements.txt
+```
+
+**After (UV):**
+```bash
+uv init my-project
+cd my-project
+uv add requests flask
+# Dependencies in pyproject.toml, locked in uv.lock
+```
+
+### From Poetry
+
+**Before:**
+```bash
+poetry new my-project
+poetry add requests
+poetry add --group dev pytest
+poetry install
+poetry run python main.py
+```
+
+**After (UV):**
+```bash
+uv init my-project
+uv add requests
+uv add --dev pytest
+uv sync
+uv run python main.py
+```
+
+**Converting pyproject.toml:**
+```toml
+# Poetry format
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+# UV format (standard Python)
+[project]
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.31.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+```
+
+### From Pipenv
+
+**Before:**
+```bash
+pipenv install requests
+pipenv install --dev pytest
+pipenv shell
+python main.py
+```
+
+**After (UV):**
+```bash
+uv add requests
+uv add --dev pytest
+uv run python main.py
+```
+
+### From requirements.txt
+
+```bash
+# Import existing requirements
+uv init my-project
+cd my-project
+uv add $(cat ../requirements.txt | tr '\n' ' ')
+
+# Or for more control
+uv pip install -r requirements.txt
+```
+
+---
+
+## Summary
+
+You now have a complete guide to:
+
+1. ✅ **Install VS Code** on any platform with Python extensions
+2. ✅ **Install UV** for fast Python package management
+3. ✅ **Manage Python versions** with `uv python`
+4. ✅ **Create projects** with `uv init`
+5. ✅ **Manage dependencies** with `uv add`, `uv remove`, `uv sync`
+6. ✅ **Run code** with `uv run`
+7. ✅ **Configure VS Code** for optimal Python development
+8. ✅ **Debug** Python applications
+9. ✅ **Test** with pytest
+10. ✅ **Maintain code quality** with ruff and mypy
+11. ✅ **Set up CI/CD** with GitHub Actions or GitLab CI
+12. ✅ **Troubleshoot** common issues
+
+**Next Steps:**
+- Practice by building a small project
+- Explore the [UV documentation](https://docs.astral.sh/uv/)
+- Join the community discussions on GitHub
+- Consider contributing to open source Python projects using these tools
+
+Happy coding! 🐍🚀
