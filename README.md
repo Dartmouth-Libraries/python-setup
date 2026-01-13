@@ -69,7 +69,7 @@ Instructions for installing the following are in the Set Up tutorials outlined i
 - **Visual Studio Code**
 - **uv** (package manager)
 
-<!-->
+<!--
 ## 8. Overview of Materials
 
 1. Notebooks / code
