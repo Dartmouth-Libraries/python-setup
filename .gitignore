@@ -1,3 +1,9 @@
+*/.quarto/
+/_site/
+/.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
 # General
 .DS_Store
 .AppleDouble

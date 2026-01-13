@@ -1,0 +1,30 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "setup/*.qmd"
+    - "analysis/*.qmd"
+
+website:
+  title: "My Project"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Setup
+        menu:
+          - href: setup/installation.qmd
+            text: Installation
+          - href: setup/configuration.qmd
+            text: Configuration
+      # - text: Analysis
+      #   menu:
+      #     - href: analysis/data-cleaning.qmd
+      #       text: Data Cleaning
+      #     - href: analysis/visualization.qmd
+      #       text: Visualization
+
+format:
+  html:
+    theme: cosmo
+    toc: true

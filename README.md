@@ -1,4 +1,7 @@
-# PYTHON SETUP
+- [Python Setup Slides](setup/setup_slides.qmd)
+- [Tutorial 1: Python Installation & Setup](setup/01_python_setup.qmd)
+- [Tutorial 2: Create Python Project from Scratch](setup/02_create_project_from_scratch.qmd)
+- [Tutorial 3: Import Existing Python Project](setup/013_import_project.qmd)
 
 ## 1. Overview
 
@@ -8,7 +11,7 @@ There are many ways to install and run Python. Here, we provide instructions for
 
 1. installing and using the coding editor and IDE (Integrated Development Environment) software **Visual Studio Code**
 
-2. installing and using `uv` to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
+2. installing and using **uv** to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
 
 3. following computational and coding best practices to set up a Python project.
 
@@ -43,7 +46,7 @@ Upon completing the lessons offered here, the student will be able to:
 
 **Level:** Beginner
 
-**Duration:** Estimated time to complete: 2-3 hours (but could vary tremendouosly)
+**Duration:** Estimated time to complete: 2-3 hours (but could vary tremendously)
 
 **Pre-requisites:** 
 
