@@ -3,7 +3,7 @@ title: "Create Python Project from Scratch"
 author: "Jeremy Mikecz"
 institute: "Research Faciliation, Dartmouth Libraries"
 date: "Jan 13, 2026"
-format: html
+format: pdf
 editor: visual
 ---
 

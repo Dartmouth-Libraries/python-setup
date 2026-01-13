@@ -3,7 +3,7 @@ title: "Python Setup"
 author: "Jeremy Mikecz"
 institute: "Research Faciliation, Dartmouth Libraries"
 date: "Jan 13, 2026"
-format: html
+format: pdf
 editor: visual
 ---
 
@@ -63,7 +63,7 @@ If you get an error like this `Error: Powershell requires an execution policy...
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-### macOS/Linux 
+### macOS/Linux
 
 Type the following in a Mac/Linux terminal:
 
