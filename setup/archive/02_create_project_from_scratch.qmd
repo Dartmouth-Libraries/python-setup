@@ -176,6 +176,7 @@ uv run code/greeting.py
 ### Optional additions to script:
 
 add to your **Python script**:
+
 ```         
 # Get their favorite color
 color = input("What's your favorite color? ")
@@ -246,7 +247,7 @@ print(f"\n[bold cyan]Hey {name}![/bold cyan]")
 print(f"[green]{chosen_compliment}[/green]\n")
 ```
 
-Note: to acquire these and other emojis, you can acquire emojis:
+Note: to acquire these and other emojis:
 
 1.  on a **PC** press `Windows + .` or `Windows + ;`
 2.  On a Mac type `Command + Control + Space`.

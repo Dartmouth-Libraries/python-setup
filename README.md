@@ -12,15 +12,17 @@ There are many ways to install and run Python. Here, we provide instructions for
 
 3. following computational and coding best practices to set up a Python project.
 
-## 2. Creator(s) / Author(s)
+## 2. Author
 
-**Jeremy Mikecz, Research Faciliation, Dartmouth Libraries**
+**Jeremy Mikecz, Research Facilitation, Dartmouth Libraries**
 January 2026
 
 ## 3. Designed for:
 
 + in-person / virtual instruction
 + *or* asynchronous, self-paced learning
+
+...for Python beginners and those who have used Python before and want to learn how to best set it up on their own computer.
   
 ## 4. Learning Objectives
 
@@ -35,7 +37,7 @@ Upon completing the lessons offered here, the student will be able to:
 
 ## 5. Instructor(s) and Years Taught (if taught live)
 
-+ Jeremy Mikecz, Research Facilitiation (Python Setup, W2026)
++ Jeremy Mikecz, Research Facilitation (Python Setup, W2026)
 
 ## 6. Other Instructional Information
 
@@ -45,7 +47,7 @@ Upon completing the lessons offered here, the student will be able to:
 
 **Pre-requisites:** 
 
-    + 1. User is comfortable navigating through files on their computer
++ 1. User is comfortable navigating through files on their computer
 
     
 ## 7. Getting Started
