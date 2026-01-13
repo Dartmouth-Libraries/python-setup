@@ -41,10 +41,11 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="..\01_python_setup.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -120,15 +121,15 @@ ul.task-list li input[type="checkbox"] {
 <p>Or use the menu: Terminal → New Terminal</p>
 <section id="windows-powershell" class="level3">
 <h3 class="anchored" data-anchor-id="windows-powershell">Windows (PowerShell)</h3>
-<p>Windows - Type in a Powershell terminal</p>
-<pre class="{powershell}"><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
-<p>If you get an error like this <code>Error: Powershell requires an execution policy...</code>, then we need to temporarily bypass Powershell’s policies by running:</p>
+<p>Windows: Type in a Powershell terminal</p>
 <pre><code>powershell -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+<p>If you get an error like this - <code>Error: Powershell requires an execution policy...</code> - then we need to temporarily bypass Powershell’s policies by running:</p>
+<pre><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
 </section>
 <section id="macoslinux" class="level3">
 <h3 class="anchored" data-anchor-id="macoslinux">macOS/Linux</h3>
 <p>Type the following in a Mac/Linux terminal:</p>
-<p><code>{curl -LsSf https://astral.sh/uv/install.sh | sh}</code></p>
+<pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
 </section>
 <section id="verify-installation" class="level3">
 <h3 class="anchored" data-anchor-id="verify-installation">Verify Installation</h3>
@@ -138,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Open a new terminal</strong> (Ctrl/Cmd + ` again)</p></li>
 <li><p>Verify installation by running the following (Mac/Linux or if Windows in Command Prompt or Git Bash):</p></li>
 </ol>
-<pre class="{uv --version}"><code></code></pre>
+<pre><code>uv --version</code></pre>
 <p>You should see something like <code>uv 0.4.x</code> or higher.</p>
 <p><em>Troubleshooting time: Common issues</em></p>
 <ul>

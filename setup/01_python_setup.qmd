@@ -51,23 +51,24 @@ Or use the menu: Terminal → New Terminal
 
 ### Windows (PowerShell)
 
-Windows - Type in a Powershell terminal
-
-```{powershell}
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
-If you get an error like this `Error: Powershell requires an execution policy...`, then we need to temporarily bypass Powershell's policies by running:
+Windows: Type in a Powershell terminal
 
 ```         
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+If you get an error like this - `Error: Powershell requires an execution policy...` - then we need to temporarily bypass Powershell's policies by running:
+
+```
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 ### macOS/Linux
 
 Type the following in a Mac/Linux terminal:
 
-```{curl -LsSf https://astral.sh/uv/install.sh | sh}
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### Verify Installation
@@ -80,7 +81,8 @@ After installation completes:
 
 3.  Verify installation by running the following (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```{uv --version}
+```
+uv --version
 ```
 
 You should see something like `uv 0.4.x` or higher.
