@@ -1,7 +1,7 @@
 ---
 title: "Python Setup"
 author: "Jeremy Mikecz"
-institute: "Research Faciliation, Dartmouth Libraries"
+institute: "Research Facilitation, Dartmouth Libraries"
 date: "Jan 13, 2026"
 format: pdf
 editor: visual
@@ -63,6 +63,34 @@ If you get an error like this - `Error: Powershell requires an execution policy.
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
+#### Alternate Installations for Windows
+
+If the above did not work you can also try:
+
+**winget option**
+1. [install winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
+2. Run in the terminal from VSC:
+
+```
+winget install --id=astral-sh.uv -e
+```
+
+**scoop option**
+1. [install scoop](https://scoop.sh/)
+2. Run in the terminal from VSC:
+
+```
+scoop install uv
+```
+
+**Troubleshooting Windows:**
+If uv is not recognized:
+
+     Check if %USERPROFILE%\.local\bin is in your PATH
+     Add manually: System Properties → Environment Variables → Path → Add the directory
+     Restart your terminal
+
+
 ### macOS/Linux
 
 Type the following in a Mac/Linux terminal:
@@ -70,6 +98,47 @@ Type the following in a Mac/Linux terminal:
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+#### Alternate Installations for Macs
+
+If the above did not work on your Mac you can also try:
+
+**homebrew option**
+
+#### Post-Installation (macOS)
+
+```
+# If using the shell script, add to your shell profile
+# For zsh (default on modern macOS):
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+
+# For bash:
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# Verify
+uv --version
+```
+
+### Linux Installation
+```
+# Shell script (works on most distributions)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Add to PATH (add to ~/.bashrc or ~/.zshrc)
+export PATH="$HOME/.local/bin:$PATH"
+
+# Reload shell
+source ~/.bashrc  # or source ~/.zshrc
+
+# Verify
+uv --version
+```
+Troubleshooting Linux:
+
+    If curl is not installed: sudo apt install curl (Ubuntu/Debian)
+    Permission denied: The script installs to ~/.local/bin, which shouldn't require sudo
 
 ### Verify Installation
 

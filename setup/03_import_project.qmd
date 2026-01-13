@@ -97,10 +97,7 @@ uv add -r requirements.txt
 
 If this doesn't provide desired results, review the [documentation on this process](https://docs.astral.sh/uv/guides/migration/pip-to-project/) in the uv guide.
 
-
 #### 2c. If the Imported Project has no dependencies list
-
-
 
 ### Step 3: Verify Installation
 

@@ -2,6 +2,10 @@
 
 ---
 
+**Author** Claude Opus 4.5 based on prompting from Jeremy Mikecz
+
+*this guide still needs to be thoroughly reviewed and tested by a human.*
+
 ## Part 1: Quick Reference Cheatsheet
 
 ### Installation Commands

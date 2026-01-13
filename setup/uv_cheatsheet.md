@@ -2,6 +2,8 @@
 
 **Author** Claude Opus 4.5 based on prompting from and with edits by Jeremy Mikecz
 
+
+
 ## Why UV?
 
     10-100x faster than pip
@@ -23,6 +25,7 @@ uv python install 3.12
 # Verify installations
 uv --version
 uv python list
+uv run python --version
 ```
 
 ## Project Lifecycle Commands
@@ -31,6 +34,10 @@ uv python list
 # Create new project
 uv init my-project
 cd my-project
+
+# Select Python Interpreter within VSC
+# Select the Python Interpreter you want to use for this project by opening the "Show and Run Command Bars" (Windows: `CTRL + SHIFT + P`; Mac: `CMD + CTRL + SPACE`), select **Python: Select Interpreter**, and choose the version of Python installed to your local environment. I.e.: `Python 3.14.2 (name-of-project) .venv/Scripts/python.exe       Recommended"
+"""
 
 # Add dependencies
 uv add requests              # Add package
