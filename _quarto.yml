@@ -4,7 +4,7 @@ project:
     - "*.qmd"
     - "setup/*.qmd"
     - "analysis/*.qmd"
-  output-dir: docs
+  # output-dir: docs          # procedure for render approach not publish?
 
 website:
   title: "Python Setup Tutorial"

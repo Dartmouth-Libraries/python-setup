@@ -9,7 +9,7 @@ editor: visual
 
 # Importing an existing Python Project with VSC and UV
 
-This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup-instructions.qmd).
+This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup.qmd).
 
 ## Brief Cheatsheet
 

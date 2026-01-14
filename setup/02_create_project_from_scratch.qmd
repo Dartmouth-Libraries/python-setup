@@ -9,11 +9,11 @@ editor: visual
 
 # Create a Python Project from Scratch with Visual Studio Code & UV
 
-This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup-instructions.qmd).
+This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup.qmd).
 
 # Brief Cheatsheet
 
-*the brief, no explanation need version:*
+*the brief, no-explanation-needed version:*
 
 1.  Set up a sample project folder, i.e. `~/Users/your-user-name/Documents/python_code/sample_project`
 
@@ -73,7 +73,7 @@ This document provides detailed instructions for setting up your Python environm
 
 Visual Studio Code and other IDEs allow you to load an entire project at once. Thus, you can easily switch between projects and when you return to a given project all the same files that were open before are opened once again. Below, we will open our sample project folder and modify it.
 
-1.  Open Visual Studio Code, which you installed with [notebook 01](01_python_setup_instructions_uv.qmd).
+1.  Open Visual Studio Code, which you installed with [notebook 01](01_python_setup.qmd).
 
 2.  Click on **File** –\> **Open Folder**. Navigate to your new project folder and open it.
 
