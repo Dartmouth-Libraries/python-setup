@@ -9,9 +9,9 @@ editor: visual
 
 # Create a Python Project from Scratch with Visual Studio Code & UV
 
-This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup.qmd).
+This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python_setup.qmd).
 
-These coding notebooks and other materials are stored in the **[python-setup](https://github.com/Dartmouth-Libraries/python-setup)** repository in Dartmouth Libraries Github.
+These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in Dartmouth Libraries Github.
 
 # Brief Cheatsheet
 
