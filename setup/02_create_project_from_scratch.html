@@ -483,7 +483,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>install Jupyter via the Terminal with <code>uv add jupyter</code>.</p></li>
 <li><p>Create a new Jupyter notebook in your <code>code</code>folder (with the extension <code>.ipynb</code>).</p></li>
 <li><p>select your Python environment: top-right corner –&gt; <strong>Select Kernel</strong> –&gt; Choose “Python Environments” –&gt; select the one that says <code>.venv</code> or <code>uv</code>.</p></li>
-<li><p>See Steps 5e and 5f above for sample code.</p></li>
 </ol></li>
 </ol>
 </div>
@@ -543,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>to navigate up one directory type <code>cd ..</code></li>
 <li>to navigate up 3 directories type <code>cd ../../..</code></li>
 <li>to navigate from the current working directory into your code folder type <code>cd code</code>.</li>
-<li>to navigate down two directories, type something like this: <code>cd code/scripts</code> (assuming the code folder is in your current working directory and a scripts folder is inside of that.</li>
+<li>to navigate down two directories, type something like this: <code>cd code/scripts</code> (assuming the code folder is in your current working directory and a scripts folder is inside of that).</li>
 </ol>
 <p>Now, run the following in your project’s root directory from the <strong>terminal</strong>:</p>
 <pre class="{terminal}"><code># This initiaties a new uv environment for your project
@@ -593,7 +592,7 @@ tzdata          2025.3</code></pre>
 <p>This is because <code>uv.lock</code> serves as instructions for the re-creation of this environment on another computer. If you were to open this project on a different computer, you would run the command <code>uv sync</code>, which would recreate your environment by installing the specific versions of numpy, pandas, and rich you have installed on your machine. When those are installed, their dependencies will be automatically installed as well.</p>
 <p>Now, try running this:</p>
 <pre class="{terminal}"><code>pip list</code></pre>
-<p>Notice any difference from the results returned by <code>uv pip list</code>? In my case this second command returned many, many more packages? Why? It’s because the <strong>uv</strong> command automatically just retrieves the names of packages installed to the local virtual environment, whereas <strong>pip</strong> is retrieving all packages installed. That is why, under the pip system, you need to activate your virtual environment with <code>.venv/Scripts/activate</code> (Windows) or <code>.venv/bin/activate</code> (Macs) every time you open a project. Fortunately, with <strong>uv</strong>, we are automatically using the virtual environment whenever we call uv within a project that has one.</p>
+<p>Notice any difference from the results returned by <code>uv pip list</code>? In my case this second command returned many, many more packages. Why? It’s because the <strong>uv</strong> command automatically retrieves the names of packages installed to the local virtual environment, whereas <strong>pip</strong> retrieves all packages installed. That is why, under the pip system, you need to activate your virtual environment with <code>.venv/Scripts/activate</code> (Windows) or <code>.venv/bin/activate</code> (Macs) every time you open a project. Fortunately, with <strong>uv</strong>, we are automatically using the virtual environment whenever we call uv within a project that has one.</p>
 </section>
 <section id="e.-set-up-the-python-interpreter" class="level3">
 <h3 class="anchored" data-anchor-id="e.-set-up-the-python-interpreter">2e. Set up the Python Interpreter</h3>
@@ -841,7 +840,7 @@ Welcome to my coding adventure! Today I'm learning about Jupyter notebooks.
 </section>
 <section id="cell-2-code-simple-math" class="level4">
 <h4 class="anchored" data-anchor-id="cell-2-code-simple-math">Cell 2: Code (Simple Math)</h4>
-<div id="972a6b0b" class="cell" data-execution_count="1">
+<div id="1f5f6c8f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's do some calculations!</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"🧮 Quick Math Practice"</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
@@ -891,14 +890,14 @@ The cool thing about notebooks is that I can:
 <ol start="3" type="1">
 <li>In the first code cell in the new notebook, let’s install the necessary packages:</li>
 </ol>
-<div id="13e78bc4" class="cell" data-execution_count="2">
+<div id="174be6f1" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
 <li>Next, we can import a preloaded dataset from <strong>seaborn</strong> and preview its data:</li>
 </ol>
-<div id="6ae80bc6" class="cell" data-execution_count="3">
+<div id="b2909144" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a built-in dataset (no files needed!)</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -932,7 +931,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ol start="5" type="1">
 <li>Now, let’s create a pair plot of this data:</li>
 </ol>
-<div id="58f6457d" class="cell" data-execution_count="4">
+<div id="1e8250fd" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization in ONE line!</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'species'</span>, palette<span class="op">=</span><span class="st">'husl'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -951,7 +950,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </div>
 <p>Or, we can create a scatterplot with additional customization:</p>
-<div id="9eee4a55" class="cell" data-execution_count="5">
+<div id="7afd80be" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colorful visualization</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -1013,7 +1012,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ul>
 <li><p>Make sure you ran the installation cell (Cell 6)</p></li>
 <li><p>Add this line before your plotting code:</p>
-<div id="cfe67b57" class="cell" data-execution_count="6">
+<div id="1ba83071" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>Restart the kernel and run all cells again</code></pre></li>
@@ -1029,7 +1028,7 @@ If stuck, click "Interrupt" button at top, then try again</code></pre>
 <p>Solution:</p>
 <pre><code>Use pip instead:
 
-::: {#b24a8619 .cell execution_count=7}
+::: {#c420657d .cell execution_count=7}
 ``` {.python .cell-code}
 pip install matplotlib
 ```
