@@ -12,6 +12,7 @@ toc: true
 
 This document provides detailed instructions for installing and setting up Visual Studio Code and Python (via uv). These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in Dartmouth Libraries Github.
 
+::: callout-tip
 # Brief Cheatsheet
 
 *the brief, no-explanation-needed version:*
@@ -23,6 +24,7 @@ This document provides detailed instructions for installing and setting up Visua
     2.  on Mac/Linux terminal: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 4.  Check installation with `uv --version`.
 5.  Install Python with `uv python install`.
+:::
 
 ## Step 1: Install Visual Studio Code (10 minutes)
 

@@ -13,6 +13,7 @@ This document provides detailed instructions for setting up your Python environm
 
 These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in Dartmouth Libraries Github.
 
+::: callout-tip
 ## Brief Cheatsheet
 
 the brief, no-explanation-needed version:
@@ -43,6 +44,8 @@ the brief, no-explanation-needed version:
         4.  when you first open or create a new Jupyter notebook (`.ipynb`) you may be prompted to choose an interpreter, choose the same `.venv` Python interpreter.
 
 5.  Verify Set up: run `uv python --version` and `uv pip list` to see Python version and packages installed to the project environment
+
+:::
 
 ------------------------------------------------------------------------
 
@@ -159,6 +162,7 @@ If this doesn't provide desired results, review the [documentation on this proce
 
 1.  As you encounter packages needed to run code in this project, you can install them one at a time or multiple at a time like this: `uv add package1 package2 package3`.
 
+```{=html}
 <!--
 ### Step 3: Verify Installation
 
@@ -167,6 +171,7 @@ If this doesn't provide desired results, review the [documentation on this proce
 # Run the setup verification script
 uv run python scripts/00_setup.py
 -->
+```
 
 ## Configuring Visual Studio Code
 
@@ -200,7 +205,7 @@ When you open a `.ipynb` file:
 
 2.  Choose the same `.venv` Python interpreter
 
-
+```{=html}
 <!--
 ### Step 4: Test in VS Code
 
@@ -210,9 +215,11 @@ When you open a `.ipynb` file:
 
 3.  Right-click in the editor → "Run Python File in Terminal"
 -->
+```
 
 ## Verifying Your Setup
 
+````{=html}
 <!--
 ### Quick Verification
 
@@ -221,6 +228,7 @@ When you open a `.ipynb` file:
 uv run python scripts/00_setup.py
 ```
 -->
+````
 
 ### Manual Verification
 

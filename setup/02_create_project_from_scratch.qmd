@@ -13,6 +13,7 @@ This document provides detailed instructions for setting up your Python environm
 
 These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in Dartmouth Libraries Github.
 
+::: callout-tip
 # Brief Cheatsheet
 
 *the brief, no-explanation-needed version:*
@@ -60,6 +61,7 @@ These coding notebooks and other materials are stored in the [**python-setup**](
     3.  select your Python environment: top-right corner --\> **Select Kernel** --\> Choose "Python Environments" --\> select the one that says `.venv` or `uv`.
 
     4.  See Steps 5e and 5f above for sample code.
+:::
 
 ## 1. Setup Project in Visual Studio Code
 
