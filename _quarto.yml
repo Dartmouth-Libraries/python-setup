@@ -4,16 +4,17 @@ project:
     - "*.qmd"
     - "setup/*.qmd"
     - "analysis/*.qmd"
+  output-dir: docs
 
 website:
-  title: "My Project"
+  title: "Python Setup Tutorial"
   navbar:
     left:
       - text: Home
         href: index.qmd
       - text: Setup
         menu:
-          - href: setup/setup_slides.qmd
+          - href: setup/00_setup_slides.qmd
             text: Setup Slides
           - href: setup/01_python_setup.qmd
             text: "Tutorial 1: Python Installation"
