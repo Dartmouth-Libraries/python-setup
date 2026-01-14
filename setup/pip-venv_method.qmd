@@ -125,12 +125,15 @@ Note: in the VS Code Explorer window, there are two different ways to open a fil
 
 <!--[Explain more about importance of virtual environments]-->
 
-+ Select the Search Bar at the top center of VS Code.
+-   Select the Search Bar at the top center of VS Code.
 
-+ Select `Show and Run Commands` --\> `Python: Create Environment` --\> `Venv`. 
-+ Select the Python version you installed in Step 1b.
-+ In the Explorer view on the left you should now see a folder called ".venv". Whenever you install new Python packages (also called "libraries") to your local environment they will be installed in this folder.
-+ At the top right-hand corner of the notebook you should see a "Select Kernel" button. Click on it and select the `Python Environments` --\> select the .venv environment you just created.
+-   Select `Show and Run Commands` --\> `Python: Create Environment` --\> `Venv`.
+
+-   Select the Python version you installed in Step 1b.
+
+-   In the Explorer view on the left you should now see a folder called ".venv". Whenever you install new Python packages (also called "libraries") to your local environment they will be installed in this folder.
+
+-   At the top right-hand corner of the notebook you should see a "Select Kernel" button. Click on it and select the `Python Environments` --\> select the .venv environment you just created.
 
 ## Step 4: Getting Started with Python in VSC
 
@@ -151,14 +154,17 @@ Note: in the VS Code Explorer window, there are two different ways to open a fil
 
     -   Open a Terminal (select `Terminal` --\> `New Terminal`). You should see a new terminal pane open at the bottom of VS Code.
 
-    -   You will need to activate your virtual environment in the terminal before you can install any packages to it. You willl know your virtual environment is activated in the terminal when you see (.venv) at the start of each new line in the terminal. If not type the following in the terminal: 
+    -   You will need to activate your virtual environment in the terminal before you can install any packages to it. You willl know your virtual environment is activated in the terminal when you see (.venv) at the start of each new line in the terminal. If not type the following in the terminal:
+
     -   
-    -   ```
+
+    -   
+
+        ```         
         #Windows
         .venv/Scripts/activate
-        
-        #Mac: .venv/bin/activate
 
+        #Mac: .venv/bin/activate
         ```
 
     -   install a new package using pip. The most common syntax for installing packages in the terminal is: Windows: `pip install` \[package-name\] Macs: `pip3 install` \[package-name\] Note: Some Python packages require more specific instructions. You will want to find the online documentation for such packages.
