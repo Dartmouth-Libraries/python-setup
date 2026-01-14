@@ -12,34 +12,51 @@ editor: visual
 ### Quick Links
 
 -   [Python Setup Slides](setup/00_setup_slides.qmd)
+
 -   [Tutorial 1: Python Installation & Setup](setup/01_python_setup.qmd)
+
 -   [Tutorial 2: Create Python Project from Scratch](setup/02_create_project_from_scratch.qmd)
+
 -   [Tutorial 3: Import Existing Python Project](setup/03_import_project.qmd)
+
 -   [UV Installation and Setup Cheatsheet](setup/uv_cheatsheet.qmd)
+
 -   [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd)
+
+-   [Alternative Method: pip + venv](setup/pip-venv_method.qmd): *our previous recommended method for setting up Python projects*
 
 ## 1. Overview
 
 This repository contains tutorials to walk you through installing Python and getting started with your first Python project on your own computer.
 
-There are many ways to install and run Python. Here, we provide instructions for our recommended set up for new Python users that involves:
+There are many ways to install and run Python. Here, we provide instructions for **our recommended Python project set up** for new Python users that involves:
 
-1.  installing and using the coding editor and IDE (Integrated Development Environment) software **Visual Studio Code**
+1.  installing and using the coding editor and IDE (Integrated Development Environment) software **Visual Studio Code** (VSC)
 
 2.  installing and using **uv** to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
 
 3.  following computational and coding best practices to set up a Python project.
 
+Followers of our previously recommended approach using **pip** and **venv** within VSC may still find review those [instruction](setup/pip-venv_method.qmd).
+
 These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in Dartmouth Libraries Github.
 
-## 2. Designed for:
+## 2. Why UV?
+
+1.  installs packages 10-100x faster than **pip**
+2.  Single tool for everything (Python installation, resolving Python path conflicts, virtual enviroment set up, package installation and management)
+3.  Automatic virtual environment management
+4.  Cross-platform consistency
+5.  Create stable and transportable package dependencies with lockfile
+
+## 3. Designed for:
 
 -   in-person / virtual instruction
 -   *or* asynchronous, self-paced learning
 
-...for Python beginners and those who have used Python before and want to learn how to best set it up on their own computer.
+...for Python beginners and those who have used Python before but want to learn how to better create, import, and manage projects on their own computer.
 
-## 3. Learning Objectives
+## 4. Learning Objectives
 
 Upon completing the lessons offered here, the student will be able to:
 
@@ -49,11 +66,11 @@ Upon completing the lessons offered here, the student will be able to:
 -   write their first markdown file (`README.md`)
 -   write and run their first Python script and Python Jupyter notebook.
 
-## 4. Instructor(s) and Years Taught (if taught live)
+## 5. Instructor(s) and Years Taught (if taught live)
 
 -   Jeremy Mikecz, Research Facilitation (Python Setup, W2026)
 
-## 5. Other Instructional Information
+## 6. Other Instructional Information
 
 **Level:** Beginner (and Intermediate Users looking to establish better project practices)
 
@@ -65,7 +82,7 @@ Upon completing the lessons offered here, the student will be able to:
 1.  User is comfortable navigating through files on their computer
 ```
 
-## 6. Getting Started
+## 7. Getting Started
 
 To complete the set up tutorial, open the **setup/** folder and do the following in order:
 
@@ -81,7 +98,7 @@ To complete the set up tutorial, open the **setup/** folder and do the following
 
 6.  Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
 
-## Required Software
+## 8. Required Software
 
 Instructions for installing the following are in the Set Up tutorials outlined in Step 6 above.
 
@@ -101,10 +118,10 @@ Instructions for installing the following are in the Set Up tutorials outlined i
 -->
 ```
 
-## LICENSE
+## 9. LICENSE
 
 Instructional materials produced here are available under the [CC BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en). Review the license link and the [LICENSE](LICENSE) page in this repo. Code is available for reuse under the Open Source Initiative's [The MIT License](https://opensource.org/license/mit).
 
-## Acknowledgements
+## 10. Acknowledgements
 
 **Template Information**: This repository was created using the [Python Tutorial Template](https://github.com/Dartmouth-Libraries/Python-tutorial-template) (created by Research Facilitation, Dartmouth Libraries).

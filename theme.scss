@@ -15,14 +15,14 @@ $code-color: rgb(221, 17, 214) !default;
 
 // Target code blocks specifically
 div.sourceCode {
-  background-color: #8fd5da !important;
-  border-left: 5px solid #27c0e3 !important;
+  background-color: #76d6dd !important;
+  border-left: 5px solid #089ec0 !important;
   padding-left: 10px;
 }
 
 // Target generic code blocks (```)
 pre:not(.sourceCode) {
-  background-color: #9ce2b8 !important;
-  border-left: 5px solid #27e385 !important;
+  background-color: #72df9d !important;
+  border-left: 5px solid #079f53 !important;
   padding-left: 10px;
 }

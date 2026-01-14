@@ -99,11 +99,21 @@ UV is a modern Python package and project manager written in Rust. It replaces m
 | pip-tools        | `uv lock`           | Dependency locking        |
 | poetry/pipenv    | `uv init/add/sync`  | Project management        |
 
-**Why UV?** - 10-100x faster than pip - Single tool for everything - Automatic virtual environment management - Cross-platform consistency - Deterministic builds with lockfile
+**Why UV?** 
+- 10-100x faster than pip
+- Single tool for everything
+- Automatic virtual environment management
+- Cross-platform consistency
+- Deterministic builds with lockfile
 
 ### What is VS Code?
 
-Visual Studio Code is a free, lightweight code editor with powerful Python support through extensions. It provides: - Syntax highlighting and IntelliSense - Integrated terminal - Debugging capabilities - Git integration - Extension ecosystem
+Visual Studio Code is a free, lightweight code editor with powerful Python support through extensions. It provides: 
+- Syntax highlighting and IntelliSense
+- Integrated terminal
+- Debugging capabilities
+- Git integration
+- Extension ecosystem
 
 ------------------------------------------------------------------------
 

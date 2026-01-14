@@ -21,12 +21,15 @@ website:
         text: "Tutorial 2: Create Project"
       - href: setup/03_import_project.qmd
         text: "Tutorial 3: Import Project"
-      - text: "additional uv guides"
+      - text: "additional guides"
         menu:
             - text: "uv cheatsheet"
             - href: setup/uv_cheatsheet.qmd
             - text: "detailed uv guide"
             - href: setup/uv_detailed_instructions.qmd
+            - text: "pip + venv guide"
+            - href: setup/pip-venv_method.qmd
+            
       # - text: Analysis
       #   menu:
       #     - href: analysis/data-cleaning.qmd
