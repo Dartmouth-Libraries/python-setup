@@ -29,7 +29,7 @@ website:
             - href: setup/uv_detailed_instructions.qmd
             - text: "pip + venv guide"
             - href: setup/pip-venv_method.qmd
-            
+
       # - text: Analysis
       #   menu:
       #     - href: analysis/data-cleaning.qmd
@@ -40,6 +40,6 @@ website:
 format:
   html:
     theme: 
-      light: [cosmo, theme.scss]
+      light: [flatly, theme.scss]
       dark:  [darkly]
     toc: true
