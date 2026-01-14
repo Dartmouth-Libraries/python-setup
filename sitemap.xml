@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://Dartmouth-Libraries.github.io/python-setup/setup/uv_detailed_instructions.html</loc>
+    <lastmod>2026-01-14T16:56:13.179Z</lastmod>
+  </url>
+  <url>
     <loc>https://Dartmouth-Libraries.github.io/python-setup/setup/03_import_project.html</loc>
-    <lastmod>2026-01-14T16:09:05.119Z</lastmod>
+    <lastmod>2026-01-14T17:08:57.115Z</lastmod>
   </url>
   <url>
     <loc>https://Dartmouth-Libraries.github.io/python-setup/setup/01_python_setup.html</loc>
-    <lastmod>2026-01-14T16:09:05.112Z</lastmod>
+    <lastmod>2026-01-14T17:06:07.421Z</lastmod>
   </url>
   <url>
     <loc>https://Dartmouth-Libraries.github.io/python-setup/index.html</loc>
-    <lastmod>2026-01-14T16:09:05.107Z</lastmod>
+    <lastmod>2026-01-14T17:06:00.359Z</lastmod>
   </url>
   <url>
     <loc>https://Dartmouth-Libraries.github.io/python-setup/setup/00_setup_slides.html</loc>
@@ -18,6 +22,10 @@
   </url>
   <url>
     <loc>https://Dartmouth-Libraries.github.io/python-setup/setup/02_create_project_from_scratch.html</loc>
-    <lastmod>2026-01-14T16:09:05.114Z</lastmod>
+    <lastmod>2026-01-14T17:09:25.202Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Dartmouth-Libraries.github.io/python-setup/setup/uv_cheatsheet.html</loc>
+    <lastmod>2026-01-14T16:39:54.006Z</lastmod>
   </url>
 </urlset>

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jeremy Mikecz">
+<meta name="author" content="Jeremy Mikecz (with assistance of Claude Opus)">
 <meta name="dcterms.date" content="2026-01-13">
 
-<title>Python Setup – Python Setup Tutorial</title>
+<title>UV Installation and Setup Cheatsheet – Python Setup Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -134,21 +134,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-set-up-python-with-visual-studio-code-and-uv" id="toc-install-set-up-python-with-visual-studio-code-and-uv" class="nav-link active" data-scroll-target="#install-set-up-python-with-visual-studio-code-and-uv">Install &amp; Set up Python with Visual Studio Code and UV</a></li>
-  <li><a href="#brief-cheatsheet" id="toc-brief-cheatsheet" class="nav-link" data-scroll-target="#brief-cheatsheet">Brief Cheatsheet</a>
-  <ul class="collapse">
-  <li><a href="#step-1-install-visual-studio-code-10-minutes" id="toc-step-1-install-visual-studio-code-10-minutes" class="nav-link" data-scroll-target="#step-1-install-visual-studio-code-10-minutes">Step 1: Install Visual Studio Code (10 minutes)</a></li>
-  <li><a href="#step-2-install-uv-5-minutes" id="toc-step-2-install-uv-5-minutes" class="nav-link" data-scroll-target="#step-2-install-uv-5-minutes">Step 2: Install uv (5 minutes)</a>
-  <ul class="collapse">
-  <li><a href="#windows-powershell" id="toc-windows-powershell" class="nav-link" data-scroll-target="#windows-powershell">Windows (PowerShell)</a></li>
-  <li><a href="#macoslinux" id="toc-macoslinux" class="nav-link" data-scroll-target="#macoslinux">macOS/Linux</a></li>
-  <li><a href="#linux-installation" id="toc-linux-installation" class="nav-link" data-scroll-target="#linux-installation">Linux Installation</a></li>
-  <li><a href="#verify-installation" id="toc-verify-installation" class="nav-link" data-scroll-target="#verify-installation">Verify Installation</a></li>
-  </ul></li>
-  <li><a href="#step-3-let-uv-install-python-3-minutes" id="toc-step-3-let-uv-install-python-3-minutes" class="nav-link" data-scroll-target="#step-3-let-uv-install-python-3-minutes">Step 3: Let uv Install Python (3 minutes)</a></li>
-  <li><a href="#advantages-of-using-uv-for-python-installation" id="toc-advantages-of-using-uv-for-python-installation" class="nav-link" data-scroll-target="#advantages-of-using-uv-for-python-installation">Advantages of using uv for Python Installation</a></li>
-  </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#why-uv" id="toc-why-uv" class="nav-link active" data-scroll-target="#why-uv">Why UV?</a></li>
+  <li><a href="#project-lifecycle-commands" id="toc-project-lifecycle-commands" class="nav-link" data-scroll-target="#project-lifecycle-commands">Project Lifecycle Commands</a></li>
+  <li><a href="#vs-code-setup-checklist" id="toc-vs-code-setup-checklist" class="nav-link" data-scroll-target="#vs-code-setup-checklist">VS Code Setup Checklist</a></li>
   </ul>
 </nav>
     </div>
@@ -157,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Python Setup</h1>
+<h1 class="title">UV Installation and Setup Cheatsheet</h1>
 </div>
 
 
@@ -166,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Jeremy Mikecz </p>
+    <p class="author">Jeremy Mikecz (with assistance of Claude Opus) </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -193,155 +181,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="install-set-up-python-with-visual-studio-code-and-uv" class="level1">
-<h1>Install &amp; Set up Python with Visual Studio Code and UV</h1>
-<p>This document provides detailed instructions for installing and setting up Visual Studio Code and Python (via uv). These coding notebooks and other materials are stored in the <a href="https://github.com/Dartmouth-Libraries/python-setup"><strong>python-setup</strong></a> repository in Dartmouth Libraries Github.</p>
-</section>
-<section id="brief-cheatsheet" class="level1">
-<h1>Brief Cheatsheet</h1>
-<p><em>the brief, no-explanation-needed version:</em></p>
-<ol type="1">
-<li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
-<li>Open VSC, install <strong>Python</strong>, <strong>Jupyter</strong>, <strong>Quarto</strong> (optional), and <strong>Git</strong> (optional) extensions.</li>
-<li>install uv
-<ol type="1">
-<li>in Windows Powershell: <code>powershell -c "irm https://astral.sh/uv/install.ps1 | iex"</code></li>
-<li>on Mac/Linux terminal: <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></li>
-</ol></li>
-<li>Check installation with <code>uv --version</code>.</li>
-<li>Install Python with <code>uv python install</code>.</li>
-</ol>
-<section id="step-1-install-visual-studio-code-10-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-install-visual-studio-code-10-minutes">Step 1: Install Visual Studio Code (10 minutes)</h2>
-<ul>
-<li><p>Go to <a href="https://code.visualstudio.com/" class="uri">https://code.visualstudio.com/</a></p></li>
-<li><p>Download for your operating system (it auto-detects)</p></li>
-<li><p>Install VS Code with default options</p></li>
-<li><p>Launch VS Code</p></li>
-</ul>
-<p>Once opened, let’s install essential extensions (click Extensions icon - looks like four squares - in sidebar or press Ctrl+Shift+X):</p>
-<ol type="1">
-<li><p>Search for <strong>‘Python’</strong> - install the one by Microsoft</p></li>
-<li><p>Search for <strong>‘Jupyter’</strong> - install the one by Microsoft</p></li>
-<li><p>Search for <strong>‘Quarto’</strong> - use to create and work with Quarto notebooks and presentations</p></li>
-<li><p>Search for <strong>‘Git History’</strong> (optional but useful)</p></li>
-</ol>
-<p>These extensions will help VS Code work with Python.</p>
-</section>
-<section id="step-2-install-uv-5-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-install-uv-5-minutes">Step 2: Install uv (5 minutes)</h2>
-<p>Now we install <code>uv</code>, which will handle EVERYTHING else for us - including Python itself. This is the modern way to manage Python projects. <code>uv</code> is a fast Python package and project manager that we’ll use for managing dependencies.</p>
-<p><strong>Dependencies</strong> are other software that are needed for a program to run. For Python, this often means</p>
-<p>Open the integrated terminal in VS Code:</p>
-<ul>
-<li><p><strong>Windows/Linux</strong>: Press <code>Ctrl + ``</code> (that’s the backtick key, usually above Tab)</p></li>
-<li><p><strong>Mac</strong>: Press <code>Cmd + ``</code></p></li>
-</ul>
-<p>Or use the menu: Terminal → New Terminal</p>
-<section id="windows-powershell" class="level3">
-<h3 class="anchored" data-anchor-id="windows-powershell">Windows (PowerShell)</h3>
-<p>Windows: Type in a Powershell terminal</p>
-<pre><code>powershell -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
-<p>If you get an error like this - <code>Error: Powershell requires an execution policy...</code> - then we need to temporarily bypass Powershell’s policies by running:</p>
-<pre><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
-<section id="alternate-installations-for-windows" class="level4">
-<h4 class="anchored" data-anchor-id="alternate-installations-for-windows">Alternate Installations for Windows</h4>
-<p>If the above did not work you can also try:</p>
-<p><strong>winget option</strong> 1. <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">install winget</a> 2. Run in the terminal from VSC:</p>
-<pre><code>winget install --id=astral-sh.uv -e</code></pre>
-<p><strong>scoop option</strong> 1. <a href="https://scoop.sh/">install scoop</a> 2. Run in the terminal from VSC:</p>
-<pre><code>scoop install uv</code></pre>
-<p><strong>Troubleshooting Windows:</strong> If uv is not recognized:</p>
-<pre><code> Check if %USERPROFILE%\.local\bin is in your PATH
- Add manually: System Properties → Environment Variables → Path → Add the directory
- Restart your terminal</code></pre>
-</section>
-</section>
-<section id="macoslinux" class="level3">
-<h3 class="anchored" data-anchor-id="macoslinux">macOS/Linux</h3>
-<p>Type the following in a Mac/Linux terminal:</p>
-<pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
-<section id="alternate-installations-for-macs" class="level4">
-<h4 class="anchored" data-anchor-id="alternate-installations-for-macs">Alternate Installations for Macs</h4>
-<p>If the above did not work on your Mac you can also try:</p>
-<p><strong>homebrew option</strong></p>
-</section>
-<section id="post-installation-macos" class="level4">
-<h4 class="anchored" data-anchor-id="post-installation-macos">Post-Installation (macOS)</h4>
-<pre><code># If using the shell script, add to your shell profile
-# For zsh (default on modern macOS):
-echo 'export PATH="$HOME/.local/bin:$PATH"' &gt;&gt; ~/.zshrc
-source ~/.zshrc
+<section id="why-uv" class="level2">
+<h2 class="anchored" data-anchor-id="why-uv">Why UV?</h2>
+<pre><code>10-100x faster than pip
+Single tool for everything
+Automatic virtual environment management
+Cross-platform consistency
+Deterministic builds with lockfile</code></pre>
+<pre><code># Install uv (Windows PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
-# For bash:
-echo 'export PATH="$HOME/.local/bin:$PATH"' &gt;&gt; ~/.bashrc
-source ~/.bashrc
-
-# Verify
-uv --version</code></pre>
-</section>
-</section>
-<section id="linux-installation" class="level3">
-<h3 class="anchored" data-anchor-id="linux-installation">Linux Installation</h3>
-<pre><code># Shell script (works on most distributions)
+# Install uv (macOS/Linux)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Add to PATH (add to ~/.bashrc or ~/.zshrc)
-export PATH="$HOME/.local/bin:$PATH"
+# Install Python via uv
+uv python install 3.12
 
-# Reload shell
-source ~/.bashrc  # or source ~/.zshrc
+# Verify installations
+uv --version
+uv python list
+uv run python --version</code></pre>
+</section>
+<section id="project-lifecycle-commands" class="level2">
+<h2 class="anchored" data-anchor-id="project-lifecycle-commands">Project Lifecycle Commands</h2>
+<pre><code># Create new project
+uv init my-project
+cd my-project
 
-# Verify
-uv --version</code></pre>
-<p>Troubleshooting Linux:</p>
-<pre><code>If curl is not installed: sudo apt install curl (Ubuntu/Debian)
-Permission denied: The script installs to ~/.local/bin, which shouldn't require sudo</code></pre>
+# Select Python Interpreter within VSC
+# Select the Python Interpreter you want to use for this project by opening the "Show and Run Command Bars" (Windows: `CTRL + SHIFT + P`; Mac: `CMD + CTRL + SPACE`), select **Python: Select Interpreter**, and choose the version of Python installed to your local environment. I.e.: `Python 3.14.2 (name-of-project) .venv/Scripts/python.exe       Recommended"
+"""
+
+# Add dependencies
+uv add requests              # Add package
+uv add pytest --dev          # Add dev dependency
+uv add "flask&gt;=2.0,&lt;3.0"     # Add with version constraints
+
+# Remove dependencies
+uv remove requests
+
+# Run commands
+uv run python main.py        # Run script
+uv run pytest                # Run tests
+uv run python                # Interactive Python
+
+# Sync environment
+uv sync                      # Install all dependencies from lockfile
+uv sync --frozen             # Strict sync (fail if lockfile outdated)
+
+# Update dependencies
+uv lock --upgrade            # Update all packages
+uv lock --upgrade-package requests  # Update specific package</code></pre>
 </section>
-<section id="verify-installation" class="level3">
-<h3 class="anchored" data-anchor-id="verify-installation">Verify Installation</h3>
-<p>After installation completes:</p>
-<ol type="1">
-<li><p><strong>Close the terminal tab</strong> in VS Code (click the trash can icon)</p></li>
-<li><p><strong>Open a new terminal</strong> (Ctrl/Cmd + ` again)</p></li>
-<li><p>Verify installation by running the following (Mac/Linux or if Windows in Command Prompt or Git Bash):</p></li>
-</ol>
-<pre><code>uv --version</code></pre>
-<p>You should see something like <code>uv 0.4.x</code> or higher.</p>
-<p><em>Troubleshooting time: Common issues</em></p>
-<ul>
-<li><p>“If ‘uv’ is not recognized: The installation script may need admin rights, or you may need to restart VS Code”</p></li>
-<li><p>“Mac users: If you get a security warning, go to System Preferences → Security &amp; Privacy → Allow”</p></li>
-</ul>
-</section>
-</section>
-<section id="step-3-let-uv-install-python-3-minutes" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-let-uv-install-python-3-minutes">Step 3: Let uv Install Python (3 minutes)</h2>
-<p>With <code>uv</code> we don’t need to install Python separately. When we create our first project, uv will automatically install the right Python version for us. But let’s verify uv can find or install Python:</p>
-<p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
-<pre class="{bash}"><code>uv python list</code></pre>
-<p>This shows all Python versions uv knows about. Don’t worry if it’s empty - uv will download Python when we need it.</p>
-<p>We can install the latest version of Python with:</p>
-<pre class="{bash}"><code>uv python install</code></pre>
-<p>This downloads and installs the latest stable version of Python, managed by uv. No PATH configuration needed, no installers to run, no clicking through installation wizards.</p>
-<p>Or we can specify an older version to install:</p>
-<p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
-<pre class="{bash}"><code>uv python install 3.12</code></pre>
-<p>Verify:</p>
-<p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
-<pre class="{bash}"><code>uv python list</code></pre>
-</section>
-<section id="advantages-of-using-uv-for-python-installation" class="level2">
-<h2 class="anchored" data-anchor-id="advantages-of-using-uv-for-python-installation">Advantages of using uv for Python Installation</h2>
-<ol type="1">
-<li>No need to go to python.org, download an installer</li>
-<li>don’t need to worry about “Add to PATH” (a common error in Python installation, when a Python IDE like VSC cannot find Python or cannot find the version of Python you want to use)</li>
-<li>don’t need to worry about conflicting with other Python installations</li>
-</ol>
-</section>
-</section>
-<section id="section" class="level1">
-<h1></h1>
+<section id="vs-code-setup-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-setup-checklist">VS Code Setup Checklist</h2>
+<pre><code> ✅ Install VS Code
+ ✅ Install Python extension (ms-python.python)
+ ✅ Install Jupyter extension
+ ✅ Open project folder
+ ✅ Select interpreter: Ctrl+Shift+P → "Python: Select Interpreter" → .venv
+ ✅ Configure terminal to use uv</code></pre>
+<p>Key Files in UV Projects</p>
+<pre><code>my-project/
+├── .venv/              # Virtual environment (auto-created)
+├── .python-version     # Python version pin
+├── pyproject.toml      # Project config &amp; dependencies
+├── uv.lock            # Locked dependency versions
+├── src/               # Source code (optional)
+│   └── my_project/
+└── README.md</code></pre>
 
 
 </section>

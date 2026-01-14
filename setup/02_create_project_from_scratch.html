@@ -258,11 +258,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="create-a-python-project-from-scratch-with-visual-studio-code-uv" class="level1">
 <h1>Create a Python Project from Scratch with Visual Studio Code &amp; UV</h1>
-<p>This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the <a href="00_setup-slides.html">00_setup_slides</a> and completed the installation of Visual Studio Code and Python using uv by following <a href="01_python-setup-instructions.qmd">Setup Notebook 01</a>.</p>
+<p>This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the <a href="00_setup-slides.html">00_setup_slides</a> and completed the installation of Visual Studio Code and Python using uv by following <a href="../setup/01_python_setup.html">Setup Notebook 01</a>.</p>
+<p>These coding notebooks and other materials are stored in the <a href="https://github.com/Dartmouth-Libraries/python-setup"><strong>python-setup</strong></a> repository in Dartmouth Libraries Github.</p>
 </section>
 <section id="brief-cheatsheet" class="level1">
 <h1>Brief Cheatsheet</h1>
-<p><em>the brief, no explanation need version:</em></p>
+<p><em>the brief, no-explanation-needed version:</em></p>
 <ol type="1">
 <li><p>Set up a sample project folder, i.e.&nbsp;<code>~/Users/your-user-name/Documents/python_code/sample_project</code></p></li>
 <li><p>Open VSC and set up a link to this project folder, by selecting <strong>File</strong> –&gt; <strong>Open Folder</strong> and open the folder you created above.</p></li>
@@ -309,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="b.-open-project-folder-in-visual-studio-code">1b. Open Project Folder in Visual Studio Code</h3>
 <p>Visual Studio Code and other IDEs allow you to load an entire project at once. Thus, you can easily switch between projects and when you return to a given project all the same files that were open before are opened once again. Below, we will open our sample project folder and modify it.</p>
 <ol type="1">
-<li><p>Open Visual Studio Code, which you installed with <a href="01_python_setup_instructions_uv.qmd">notebook 01</a>.</p></li>
+<li><p>Open Visual Studio Code, which you installed with <a href="../setup/01_python_setup.html">notebook 01</a>.</p></li>
 <li><p>Click on <strong>File</strong> –&gt; <strong>Open Folder</strong>. Navigate to your new project folder and open it.</p></li>
 <li><p>In the left pane of VSC, click on the <strong>Explorer</strong> icon (looks like pages or files) and you will see your empty folder there.</p>
 <p><img src="..\setup/images/screenshot_vsc-explorer.png" class="img-fluid"></p></li>
@@ -646,7 +647,7 @@ Welcome to my coding adventure! Today I'm learning about Jupyter notebooks.
 </section>
 <section id="cell-2-code-simple-math" class="level4">
 <h4 class="anchored" data-anchor-id="cell-2-code-simple-math">Cell 2: Code (Simple Math)</h4>
-<div id="fa08e395" class="cell" data-execution_count="1">
+<div id="57e4200a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's do some calculations!</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"🧮 Quick Math Practice"</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
@@ -696,14 +697,14 @@ The cool thing about notebooks is that I can:
 <ol start="3" type="1">
 <li>In the first code cell in the new notebook, let’s install the necessary packages:</li>
 </ol>
-<div id="3b0f6217" class="cell" data-execution_count="2">
+<div id="f9d9b612" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
 <li>Next, we can import a preloaded dataset from <strong>seaborn</strong> and preview its data:</li>
 </ol>
-<div id="e85d20db" class="cell" data-execution_count="3">
+<div id="a6abd03e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a built-in dataset (no files needed!)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -737,7 +738,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ol start="5" type="1">
 <li>Now, let’s create a pair plot of this data:</li>
 </ol>
-<div id="67bce99d" class="cell" data-execution_count="4">
+<div id="b5ed0a6f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization in ONE line!</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'species'</span>, palette<span class="op">=</span><span class="st">'husl'</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -756,7 +757,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </div>
 <p>Or, we can create a scatterplot with additional customization:</p>
-<div id="6601fd13" class="cell" data-execution_count="5">
+<div id="532098f1" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colorful visualization</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -818,7 +819,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ul>
 <li><p>Make sure you ran the installation cell (Cell 6)</p></li>
 <li><p>Add this line before your plotting code:</p>
-<div id="28521f4a" class="cell" data-execution_count="6">
+<div id="6dc2aaaf" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>Restart the kernel and run all cells again</code></pre></li>
@@ -834,13 +835,24 @@ If stuck, click "Interrupt" button at top, then try again</code></pre>
 <p>Solution:</p>
 <pre><code>Use pip instead:
 
-::: {#7ff30509 .cell execution_count=7}
+::: {#ac0cf2cd .cell execution_count=7}
 ``` {.python .cell-code}
 pip install matplotlib
 ```
 
 ::: {.cell-output .cell-output-stdout}
 ```
+Requirement already satisfied: matplotlib in c:\python312\lib\site-packages (3.10.3)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\python312\lib\site-packages (from matplotlib) (1.3.2)
+Requirement already satisfied: cycler&gt;=0.10 in c:\python312\lib\site-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\python312\lib\site-packages (from matplotlib) (4.55.8)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\python312\lib\site-packages (from matplotlib) (1.4.8)
+Requirement already satisfied: numpy&gt;=1.23 in c:\python312\lib\site-packages (from matplotlib) (1.26.4)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\f0040rp\appdata\roaming\python\python312\site-packages (from matplotlib) (24.0)
+Requirement already satisfied: pillow&gt;=8 in c:\python312\lib\site-packages (from matplotlib) (11.1.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\python312\lib\site-packages (from matplotlib) (3.2.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in c:\python312\lib\site-packages (from matplotlib) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in c:\python312\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
 Note: you may need to restart the kernel to use updated packages.
 ```
 :::
@@ -859,22 +871,6 @@ WARNING: Ignoring invalid distribution ~ (C:\Python312\Lib\site-packages)
 WARNING: Ignoring invalid distribution ~-p (C:\Python312\Lib\site-packages)
 WARNING: Ignoring invalid distribution ~ip (C:\Python312\Lib\site-packages)
 WARNING: Ignoring invalid distribution ~~p (C:\Python312\Lib\site-packages)
-```
-:::
-
-::: {.cell-output .cell-output-stdout}
-```
-Requirement already satisfied: matplotlib in c:\python312\lib\site-packages (3.10.3)
-Requirement already satisfied: contourpy&gt;=1.0.1 in c:\python312\lib\site-packages (from matplotlib) (1.3.2)
-Requirement already satisfied: cycler&gt;=0.10 in c:\python312\lib\site-packages (from matplotlib) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in c:\python312\lib\site-packages (from matplotlib) (4.55.8)
-Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\python312\lib\site-packages (from matplotlib) (1.4.8)
-Requirement already satisfied: numpy&gt;=1.23 in c:\python312\lib\site-packages (from matplotlib) (1.26.4)
-Requirement already satisfied: packaging&gt;=20.0 in c:\users\f0040rp\appdata\roaming\python\python312\site-packages (from matplotlib) (24.0)
-Requirement already satisfied: pillow&gt;=8 in c:\python312\lib\site-packages (from matplotlib) (11.1.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\python312\lib\site-packages (from matplotlib) (3.2.1)
-Requirement already satisfied: python-dateutil&gt;=2.7 in c:\python312\lib\site-packages (from matplotlib) (2.9.0.post0)
-Requirement already satisfied: six&gt;=1.5 in c:\python312\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
 ```
 :::
 :::
