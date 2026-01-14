@@ -40,7 +40,7 @@ Visual Studio Code and other IDEs allow you to load an entire project at once. T
 
 3.  In the left pane of VSC, click on the **Explorer** icon (looks like pages or files) and you will see your empty folder there.
 
-    ![](images/screenshot_vsc-explorer.png)
+    ![](setup/images/screenshot_vsc-explorer.png)
 
 4.  Add the following folders using the \*\*+ Folder icon \*\*:
 
@@ -51,7 +51,7 @@ Visual Studio Code and other IDEs allow you to load an entire project at once. T
 |--results
 ```
 
-![](images/screenshot_vsc-folder-setup.png){fig-alt="screenshot of sample folder as seen in VSC after setting up code, data, docs, and results folders."}
+![](setup/images/screenshot_vsc-folder-setup.png){fig-alt="screenshot of sample folder as seen in VSC after setting up code, data, docs, and results folders."}
 
 ## 2. Setting Up a Python Virtual Environment for your project
 
@@ -81,7 +81,7 @@ uv python list
 
 Make sure you are in the project root folder, i.e. your terminal should look like something like this (with a path to your project directory shown):
 
-![](images/screenshot_bash_rootdir.png)
+![](setup/images/screenshot_bash_rootdir.png)
 
 If you are not in the project root directory you can navigate to it by using the `cd` (change directory) command. Some tips:
 
@@ -125,25 +125,25 @@ Certainly, now you should see the following in your project's root directory:
 
 You can also install / add multiple packages at once:
 
-```
+```         
 uv add numpy pandas rich
 ```
 
 You can use `uv remove` to uninstall packages. We really didn't need **requests**. Let's uninstall it:
 
-```
+```         
 uv remove requests
 ```
 
 You can review what packages have been installed in multiple ways. You can open either the **pyproject.toml** or the **uv.lock** file. Or you can run the following in the terminal:
 
-```
+```         
 uv pip list
 ```
 
 You should see something like this:
 
-```
+```         
 Package         Version
 --------------- -----------
 markdown-it-py  4.0.0
@@ -158,9 +158,9 @@ six             1.17.0
 tzdata          2025.3
 ```
 
-*Note: the `.toml` file and `uv pip list` return all packages installed including dependencies. For example, when we installed **rich**, UV also installed the packages rich depends on: markdown-it-py, mdurl, and pygments. In contrast, the `uv.lock` just lists the actual packages that you, the user, installed:
+\*Note: the `.toml` file and `uv pip list` return all packages installed including dependencies. For example, when we installed **rich**, UV also installed the packages rich depends on: markdown-it-py, mdurl, and pygments. In contrast, the `uv.lock` just lists the actual packages that you, the user, installed:
 
-```
+```         
 dependencies = [
     "numpy>=2.4.1",
     "pandas>=2.3.3",
@@ -168,11 +168,11 @@ dependencies = [
 ]
 ```
 
- This is because `uv.lock` serves as instructions for the re-creation of this environment on another computer. If you were to open this project on a different computer, you would run the command `uv sync`, which would recreate your environment by installing the specific versions of numpy, pandas, and rich you have installed on your machine. When those are installed, their dependencies will be automatically installed as well.
+This is because `uv.lock` serves as instructions for the re-creation of this environment on another computer. If you were to open this project on a different computer, you would run the command `uv sync`, which would recreate your environment by installing the specific versions of numpy, pandas, and rich you have installed on your machine. When those are installed, their dependencies will be automatically installed as well.
 
 Now, try running this:
 
-```
+```         
 pip list
 ```
 
@@ -183,13 +183,14 @@ Notice any difference from the results returned by `uv pip list`? In my case thi
 **One final step:** every time we start a new project in VSC we need to configure VSC to use the correct version of Python. We can do this by selecting our Python interpreter:
 
 1.  Open the "Show and Run Command Bars" (either select from central dropdown project menu at top of screen or by clicking `CTRL + SHIFT + P` on Windows or `CMD + CTRL + SPACE` on a Mac)
+
 2.  Search for and select **Python: Select Interpreter**
-    
-    ![Select "Python: Select Interpreter" from Show and Run Command Bars](images/screenshot_vsc_select-interpreter.png)
+
+    ![Select "Python: Select Interpreter" from Show and Run Command Bars](setup/images/screenshot_vsc_select-interpreter.png)
 
 3.  Choose the version of Python installed to your local environment. It should look something like this: \`Python 3.14.2 (name-of-project) .venv/Scripts/python.exe Recommended"
 
-    ![Select the version of Python found within your local project environment](images/screenshot_vsc_select-interpreter2.png)
+    ![Select the version of Python found within your local project environment](setup/images/screenshot_vsc_select-interpreter2.png)
 
 Let's view which version of Python is being used by this project. Run the following in the **terminal**:
 
@@ -207,7 +208,6 @@ uv run python --version
  ✅ Select interpreter: Ctrl+Shift+P → "Python: Select Interpreter" → .venv
  ✅ Configure terminal to use uv
 ```
-
 
 ## 3. Write your first markdown document
 

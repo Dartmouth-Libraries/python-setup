@@ -1,0 +1,1292 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Create Python Project from Scratch},
+  pdfauthor={Jeremy Mikecz},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Create Python Project from Scratch}
+\author{Jeremy Mikecz}
+\date{2026-01-13}
+\begin{document}
+\maketitle
+
+
+\section{Create a Python Project from Scratch with Visual Studio Code \&
+UV}\label{create-a-python-project-from-scratch-with-visual-studio-code-uv}
+
+This document provides detailed instructions for setting up your Python
+environment for this course/workshop. You should have already read the
+information in the \href{00_setup-slides.html}{00\_setup\_slides} and
+completed the installation of Visual Studio Code and Python using uv by
+following \href{01_python-setup-instructions.qmd}{Setup Notebook 01}.
+
+\subsection{Table of Contents}\label{table-of-contents}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  setup project in Visual Studio Code (10 mins.)
+\item
+  write your first markdown document (10)
+\item
+  set up virtual environment
+\item
+  write your first script
+\item
+  write your first notebook
+\item
+  import external data
+\end{enumerate}
+
+\subsection{1. Setup Project in Visual Studio
+Code}\label{setup-project-in-visual-studio-code}
+
+\subsubsection{1a. Set up sample project
+folder}\label{a.-set-up-sample-project-folder}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Create a new folder for your sample project in a place which you can
+  easily find again. Follow recommended file naming projects (outlined
+  in \href{00_setup_slides.html}{00\_setup\_slides}) such as using
+  underscores \texttt{\_} in place of whitespace, avoiding special
+  characters, etc. i.e.:
+
+\begin{verbatim}
+~/Users/your-user-name/Documents/python_code/sample_project
+\end{verbatim}
+\end{enumerate}
+
+\subsubsection{1b. Open Project Folder in Visual Studio
+Code}\label{b.-open-project-folder-in-visual-studio-code}
+
+Visual Studio Code and other IDEs allow you to load an entire project at
+once. Thus, you can easily switch between projects and when you return
+to a given project all the same files that were open before are opened
+once again. Below, we will open our sample project folder and modify it.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Open Visual Studio Code, which you installed with
+  \href{01_python_setup_instructions_uv.qmd}{notebook 01}.
+\item
+  Click on \textbf{File} --\textgreater{} \textbf{Open Folder}. Navigate
+  to your new project folder and open it.
+\item
+  In the left pane of VSC, click on the \textbf{Explorer} icon (looks
+  like pages or files) and you will see your empty folder there.
+
+  \pandocbounded{\includegraphics[keepaspectratio]{images/screenshot_vsc-explorer.png}}
+\item
+  Add the following folders using the **+ Folder icon **:
+\end{enumerate}
+
+\begin{verbatim}
+|--code
+|--data
+|--docs
+|--results
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/screenshot_vsc-folder-setup.png}}
+
+\subsection{2. Create a Virtual Environment for your project in
+VSC}\label{create-a-virtual-environment-for-your-project-in-vsc}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item ~
+  \subsection{2. Write your first markdown
+  document}\label{write-your-first-markdown-document}
+\end{enumerate}
+
+A \textbf{markdown} file is a text file that allows you to use simple
+symbols to specify its formatting. This notebook and the
+\textbf{00\_setup\_slides} presentation were both created using
+markdown.
+
+Some commonly used symbols:
+
+\begin{verbatim}
+# Header level 1 (note '#' should be the first symbol on the line and followed by a single whitespace)
+## Header level 2
+### Header level 3
+**bold**
+*italics*
+[filename](link/to/file)   # to create hyperlinks
+```
+place code blocks between sets of 3 back ticks
+```
+\end{verbatim}
+
+In the Explorer pane on the left, create a new file using the \textbf{+
+File icon} and name it \texttt{README.md} (\textbf{.md} is the extension
+for a markdown file).
+
+Create a skeletal outline of a README file using headers of different
+levels, bold, italics, links, and code blocks (see the symbol directory
+above or the Markdown Guide's
+\href{https://www.markdownguide.org/cheat-sheet/}{Cheat Sheet} for more
+examples of Markdown syntax). Include the following information:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  tentative name of your project
+\item
+  name(s) of author(s) (you!)
+\item
+  Overview section
+\item
+  Data section
+\item
+  Methods section
+\end{enumerate}
+
+Save the file.
+
+\subsection{3. Setting Up a Python Virtual Environment for your
+project}\label{setting-up-a-python-virtual-environment-for-your-project}
+
+As noted in the opening slides presentation
+(\href{00_setup_slides.html}{html} or \href{00_setup_slides.pdf}{pdf})
+``A virtual environment keeps each project's packages separate and
+organized, preventing conflicts and making your code easy to share.''
+
+We will now use \texttt{uv} to create a virtual environment for our
+sample project.
+
+\subsubsection{3a. Open the command line in
+VSC}\label{a.-open-the-command-line-in-vsc}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Select the \textbf{Terminal} tab at the top of VSC --\textgreater{}
+  \textbf{New Terminal}
+\item
+  A new terminal should appear at the bottom.
+\item
+  If you are using a PC, it is recommended you use a \textbf{Command
+  Prompt} terminal instead of \textbf{Powershell}. To open Command,
+  select the \texttt{+} symbol at the far right side of the terminal
+  pane, and select \textbf{Command Prompt}.
+\end{enumerate}
+
+\subsubsection{3b. Confirm VSC can find your Python and uv
+installations}\label{b.-confirm-vsc-can-find-your-python-and-uv-installations}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In the \textbf{terminal}, you can test to see if VSC can find your
+  Python and uv installations (just as we did in notebook 01) by running
+  the following code:
+\end{enumerate}
+
+\begin{verbatim}
+uv --version
+\end{verbatim}
+
+\begin{verbatim}
+uv python list
+\end{verbatim}
+
+\subsubsection{3c. Create Virtual
+Environment}\label{c.-create-virtual-environment}
+
+Make sure you are in the project root folder, i.e.~your terminal should
+look like something like this (with a path to your project directory
+shown):
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/screenshot_bash_rootdir.png}}
+
+If you are not in the project root directory you can navigate to it by
+using the \texttt{cd} (change directory) command. Some tips:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  to navigate up one directory type \texttt{cd\ ..}
+\item
+  to navigate up 3 directories type \texttt{cd\ ../../..}
+\item
+  to navigate from the current working directory into your code folder
+  type \texttt{cd\ code}.
+\item
+  to navigate down two directories, type something like this:
+  \texttt{cd\ code/scripts} (assuming the code folder is in your current
+  working directory and a scripts folder is inside of that.
+\end{enumerate}
+
+Now, run the following in your project's root directory from the
+\textbf{terminal}:
+
+\begin{verbatim}
+# This initiaties a new uv environment for your project
+uv init
+\end{verbatim}
+
+You will see in the \textbf{Explorer pane} on the left side of VSC
+several new files and folders were created in your project's working
+directory. The above command:
+
+\begin{itemize}
+\item
+  Installed Python if the correct version isn't available
+\item
+  Created a \texttt{pyproject.toml} file, where uv will store
+  information about the packages / dependencies used in this project.
+\item
+  Created a \texttt{.python-version} file to store the version of Python
+  used for this project.
+\end{itemize}
+
+Initiating \textbf{uv} \emph{may also create} a \texttt{uv.lock} file
+and a \texttt{\textquotesingle{}.venv} folder if you have already
+installed some packages. Let's test this out by installing a package to
+our local environment at which point this file and folder will be
+created:
+
+Run in the terminal:
+
+\begin{verbatim}
+uv add requests
+\end{verbatim}
+
+Certainly, now you should see the following in your project's root
+directory:
+
+\begin{verbatim}
+-   a `uv.lock` file which may be used by others (or by yourself in a different environment) to reproduce the exact same computing environment for your project.
+
+-   a `.venv` folder where the code for all projects added to the local environment are stored
+\end{verbatim}
+
+\textbf{One final step:} every time we start a new project in VSC we
+need to configure VSC to use the correct version of Python. We can do
+this by selecting our Python interpreter:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open the ``Show and Run Command Bars'' (either select from central
+  dropdown project menu at top of screen or by clicking
+  \texttt{CTRL\ +\ SHIFT\ +\ P} on Windows or
+  \texttt{CMD\ +\ CTRL\ +\ SPACE} on a Mac)
+\item
+  Search for and select \textbf{Python: Select Interpreter}
+\item
+  Choose the version of Python installed to your local environment. It
+  should look something like this: `Python 3.14.2 (name-of-project)
+  .venv/Scripts/python.exe Recommended''
+\end{enumerate}
+
+Let's view which version of Python is being used by this project. Run
+the following in the \textbf{terminal}:
+
+\begin{verbatim}
+uv run python --version
+\end{verbatim}
+
+\subsection{VS Code Setup Checklist}\label{vs-code-setup-checklist}
+
+\begin{verbatim}
+ ✅ Install VS Code
+ ✅ Install Python extension (ms-python.python)
+ ✅ Install Jupyter extension
+ ✅ Open project folder
+ ✅ Select interpreter: Ctrl+Shift+P → "Python: Select Interpreter" → .venv
+ ✅ Configure terminal to use uv
+\end{verbatim}
+
+\subsection{4. Write your first Python
+script}\label{write-your-first-python-script}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a Python script in your \textbf{code/} folder and name it
+  something like this: \texttt{greeting.py}.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Create a new script either by navigating to the code/ folder,
+    right-clicking it, and selecting \texttt{New\ File}. Be sure to give
+    the file the \texttt{.py} extension.
+  \item
+    OR \textbf{File} --\textgreater{} \textbf{New File} and then give
+    your file a name and place it in the \texttt{code} folder.
+
+    *Note: using the correct extension is essential so the computer
+    knows how to read it. A \texttt{.py} file is a plain text file
+    containing Python code that can be run with software like VSC or
+    from the command line.*
+  \end{enumerate}
+\item
+  Type / paste in the following code (modifying it to make it your own)
+  in the \textbf{Python script}:
+\end{enumerate}
+
+\begin{verbatim}
+# Get the user's name
+name = input("What's your name? ")
+
+# print(name, "is a beautiful name.")
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Save the script (important: when you run a script it will only run the
+  most recently saved version).
+\item
+  Run your script in the \textbf{terminal} using uv:
+\end{enumerate}
+
+\begin{verbatim}
+uv run code/greeting.py
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  Other options to run this file:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    \textbf{Right-click} anywhere within \textbf{greeting.py} (in VSC)
+    and select \textbf{Run Python} --\textgreater{} \textbf{Run Python
+    File in Terminal}
+  \item
+    You can also run the script by selecting the \textbf{Play icon
+    button} at the top of the editor window where you have
+    \texttt{greeting.py}. Note: with this method, you are NOT using uv
+    to run the script. Therefore, VSC may not know which Python version
+    on your computer to run or it may choose a version that doesn't
+    work. If you get an error: choose the version that looks something
+    like this:
+    \texttt{Python\ 3.XX.X\ (sample-project)\ .\textbackslash{}.venv\textbackslash{}Scripts\textbackslash{}python.exe\ \ \ \ \ \ \ \ \ \ \ \ \ \ Workspace}.
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Optional additions to
+script:}\label{optional-additions-to-script}
+
+add to your \textbf{Python script}:
+
+\begin{verbatim}
+# Get their favorite color
+color = input("What's your favorite color? ")
+
+# Respond based on their color choice
+if color.lower() == "blue":
+    print(f"Hello, {name}! Blue is a calm and peaceful color. Great choice!")
+elif color.lower() == "red":
+    print(f"Hello, {name}! Red is bold and energetic. I like it!")
+elif color.lower() == "green":
+    print(f"Hello, {name}! Green is the color of nature. Very refreshing!")
+else:
+    print(f"Hello, {name}! {color.title()} is a wonderful color!")
+\end{verbatim}
+
+\subsubsection{4b. Create a Script Requiring External Code from a Python
+Package}\label{b.-create-a-script-requiring-external-code-from-a-python-package}
+
+You can only do a few simple things with core Python code. Anything more
+complex - from data analysis to statistics, working with images and
+text, etc. - you will need to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  install the package to your local environment using uv (do this once
+  per project)
+\item
+  import the package into any scripts or notebooks that use it (must
+  include in each code script or notebook)
+\end{enumerate}
+
+We will create a \textbf{random compliments generator} in a Python
+script, which requires the use of two packages:
+
+\begin{itemize}
+\item
+  \textbf{random} (which is part of the core Python installation and
+  thus DOES NOT need to be installed, but DOES need to be imported) and
+\item
+  \textbf{rich} (which DOES NEED to be installed AND imported).
+\end{itemize}
+
+To install \textbf{rich} run the following in the \textbf{terminal}:
+
+\begin{verbatim}
+uv add rich 
+\end{verbatim}
+
+You can confirm the installation of this package to your local
+environment in multiple ways.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open the \texttt{pyproject.toml} file and you should see it listed
+  among the dependencies.
+\item
+  Open \texttt{uv.lock} and you can see information about the installed
+  \textbf{rich} package.
+\item
+  Review code files for the rich package stored in
+  \texttt{.venv/Lib/site-packages}.
+\item
+  Type \texttt{uv\ pip\ list} or \texttt{uv\ pip\ freeze} in the command
+  line / terminal.
+\end{enumerate}
+
+\emph{NOTE: Never manually modify any of the above unless you know what
+you are doing. These files and folders are manually updated by
+\textbf{uv} when you run uv commands.}
+
+Then paste / type the following into a \textbf{new Python script called
+\texttt{compliment\_generator.py}}.
+
+\begin{verbatim}
+import random
+from rich import print
+
+# List of compliments
+compliments = [
+    "You're doing an amazing job learning Python! 🎉",  # \U0001F389
+    "Your curiosity is inspiring! 🌟",                  # \U00002B50
+    "You have great potential as a programmer! 💻",
+    "Keep up the excellent work! 🚀",                   # \U0001F680"
+    "You're braver than you think for trying something new! 💪"
+    "✨"
+]
+
+# Get user's name
+name = input("What's your name? ")
+
+# Pick a random compliment
+chosen_compliment = random.choice(compliments)
+
+# Print with color using rich
+print(f"\n[bold cyan]Hey {name}![/bold cyan]")
+print(f"[green]{chosen_compliment}[/green]\n")
+\end{verbatim}
+
+Note: to acquire these and other emojis:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  on a \textbf{PC} press \texttt{Windows\ +\ .} or
+  \texttt{Windows\ +\ ;}
+\item
+  On a Mac type \texttt{Command\ +\ Control\ +\ Space}.
+\item
+  On a Linux type \texttt{Ctrl\ +\ .} or \texttt{Ctrl\ +\ ;}.
+\end{enumerate}
+
+Try running this script from the command line using the same procedure
+introduced in the previous step.
+
+\subsection{5. Write your first Jupyter
+Notebook}\label{write-your-first-jupyter-notebook}
+
+\textbf{Coding notebooks} allow a user to create a more interactive,
+modular code script. These notebooks allow users to mix markdown texts
+(with human-readable instructions and explanations) with code cells,
+which can be run one at a time or all at once. They also allow users to
+view various intermediary results (i.e.~data tables or visualizations)
+right within their notebook.
+
+\textbf{Jupyter} is the most commonly used type of coding notebook for
+Python.
+
+\subsubsection{5a. Install Jupyter}\label{a.-install-jupyter}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  To use Jupyter first we need to install it using \textbf{uv}. Run the
+  following in the \textbf{terminal}:
+\end{enumerate}
+
+\begin{verbatim}
+uv add jupyter
+\end{verbatim}
+
+\subsubsection{5b. Create a New
+Notebook}\label{b.-create-a-new-notebook}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Right-click} in the Explorer sidebar (where your files are)
+\item
+  Click \textbf{``New File''}
+\item
+  Name it: \texttt{my\_first\_notebook.ipynb}
+\end{enumerate}
+
+\begin{verbatim}
+-   The `.ipynb` extension is important!
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Press Enter
+\end{enumerate}
+
+\subsubsection{5c. Select Your Python
+Environment}\label{c.-select-your-python-environment}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  When the notebook opens, look at the \textbf{top-right corner}
+\item
+  Click \textbf{``Select Kernel''}
+\item
+  Choose \textbf{``Python Environments\ldots{}''}
+\item
+  Select the one that says \textbf{\texttt{.venv}} or
+  \textbf{\texttt{uv}}
+\end{enumerate}
+
+\subsubsection{5d. Start Coding}\label{d.-start-coding}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Click in the first cell
+\item
+  Type some Python code
+\item
+  Press \textbf{Shift + Enter} to run the cell
+\item
+  That's it! 🎉
+\end{enumerate}
+
+\subsubsection{5e. Fun Practice Notebook
+Contents}\label{e.-fun-practice-notebook-contents}
+
+A short cheatsheet for working with Jupyter notebooks (or click
+\href{https://media.datacamp.com/legacy/image/upload/v1676302533/Marketing/Blog/Jupyterlab_Cheat_Sheet.pdf}{here}
+for a more extensive cheatsheet:
+
+\begin{verbatim}
+╔══════════════════════════════════════════════╗
+║      JUPYTER NOTEBOOK SHORTCUTS              ║
+╠══════════════════════════════════════════════╣
+║                                              ║
+║  RUN CELL:                                   ║
+║  • Shift + Enter  (run and move to next)     ║
+║  • Ctrl + Enter   (run and stay)             ║
+║                                              ║
+║  ADD CELLS:                                  ║
+║  • Click "+ Code" or "+ Markdown" buttons    ║
+║  • Or use the + icon at top                  ║
+║                                              ║
+║  CHANGE CELL TYPE:                           ║
+║  • Use dropdown: "Code" or "Markdown"        ║
+║                                              ║
+║  DELETE CELL:                                ║
+║  • Click trash icon on left of cell          ║
+║                                              ║
+║  SAVE NOTEBOOK:                              ║
+║  • Ctrl + S (or Cmd + S on Mac)              ║
+║                                              ║
+║  RESTART KERNEL:                             ║
+║  • Click "Restart" icon at top               ║
+║  • Use when things get stuck                 ║
+║                                              ║
+╚══════════════════════════════════════════════╝
+\end{verbatim}
+
+Copy and paste these cells into your notebook to practice:
+
+\paragraph{📝 Cell 1: Markdown
+(Introduction)}\label{cell-1-markdown-introduction}
+
+\textbf{Click the cell, then change it to ``Markdown'' using the
+dropdown at the top}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# 🎉 My First Jupyter Notebook}
+
+\NormalTok{Welcome to my coding adventure! Today I\textquotesingle{}m learning about Jupyter notebooks.}
+
+\NormalTok{\#\# What I\textquotesingle{}ll practice:}
+\NormalTok{{-} Running Python code in cells}
+\NormalTok{{-} Using **markdown** for notes}
+\NormalTok{{-} Making calculations}
+\NormalTok{{-} Creating simple visualizations}
+\NormalTok{{-}{-}{-}}
+
+\NormalTok{**Date:** January 2025  }
+\NormalTok{**Mood:** Excited! 🚀}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{Cell 2: Code (Simple Math)}\label{cell-2-code-simple-math}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Let\textquotesingle{}s do some calculations!}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"🧮 Quick Math Practice"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"{-}"} \OperatorTok{*} \DecValTok{30}\NormalTok{)}
+
+\NormalTok{my\_age }\OperatorTok{=} \DecValTok{25}  \CommentTok{\# Change this to your age!}
+\NormalTok{python\_age }\OperatorTok{=} \DecValTok{2025} \OperatorTok{{-}} \DecValTok{1991}  \CommentTok{\# Python was created in 1991}
+
+\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"I am }\SpecialCharTok{\{}\NormalTok{my\_age}\SpecialCharTok{\}}\SpecialStringTok{ years old"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Python is }\SpecialCharTok{\{}\NormalTok{python\_age}\SpecialCharTok{\}}\SpecialStringTok{ years old"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Python is }\SpecialCharTok{\{}\NormalTok{python\_age }\OperatorTok{{-}}\NormalTok{ my\_age}\SpecialCharTok{\}}\SpecialStringTok{ years older than me!"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+🧮 Quick Math Practice
+------------------------------
+I am 25 years old
+Python is 34 years old
+Python is 9 years older than me!
+\end{verbatim}
+
+\paragraph{📝 Cell 3: Markdown
+(Observations)}\label{cell-3-markdown-observations}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\#\# 💭 My Observations}
+
+\NormalTok{The cool thing about notebooks is that I can:}
+\NormalTok{1. Write code}
+\NormalTok{2. See the results immediately}
+\NormalTok{3. Add notes about what I learned}
+
+\NormalTok{\textgreater{} **Tip:** Press \textasciigrave{}Shift + Enter\textasciigrave{} to run a cell!}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{5f. Create a basic
+visualization}\label{f.-create-a-basic-visualization}
+
+Let's experiment by creating a data visualization using some popular
+Python packages.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a new notebook and name it \texttt{plotting\_penguins.ipynb} or
+  something like that.
+\item
+  Next, we need to install the following Python libraries / packages:
+
+  \begin{itemize}
+  \item
+    \textbf{pandas} - for working with data tables
+  \item
+    \textbf{matplotlib} - for creating data visualizations
+  \item
+    \textbf{seaborn} - some additional functionality and assistance
+    working with matplotlib
+  \end{itemize}
+\end{enumerate}
+
+To install these, we will use \textbf{uv} in the terminal:
+
+\begin{verbatim}
+uv add pandas matplotlib seaborn
+\end{verbatim}
+
+\emph{Note: we can install multiple packages at once using this syntax.}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  In the first code cell in the new notebook, let's install the
+  necessary packages:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ seaborn }\ImportTok{as}\NormalTok{ sns}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Next, we can import a preloaded dataset from \textbf{seaborn} and
+  preview its data:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load a built{-}in dataset (no files needed!)}
+\NormalTok{penguins }\OperatorTok{=}\NormalTok{ sns.load\_dataset(}\StringTok{\textquotesingle{}penguins\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# Take a quick look at the data}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"🐧 Palmer Penguins Dataset"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"="} \OperatorTok{*} \DecValTok{50}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(penguins.head())}
+\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Total penguins: }\SpecialCharTok{\{}\BuiltInTok{len}\NormalTok{(penguins)}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Species: }\SpecialCharTok{\{}\NormalTok{penguins[}\StringTok{\textquotesingle{}species\textquotesingle{}}\NormalTok{]}\SpecialCharTok{.}\NormalTok{unique()}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+🐧 Palmer Penguins Dataset
+==================================================
+  species     island  bill_length_mm  bill_depth_mm  flipper_length_mm  \
+0  Adelie  Torgersen            39.1           18.7              181.0   
+1  Adelie  Torgersen            39.5           17.4              186.0   
+2  Adelie  Torgersen            40.3           18.0              195.0   
+3  Adelie  Torgersen             NaN            NaN                NaN   
+4  Adelie  Torgersen            36.7           19.3              193.0   
+
+   body_mass_g     sex  
+0       3750.0    Male  
+1       3800.0  Female  
+2       3250.0  Female  
+3          NaN     NaN  
+4       3450.0  Female  
+
+Total penguins: 344
+Species: ['Adelie' 'Chinstrap' 'Gentoo']
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Now, let's create a pair plot of this data:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create visualization in ONE line!}
+\NormalTok{sns.pairplot(penguins, hue}\OperatorTok{=}\StringTok{\textquotesingle{}species\textquotesingle{}}\NormalTok{, palette}\OperatorTok{=}\StringTok{\textquotesingle{}husl\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{plt.suptitle(}\StringTok{\textquotesingle{}🐧 Penguin Data Overview\textquotesingle{}}\NormalTok{, y}\OperatorTok{=}\FloatTok{1.01}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{16}\NormalTok{, fontweight}\OperatorTok{=}\StringTok{\textquotesingle{}bold\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+C:\Users\F0040RP\Documents\DartLib_RDS\projects\python-setup\.venv\Lib\site-packages\IPython\core\pylabtools.py:170: UserWarning: Glyph 128039 (\N{PENGUIN}) missing from font(s) DejaVu Sans.
+  fig.canvas.print_figure(bytes_io, **kw)
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{02_create_project_from_scratch_files/figure-pdf/cell-5-output-2.pdf}}
+
+Or, we can create a scatterplot with additional customization:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a colorful visualization}
+\NormalTok{sns.set\_style(}\StringTok{"whitegrid"}\NormalTok{)}
+\NormalTok{plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{6}\NormalTok{))}
+
+\CommentTok{\# Scatter plot: flipper length vs body mass, colored by species}
+\NormalTok{sns.scatterplot(}
+\NormalTok{    data}\OperatorTok{=}\NormalTok{penguins,}
+\NormalTok{    x}\OperatorTok{=}\StringTok{\textquotesingle{}flipper\_length\_mm\textquotesingle{}}\NormalTok{,}
+\NormalTok{    y}\OperatorTok{=}\StringTok{\textquotesingle{}body\_mass\_g\textquotesingle{}}\NormalTok{,}
+\NormalTok{    hue}\OperatorTok{=}\StringTok{\textquotesingle{}species\textquotesingle{}}\NormalTok{,}
+\NormalTok{    size}\OperatorTok{=}\StringTok{\textquotesingle{}body\_mass\_g\textquotesingle{}}\NormalTok{,}
+\NormalTok{    sizes}\OperatorTok{=}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{400}\NormalTok{),}
+\NormalTok{    alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{,}
+\NormalTok{    palette}\OperatorTok{=}\StringTok{\textquotesingle{}Set2\textquotesingle{}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{02_create_project_from_scratch_files/figure-pdf/cell-6-output-1.pdf}}
+
+\section{Brief Cheatsheet}\label{brief-cheatsheet}
+
+\emph{the brief, no explanation need version:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Set up a sample project folder,
+  i.e.~\texttt{\textasciitilde{}/Users/your-user-name/Documents/python\_code/sample\_project}
+\item
+  Open VSC and set up a link to this project folder, by selecting
+  \textbf{File} --\textgreater{} \textbf{Open Folder} and open the
+  folder you created above.
+\item
+  In Explorers pane, create the following subfolders in your project
+  folder: \texttt{code}, \texttt{data}, \texttt{docs}, \texttt{results}.
+\item
+  Create a \texttt{README.md} file with important explanatory
+  information about your project. Use markdown syntax to format the
+  text.
+\item
+  Set up a virtual environment for your project
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Terminal (Mac/Linux or Windows Command): \texttt{uv\ -\/-version}
+  \item
+    Create virtual environment: \texttt{uv\ init}
+  \end{enumerate}
+\item
+  Create a Python script in your \texttt{code} folder, giving it the
+  extension: \texttt{.py}.
+\item
+  Select the Python Interpreter you want to use for this project by
+  opening the ``Show and Run Command Bars'' (Windows:
+  \texttt{CTRL\ +\ SHIFT\ +\ P}; Mac: \texttt{CMD\ +\ CTRL\ +\ SPACE}),
+  select \textbf{Python: Select Interpreter}, and choose the version of
+  Python installed to your local environment. I.e.: `Python 3.14.2
+  (name-of-project) .venv/Scripts/python.exe Recommended''
+\item
+  Confirm \texttt{uv} is using the correct environment and Python:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    Windows: \texttt{uv\ run\ where.exe\ python} \# first response
+    should be your local Python
+  \item
+    Mac: \texttt{uv\ run\ which\ python}\\
+  \item
+    \emph{Note}: compare to the results if you run these commands
+    without \texttt{uv\ run}. You can also check by comparing the
+    results of \texttt{uv\ run\ python\ -\/-version} and
+    \texttt{python\ -\/-version}.
+  \end{enumerate}
+\item
+  Write code (see Step 4 above for an example script) and save your
+  script.
+\item
+  Run your script with \texttt{uv\ run\ code/script-name.py} or by
+  pressing the ``Play'' button.
+\item
+  To run code requiring external packages:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    install packages with \texttt{uv\ add\ package\_name}.
+  \item
+    when needed, import a package with the code
+    \texttt{import\ package\_name} placed at the top of the document.
+  \end{enumerate}
+\item
+  To create a Jupyter notebook:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    install Jupyter via the Terminal with \texttt{uv\ add\ jupyter}.
+  \item
+    Create a new Jupyter notebook in your \texttt{code}folder (with the
+    extension \texttt{.ipynb}).
+  \item
+    select your Python environment: top-right corner --\textgreater{}
+    \textbf{Select Kernel} --\textgreater{} Choose ``Python
+    Environments'' --\textgreater{} select the one that says
+    \texttt{.venv} or \texttt{uv}.
+  \item
+    See Steps 5e and 5f above for sample code.
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Troubleshooting Section}\label{troubleshooting-section}
+
+\subsubsection{Problem 1: ``Select Kernel'' Button
+Missing}\label{problem-1-select-kernel-button-missing}
+
+\textbf{Solution:}
+
+\begin{itemize}
+\item
+  Make sure you saved the file with \texttt{.ipynb} extension
+\item
+  Close and reopen the file
+\item
+  Install the Jupyter extension: Click Extensions (sidebar) → search
+  ``Jupyter'' → Install
+\end{itemize}
+
+\subsubsection{Problem 2: Kernel Won't
+Start}\label{problem-2-kernel-wont-start}
+
+\textbf{Solution:}
+
+\begin{itemize}
+\item
+  Open Terminal and run: \texttt{uv\ add\ ipykernel}
+\item
+  Reload VS Code: Press \texttt{Ctrl+Shift+P}, type ``Reload Window'',
+  press Enter
+\item
+  Try selecting the kernel again
+\end{itemize}
+
+\subsubsection{Problem 3: Code Cell Won't
+Run}\label{problem-3-code-cell-wont-run}
+
+\textbf{Symptoms:} Nothing happens when you press Shift+Enter
+
+\textbf{Solution:}
+
+\begin{itemize}
+\item
+  Check if kernel is connected (top-right should show Python version)
+\item
+  Click the kernel name and select it again
+\item
+  Restart kernel: Click ``Restart'' icon at the top
+\end{itemize}
+
+\subsubsection{Problem 4: Matplotlib Charts Don't
+Show}\label{problem-4-matplotlib-charts-dont-show}
+
+\textbf{Solution:}
+
+\begin{itemize}
+\item
+  Make sure you ran the installation cell (Cell 6)
+\item
+  Add this line before your plotting code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\%}\NormalTok{matplotlib inline}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Restart the kernel and run all cells again
+\end{verbatim}
+\end{itemize}
+
+Problem 5: Input() Not Working
+
+Symptoms: Input prompt doesn't appear or freezes
+
+Solution:
+
+\begin{verbatim}
+This is normal in Jupyter! Look for the input box at the TOP of the cell output
+Make sure you're running the cell (not just clicking it)
+If stuck, click "Interrupt" button at top, then try again
+\end{verbatim}
+
+Problem 6: Can't Install Packages
+
+Error: ``uv: command not found'' or similar
+
+Solution:
+
+\begin{verbatim}
+Use pip instead:
+
+::: {.cell execution_count=7}
+``` {.python .cell-code}
+pip install matplotlib
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+Note: you may need to restart the kernel to use updated packages.
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+C:\Users\F0040RP\Documents\DartLib_RDS\projects\python-setup\.venv\Scripts\python.exe: No module named pip
+```
+:::
+:::
+
+\end{verbatim}
+
+\subsubsection{Problem 5: Input() Not
+Working}\label{problem-5-input-not-working}
+
+\textbf{Symptoms:} Input prompt doesn't appear or freezes
+
+\textbf{Solution:}
+
+\begin{itemize}
+\item
+  This is normal in Jupyter! Look for the input box at the TOP of the
+  cell output
+\item
+  Make sure you're running the cell (not just clicking it)
+\item
+  If stuck, click ``Interrupt'' button at top, then try again
+\end{itemize}
+
+\subsubsection{Problem 6: Markdown Cell Shows Code Instead of Formatted
+Text}\label{problem-6-markdown-cell-shows-code-instead-of-formatted-text}
+
+\textbf{Solution:}
+
+\begin{itemize}
+\item
+  Make sure the cell type is set to ``Markdown'' (check dropdown at top)
+\item
+  Run the cell with Shift+Enter to render it
+\item
+  If still showing code, change to Markdown and run again
+\end{itemize}
+
+\subsubsection{Problem 7: Notebook is Slow or
+Unresponsive}\label{problem-7-notebook-is-slow-or-unresponsive}
+
+\textbf{Solution:}
+
+\begin{itemize}
+\item
+  Restart the kernel: Click ``Restart'' icon at top
+\item
+  Clear all outputs: Click ``\ldots{}'' menu → ``Clear All Outputs''
+\item
+  Close other programs to free up memory
+\item
+  Save and reload VS Code
+\end{itemize}
+
+
+
+
+\end{document}
