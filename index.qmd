@@ -3,16 +3,16 @@ title: "Python Setup"
 author: "Jeremy Mikecz"
 institute: "Research Facilitation, Dartmouth Libraries"
 date: "Jan 13, 2026"
-format: pdf
+format: html
 editor: visual
 ---
 
 ### Quick Links
 
--   [Python Setup Slides](setup/setup_slides.qmd)
+-   [Python Setup Slides](setup/00_setup_slides.qmd)
 -   [Tutorial 1: Python Installation & Setup](setup/01_python_setup.qmd)
 -   [Tutorial 2: Create Python Project from Scratch](setup/02_create_project_from_scratch.qmd)
--   [Tutorial 3: Import Existing Python Project](setup/013_import_project.qmd)
+-   [Tutorial 3: Import Existing Python Project](setup/03_import_project.qmd)
 
 ## 1. Overview
 
