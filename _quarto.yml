@@ -12,16 +12,21 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Setup
+      
+      - href: setup/00_setup_slides.qmd
+        text: "Slides"
+      - href: setup/01_python_setup.qmd
+        text: "Tutorial 1: Python Installation"
+      - href: setup/02_create_project_from_scratch.qmd
+        text: "Tutorial 2: Create Project"
+      - href: setup/03_import_project.qmd
+        text: "Tutorial 3: Import Project"
+      - text: "additional uv guides"
         menu:
-          - href: setup/00_setup_slides.qmd
-            text: Setup Slides
-          - href: setup/01_python_setup.qmd
-            text: "Tutorial 1: Python Installation"
-          - href: setup/02_create_project_from_scratch.qmd
-            text: "Tutorial 2: Create Project"
-          - href: setup/03_import_project.qmd
-            text: "Tutorial 3: Import Project"
+            - text: "uv cheatsheet"
+            - href: setup/uv_cheatsheet.qmd
+            - text: "detailed uv guide"
+            - href: setup/uv_detailed_instructions.qmd
       # - text: Analysis
       #   menu:
       #     - href: analysis/data-cleaning.qmd
