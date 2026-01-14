@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jeremy Mikecz">
+<meta name="dcterms.date" content="2026-01-13">
+
+<title>Create Python Project from Scratch – Python Setup Tutorial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Python Setup Tutorial</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setup" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Setup</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-setup">    
+        <li>
+    <a class="dropdown-item" href="../setup/00_setup_slides.html">
+ <span class="dropdown-text">Setup Slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/01_python_setup.html">
+ <span class="dropdown-text">Tutorial 1: Python Installation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/02_create_project_from_scratch.html">
+ <span class="dropdown-text">Tutorial 2: Create Project</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/03_import_project.html">
+ <span class="dropdown-text">Tutorial 3: Import Project</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#create-a-python-project-from-scratch-with-visual-studio-code-uv" id="toc-create-a-python-project-from-scratch-with-visual-studio-code-uv" class="nav-link active" data-scroll-target="#create-a-python-project-from-scratch-with-visual-studio-code-uv">Create a Python Project from Scratch with Visual Studio Code &amp; UV</a>
+  <ul class="collapse">
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
+  <li><a href="#setup-project-in-visual-studio-code" id="toc-setup-project-in-visual-studio-code" class="nav-link" data-scroll-target="#setup-project-in-visual-studio-code">1. Setup Project in Visual Studio Code</a>
+  <ul class="collapse">
+  <li><a href="#a.-set-up-sample-project-folder" id="toc-a.-set-up-sample-project-folder" class="nav-link" data-scroll-target="#a.-set-up-sample-project-folder">1a. Set up sample project folder</a></li>
+  <li><a href="#b.-open-project-folder-in-visual-studio-code" id="toc-b.-open-project-folder-in-visual-studio-code" class="nav-link" data-scroll-target="#b.-open-project-folder-in-visual-studio-code">1b. Open Project Folder in Visual Studio Code</a></li>
+  </ul></li>
+  <li><a href="#setting-up-a-python-virtual-environment-for-your-project" id="toc-setting-up-a-python-virtual-environment-for-your-project" class="nav-link" data-scroll-target="#setting-up-a-python-virtual-environment-for-your-project">2. Setting Up a Python Virtual Environment for your project</a>
+  <ul class="collapse">
+  <li><a href="#a.-open-the-command-line-in-vsc" id="toc-a.-open-the-command-line-in-vsc" class="nav-link" data-scroll-target="#a.-open-the-command-line-in-vsc">2a. Open the command line in VSC</a></li>
+  <li><a href="#b.-confirm-vsc-can-find-your-python-and-uv-installations" id="toc-b.-confirm-vsc-can-find-your-python-and-uv-installations" class="nav-link" data-scroll-target="#b.-confirm-vsc-can-find-your-python-and-uv-installations">2b. Confirm VSC can find your Python and uv installations</a></li>
+  <li><a href="#c.-create-virtual-environment" id="toc-c.-create-virtual-environment" class="nav-link" data-scroll-target="#c.-create-virtual-environment">2c. Create Virtual Environment</a></li>
+  <li><a href="#d.-install-add-packages-to-virtual-environment" id="toc-d.-install-add-packages-to-virtual-environment" class="nav-link" data-scroll-target="#d.-install-add-packages-to-virtual-environment">2d. Install / add packages to virtual environment</a></li>
+  <li><a href="#e.-set-up-the-python-interpreter" id="toc-e.-set-up-the-python-interpreter" class="nav-link" data-scroll-target="#e.-set-up-the-python-interpreter">2e. Set up the Python Interpreter</a></li>
+  </ul></li>
+  <li><a href="#vs-code-setup-checklist" id="toc-vs-code-setup-checklist" class="nav-link" data-scroll-target="#vs-code-setup-checklist">VS Code Setup Checklist</a></li>
+  <li><a href="#write-your-first-markdown-document" id="toc-write-your-first-markdown-document" class="nav-link" data-scroll-target="#write-your-first-markdown-document">3. Write your first markdown document</a></li>
+  <li><a href="#write-your-first-python-script" id="toc-write-your-first-python-script" class="nav-link" data-scroll-target="#write-your-first-python-script">4. Write your first Python script</a>
+  <ul class="collapse">
+  <li><a href="#optional-additions-to-script" id="toc-optional-additions-to-script" class="nav-link" data-scroll-target="#optional-additions-to-script">Optional additions to script:</a></li>
+  <li><a href="#b.-create-a-script-requiring-external-code-from-a-python-package" id="toc-b.-create-a-script-requiring-external-code-from-a-python-package" class="nav-link" data-scroll-target="#b.-create-a-script-requiring-external-code-from-a-python-package">4b. Create a Script Requiring External Code from a Python Package</a></li>
+  </ul></li>
+  <li><a href="#write-your-first-jupyter-notebook" id="toc-write-your-first-jupyter-notebook" class="nav-link" data-scroll-target="#write-your-first-jupyter-notebook">5. Write your first Jupyter Notebook</a>
+  <ul class="collapse">
+  <li><a href="#a.-install-jupyter" id="toc-a.-install-jupyter" class="nav-link" data-scroll-target="#a.-install-jupyter">5a. Install Jupyter</a></li>
+  <li><a href="#b.-create-a-new-notebook" id="toc-b.-create-a-new-notebook" class="nav-link" data-scroll-target="#b.-create-a-new-notebook">5b. Create a New Notebook</a></li>
+  <li><a href="#c.-select-your-python-environment" id="toc-c.-select-your-python-environment" class="nav-link" data-scroll-target="#c.-select-your-python-environment">5c. Select Your Python Environment</a></li>
+  <li><a href="#d.-start-coding" id="toc-d.-start-coding" class="nav-link" data-scroll-target="#d.-start-coding">5d. Start Coding</a></li>
+  <li><a href="#e.-fun-practice-notebook-contents" id="toc-e.-fun-practice-notebook-contents" class="nav-link" data-scroll-target="#e.-fun-practice-notebook-contents">5e. Fun Practice Notebook Contents</a></li>
+  <li><a href="#f.-create-a-basic-visualization" id="toc-f.-create-a-basic-visualization" class="nav-link" data-scroll-target="#f.-create-a-basic-visualization">5f. Create a basic visualization</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#brief-cheatsheet" id="toc-brief-cheatsheet" class="nav-link" data-scroll-target="#brief-cheatsheet">Brief Cheatsheet</a>
+  <ul class="collapse">
+  <li><a href="#troubleshooting-section" id="toc-troubleshooting-section" class="nav-link" data-scroll-target="#troubleshooting-section">Troubleshooting Section</a>
+  <ul class="collapse">
+  <li><a href="#problem-1-select-kernel-button-missing" id="toc-problem-1-select-kernel-button-missing" class="nav-link" data-scroll-target="#problem-1-select-kernel-button-missing">Problem 1: “Select Kernel” Button Missing</a></li>
+  <li><a href="#problem-2-kernel-wont-start" id="toc-problem-2-kernel-wont-start" class="nav-link" data-scroll-target="#problem-2-kernel-wont-start">Problem 2: Kernel Won’t Start</a></li>
+  <li><a href="#problem-3-code-cell-wont-run" id="toc-problem-3-code-cell-wont-run" class="nav-link" data-scroll-target="#problem-3-code-cell-wont-run">Problem 3: Code Cell Won’t Run</a></li>
+  <li><a href="#problem-4-matplotlib-charts-dont-show" id="toc-problem-4-matplotlib-charts-dont-show" class="nav-link" data-scroll-target="#problem-4-matplotlib-charts-dont-show">Problem 4: Matplotlib Charts Don’t Show</a></li>
+  <li><a href="#problem-5-input-not-working" id="toc-problem-5-input-not-working" class="nav-link" data-scroll-target="#problem-5-input-not-working">Problem 5: Input() Not Working</a></li>
+  <li><a href="#problem-6-markdown-cell-shows-code-instead-of-formatted-text" id="toc-problem-6-markdown-cell-shows-code-instead-of-formatted-text" class="nav-link" data-scroll-target="#problem-6-markdown-cell-shows-code-instead-of-formatted-text">Problem 6: Markdown Cell Shows Code Instead of Formatted Text</a></li>
+  <li><a href="#problem-7-notebook-is-slow-or-unresponsive" id="toc-problem-7-notebook-is-slow-or-unresponsive" class="nav-link" data-scroll-target="#problem-7-notebook-is-slow-or-unresponsive">Problem 7: Notebook is Slow or Unresponsive</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Create Python Project from Scratch</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jeremy Mikecz </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Research Faciliation, Dartmouth Libraries
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 13, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="create-a-python-project-from-scratch-with-visual-studio-code-uv" class="level1">
+<h1>Create a Python Project from Scratch with Visual Studio Code &amp; UV</h1>
+<p>This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the <a href="00_setup-slides.html">00_setup_slides</a> and completed the installation of Visual Studio Code and Python using uv by following <a href="01_python-setup-instructions.qmd">Setup Notebook 01</a>.</p>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
+<ol type="1">
+<li>setup project in Visual Studio Code (10 mins.)</li>
+<li>write your first markdown document (10)</li>
+<li>set up virtual environment</li>
+<li>write your first script</li>
+<li>write your first notebook</li>
+<li>import external data</li>
+</ol>
+</section>
+<section id="setup-project-in-visual-studio-code" class="level2">
+<h2 class="anchored" data-anchor-id="setup-project-in-visual-studio-code">1. Setup Project in Visual Studio Code</h2>
+<section id="a.-set-up-sample-project-folder" class="level3">
+<h3 class="anchored" data-anchor-id="a.-set-up-sample-project-folder">1a. Set up sample project folder</h3>
+<ol type="1">
+<li><p>Create a new folder for your sample project in a place which you can easily find again. Follow recommended file naming projects (outlined in <a href="00_setup_slides.html">00_setup_slides</a>) such as using underscores <code>_</code> in place of whitespace, avoiding special characters, etc. i.e.:</p>
+<pre><code>~/Users/your-user-name/Documents/python_code/sample_project</code></pre></li>
+</ol>
+</section>
+<section id="b.-open-project-folder-in-visual-studio-code" class="level3">
+<h3 class="anchored" data-anchor-id="b.-open-project-folder-in-visual-studio-code">1b. Open Project Folder in Visual Studio Code</h3>
+<p>Visual Studio Code and other IDEs allow you to load an entire project at once. Thus, you can easily switch between projects and when you return to a given project all the same files that were open before are opened once again. Below, we will open our sample project folder and modify it.</p>
+<ol type="1">
+<li><p>Open Visual Studio Code, which you installed with <a href="01_python_setup_instructions_uv.qmd">notebook 01</a>.</p></li>
+<li><p>Click on <strong>File</strong> –&gt; <strong>Open Folder</strong>. Navigate to your new project folder and open it.</p></li>
+<li><p>In the left pane of VSC, click on the <strong>Explorer</strong> icon (looks like pages or files) and you will see your empty folder there.</p>
+<p><img src="..\setup/images/screenshot_vsc-explorer.png" class="img-fluid"></p></li>
+<li><p>Add the following folders using the **+ Folder icon **:</p></li>
+</ol>
+<pre><code>|--code
+|--data
+|--docs
+|--results</code></pre>
+<p><img src="..\setup/images/screenshot_vsc-folder-setup.png" class="img-fluid" alt="screenshot of sample folder as seen in VSC after setting up code, data, docs, and results folders."></p>
+</section>
+</section>
+<section id="setting-up-a-python-virtual-environment-for-your-project" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-a-python-virtual-environment-for-your-project">2. Setting Up a Python Virtual Environment for your project</h2>
+<p>As noted in the opening slides presentation (<a href="00_setup_slides.html">html</a> or <a href="00_setup_slides.pdf">pdf</a>) “A virtual environment keeps each project’s packages separate and organized, preventing conflicts and making your code easy to share.”</p>
+<p>We will now use <code>uv</code> to create a virtual environment for our sample project.</p>
+<section id="a.-open-the-command-line-in-vsc" class="level3">
+<h3 class="anchored" data-anchor-id="a.-open-the-command-line-in-vsc">2a. Open the command line in VSC</h3>
+<ol type="1">
+<li>Select the <strong>Terminal</strong> tab at the top of VSC –&gt; <strong>New Terminal</strong></li>
+<li>A new terminal should appear at the bottom.</li>
+<li>If you are using a PC, it is recommended you use a <strong>Command Prompt</strong> terminal instead of <strong>Powershell</strong>. To open Command, select the <code>+</code> symbol at the far right side of the terminal pane, and select <strong>Command Prompt</strong>.</li>
+</ol>
+</section>
+<section id="b.-confirm-vsc-can-find-your-python-and-uv-installations" class="level3">
+<h3 class="anchored" data-anchor-id="b.-confirm-vsc-can-find-your-python-and-uv-installations">2b. Confirm VSC can find your Python and uv installations</h3>
+<ol type="1">
+<li>In the <strong>terminal</strong>, you can test to see if VSC can find your Python and uv installations (just as we did in notebook 01) by running the following code:</li>
+</ol>
+<pre><code>uv --version</code></pre>
+<pre><code>uv python list</code></pre>
+</section>
+<section id="c.-create-virtual-environment" class="level3">
+<h3 class="anchored" data-anchor-id="c.-create-virtual-environment">2c. Create Virtual Environment</h3>
+<p>Make sure you are in the project root folder, i.e.&nbsp;your terminal should look like something like this (with a path to your project directory shown):</p>
+<p><img src="..\setup/images/screenshot_bash_rootdir.png" class="img-fluid"></p>
+<p>If you are not in the project root directory you can navigate to it by using the <code>cd</code> (change directory) command. Some tips:</p>
+<ol type="1">
+<li>to navigate up one directory type <code>cd ..</code></li>
+<li>to navigate up 3 directories type <code>cd ../../..</code></li>
+<li>to navigate from the current working directory into your code folder type <code>cd code</code>.</li>
+<li>to navigate down two directories, type something like this: <code>cd code/scripts</code> (assuming the code folder is in your current working directory and a scripts folder is inside of that.</li>
+</ol>
+<p>Now, run the following in your project’s root directory from the <strong>terminal</strong>:</p>
+<pre><code># This initiaties a new uv environment for your project
+uv init</code></pre>
+<p>You will see in the <strong>Explorer pane</strong> on the left side of VSC several new files and folders were created in your project’s working directory. The above command:</p>
+<ul>
+<li><p>Installed Python if the correct version isn’t available</p></li>
+<li><p>Created a <code>pyproject.toml</code> file, where uv will store information about the packages / dependencies used in this project.</p></li>
+<li><p>Created a <code>.python-version</code> file to store the version of Python used for this project.</p></li>
+</ul>
+</section>
+<section id="d.-install-add-packages-to-virtual-environment" class="level3">
+<h3 class="anchored" data-anchor-id="d.-install-add-packages-to-virtual-environment">2d. Install / add packages to virtual environment</h3>
+<p>Initiating <strong>uv</strong> <em>may also create</em> a <code>uv.lock</code> file and a <code>'.venv</code> folder if you have already installed some packages. Let’s test this out by installing a package to our local environment at which point this file and folder will be created:</p>
+<p>Run in the terminal:</p>
+<pre><code>uv add requests</code></pre>
+<p>Certainly, now you should see the following in your project’s root directory:</p>
+<pre><code>-   a `uv.lock` file which may be used by others (or by yourself in a different environment) to reproduce the exact same computing environment for your project.
+
+-   a `.venv` folder where the code for all projects added to the local environment are stored</code></pre>
+<p>You can also install / add multiple packages at once:</p>
+<pre><code>uv add numpy pandas rich</code></pre>
+<p>You can use <code>uv remove</code> to uninstall packages. We really didn’t need <strong>requests</strong>. Let’s uninstall it:</p>
+<pre><code>uv remove requests</code></pre>
+<p>You can review what packages have been installed in multiple ways. You can open either the <strong>pyproject.toml</strong> or the <strong>uv.lock</strong> file. Or you can run the following in the terminal:</p>
+<pre><code>uv pip list</code></pre>
+<p>You should see something like this:</p>
+<pre><code>Package         Version
+--------------- -----------
+markdown-it-py  4.0.0
+mdurl           0.1.2
+numpy           2.4.1
+pandas          2.3.3
+pygments        2.19.2
+python-dateutil 2.9.0.post0
+pytz            2025.2
+rich            14.2.0
+six             1.17.0
+tzdata          2025.3</code></pre>
+<p>*Note: the <code>.toml</code> file and <code>uv pip list</code> return all packages installed including dependencies. For example, when we installed <strong>rich</strong>, UV also installed the packages rich depends on: markdown-it-py, mdurl, and pygments. In contrast, the <code>uv.lock</code> just lists the actual packages that you, the user, installed:</p>
+<pre><code>dependencies = [
+    "numpy&gt;=2.4.1",
+    "pandas&gt;=2.3.3",
+    "rich&gt;=14.2.0",
+]</code></pre>
+<p>This is because <code>uv.lock</code> serves as instructions for the re-creation of this environment on another computer. If you were to open this project on a different computer, you would run the command <code>uv sync</code>, which would recreate your environment by installing the specific versions of numpy, pandas, and rich you have installed on your machine. When those are installed, their dependencies will be automatically installed as well.</p>
+<p>Now, try running this:</p>
+<pre><code>pip list</code></pre>
+<p>Notice any difference from the results returned by <code>uv pip list</code>? In my case this second command returned many, many more packages? Why? It’s because the <strong>uv</strong> command automatically just retrieves the names of packages installed to the local virtual environment, whereas <strong>pip</strong> is retrieving all packages installed. That is why, under the pip system, you need to activate your virtual environment with <code>.venv/Scripts/activate</code> (Windows) or <code>.venv/bin/activate</code> (Macs) every time you open a project. Fortunately, with <strong>uv</strong>, we are automatically using the virtual environment whenever we call uv within a project that has one.</p>
+</section>
+<section id="e.-set-up-the-python-interpreter" class="level3">
+<h3 class="anchored" data-anchor-id="e.-set-up-the-python-interpreter">2e. Set up the Python Interpreter</h3>
+<p><strong>One final step:</strong> every time we start a new project in VSC we need to configure VSC to use the correct version of Python. We can do this by selecting our Python interpreter:</p>
+<ol type="1">
+<li><p>Open the “Show and Run Command Bars” (either select from central dropdown project menu at top of screen or by clicking <code>CTRL + SHIFT + P</code> on Windows or <code>CMD + CTRL + SPACE</code> on a Mac)</p></li>
+<li><p>Search for and select <strong>Python: Select Interpreter</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\setup/images/screenshot_vsc_select-interpreter.png" class="img-fluid figure-img"></p>
+<figcaption>Select “Python: Select Interpreter” from Show and Run Command Bars</figcaption>
+</figure>
+</div></li>
+<li><p>Choose the version of Python installed to your local environment. It should look something like this: `Python 3.14.2 (name-of-project) .venv/Scripts/python.exe Recommended”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\setup/images/screenshot_vsc_select-interpreter2.png" class="img-fluid figure-img"></p>
+<figcaption>Select the version of Python found within your local project environment</figcaption>
+</figure>
+</div></li>
+</ol>
+<p>Let’s view which version of Python is being used by this project. Run the following in the <strong>terminal</strong>:</p>
+<pre><code>uv run python --version</code></pre>
+</section>
+</section>
+<section id="vs-code-setup-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-setup-checklist">VS Code Setup Checklist</h2>
+<pre><code> ✅ Install VS Code
+ ✅ Install Python extension (ms-python.python)
+ ✅ Install Jupyter extension
+ ✅ Open project folder
+ ✅ Select interpreter: Ctrl+Shift+P → "Python: Select Interpreter" → .venv
+ ✅ Configure terminal to use uv</code></pre>
+</section>
+<section id="write-your-first-markdown-document" class="level2">
+<h2 class="anchored" data-anchor-id="write-your-first-markdown-document">3. Write your first markdown document</h2>
+<p>A <strong>markdown</strong> file is a text file that allows you to use simple symbols to specify its formatting. This notebook and the <strong>00_setup_slides</strong> presentation were both created using markdown.</p>
+<p>Some commonly used symbols:</p>
+<pre><code># Header level 1 (note '#' should be the first symbol on the line and followed by a single whitespace)
+## Header level 2
+### Header level 3
+**bold**
+*italics*
+[filename](link/to/file)   # to create hyperlinks
+```
+place code blocks between sets of 3 back ticks
+```</code></pre>
+<p>In the Explorer pane on the left, create a new file using the <strong>+ File icon</strong> and name it <code>README.md</code> (<strong>.md</strong> is the extension for a markdown file).</p>
+<p>Create a skeletal outline of a README file using headers of different levels, bold, italics, links, and code blocks (see the symbol directory above or the Markdown Guide’s <a href="https://www.markdownguide.org/cheat-sheet/">Cheat Sheet</a> for more examples of Markdown syntax). Include the following information:</p>
+<ol type="1">
+<li>tentative name of your project</li>
+<li>name(s) of author(s) (you!)</li>
+<li>Overview section</li>
+<li>Data section</li>
+<li>Methods section</li>
+</ol>
+<p>Save the file.</p>
+</section>
+<section id="write-your-first-python-script" class="level2">
+<h2 class="anchored" data-anchor-id="write-your-first-python-script">4. Write your first Python script</h2>
+<ol type="1">
+<li>Create a Python script in your <strong>code/</strong> folder and name it something like this: <code>greeting.py</code>.
+<ol type="1">
+<li><p>Create a new script either by navigating to the code/ folder, right-clicking it, and selecting <code>New File</code>. Be sure to give the file the <code>.py</code> extension.</p></li>
+<li><p>OR <strong>File</strong> –&gt; <strong>New File</strong> and then give your file a name and place it in the <code>code</code> folder.</p>
+<p>*Note: using the correct extension is essential so the computer knows how to read it. A <code>.py</code> file is a plain text file containing Python code that can be run with software like VSC or from the command line.*</p></li>
+</ol></li>
+<li>Type / paste in the following code (modifying it to make it your own) in the <strong>Python script</strong>:</li>
+</ol>
+<pre><code># Get the user's name
+name = input("What's your name? ")
+
+# print(name, "is a beautiful name.")</code></pre>
+<ol start="3" type="1">
+<li>Save the script (important: when you run a script it will only run the most recently saved version).</li>
+<li>Run your script in the <strong>terminal</strong> using uv:</li>
+</ol>
+<pre><code>uv run code/greeting.py</code></pre>
+<ol start="5" type="1">
+<li><p>Other options to run this file:</p>
+<ol type="a">
+<li><p><strong>Right-click</strong> anywhere within <strong>greeting.py</strong> (in VSC) and select <strong>Run Python</strong> –&gt; <strong>Run Python File in Terminal</strong></p></li>
+<li><p>You can also run the script by selecting the <strong>Play icon button</strong> at the top of the editor window where you have <code>greeting.py</code>. Note: with this method, you are NOT using uv to run the script. Therefore, VSC may not know which Python version on your computer to run or it may choose a version that doesn’t work. If you get an error: choose the version that looks something like this: <code>Python 3.XX.X (sample-project) .\.venv\Scripts\python.exe              Workspace</code>.</p></li>
+</ol></li>
+</ol>
+<section id="optional-additions-to-script" class="level3">
+<h3 class="anchored" data-anchor-id="optional-additions-to-script">Optional additions to script:</h3>
+<p>add to your <strong>Python script</strong>:</p>
+<pre><code># Get their favorite color
+color = input("What's your favorite color? ")
+
+# Respond based on their color choice
+if color.lower() == "blue":
+    print(f"Hello, {name}! Blue is a calm and peaceful color. Great choice!")
+elif color.lower() == "red":
+    print(f"Hello, {name}! Red is bold and energetic. I like it!")
+elif color.lower() == "green":
+    print(f"Hello, {name}! Green is the color of nature. Very refreshing!")
+else:
+    print(f"Hello, {name}! {color.title()} is a wonderful color!")</code></pre>
+</section>
+<section id="b.-create-a-script-requiring-external-code-from-a-python-package" class="level3">
+<h3 class="anchored" data-anchor-id="b.-create-a-script-requiring-external-code-from-a-python-package">4b. Create a Script Requiring External Code from a Python Package</h3>
+<p>You can only do a few simple things with core Python code. Anything more complex - from data analysis to statistics, working with images and text, etc. - you will need to:</p>
+<ol type="1">
+<li>install the package to your local environment using uv (do this once per project)</li>
+<li>import the package into any scripts or notebooks that use it (must include in each code script or notebook)</li>
+</ol>
+<p>We will create a <strong>random compliments generator</strong> in a Python script, which requires the use of two packages:</p>
+<ul>
+<li><p><strong>random</strong> (which is part of the core Python installation and thus DOES NOT need to be installed, but DOES need to be imported) and</p></li>
+<li><p><strong>rich</strong> (which DOES NEED to be installed AND imported).</p></li>
+</ul>
+<p>To install <strong>rich</strong> run the following in the <strong>terminal</strong>:</p>
+<pre><code>uv add rich </code></pre>
+<p>You can confirm the installation of this package to your local environment in multiple ways.</p>
+<ol type="1">
+<li>Open the <code>pyproject.toml</code> file and you should see it listed among the dependencies.</li>
+<li>Open <code>uv.lock</code> and you can see information about the installed <strong>rich</strong> package.</li>
+<li>Review code files for the rich package stored in <code>.venv/Lib/site-packages</code>.</li>
+<li>Type <code>uv pip list</code> or <code>uv pip freeze</code> in the command line / terminal.</li>
+</ol>
+<p><em>NOTE: Never manually modify any of the above unless you know what you are doing. These files and folders are manually updated by <strong>uv</strong> when you run uv commands.</em></p>
+<p>Then paste / type the following into a <strong>new Python script called <code>compliment_generator.py</code></strong>.</p>
+<pre><code>import random
+from rich import print
+
+# List of compliments
+compliments = [
+    "You're doing an amazing job learning Python! 🎉",  # \U0001F389
+    "Your curiosity is inspiring! 🌟",                  # \U00002B50
+    "You have great potential as a programmer! 💻",
+    "Keep up the excellent work! 🚀",                   # \U0001F680"
+    "You're braver than you think for trying something new! 💪"
+    "✨"
+]
+
+# Get user's name
+name = input("What's your name? ")
+
+# Pick a random compliment
+chosen_compliment = random.choice(compliments)
+
+# Print with color using rich
+print(f"\n[bold cyan]Hey {name}![/bold cyan]")
+print(f"[green]{chosen_compliment}[/green]\n")</code></pre>
+<p>Note: to acquire these and other emojis:</p>
+<ol type="1">
+<li>on a <strong>PC</strong> press <code>Windows + .</code> or <code>Windows + ;</code></li>
+<li>On a Mac type <code>Command + Control + Space</code>.</li>
+<li>On a Linux type <code>Ctrl + .</code> or <code>Ctrl + ;</code>.</li>
+</ol>
+<p>Try running this script from the command line using the same procedure introduced in the previous step.</p>
+</section>
+</section>
+<section id="write-your-first-jupyter-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="write-your-first-jupyter-notebook">5. Write your first Jupyter Notebook</h2>
+<p><strong>Coding notebooks</strong> allow a user to create a more interactive, modular code script. These notebooks allow users to mix markdown texts (with human-readable instructions and explanations) with code cells, which can be run one at a time or all at once. They also allow users to view various intermediary results (i.e.&nbsp;data tables or visualizations) right within their notebook.</p>
+<p><strong>Jupyter</strong> is the most commonly used type of coding notebook for Python.</p>
+<section id="a.-install-jupyter" class="level3">
+<h3 class="anchored" data-anchor-id="a.-install-jupyter">5a. Install Jupyter</h3>
+<ol type="1">
+<li>To use Jupyter first we need to install it using <strong>uv</strong>. Run the following in the <strong>terminal</strong>:</li>
+</ol>
+<pre><code>uv add jupyter</code></pre>
+</section>
+<section id="b.-create-a-new-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="b.-create-a-new-notebook">5b. Create a New Notebook</h3>
+<ol type="1">
+<li><p><strong>Right-click</strong> in the Explorer sidebar (where your files are)</p></li>
+<li><p>Click <strong>“New File”</strong></p></li>
+<li><p>Name it: <code>my_first_notebook.ipynb</code></p></li>
+</ol>
+<pre><code>-   The `.ipynb` extension is important!</code></pre>
+<ol start="4" type="1">
+<li>Press Enter</li>
+</ol>
+</section>
+<section id="c.-select-your-python-environment" class="level3">
+<h3 class="anchored" data-anchor-id="c.-select-your-python-environment">5c. Select Your Python Environment</h3>
+<ol type="1">
+<li><p>When the notebook opens, look at the <strong>top-right corner</strong></p></li>
+<li><p>Click <strong>“Select Kernel”</strong></p></li>
+<li><p>Choose <strong>“Python Environments…”</strong></p></li>
+<li><p>Select the one that says <strong><code>.venv</code></strong> or <strong><code>uv</code></strong></p></li>
+</ol>
+</section>
+<section id="d.-start-coding" class="level3">
+<h3 class="anchored" data-anchor-id="d.-start-coding">5d. Start Coding</h3>
+<ol type="1">
+<li><p>Click in the first cell</p></li>
+<li><p>Type some Python code</p></li>
+<li><p>Press <strong>Shift + Enter</strong> to run the cell</p></li>
+<li><p>That’s it! 🎉</p></li>
+</ol>
+</section>
+<section id="e.-fun-practice-notebook-contents" class="level3">
+<h3 class="anchored" data-anchor-id="e.-fun-practice-notebook-contents">5e. Fun Practice Notebook Contents</h3>
+<p>A short cheatsheet for working with Jupyter notebooks (or click <a href="https://media.datacamp.com/legacy/image/upload/v1676302533/Marketing/Blog/Jupyterlab_Cheat_Sheet.pdf">here</a> for a more extensive cheatsheet:</p>
+<pre><code>╔══════════════════════════════════════════════╗
+║      JUPYTER NOTEBOOK SHORTCUTS              ║
+╠══════════════════════════════════════════════╣
+║                                              ║
+║  RUN CELL:                                   ║
+║  • Shift + Enter  (run and move to next)     ║
+║  • Ctrl + Enter   (run and stay)             ║
+║                                              ║
+║  ADD CELLS:                                  ║
+║  • Click "+ Code" or "+ Markdown" buttons    ║
+║  • Or use the + icon at top                  ║
+║                                              ║
+║  CHANGE CELL TYPE:                           ║
+║  • Use dropdown: "Code" or "Markdown"        ║
+║                                              ║
+║  DELETE CELL:                                ║
+║  • Click trash icon on left of cell          ║
+║                                              ║
+║  SAVE NOTEBOOK:                              ║
+║  • Ctrl + S (or Cmd + S on Mac)              ║
+║                                              ║
+║  RESTART KERNEL:                             ║
+║  • Click "Restart" icon at top               ║
+║  • Use when things get stuck                 ║
+║                                              ║
+╚══════════════════════════════════════════════╝</code></pre>
+<p>Copy and paste these cells into your notebook to practice:</p>
+<section id="cell-1-markdown-introduction" class="level4">
+<h4 class="anchored" data-anchor-id="cell-1-markdown-introduction">📝 Cell 1: Markdown (Introduction)</h4>
+<p><strong>Click the cell, then change it to “Markdown” using the dropdown at the top</strong></p>
+<pre class="{markdown}"><code># 🎉 My First Jupyter Notebook
+
+Welcome to my coding adventure! Today I'm learning about Jupyter notebooks.
+
+## What I'll practice:
+- Running Python code in cells
+- Using **markdown** for notes
+- Making calculations
+- Creating simple visualizations
+---
+
+**Date:** January 2025  
+**Mood:** Excited! 🚀</code></pre>
+</section>
+<section id="cell-2-code-simple-math" class="level4">
+<h4 class="anchored" data-anchor-id="cell-2-code-simple-math">Cell 2: Code (Simple Math)</h4>
+<div id="b99d3859" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's do some calculations!</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"🧮 Quick Math Practice"</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>my_age <span class="op">=</span> <span class="dv">25</span>  <span class="co"># Change this to your age!</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>python_age <span class="op">=</span> <span class="dv">2025</span> <span class="op">-</span> <span class="dv">1991</span>  <span class="co"># Python was created in 1991</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"I am </span><span class="sc">{</span>my_age<span class="sc">}</span><span class="ss"> years old"</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Python is </span><span class="sc">{</span>python_age<span class="sc">}</span><span class="ss"> years old"</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Python is </span><span class="sc">{</span>python_age <span class="op">-</span> my_age<span class="sc">}</span><span class="ss"> years older than me!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>🧮 Quick Math Practice
+------------------------------
+I am 25 years old
+Python is 34 years old
+Python is 9 years older than me!</code></pre>
+</div>
+</div>
+</section>
+<section id="cell-3-markdown-observations" class="level4">
+<h4 class="anchored" data-anchor-id="cell-3-markdown-observations">📝 Cell 3: Markdown (Observations)</h4>
+<pre class="{markdown}"><code>## 💭 My Observations
+
+The cool thing about notebooks is that I can:
+1. Write code
+2. See the results immediately
+3. Add notes about what I learned
+
+&gt; **Tip:** Press `Shift + Enter` to run a cell!</code></pre>
+</section>
+</section>
+<section id="f.-create-a-basic-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="f.-create-a-basic-visualization">5f. Create a basic visualization</h3>
+<p>Let’s experiment by creating a data visualization using some popular Python packages.</p>
+<ol type="1">
+<li>Create a new notebook and name it <code>plotting_penguins.ipynb</code> or something like that.</li>
+<li>Next, we need to install the following Python libraries / packages:
+<ul>
+<li><p><strong>pandas</strong> - for working with data tables</p></li>
+<li><p><strong>matplotlib</strong> - for creating data visualizations</p></li>
+<li><p><strong>seaborn</strong> - some additional functionality and assistance working with matplotlib</p></li>
+</ul></li>
+</ol>
+<p>To install these, we will use <strong>uv</strong> in the terminal:</p>
+<pre><code>uv add pandas matplotlib seaborn</code></pre>
+<p><em>Note: we can install multiple packages at once using this syntax.</em></p>
+<ol start="3" type="1">
+<li>In the first code cell in the new notebook, let’s install the necessary packages:</li>
+</ol>
+<div id="da43ec1e" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="4" type="1">
+<li>Next, we can import a preloaded dataset from <strong>seaborn</strong> and preview its data:</li>
+</ol>
+<div id="cbe37e2f" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a built-in dataset (no files needed!)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a quick look at the data</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"🐧 Palmer Penguins Dataset"</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">50</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(penguins.head())</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Total penguins: </span><span class="sc">{</span><span class="bu">len</span>(penguins)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Species: </span><span class="sc">{</span>penguins[<span class="st">'species'</span>]<span class="sc">.</span>unique()<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>🐧 Palmer Penguins Dataset
+==================================================
+  species     island  bill_length_mm  bill_depth_mm  flipper_length_mm  \
+0  Adelie  Torgersen            39.1           18.7              181.0   
+1  Adelie  Torgersen            39.5           17.4              186.0   
+2  Adelie  Torgersen            40.3           18.0              195.0   
+3  Adelie  Torgersen             NaN            NaN                NaN   
+4  Adelie  Torgersen            36.7           19.3              193.0   
+
+   body_mass_g     sex  
+0       3750.0    Male  
+1       3800.0  Female  
+2       3250.0  Female  
+3          NaN     NaN  
+4       3450.0  Female  
+
+Total penguins: 344
+Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Now, let’s create a pair plot of this data:</li>
+</ol>
+<div id="3ca2d407" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization in ONE line!</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'species'</span>, palette<span class="op">=</span><span class="st">'husl'</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'🐧 Penguin Data Overview'</span>, y<span class="op">=</span><span class="fl">1.01</span>, fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\F0040RP\Documents\DartLib_RDS\projects\python-setup\.venv\Lib\site-packages\IPython\core\pylabtools.py:170: UserWarning: Glyph 128039 (\N{PENGUIN}) missing from font(s) DejaVu Sans.
+  fig.canvas.print_figure(bytes_io, **kw)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_create_project_from_scratch_files/figure-html/cell-5-output-2.png" width="1068" height="973" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Or, we can create a scatterplot with additional customization:</p>
+<div id="b4ad16fd" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colorful visualization</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot: flipper length vs body mass, colored by species</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>penguins,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'flipper_length_mm'</span>,</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'body_mass_g'</span>,</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'species'</span>,</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span><span class="st">'body_mass_g'</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    sizes<span class="op">=</span>(<span class="dv">50</span>, <span class="dv">400</span>),</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set2'</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_create_project_from_scratch_files/figure-html/cell-6-output-1.png" width="819" height="501" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="brief-cheatsheet" class="level1">
+<h1>Brief Cheatsheet</h1>
+<p><em>the brief, no explanation need version:</em></p>
+<ol type="1">
+<li><p>Set up a sample project folder, i.e.&nbsp;<code>~/Users/your-user-name/Documents/python_code/sample_project</code></p></li>
+<li><p>Open VSC and set up a link to this project folder, by selecting <strong>File</strong> –&gt; <strong>Open Folder</strong> and open the folder you created above.</p></li>
+<li><p>In Explorers pane, create the following subfolders in your project folder: <code>code</code>, <code>data</code>, <code>docs</code>, <code>results</code>.</p></li>
+<li><p>Create a <code>README.md</code> file with important explanatory information about your project. Use markdown syntax to format the text.</p></li>
+<li><p>Set up a virtual environment for your project</p>
+<ol type="1">
+<li><p>Terminal (Mac/Linux or Windows Command): <code>uv --version</code></p></li>
+<li><p>Create virtual environment: <code>uv init</code></p></li>
+</ol></li>
+<li><p>Create a Python script in your <code>code</code> folder, giving it the extension: <code>.py</code>.</p></li>
+<li><p>Select the Python Interpreter you want to use for this project by opening the “Show and Run Command Bars” (Windows: <code>CTRL + SHIFT + P</code>; Mac: <code>CMD + CTRL + SPACE</code>), select <strong>Python: Select Interpreter</strong>, and choose the version of Python installed to your local environment. I.e.: `Python 3.14.2 (name-of-project) .venv/Scripts/python.exe Recommended”</p></li>
+<li><p>Confirm <code>uv</code> is using the correct environment and Python:</p>
+<ol type="a">
+<li>Windows: <code>uv run where.exe python</code> # first response should be your local Python</li>
+<li>Mac: <code>uv run which python</code><br>
+</li>
+<li><em>Note</em>: compare to the results if you run these commands without <code>uv run</code>. You can also check by comparing the results of <code>uv run python --version</code> and <code>python --version</code>.</li>
+</ol></li>
+<li><p>Write code (see Step 4 above for an example script) and save your script.</p></li>
+<li><p>Run your script with <code>uv run code/script-name.py</code> or by pressing the “Play” button.</p></li>
+<li><p>To run code requiring external packages:</p>
+<ol type="1">
+<li><p>install packages with <code>uv add package_name</code>.</p></li>
+<li><p>when needed, import a package with the code <code>import package_name</code> placed at the top of the document.</p></li>
+</ol></li>
+<li><p>To create a Jupyter notebook:</p>
+<ol type="1">
+<li><p>install Jupyter via the Terminal with <code>uv add jupyter</code>.</p></li>
+<li><p>Create a new Jupyter notebook in your <code>code</code>folder (with the extension <code>.ipynb</code>).</p></li>
+<li><p>select your Python environment: top-right corner –&gt; <strong>Select Kernel</strong> –&gt; Choose “Python Environments” –&gt; select the one that says <code>.venv</code> or <code>uv</code>.</p></li>
+<li><p>See Steps 5e and 5f above for sample code.</p></li>
+</ol></li>
+</ol>
+<section id="troubleshooting-section" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-section">Troubleshooting Section</h2>
+<section id="problem-1-select-kernel-button-missing" class="level3">
+<h3 class="anchored" data-anchor-id="problem-1-select-kernel-button-missing">Problem 1: “Select Kernel” Button Missing</h3>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p>Make sure you saved the file with <code>.ipynb</code> extension</p></li>
+<li><p>Close and reopen the file</p></li>
+<li><p>Install the Jupyter extension: Click Extensions (sidebar) → search “Jupyter” → Install</p></li>
+</ul>
+</section>
+<section id="problem-2-kernel-wont-start" class="level3">
+<h3 class="anchored" data-anchor-id="problem-2-kernel-wont-start">Problem 2: Kernel Won’t Start</h3>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p>Open Terminal and run: <code>uv add ipykernel</code></p></li>
+<li><p>Reload VS Code: Press <code>Ctrl+Shift+P</code>, type “Reload Window”, press Enter</p></li>
+<li><p>Try selecting the kernel again</p></li>
+</ul>
+</section>
+<section id="problem-3-code-cell-wont-run" class="level3">
+<h3 class="anchored" data-anchor-id="problem-3-code-cell-wont-run">Problem 3: Code Cell Won’t Run</h3>
+<p><strong>Symptoms:</strong> Nothing happens when you press Shift+Enter</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p>Check if kernel is connected (top-right should show Python version)</p></li>
+<li><p>Click the kernel name and select it again</p></li>
+<li><p>Restart kernel: Click “Restart” icon at the top</p></li>
+</ul>
+</section>
+<section id="problem-4-matplotlib-charts-dont-show" class="level3">
+<h3 class="anchored" data-anchor-id="problem-4-matplotlib-charts-dont-show">Problem 4: Matplotlib Charts Don’t Show</h3>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p>Make sure you ran the installation cell (Cell 6)</p></li>
+<li><p>Add this line before your plotting code:</p>
+<div id="43f0d9ca" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>Restart the kernel and run all cells again</code></pre></li>
+</ul>
+<p>Problem 5: Input() Not Working</p>
+<p>Symptoms: Input prompt doesn’t appear or freezes</p>
+<p>Solution:</p>
+<pre><code>This is normal in Jupyter! Look for the input box at the TOP of the cell output
+Make sure you're running the cell (not just clicking it)
+If stuck, click "Interrupt" button at top, then try again</code></pre>
+<p>Problem 6: Can’t Install Packages</p>
+<p>Error: “uv: command not found” or similar</p>
+<p>Solution:</p>
+<pre><code>Use pip instead:
+
+::: {#9272b60e .cell execution_count=7}
+``` {.python .cell-code}
+pip install matplotlib
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+Note: you may need to restart the kernel to use updated packages.
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+C:\Users\F0040RP\Documents\DartLib_RDS\projects\python-setup\.venv\Scripts\python.exe: No module named pip
+```
+:::
+:::
+
+</code></pre>
+</section>
+<section id="problem-5-input-not-working" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5-input-not-working">Problem 5: Input() Not Working</h3>
+<p><strong>Symptoms:</strong> Input prompt doesn’t appear or freezes</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p>This is normal in Jupyter! Look for the input box at the TOP of the cell output</p></li>
+<li><p>Make sure you’re running the cell (not just clicking it)</p></li>
+<li><p>If stuck, click “Interrupt” button at top, then try again</p></li>
+</ul>
+</section>
+<section id="problem-6-markdown-cell-shows-code-instead-of-formatted-text" class="level3">
+<h3 class="anchored" data-anchor-id="problem-6-markdown-cell-shows-code-instead-of-formatted-text">Problem 6: Markdown Cell Shows Code Instead of Formatted Text</h3>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p>Make sure the cell type is set to “Markdown” (check dropdown at top)</p></li>
+<li><p>Run the cell with Shift+Enter to render it</p></li>
+<li><p>If still showing code, change to Markdown and run again</p></li>
+</ul>
+</section>
+<section id="problem-7-notebook-is-slow-or-unresponsive" class="level3">
+<h3 class="anchored" data-anchor-id="problem-7-notebook-is-slow-or-unresponsive">Problem 7: Notebook is Slow or Unresponsive</h3>
+<p><strong>Solution:</strong></p>
+<ul>
+<li><p>Restart the kernel: Click “Restart” icon at top</p></li>
+<li><p>Clear all outputs: Click “…” menu → “Clear All Outputs”</p></li>
+<li><p>Close other programs to free up memory</p></li>
+<li><p>Save and reload VS Code</p></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Dartmouth-Libraries\.github\.io\/python-setup\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

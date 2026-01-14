@@ -5,13 +5,24 @@ institute: "Research Facilitation, Dartmouth Libraries"
 date: "Jan 13, 2026"
 format: html
 editor: visual
+toc: true
 ---
 
 # Install & Set up Python with Visual Studio Code and UV
 
 This document provides detailed instructions for installing and setting up Visual Studio Code and Python (via uv)
 
-## Table of Contents
+# Brief Cheatsheet
+
+*the brief, no-explanation-needed version:*
+
+1.  Install [Visual Studio Code](https://code.visualstudio.com/)
+2.  Open VSC, install **Python**, **Jupyter**, **Quarto** (optional), and **Git** (optional) extensions.
+3.  install uv
+    1.  in Windows Powershell: `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`
+    2.  on Mac/Linux terminal: `curl -LsSf https://astral.sh/uv/install.sh | sh`
+4.  Check installation with `uv --version`.
+5.  Install Python with `uv python install`.
 
 ## Step 1: Install Visual Studio Code (10 minutes)
 
@@ -204,14 +215,4 @@ uv python list
 2.  don't need to worry about "Add to PATH" (a common error in Python installation, when a Python IDE like VSC cannot find Python or cannot find the version of Python you want to use)
 3.  don't need to worry about conflicting with other Python installations
 
-# Brief Cheatsheet
-
-*the brief, no explanation need version:*
-
-1.  Install [Visual Studio Code](https://code.visualstudio.com/)
-2.  Open VSC, install **Python**, **Jupyter**, **Quarto** (optional), and **Git** (optional) extensions.
-3.  install uv
-    1.  in Windows Powershell: `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`
-    2.  on Mac/Linux terminal: `curl -LsSf https://astral.sh/uv/install.sh | sh`
-4.  Check installation with `uv --version`.
-5.  Install Python with `uv python install`.
+#

@@ -11,7 +11,38 @@ editor: visual
 
 This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup-instructions.qmd).
 
-## Table of Contents
+## Brief Cheatsheet
+
+the brief, no-explanation-needed version:
+
+1.  Import an existing Python project. Common options:
+
+    1.  most users: Download static copy from Github: **Code** –\> **Download Zip** –\> unzip –\> move into a logical place on our hard drive or cloud server, i.e. `~/Documents/python_projects/`.
+
+    2.  advanced users: Copy dynamic "clone" from Github: **Code** --\> Copy the SSH or HTTPs url --\> open a standalone terminal (outside of VSC), navigate to the root directory where you want to place this project, and run `git clone [REPO-URL]`.
+
+2.  In standalone terminal, navigate to your imported project folder using `cd folder/to/project`.
+
+3.  Install package dependencies
+
+    1.  If the project has a `uv.lock` page (which indicates it is a uv project with its dependencies stored in this file):
+        1.  In the terminal (make sure the current working directory is your project folder), run: `uv sync`.
+    2.  If the project has a `requirements.txt` file instead:
+        1.  run `uv sync` and then `uv add -r requirements.txt`.
+    3.  Otherwise, install each needed package independently using `uv add [package_name]`.
+
+4.  Open VSC Code and configure:
+    1.  **File** --> **Open Folder** --> select project folder
+    2.  Select Python Interpreter: 
+        1.  Open Command Palette (Ctrl+Shift+P on Windows/Linux, Cmd+Shift+P on macOS)
+        2.  Type "Python: Select Interpreter"
+        3.  Choose the interpreter from .venv (it should show up as ./venv/bin/python or similar)
+        4.  when you first open or create a new Jupyter notebook (`.ipynb`) you may be prompted to choose an interpreter, choose the same `.venv` Python interpreter.
+5.  Verify Set up: run `uv python --version` and `uv pip list` to see Python version and packages installed to the project environment
+
+---  
+
+More detailed instructions and explanations:
 
 ## Downloading a Project Repository from Github
 
@@ -31,30 +62,53 @@ This document provides detailed instructions for setting up your Python environm
 
 ### Option 2: Using Git (Advanced)
 
-*This method is recommended for users familiar with git and Github, have git installed, have a Github account, and who wish to create a dynamic copy ("clone") of the repository. A clone allows you to update your local repo when its online counterpart as been updated (using the pull command in git). It also allows you to push any changes you made locally back up to the remote repository, but only if the repository administrator has given you these privileges.*
+This method is recommended for users who:
 
-If you have Git installed:
+-   are familiar with git and Github
 
-```{bash}
+-   have git installed
+
+-   have set up a Github account
+
+-   wish to create a dynamic copy ("clone") of the repository.
+
+A clone allows you to update your local repo when its online counterpart as been updated (using the pull command in git). It also allows you to push any changes you made locally back up to the remote repository, but only if the repository administrator has given you these privileges.
+
+1.  open the chosen GitHub repository.
+2.  Click the green "Code" button on the repository page
+3.  Under **Clone** copy the HTTPS or SSH url (recommended option: set up an SSH Key with your Github account and use SSH; if you don't have such a key then you will need to use HTTPS)
+4.  Open a standalone terminal (outside VSC). Navigate to the root directory where you want to store this project. Run the following:
+
+```{terminal}
 # before cloning, move the current working directory to the folder where you want to clone this project
-git clone [REPOSITORY-URL]
+#paste the https or ssh repo url below and run:
+git clone in VSC project
 # for example:
 # git clone git@github.com:Dartmouth-Libraries/py-essentials_ws.git
 ```
 
-To update the local version of the repository after the online version has been updated:
+5.  To update the local version of the repository after the online version has been updated:
 
 ```{bash}
 git pull origin main
 ```
 
+6.  If you have permissions to edit the online repository you can use `git add`, `git commit`, and `git push` to push your local changes back to the online repo. This is for more advanced users and is outside the scope of this tutorial.
+
 ## Setting Up the Python Environment
 
-### Step 1: Navigate to the Project Directory
+### Step 1: Open Project in VSC
+
+1.  Navigate to your new project folder within a standalone terminal using the `cd` command:
 
 ```{bash}
 cd path/to/[repository-name]
 ```
+
+2.  Tips
+    2.  to navigate to an absolute path: `cd C:/Users/myusername/Documents/python-projects/imported-project`
+    3.  to navigate up one directory: `cd ..` or up three: `cd ../../..`
+    4.  to navigate down one directory: `cd subfolder-name` or three `cd subfolder1/subfolder2/subfolder3`.
 
 ### Step 2: Create Virtual Environment and Install Dependencies
 
@@ -99,13 +153,17 @@ If this doesn't provide desired results, review the [documentation on this proce
 
 #### 2c. If the Imported Project has no dependencies list
 
+1.  As you encounter packages needed to run code in this project, you can install them one at a time or multiple at a time like this: `uv add package1 package2 package3`.
+
+```{=html}
+<!--
 ### Step 3: Verify Installation
 
 **Note:** This may take 5-10 minutes on first run.
 
-```{bash}
 # Run the setup verification script
 uv run python scripts/00_setup.py
+-->
 ```
 
 ## Configuring Visual Studio Code
@@ -140,6 +198,7 @@ When you open a `.ipynb` file:
 
 2.  Choose the same `.venv` Python interpreter
 
+<!--
 ### Step 4: Test in VS Code
 
 1.  Open `scripts/00_setup.py`
@@ -147,29 +206,32 @@ When you open a `.ipynb` file:
 2.  You should see the Python version in the bottom-right status bar
 
 3.  Right-click in the editor → "Run Python File in Terminal"
+-->
 
 ## Verifying Your Setup
 
+<!--
 ### Quick Verification
 
 ```{bash}
 # Activate environment and run verification script
 uv run python scripts/00_setup.py
 ```
+-->
 
 ### Manual Verification
 
-You can also test manually:
+To test your set up:
 
 ```{bash}
 # Check Python version
-uv run python --version
+uv run python --version      # should be the Python version assigned to your local environment
 
 # Test package imports
 uv run python -c "import pandas; import numpy; import matplotlib; print('All packages loaded successfully!')"
 
 # List installed packages
-uv pip list
+uv pip list                  # should just list packages imported into this project's environment
 ```
 
 ## Troubleshooting

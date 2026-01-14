@@ -11,14 +11,53 @@ editor: visual
 
 This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup-instructions.qmd).
 
-## Table of Contents
+# Brief Cheatsheet
 
-1.  setup project in Visual Studio Code (10 mins.)
-2.  write your first markdown document (10)
-3.  set up virtual environment
-4.  write your first script
-5.  write your first notebook
-6.  import external data
+*the brief, no explanation need version:*
+
+1.  Set up a sample project folder, i.e. `~/Users/your-user-name/Documents/python_code/sample_project`
+
+2.  Open VSC and set up a link to this project folder, by selecting **File** –\> **Open Folder** and open the folder you created above.
+
+3.  In Explorers pane, create the following subfolders in your project folder: `code`, `data`, `docs`, `results`.
+
+4.  Create a `README.md` file with important explanatory information about your project. Use markdown syntax to format the text.
+
+5.  Set up a virtual environment for your project
+
+    1.  Terminal (Mac/Linux or Windows Command): `uv --version`
+
+    2.  Create virtual environment: `uv init`
+
+6.  Create a Python script in your `code` folder, giving it the extension: `.py`.
+
+7.  Select the Python Interpreter you want to use for this project by opening the "Show and Run Command Bars" (Windows: `CTRL + SHIFT + P`; Mac: `CMD + CTRL + SPACE`), select **Python: Select Interpreter**, and choose the version of Python installed to your local environment. I.e.: \`Python 3.14.2 (name-of-project) .venv/Scripts/python.exe Recommended"
+
+8.  Confirm `uv` is using the correct environment and Python:
+
+    a.  Windows: `uv run where.exe python` \# first response should be your local Python
+    b.  Mac: `uv run which python`
+    c.  *Note*: compare to the results if you run these commands without `uv run`. You can also check by comparing the results of `uv run python --version` and `python --version`.
+
+9.  Write code (see Step 4 above for an example script) and save your script.
+
+10. Run your script with `uv run code/script-name.py` or by pressing the "Play" button.
+
+11. To run code requiring external packages:
+
+    1.  install packages with `uv add package_name`.
+
+    2.  when needed, import a package with the code `import package_name` placed at the top of the document.
+
+12. To create a Jupyter notebook:
+
+    1.  install Jupyter via the Terminal with `uv add jupyter`.
+
+    2.  Create a new Jupyter notebook in your `code`folder (with the extension `.ipynb`).
+
+    3.  select your Python environment: top-right corner --\> **Select Kernel** --\> Choose "Python Environments" --\> select the one that says `.venv` or `uv`.
+
+    4.  See Steps 5e and 5f above for sample code.
 
 ## 1. Setup Project in Visual Studio Code
 
@@ -552,54 +591,6 @@ sns.scatterplot(
     palette='Set2'
 )
 ```
-
-# Brief Cheatsheet
-
-*the brief, no explanation need version:*
-
-1.  Set up a sample project folder, i.e. `~/Users/your-user-name/Documents/python_code/sample_project`
-
-2.  Open VSC and set up a link to this project folder, by selecting **File** –\> **Open Folder** and open the folder you created above.
-
-3.  In Explorers pane, create the following subfolders in your project folder: `code`, `data`, `docs`, `results`.
-
-4.  Create a `README.md` file with important explanatory information about your project. Use markdown syntax to format the text.
-
-5.  Set up a virtual environment for your project
-
-    1.  Terminal (Mac/Linux or Windows Command): `uv --version`
-
-    2.  Create virtual environment: `uv init`
-
-6.  Create a Python script in your `code` folder, giving it the extension: `.py`.
-
-7.  Select the Python Interpreter you want to use for this project by opening the "Show and Run Command Bars" (Windows: `CTRL + SHIFT + P`; Mac: `CMD + CTRL + SPACE`), select **Python: Select Interpreter**, and choose the version of Python installed to your local environment. I.e.: \`Python 3.14.2 (name-of-project) .venv/Scripts/python.exe Recommended"
-
-8.  Confirm `uv` is using the correct environment and Python:
-
-    a.  Windows: `uv run where.exe python` \# first response should be your local Python
-    b.  Mac: `uv run which python`\
-    c.  *Note*: compare to the results if you run these commands without `uv run`. You can also check by comparing the results of `uv run python --version` and `python --version`.
-
-9.  Write code (see Step 4 above for an example script) and save your script.
-
-10. Run your script with `uv run code/script-name.py` or by pressing the "Play" button.
-
-11. To run code requiring external packages:
-
-    1.  install packages with `uv add package_name`.
-
-    2.  when needed, import a package with the code `import package_name` placed at the top of the document.
-
-12. To create a Jupyter notebook:
-
-    1.  install Jupyter via the Terminal with `uv add jupyter`.
-
-    2.  Create a new Jupyter notebook in your `code`folder (with the extension `.ipynb`).
-
-    3.  select your Python environment: top-right corner --\> **Select Kernel** --\> Choose "Python Environments" --\> select the one that says `.venv` or `uv`.
-
-    4.  See Steps 5e and 5f above for sample code.
 
 ## Troubleshooting Section
 
