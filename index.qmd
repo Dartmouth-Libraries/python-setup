@@ -13,6 +13,8 @@ editor: visual
 -   [Tutorial 1: Python Installation & Setup](setup/01_python_setup.qmd)
 -   [Tutorial 2: Create Python Project from Scratch](setup/02_create_project_from_scratch.qmd)
 -   [Tutorial 3: Import Existing Python Project](setup/03_import_project.qmd)
+-   [UV Installation and Setup Cheatsheet](setup/uv_cheatsheet.qmd)
+-   [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd)
 
 ## 1. Overview
 
@@ -26,18 +28,14 @@ There are many ways to install and run Python. Here, we provide instructions for
 
 3.  following computational and coding best practices to set up a Python project.
 
-## 2. Author
-
-**Jeremy Mikecz, Research Facilitation, Dartmouth Libraries** January 2026
-
-## 3. Designed for:
+## 2. Designed for:
 
 -   in-person / virtual instruction
 -   *or* asynchronous, self-paced learning
 
 ...for Python beginners and those who have used Python before and want to learn how to best set it up on their own computer.
 
-## 4. Learning Objectives
+## 3. Learning Objectives
 
 Upon completing the lessons offered here, the student will be able to:
 
@@ -47,37 +45,39 @@ Upon completing the lessons offered here, the student will be able to:
 -   write their first markdown file (`README.md`)
 -   write and run their first Python script and Python Jupyter notebook.
 
-## 5. Instructor(s) and Years Taught (if taught live)
+## 4. Instructor(s) and Years Taught (if taught live)
 
 -   Jeremy Mikecz, Research Facilitation (Python Setup, W2026)
 
-## 6. Other Instructional Information
+## 5. Other Instructional Information
 
-**Level:** Beginner
+**Level:** Beginner (and Intermediate Users looking to establish better project practices)
 
 **Duration:** Estimated time to complete: 2-3 hours (but could vary tremendously)
 
 **Pre-requisites:**
 
--   
-
     1.  User is comfortable navigating through files on their computer
 
-## 7. Getting Started
+## 6. Getting Started
 
 To complete the set up tutorial, open the **setup/** folder and do the following in order:
 
-1.  Review the [00_setup_slides](setup/00_setup_slides.html) presentation (optional, but provides from useful background)
+1.  Review the [00_setup_slides](setup/00_setup_slides.html) presentation (*optional, but provides from useful background*)
 
-2.  Complete the Python Setup Tutorial (Notebook 01 in `setup/` folder)
+2.  Complete the [Tutorial 1: Python Installation & Setup](setup/01_python_setup.qmd)
 
-3.  Complete the Create a New Python Project from Scratch Tutorial (Notebook 02 in `setup/` folder)
+3.  Complete the [Tutorial 2: Create Python Project from Scratch](setup/02_create_project_from_scratch.qmd)
 
-4.  Complete the Python Setup Tutorial (Notebook 03 in `setup/` folder)
+4.  Complete the [Tutorial 3: Import Existing Python Project](setup/03_import_project.qmd)
+
+5. Optional review: [UV Cheatsheet](setup/uv_cheatsheet.qmd)
+   
+6. Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
 
 ## Required Software
 
-Instructions for installing the following are in the Set Up tutorials outlined in Step 7 above.
+Instructions for installing the following are in the Set Up tutorials outlined in Step 6 above.
 
 -   **Python** (version 3.12 or higher)
 -   **Visual Studio Code**
