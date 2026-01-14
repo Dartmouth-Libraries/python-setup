@@ -9,7 +9,7 @@
 <meta name="author" content="Jeremy Mikecz">
 <meta name="dcterms.date" content="2026-01-13">
 
-<title>Create Python Project from Scratch – My Project</title>
+<title>Create Python Project from Scratch – Python Setup Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">My Project</span>
+    <span class="navbar-title">Python Setup Tutorial</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-setup">    
         <li>
-    <a class="dropdown-item" href="../setup/setup_slides.qmd">
+    <a class="dropdown-item" href="../setup/00_setup_slides.html">
  <span class="dropdown-text">Setup Slides</span></a>
   </li>  
         <li>
@@ -623,7 +623,7 @@ Welcome to my coding adventure! Today I'm learning about Jupyter notebooks.
 </section>
 <section id="cell-2-code-simple-math" class="level4">
 <h4 class="anchored" data-anchor-id="cell-2-code-simple-math">Cell 2: Code (Simple Math)</h4>
-<div id="6605132d" class="cell" data-execution_count="1">
+<div id="b99d3859" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's do some calculations!</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"🧮 Quick Math Practice"</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
@@ -673,14 +673,14 @@ The cool thing about notebooks is that I can:
 <ol start="3" type="1">
 <li>In the first code cell in the new notebook, let’s install the necessary packages:</li>
 </ol>
-<div id="27b8f177" class="cell" data-execution_count="2">
+<div id="da43ec1e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
 <li>Next, we can import a preloaded dataset from <strong>seaborn</strong> and preview its data:</li>
 </ol>
-<div id="cf293b05" class="cell" data-execution_count="3">
+<div id="cbe37e2f" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a built-in dataset (no files needed!)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -714,7 +714,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ol start="5" type="1">
 <li>Now, let’s create a pair plot of this data:</li>
 </ol>
-<div id="44f897b8" class="cell" data-execution_count="4">
+<div id="3ca2d407" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization in ONE line!</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'species'</span>, palette<span class="op">=</span><span class="st">'husl'</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -733,7 +733,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </div>
 <p>Or, we can create a scatterplot with additional customization:</p>
-<div id="4c2f6390" class="cell" data-execution_count="5">
+<div id="b4ad16fd" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colorful visualization</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -833,7 +833,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ul>
 <li><p>Make sure you ran the installation cell (Cell 6)</p></li>
 <li><p>Add this line before your plotting code:</p>
-<div id="2019b714" class="cell" data-execution_count="6">
+<div id="43f0d9ca" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>Restart the kernel and run all cells again</code></pre></li>
@@ -849,7 +849,7 @@ If stuck, click "Interrupt" button at top, then try again</code></pre>
 <p>Solution:</p>
 <pre><code>Use pip instead:
 
-::: {#533a00b0 .cell execution_count=7}
+::: {#9272b60e .cell execution_count=7}
 ``` {.python .cell-code}
 pip install matplotlib
 ```
