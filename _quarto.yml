@@ -13,10 +13,14 @@ website:
         href: index.qmd
       - text: Setup
         menu:
-          - href: setup/installation.qmd
-            text: Installation
-          - href: setup/configuration.qmd
-            text: Configuration
+          - href: setup/setup_slides.qmd
+            text: Setup Slides
+          - href: setup/01_python_setup.qmd
+            text: "Tutorial 1: Python Installation"
+          - href: setup/02_create_project_from_scratch.qmd
+            text: "Tutorial 2: Create Project"
+          - href: setup/03_import_project.qmd
+            text: "Tutorial 3: Import Project"
       # - text: Analysis
       #   menu:
       #     - href: analysis/data-cleaning.qmd
