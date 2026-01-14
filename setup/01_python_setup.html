@@ -95,26 +95,36 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../setup/00_setup_slides.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../setup/01_python_setup.html" aria-current="page"> 
+<span class="menu-text">Tutorial 1: Python Installation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../setup/02_create_project_from_scratch.html"> 
+<span class="menu-text">Tutorial 2: Create Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../setup/03_import_project.html"> 
+<span class="menu-text">Tutorial 3: Import Project</span></a>
+  </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setup" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Setup</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-additional-uv-guides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">additional uv guides</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-setup">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-additional-uv-guides">    
+        <li class="dropdown-header">uv cheatsheet</li>
         <li>
-    <a class="dropdown-item" href="../setup/00_setup_slides.html">
- <span class="dropdown-text">Setup Slides</span></a>
+    <a class="dropdown-item" href="../setup/uv_cheatsheet.html">
+ <span class="dropdown-text">UV Installation and Setup Cheatsheet</span></a>
   </li>  
+        <li class="dropdown-header">detailed uv guide</li>
         <li>
-    <a class="dropdown-item" href="../setup/01_python_setup.html">
- <span class="dropdown-text">Tutorial 1: Python Installation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../setup/02_create_project_from_scratch.html">
- <span class="dropdown-text">Tutorial 2: Create Project</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../setup/03_import_project.html">
- <span class="dropdown-text">Tutorial 3: Import Project</span></a>
+    <a class="dropdown-item" href="../setup/uv_detailed_instructions.html">
+ <span class="dropdown-text">Complete UV Tutorial: Python Development with UV and VS Code</span></a>
   </li>  
     </ul>
   </li>
@@ -241,16 +251,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="windows-powershell" class="level3">
 <h3 class="anchored" data-anchor-id="windows-powershell">Windows (PowerShell)</h3>
 <p>Windows: Type in a Powershell terminal</p>
-<pre><code>powershell -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+<pre class="{powershell}"><code>powershell -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
 <p>If you get an error like this - <code>Error: Powershell requires an execution policy...</code> - then we need to temporarily bypass Powershell’s policies by running:</p>
-<pre><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+<pre class="{powershell}"><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
 <section id="alternate-installations-for-windows" class="level4">
 <h4 class="anchored" data-anchor-id="alternate-installations-for-windows">Alternate Installations for Windows</h4>
 <p>If the above did not work you can also try:</p>
 <p><strong>winget option</strong> 1. <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">install winget</a> 2. Run in the terminal from VSC:</p>
-<pre><code>winget install --id=astral-sh.uv -e</code></pre>
+<pre class="{terminal}"><code>winget install --id=astral-sh.uv -e</code></pre>
 <p><strong>scoop option</strong> 1. <a href="https://scoop.sh/">install scoop</a> 2. Run in the terminal from VSC:</p>
-<pre><code>scoop install uv</code></pre>
+<pre class="{terminal}"><code>scoop install uv</code></pre>
 <p><strong>Troubleshooting Windows:</strong> If uv is not recognized:</p>
 <pre><code> Check if %USERPROFILE%\.local\bin is in your PATH
  Add manually: System Properties → Environment Variables → Path → Add the directory
@@ -260,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="macoslinux" class="level3">
 <h3 class="anchored" data-anchor-id="macoslinux">macOS/Linux</h3>
 <p>Type the following in a Mac/Linux terminal:</p>
-<pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
+<pre class="{terminal}"><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
 <section id="alternate-installations-for-macs" class="level4">
 <h4 class="anchored" data-anchor-id="alternate-installations-for-macs">Alternate Installations for Macs</h4>
 <p>If the above did not work on your Mac you can also try:</p>
@@ -283,7 +293,7 @@ uv --version</code></pre>
 </section>
 <section id="linux-installation" class="level3">
 <h3 class="anchored" data-anchor-id="linux-installation">Linux Installation</h3>
-<pre><code># Shell script (works on most distributions)
+<pre class="{terminal}"><code># Shell script (works on most distributions)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Add to PATH (add to ~/.bashrc or ~/.zshrc)
@@ -295,7 +305,7 @@ source ~/.bashrc  # or source ~/.zshrc
 # Verify
 uv --version</code></pre>
 <p>Troubleshooting Linux:</p>
-<pre><code>If curl is not installed: sudo apt install curl (Ubuntu/Debian)
+<pre class="{terminal}"><code>If curl is not installed: sudo apt install curl (Ubuntu/Debian)
 Permission denied: The script installs to ~/.local/bin, which shouldn't require sudo</code></pre>
 </section>
 <section id="verify-installation" class="level3">
@@ -306,7 +316,7 @@ Permission denied: The script installs to ~/.local/bin, which shouldn't require 
 <li><p><strong>Open a new terminal</strong> (Ctrl/Cmd + ` again)</p></li>
 <li><p>Verify installation by running the following (Mac/Linux or if Windows in Command Prompt or Git Bash):</p></li>
 </ol>
-<pre><code>uv --version</code></pre>
+<pre class="{terminal}"><code>uv --version</code></pre>
 <p>You should see something like <code>uv 0.4.x</code> or higher.</p>
 <p><em>Troubleshooting time: Common issues</em></p>
 <ul>
@@ -319,17 +329,17 @@ Permission denied: The script installs to ~/.local/bin, which shouldn't require 
 <h2 class="anchored" data-anchor-id="step-3-let-uv-install-python-3-minutes">Step 3: Let uv Install Python (3 minutes)</h2>
 <p>With <code>uv</code> we don’t need to install Python separately. When we create our first project, uv will automatically install the right Python version for us. But let’s verify uv can find or install Python:</p>
 <p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
-<pre class="{bash}"><code>uv python list</code></pre>
+<pre class="{terminal}"><code>uv python list</code></pre>
 <p>This shows all Python versions uv knows about. Don’t worry if it’s empty - uv will download Python when we need it.</p>
 <p>We can install the latest version of Python with:</p>
-<pre class="{bash}"><code>uv python install</code></pre>
+<pre class="{terminal}"><code>uv python install</code></pre>
 <p>This downloads and installs the latest stable version of Python, managed by uv. No PATH configuration needed, no installers to run, no clicking through installation wizards.</p>
 <p>Or we can specify an older version to install:</p>
 <p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
-<pre class="{bash}"><code>uv python install 3.12</code></pre>
+<pre class="{terminal}"><code>uv python install 3.12</code></pre>
 <p>Verify:</p>
 <p>Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):</p>
-<pre class="{bash}"><code>uv python list</code></pre>
+<pre class="{terminal}"><code>uv python list</code></pre>
 </section>
 <section id="advantages-of-using-uv-for-python-installation" class="level2">
 <h2 class="anchored" data-anchor-id="advantages-of-using-uv-for-python-installation">Advantages of using uv for Python Installation</h2>
