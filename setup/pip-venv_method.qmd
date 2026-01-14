@@ -180,6 +180,3 @@ Setup a Virtual Environment in Visual Studio Code
 8. Customizing Visual Studio Code (VSC)
     + Open the Extensions pane in the lefthand window of VSC
     + Search for and install Jupyter and Python extensions
-
-
-
