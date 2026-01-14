@@ -1,0 +1,219 @@
+[
+  {
+    "objectID": "setup/archive/00_setup_slides.html#why-program-why-program-in-a-world-of-ai",
+    "href": "setup/archive/00_setup_slides.html#why-program-why-program-in-a-world-of-ai",
+    "title": "Python Setup Workshop",
+    "section": "Why Program? Why Program in a World of AI?",
+    "text": "Why Program? Why Program in a World of AI?\n\n\nunderstand code to verify AI outputs\ndebug when AI gives you broken code\nneed practice with computational thinking to break problems down\ncontrol your data and methods (unlike black-box AI tools)\npreserve AGENCY over your research workflow\n\nThink of AI as an assistant, but YOU are still the researcher who needs to understand and validate the work"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#why-python-its-popular",
+    "href": "setup/archive/00_setup_slides.html#why-python-its-popular",
+    "title": "Python Setup Workshop",
+    "section": "Why Python?: It’s popular",
+    "text": "Why Python?: It’s popular\n\nMost popular language in research \nMassive ecosystem for research: pandas, numpy, scipy, matplotlib, scikit-learn, etc."
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#why-python-its-beginner-friendly",
+    "href": "setup/archive/00_setup_slides.html#why-python-its-beginner-friendly",
+    "title": "Python Setup Workshop",
+    "section": "Why Python? It’s beginner-friendly",
+    "text": "Why Python? It’s beginner-friendly\n\nhighly readable language (good for beginners)"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#python-example",
+    "href": "setup/archive/00_setup_slides.html#python-example",
+    "title": "Python Setup Workshop",
+    "section": "Python Example",
+    "text": "Python Example\n\nnumbers = [1, 2, 3, 4, 5]\naverage = sum(numbers) / len(numbers)\nprint(f\"Average: {average}\")\n\nAverage: 3.0"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#r",
+    "href": "setup/archive/00_setup_slides.html#r",
+    "title": "Python Setup Workshop",
+    "section": "R",
+    "text": "R\nnumbers &lt;- c(1, 2, 3, 4, 5)\naverage &lt;- mean(numbers)\nprint(paste(\"Average:\", average))"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#java",
+    "href": "setup/archive/00_setup_slides.html#java",
+    "title": "Python Setup Workshop",
+    "section": "Java",
+    "text": "Java\npublic class AverageCalculator {\n    public static void main(String[] args) {\n        int[] numbers = {1, 2, 3, 4, 5};\n        double sum = 0;\n        \n        for (int number : numbers) {\n            sum += number;\n        }\n        \n        double average = sum / numbers.length;\n        System.out.println(\"Average: \" + average);\n    }\n}"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#c",
+    "href": "setup/archive/00_setup_slides.html#c",
+    "title": "Python Setup Workshop",
+    "section": "C++",
+    "text": "C++\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;numeric&gt;\n\nint main() {\n    std::vector&lt;int&gt; numbers = {1, 2, 3, 4, 5};\n    double sum = std::accumulate(numbers.begin(), numbers.end(), 0);\n    double average = sum / numbers.size();\n    \n    std::cout &lt;&lt; \"Average: \" &lt;&lt; average &lt;&lt; std::endl;\n    return 0;\n}"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#javascript",
+    "href": "setup/archive/00_setup_slides.html#javascript",
+    "title": "Python Setup Workshop",
+    "section": "Javascript",
+    "text": "Javascript\nconst numbers = [1, 2, 3, 4, 5];\nconst average = numbers.reduce((sum, num) =&gt; sum + num, 0) / numbers.length;\nconsole.log(`Average: ${average}`);"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#code-length-comparison",
+    "href": "setup/archive/00_setup_slides.html#code-length-comparison",
+    "title": "Python Setup Workshop",
+    "section": "Code Length Comparison",
+    "text": "Code Length Comparison\n\n\n\nLanguage\nLines of Code\nComplexity\n\n\n\n\nPython\n3\n⭐ Simple\n\n\nR\n3\n⭐ Simple\n\n\nJavaScript\n3\n⭐ Simple\n\n\nRuby\n3\n⭐ Simple\n\n\nJulia\n3\n⭐ Simple\n\n\nPHP\n5\n⭐⭐ Moderate\n\n\nPerl\n5\n⭐⭐ Moderate\n\n\nRust\n6\n⭐⭐⭐ Complex\n\n\nScala\n7\n⭐⭐⭐ Complex\n\n\nFortran\n8\n⭐⭐⭐ Complex\n\n\nC++\n11\n⭐⭐⭐⭐ Very Complex\n\n\nJava\n12\n⭐⭐⭐⭐ Very Complex\n\n\nGo\n13\n⭐⭐⭐ Complex\n\n\nC\n14\n⭐⭐⭐⭐ Very Complex"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#why-python-other-reasons",
+    "href": "setup/archive/00_setup_slides.html#why-python-other-reasons",
+    "title": "Python Setup Workshop",
+    "section": "Why Python? Other Reasons",
+    "text": "Why Python? Other Reasons\n\nStrong community support\nFree and open source\nCross-platform\nUsed across disciplines: from digital humanities to computational biology"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#typical-python-setup",
+    "href": "setup/archive/00_setup_slides.html#typical-python-setup",
+    "title": "Python Setup Workshop",
+    "section": "Typical Python Setup",
+    "text": "Typical Python Setup\n\nInstall Python\ninstall an IDE (Integrated Development Environment): software that combines tools for writing, editing, compiling, and debugging code.\nInstall Python packages to “global” environment on your computer"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#resulting-problems",
+    "href": "setup/archive/00_setup_slides.html#resulting-problems",
+    "title": "Python Setup Workshop",
+    "section": "Resulting Problems",
+    "text": "Resulting Problems\n\nIDE can’t find Python (‘Python is not recognized as a command’ errors?)\nCode that worked on one computer but broke on another? (dependency conflicts)\nupdating one project causes another not to work\ninstalling the wrong package causes your Python installation to break\nMultiple Python versions fighting each other?\nyour project code works differently on different computers (making collaboration difficult)"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#common-error-messages",
+    "href": "setup/archive/00_setup_slides.html#common-error-messages",
+    "title": "Python Setup Workshop",
+    "section": "Common error messages:",
+    "text": "Common error messages:\n\n'python' is not recognized as an internal or external command\nModuleNotFoundError: No module named 'pandas'\nPython version mismatch\nPermission denied"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#contents",
+    "href": "setup/archive/00_setup_slides.html#contents",
+    "title": "Python Setup Workshop",
+    "section": "Contents",
+    "text": "Contents\n\nIntroductory presentation\nInstall: Visual Studio Code + uv + Python (notebook 01)\nCreate Python Project from Scratch within VSC (notebook 02)\n\nset up project folder\nwrite your first markdown document\nwrite your first script\nwrite your first notebook\n\nDownload and Import Existing Project (notebook 03)"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#recommended-python-set-up-approach-uv-vsc",
+    "href": "setup/archive/00_setup_slides.html#recommended-python-set-up-approach-uv-vsc",
+    "title": "Python Setup Workshop",
+    "section": "Recommended Python Set Up Approach: UV + VSC",
+    "text": "Recommended Python Set Up Approach: UV + VSC\n\nuv: A new, fast tool that manages everything—Python versions,virtual environments, and packages—all in one place.\nVisual Studio Code: A modern editor that works seamlessly with uv and Python.\nProject best practices: folder/file organization; file-naming; virtual environment for each project; rigorous documentation\n\nWe’re building good habits from day one, not adding them later."
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#project-organization",
+    "href": "setup/archive/00_setup_slides.html#project-organization",
+    "title": "Python Setup Workshop",
+    "section": "Project Organization",
+    "text": "Project Organization\nOne folder – one project"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#project-organization-1",
+    "href": "setup/archive/00_setup_slides.html#project-organization-1",
+    "title": "Python Setup Workshop",
+    "section": "Project Organization",
+    "text": "Project Organization\nFolder Organization:\nmy-research-project/\n├── data/\n│   ├── raw/              # Original, untouched data\n│   └── processed/        # Cleaned, transformed data\n├── code                  # this may include Python scripts (.py) and coding notebooks\n├── results/\n│   ├── figures/          # Plots and visualizations\n│   └── tables/           # Output tables/statistics\n├── docs/                 # Documentation, notes\n├── .gitignore           # Tell git what NOT to track\n├── README.md            # Project description and instructions\n└── pyproject.toml       # Python dependencies (with uv)"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#project-organization-2",
+    "href": "setup/archive/00_setup_slides.html#project-organization-2",
+    "title": "Python Setup Workshop",
+    "section": "Project Organization",
+    "text": "Project Organization\nWhy this structure?\n+ Separation of concerns: Raw data stays pristine, processed data is separate\n\n+ Findability: Six months from now, you'll know where everything is\n+ Collaboration: Others can navigate your project easily\n\n+ Scalability: Works for small and large projects\nKey principles:\n+ Keep raw data in data/raw/ and NEVER modify it directly\n+ All data processing should be scripted and reproducible\n+ Results should be generated by code, not manually created\n+ One project = one self-contained folder\""
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#file-naming-conventions",
+    "href": "setup/archive/00_setup_slides.html#file-naming-conventions",
+    "title": "Python Setup Workshop",
+    "section": "File Naming Conventions",
+    "text": "File Naming Conventions\nSome common conventions:\n\nLowercase with underscores: my-script.py or my_script.py\nBe descriptive: Names should tell you what the file contains or does\nNO SPACES: For file names, you should replace whitespace with hyphens or underscores instead. Spaces cause issues in terminals. For Python code and folders containing Python code, it is recommended to avoid hyphens too as Python has difficulty importing code from folders or files with hyphens or any special characters besides underscores. Using hyphens for data files is perfectly fine.\nAvoid special characters with exception of underscore _ whenever possible.\nUse number prefixes for sequences: 01_, 02_, 03_ keeps scripts in order\nInclude dates if relevant: YYYY_MM_DD or YYYYMMDD to format sorts chronologically (you may also use hyphens, i.e. YYYY-MM-DD for data files and other files or folders that DO NOT contain Python code).\nConsistent within a project: Pick a style and stick with it\n\nFor general file management naming conventions see Harvard’s guide to file naming.\nFor Python specific naming conventions (for files and folders, but also for the names of variables, functions, classes, etc. see The Pep 8 Style Guide."
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#documentation",
+    "href": "setup/archive/00_setup_slides.html#documentation",
+    "title": "Python Setup Workshop",
+    "section": "Documentation",
+    "text": "Documentation\nMost important document: README.md file. This is where users go to first to learn more about a project.\nWhat goes in a README:\n\nproject title & overview\nhow to set up / get started\nhow to use\ndata description\ndescription of other content\nhow to cite\nlicense information"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#dependency-conflicts",
+    "href": "setup/archive/00_setup_slides.html#dependency-conflicts",
+    "title": "Python Setup Workshop",
+    "section": "Dependency Conflicts",
+    "text": "Dependency Conflicts\nProblem\n\nProject A (from 2022) needs pandas version 1.3\nProject B (new project) needs pandas version 2.0\n\nIf you just install your Python dependencies to a global environment (meaning they can be accessed anywhere on your personal computer) then your Python setup can only work for one of these packages. For example, if you try to run Project A, but you have pandas 2.0 installed on your computer, then you may receive a dependency conflict error."
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#solution-virtual-environments",
+    "href": "setup/archive/00_setup_slides.html#solution-virtual-environments",
+    "title": "Python Setup Workshop",
+    "section": "Solution: Virtual Environments",
+    "text": "Solution: Virtual Environments\nA virtual environment is like a separate, isolated workspace for each Python project on your computer.\nA virtual environment keeps each project’s packages separate and organized, preventing conflicts and making your code easy to share\nThink of it as:\n\nA project-specific toolbox that contains only the tools (packages) you need for that project\nA separate room for each project, so things don’t get mixed up\nA backpack you pack differently for each trip/project\n\nValue of Virtual Environments\n\navoid conflicts\nkeep things clean\neasy sharing\nprotect your system\n\nVisual\nWITHOUT Virtual Environments:\n┌─────────────────────────────┐\n│   YOUR COMPUTER             │\n│                             │\n│  All Projects → One Big     │\n│  Messy Pile of Packages 😵  │\n│                             │\n│  (Conflicts! Confusion!)    │\n└─────────────────────────────┘\n\n\nWITH Virtual Environments:\n┌─────────────────────────────┐\n│   YOUR COMPUTER             │\n│                             │\n│  Project A → 📦 Its packages │\n│  Project B → 📦 Its packages │\n│  Project C → 📦 Its packages │\n│                             │\n│  (Clean! Organized! 😊)     │\n└─────────────────────────────┘"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#version-control-git",
+    "href": "setup/archive/00_setup_slides.html#version-control-git",
+    "title": "Python Setup Workshop",
+    "section": "Version Control (Git)",
+    "text": "Version Control (Git)"
+  },
+  {
+    "objectID": "setup/archive/00_setup_slides.html#ides-integrated-development-environments",
+    "href": "setup/archive/00_setup_slides.html#ides-integrated-development-environments",
+    "title": "Python Setup Workshop",
+    "section": "IDEs (Integrated Development Environments)",
+    "text": "IDEs (Integrated Development Environments)\nAn IDE is your coding workspace. Some examples (Visual Studio Code, Pycharm, Spyder, etc.). Today we are using Visual Studio Code (VSC) because”:\n\nFree and open source\nExcellent Python support\nBuilt-in git integration\nIntegrated terminal\nIntelliSense (code completion)\nDebugging tools\nWorks with both .py scripts and Jupyter notebooks\nHuge extension ecosystem\nWorks on Windows, Mac, and Linux"
+  },
+  {
+    "objectID": "setup/03_import_project.html",
+    "href": "setup/03_import_project.html",
+    "title": "Import Python Project Tutorial with UV",
+    "section": "",
+    "text": "This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the 00_setup_slides and completed the installation of Visual Studio Code and Python using uv by following Setup Notebook 01.\n\n\n\n\n\n\n\nThis method is recommended for newer programmers not yet familiar with git and Github and for any user who only needs a static copy of the repository.\n\nopen the chosen GitHub repository. In this tutorial, we will import the repository for Dartmouth Libraries’ Python Essential Workshop Series.\nClick the green “Code” button on the repository page\nSelect “Download ZIP”\nExtract the ZIP file to a memorable location (e.g., ~/Documents/Python-Courses/)\nImportant: To get updates, you’ll need to re-download\n\n\n\n\nThis method is recommended for users familiar with git and Github, have git installed, have a Github account, and who wish to create a dynamic copy (“clone”) of the repository. A clone allows you to update your local repo when its online counterpart as been updated (using the pull command in git). It also allows you to push any changes you made locally back up to the remote repository, but only if the repository administrator has given you these privileges.\nIf you have Git installed:\n# before cloning, move the current working directory to the folder where you want to clone this project\ngit clone [REPOSITORY-URL]\n# for example:\n# git clone git@github.com:Dartmouth-Libraries/py-essentials_ws.git\nTo update the local version of the repository after the online version has been updated:\ngit pull origin main\n\n\n\n\n\n\ncd path/to/[repository-name]\n\n\n\n\n\nYou can tell if a repository is set up for uv if it has a uv.lock file in its root folder.\nRun the following in the terminal:\n# This creates a .venv directory and installs all packages\nuv sync\nThis command:\n\nCreates a virtual environment in .venv/\nInstalls Python if the correct version isn’t available\nInstalls all packages specified in pyproject.toml\nCreates/updates uv.lock for reproducibility\n\n\n\n\nPrior to uv, Python project dependencies were usually stored in a requirements.txt file. To install all dependencies from this file and convert the project to a uv project, run the following in the terminal:\n\nFirst, initiate uv for this project:\n\nuv sync\n\n\n\nuv add -r requirements.txt\nIf this doesn’t provide desired results, review the documentation on this process in the uv guide.\n\n\n\n\n\n\n\nNote: This may take 5-10 minutes on first run.\n# Run the setup verification script\nuv run python scripts/00_setup.py\n\n\n\n\n\n\n\nLaunch VS Code\nFile → Open Folder\nSelect the course repository folder\n\n\n\n\n\nOpen Command Palette (Ctrl+Shift+P on Windows/Linux, Cmd+Shift+P on macOS)\nType “Python: Select Interpreter”\nChoose the interpreter from .venv (it should show up as ./venv/bin/python or similar)\n\nIf the .venv interpreter doesn’t appear:\n\nClick “Enter interpreter path…”\nNavigate to: .venv/Scripts/python.exe (Windows) or .venv/bin/python (Mac/Linux)\n\n\n\n\nWhen you open a .ipynb file:\n\nVS Code will prompt you to select a kernel\nChoose the same .venv Python interpreter\n\n\n\n\n\nOpen scripts/00_setup.py\nYou should see the Python version in the bottom-right status bar\nRight-click in the editor → “Run Python File in Terminal”\n\n\n\n\n\n\n\n# Activate environment and run verification script\nuv run python scripts/00_setup.py\n\n\n\nYou can also test manually:\n# Check Python version\nuv run python --version\n\n# Test package imports\nuv run python -c \"import pandas; import numpy; import matplotlib; print('All packages loaded successfully!')\"\n\n# List installed packages\nuv pip list\n\n\n\n\n\n\nSolution: The installation directory isn’t in your PATH.\nWindows:\nAdd %USERPROFILE%\\.cargo\\bin to your PATH environment variable.\nmacOS/Linux:\nAdd this to your ~/.bashrc, ~/.zshrc, or equivalent:\nexport PATH=\"$HOME/.cargo/bin:$PATH\"\nThen run: source ~/.bashrc (or ~/.zshrc)\n\n\n\nSolution: uv can install Python for you:\nuv python install 3.11\nuv sync\n\n\n\nSolution 1: Ensure you have build tools installed\nWindows:\n\nInstall Visual Studio Build Tools\n\nmacOS:\nxcode-select --install\nLinux (Ubuntu/Debian):\nsudo apt-get install build-essential python3-dev\nSolution 2: Try installing pre-built wheels:\nuv pip install --only-binary :all: [package-name]\n\n\n\nSolution:\n\nMake sure .venv folder exists in your project root\nReload VS Code (Ctrl+Shift+P → “Developer: Reload Window”)\nManually browse to the interpreter:\n\n-   Windows: `.venv\\Scripts\\python.exe`\n\n-   Mac/Linux: `.venv/bin/python`\n\n\n\nSolution:\n\nEnsure Jupyter extension is installed\nInstall ipykernel in your environment:\n\nuv pip install ipykernel\n\nSelect the .venv kernel when opening a notebook\nRestart VS Code if needed\n\n\n\n\nSolution:\n\nEnsure you’ve selected the correct Python interpreter\nCheck that python.analysis.extraPaths includes your project root\nReload VS Code window\n\n\n\n\nSolution:\n\nDon’t use sudo with uv commands\nEnsure you have write permissions to the project directory\nOn Windows, run terminal as regular user (not administrator)\n\n\n\n\nPossible causes:\n\nFirst run always takes longer\nSlow internet connection\nAntivirus scanning\n\nSolutions:\n\nBe patient on first run\nDisable antivirus temporarily for .venv folder\nUse uv sync --offline if you’ve run it before\n\n\n\n\n\n\n\n\nKeep all work within this project folder\nUse relative paths (or pathlib)\nSave scripts with descriptive names: verb_noun.py (e.g., analyze_sales.py)\n\n\n\n\nGood:\n\nclean_data.py\n2024_01_15_sales_report.csv\nfigure_01_scatterplot.png\n\nBad:\n\nscript1.py\nfinal FINAL (2) copy.py\nsales data.csv (spaces can be problematic)\n\n\n\n\nIn Terminal:\n# Always use uv run to ensure correct environment\nuv run python scripts"
+  },
+  {
+    "objectID": "setup/03_import_project.html#downloading-a-project-repository-from-github",
+    "href": "setup/03_import_project.html#downloading-a-project-repository-from-github",
+    "title": "Import Python Project Tutorial with UV",
+    "section": "",
+    "text": "This method is recommended for newer programmers not yet familiar with git and Github and for any user who only needs a static copy of the repository.\n\nopen the chosen GitHub repository. In this tutorial, we will import the repository for Dartmouth Libraries’ Python Essential Workshop Series.\nClick the green “Code” button on the repository page\nSelect “Download ZIP”\nExtract the ZIP file to a memorable location (e.g., ~/Documents/Python-Courses/)\nImportant: To get updates, you’ll need to re-download\n\n\n\n\nThis method is recommended for users familiar with git and Github, have git installed, have a Github account, and who wish to create a dynamic copy (“clone”) of the repository. A clone allows you to update your local repo when its online counterpart as been updated (using the pull command in git). It also allows you to push any changes you made locally back up to the remote repository, but only if the repository administrator has given you these privileges.\nIf you have Git installed:\n# before cloning, move the current working directory to the folder where you want to clone this project\ngit clone [REPOSITORY-URL]\n# for example:\n# git clone git@github.com:Dartmouth-Libraries/py-essentials_ws.git\nTo update the local version of the repository after the online version has been updated:\ngit pull origin main"
+  },
+  {
+    "objectID": "setup/03_import_project.html#setting-up-the-python-environment",
+    "href": "setup/03_import_project.html#setting-up-the-python-environment",
+    "title": "Import Python Project Tutorial with UV",
+    "section": "",
+    "text": "cd path/to/[repository-name]\n\n\n\n\n\nYou can tell if a repository is set up for uv if it has a uv.lock file in its root folder.\nRun the following in the terminal:\n# This creates a .venv directory and installs all packages\nuv sync\nThis command:\n\nCreates a virtual environment in .venv/\nInstalls Python if the correct version isn’t available\nInstalls all packages specified in pyproject.toml\nCreates/updates uv.lock for reproducibility\n\n\n\n\nPrior to uv, Python project dependencies were usually stored in a requirements.txt file. To install all dependencies from this file and convert the project to a uv project, run the following in the terminal:\n\nFirst, initiate uv for this project:\n\nuv sync\n\n\n\nuv add -r requirements.txt\nIf this doesn’t provide desired results, review the documentation on this process in the uv guide.\n\n\n\n\n\n\n\nNote: This may take 5-10 minutes on first run.\n# Run the setup verification script\nuv run python scripts/00_setup.py"
+  },
+  {
+    "objectID": "setup/03_import_project.html#configuring-visual-studio-code",
+    "href": "setup/03_import_project.html#configuring-visual-studio-code",
+    "title": "Import Python Project Tutorial with UV",
+    "section": "",
+    "text": "Launch VS Code\nFile → Open Folder\nSelect the course repository folder\n\n\n\n\n\nOpen Command Palette (Ctrl+Shift+P on Windows/Linux, Cmd+Shift+P on macOS)\nType “Python: Select Interpreter”\nChoose the interpreter from .venv (it should show up as ./venv/bin/python or similar)\n\nIf the .venv interpreter doesn’t appear:\n\nClick “Enter interpreter path…”\nNavigate to: .venv/Scripts/python.exe (Windows) or .venv/bin/python (Mac/Linux)\n\n\n\n\nWhen you open a .ipynb file:\n\nVS Code will prompt you to select a kernel\nChoose the same .venv Python interpreter\n\n\n\n\n\nOpen scripts/00_setup.py\nYou should see the Python version in the bottom-right status bar\nRight-click in the editor → “Run Python File in Terminal”"
+  },
+  {
+    "objectID": "setup/03_import_project.html#verifying-your-setup",
+    "href": "setup/03_import_project.html#verifying-your-setup",
+    "title": "Import Python Project Tutorial with UV",
+    "section": "",
+    "text": "# Activate environment and run verification script\nuv run python scripts/00_setup.py\n\n\n\nYou can also test manually:\n# Check Python version\nuv run python --version\n\n# Test package imports\nuv run python -c \"import pandas; import numpy; import matplotlib; print('All packages loaded successfully!')\"\n\n# List installed packages\nuv pip list"
+  },
+  {
+    "objectID": "setup/03_import_project.html#troubleshooting",
+    "href": "setup/03_import_project.html#troubleshooting",
+    "title": "Import Python Project Tutorial with UV",
+    "section": "",
+    "text": "Solution: The installation directory isn’t in your PATH.\nWindows:\nAdd %USERPROFILE%\\.cargo\\bin to your PATH environment variable.\nmacOS/Linux:\nAdd this to your ~/.bashrc, ~/.zshrc, or equivalent:\nexport PATH=\"$HOME/.cargo/bin:$PATH\"\nThen run: source ~/.bashrc (or ~/.zshrc)\n\n\n\nSolution: uv can install Python for you:\nuv python install 3.11\nuv sync\n\n\n\nSolution 1: Ensure you have build tools installed\nWindows:\n\nInstall Visual Studio Build Tools\n\nmacOS:\nxcode-select --install\nLinux (Ubuntu/Debian):\nsudo apt-get install build-essential python3-dev\nSolution 2: Try installing pre-built wheels:\nuv pip install --only-binary :all: [package-name]\n\n\n\nSolution:\n\nMake sure .venv folder exists in your project root\nReload VS Code (Ctrl+Shift+P → “Developer: Reload Window”)\nManually browse to the interpreter:\n\n-   Windows: `.venv\\Scripts\\python.exe`\n\n-   Mac/Linux: `.venv/bin/python`\n\n\n\nSolution:\n\nEnsure Jupyter extension is installed\nInstall ipykernel in your environment:\n\nuv pip install ipykernel\n\nSelect the .venv kernel when opening a notebook\nRestart VS Code if needed\n\n\n\n\nSolution:\n\nEnsure you’ve selected the correct Python interpreter\nCheck that python.analysis.extraPaths includes your project root\nReload VS Code window\n\n\n\n\nSolution:\n\nDon’t use sudo with uv commands\nEnsure you have write permissions to the project directory\nOn Windows, run terminal as regular user (not administrator)\n\n\n\n\nPossible causes:\n\nFirst run always takes longer\nSlow internet connection\nAntivirus scanning\n\nSolutions:\n\nBe patient on first run\nDisable antivirus temporarily for .venv folder\nUse uv sync --offline if you’ve run it before"
+  },
+  {
+    "objectID": "setup/03_import_project.html#best-practices-for-this-course",
+    "href": "setup/03_import_project.html#best-practices-for-this-course",
+    "title": "Import Python Project Tutorial with UV",
+    "section": "",
+    "text": "Keep all work within this project folder\nUse relative paths (or pathlib)\nSave scripts with descriptive names: verb_noun.py (e.g., analyze_sales.py)\n\n\n\n\nGood:\n\nclean_data.py\n2024_01_15_sales_report.csv\nfigure_01_scatterplot.png\n\nBad:\n\nscript1.py\nfinal FINAL (2) copy.py\nsales data.csv (spaces can be problematic)\n\n\n\n\nIn Terminal:\n# Always use uv run to ensure correct environment\nuv run python scripts"
+  }
+]
