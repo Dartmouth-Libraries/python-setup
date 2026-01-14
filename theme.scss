@@ -1,5 +1,28 @@
 /*-- scss:defaults --*/
 /*-- customize code block appearance for bolder look --*/
-// Code blocks
-$code-block-border-left: true;
-$code-block-bg: #B0C4DE;
+
+// Code blocks (fenced code chunks)
+/*
+$code-block-border-left: 5px solid #27c0e3 !default;
+$code-block-bg: #c9e9ec !default;
+*/
+
+// If you want to change inline code separately:
+$code-bg: #dbbfe3 !default;
+$code-color: rgb(221, 17, 214) !default;
+
+/*-- scss:rules --*/
+
+// Target code blocks specifically
+div.sourceCode {
+  background-color: #8fd5da !important;
+  border-left: 5px solid #27c0e3 !important;
+  padding-left: 10px;
+}
+
+// Target generic code blocks (```)
+pre:not(.sourceCode) {
+  background-color: #9ce2b8 !important;
+  border-left: 5px solid #27e385 !important;
+  padding-left: 10px;
+}
