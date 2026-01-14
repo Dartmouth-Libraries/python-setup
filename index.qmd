@@ -7,6 +7,8 @@ format: html
 editor: visual
 ---
 
+*Produced by the Research Facilitation team in the Dartmouth College Libraries*
+
 ### Quick Links
 
 -   [Python Setup Slides](setup/00_setup_slides.qmd)
@@ -27,6 +29,8 @@ There are many ways to install and run Python. Here, we provide instructions for
 2.  installing and using **uv** to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
 
 3.  following computational and coding best practices to set up a Python project.
+
+These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in Dartmouth Libraries Github.
 
 ## 2. Designed for:
 
@@ -57,7 +61,9 @@ Upon completing the lessons offered here, the student will be able to:
 
 **Pre-requisites:**
 
-    1.  User is comfortable navigating through files on their computer
+```         
+1.  User is comfortable navigating through files on their computer
+```
 
 ## 6. Getting Started
 
@@ -71,9 +77,9 @@ To complete the set up tutorial, open the **setup/** folder and do the following
 
 4.  Complete the [Tutorial 3: Import Existing Python Project](setup/03_import_project.qmd)
 
-5. Optional review: [UV Cheatsheet](setup/uv_cheatsheet.qmd)
-   
-6. Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
+5.  Optional review: [UV Cheatsheet](setup/uv_cheatsheet.qmd)
+
+6.  Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
 
 ## Required Software
 
@@ -95,8 +101,10 @@ Instructions for installing the following are in the Set Up tutorials outlined i
 -->
 ```
 
-## Acknowledgements
+## LICENSE
 
-\[Credit any sources, contributors, or funding sources\]
+Instructional materials produced here are available under the [CC BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en). Review the license link and the [LICENSE](LICENSE) page in this repo. Code is available for reuse under the Open Source Initiative's [The MIT License](https://opensource.org/license/mit).
+
+## Acknowledgements
 
 **Template Information**: This repository was created using the [Python Tutorial Template](https://github.com/Dartmouth-Libraries/Python-tutorial-template) (created by Research Facilitation, Dartmouth Libraries).

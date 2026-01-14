@@ -1,7 +1,15 @@
-- [Python Setup Slides](setup/setup_slides.qmd)
-- [Tutorial 1: Python Installation & Setup](setup/01_python_setup.qmd)
-- [Tutorial 2: Create Python Project from Scratch](setup/02_create_project_from_scratch.qmd)
-- [Tutorial 3: Import Existing Python Project](setup/013_import_project.qmd)
+[Python Setup github.io webpage](https://dartmouth-libraries.github.io/python-setup/)
+
+*Produced by the Research Facilitation team in the Dartmouth College Libraries*
+
+### Quick Links
+
+-   [Python Setup Slides](setup/00_setup_slides.qmd)
+-   [Tutorial 1: Python Installation & Setup](setup/01_python_setup.qmd)
+-   [Tutorial 2: Create Python Project from Scratch](setup/02_create_project_from_scratch.qmd)
+-   [Tutorial 3: Import Existing Python Project](setup/03_import_project.qmd)
+-   [UV Installation and Setup Cheatsheet](setup/uv_cheatsheet.qmd)
+-   [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd)
 
 ## 1. Overview
 
@@ -9,71 +17,70 @@ This repository contains tutorials to walk you through installing Python and get
 
 There are many ways to install and run Python. Here, we provide instructions for our recommended set up for new Python users that involves:
 
-1. installing and using the coding editor and IDE (Integrated Development Environment) software **Visual Studio Code**
+1.  installing and using the coding editor and IDE (Integrated Development Environment) software **Visual Studio Code**
 
-2. installing and using **uv** to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
+2.  installing and using **uv** to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
 
-3. following computational and coding best practices to set up a Python project.
+3.  following computational and coding best practices to set up a Python project.
 
-## 2. Author
+## 2. Designed for:
 
-**Jeremy Mikecz, Research Facilitation, Dartmouth Libraries**
-January 2026
-
-## 3. Designed for:
-
-+ in-person / virtual instruction
-+ *or* asynchronous, self-paced learning
+-   in-person / virtual instruction
+-   *or* asynchronous, self-paced learning
 
 ...for Python beginners and those who have used Python before and want to learn how to best set it up on their own computer.
-  
-## 4. Learning Objectives
+
+## 3. Learning Objectives
 
 Upon completing the lessons offered here, the student will be able to:
 
-+ install and run Python on their local computer, whether it be a Mac, PC, or Linux
-+ set up a new Python project in Visual Studio Code from scratch following programming and computational best practices.
-+ import an existing Python project and modify it within VSC.
-+ write their first markdown file (`README.md`)
-+ write and run their first Python script and Python Jupyter notebook.
+-   install and run Python on their local computer, whether it be a Mac, PC, or Linux
+-   set up a new Python project in Visual Studio Code from scratch following programming and computational best practices.
+-   import an existing Python project and modify it within VSC.
+-   write their first markdown file (`README.md`)
+-   write and run their first Python script and Python Jupyter notebook.
 
+## 4. Instructor(s) and Years Taught (if taught live)
 
-## 5. Instructor(s) and Years Taught (if taught live)
+-   Jeremy Mikecz, Research Facilitation (Python Setup, W2026)
 
-+ Jeremy Mikecz, Research Facilitation (Python Setup, W2026)
+## 5. Other Instructional Information
 
-## 6. Other Instructional Information
-
-**Level:** Beginner
+**Level:** Beginner (and Intermediate Users looking to establish better project practices)
 
 **Duration:** Estimated time to complete: 2-3 hours (but could vary tremendously)
 
-**Pre-requisites:** 
+**Pre-requisites:**
 
-+ 1. User is comfortable navigating through files on their computer
+```         
+1.  User is comfortable navigating through files on their computer
+```
 
-    
-## 7. Getting Started
+## 6. Getting Started
 
 To complete the set up tutorial, open the **setup/** folder and do the following in order:
 
-1. Review the [00_setup_slides](setup/00_setup_slides.html) presentation (optional, but provides from useful background)
+1.  Review the [00_setup_slides](setup/00_setup_slides.html) presentation (*optional, but provides from useful background*)
 
-2. Complete the Python Setup Tutorial (Notebook 01 in `setup/` folder)
+2.  Complete the [Tutorial 1: Python Installation & Setup](setup/01_python_setup.qmd)
 
-3. Complete the Create a New Python Project from Scratch Tutorial (Notebook 02 in `setup/` folder)
+3.  Complete the [Tutorial 2: Create Python Project from Scratch](setup/02_create_project_from_scratch.qmd)
 
-4. Complete the Python Setup Tutorial (Notebook 03 in `setup/` folder)
+4.  Complete the [Tutorial 3: Import Existing Python Project](setup/03_import_project.qmd)
 
+5.  Optional review: [UV Cheatsheet](setup/uv_cheatsheet.qmd)
+
+6.  Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
 
 ## Required Software
 
-Instructions for installing the following are in the Set Up tutorials outlined in Step 7 above.
+Instructions for installing the following are in the Set Up tutorials outlined in Step 6 above.
 
-- **Python** (version 3.12 or higher)
-- **Visual Studio Code**
-- **uv** (package manager)
+-   **Python** (version 3.12 or higher)
+-   **Visual Studio Code**
+-   **uv** (package manager)
 
+```{=html}
 <!--
 ## 8. Overview of Materials
 
@@ -83,12 +90,12 @@ Instructions for installing the following are in the Set Up tutorials outlined i
 4. Data
    
 -->
+```
+
+## LICENSE
+
+Instructional materials produced here are available under the [CC BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en). Review the license link and the [LICENSE](LICENSE) page in this repo. Code is available for reuse under the Open Source Initiative's [The MIT License](https://opensource.org/license/mit).
 
 ## Acknowledgements
 
-[Credit any sources, contributors, or funding sources]
-
-
 **Template Information**: This repository was created using the [Python Tutorial Template](https://github.com/Dartmouth-Libraries/Python-tutorial-template) (created by Research Facilitation, Dartmouth Libraries).
-
-
