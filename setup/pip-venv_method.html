@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jeremy Mikecz">
-<meta name="dcterms.date" content="2026-01-13">
+<meta name="dcterms.date" content="2023-12-31">
 
-<title>Import Python Project Tutorial with UV – Python Setup Tutorial</title>
+<title>Alternative Python Setup: pip + venv – Python Setup Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -274,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Tutorial 2: Create Project</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../setup/03_import_project.html" aria-current="page"> 
+    <a class="nav-link" href="../setup/03_import_project.html"> 
 <span class="menu-text">Tutorial 3: Import Project</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -311,46 +311,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#importing-an-existing-python-project-with-vsc-and-uv" id="toc-importing-an-existing-python-project-with-vsc-and-uv" class="nav-link active" data-scroll-target="#importing-an-existing-python-project-with-vsc-and-uv">Importing an existing Python Project with VSC and UV</a>
+  <li><a href="#alternative-python-setup" id="toc-alternative-python-setup" class="nav-link active" data-scroll-target="#alternative-python-setup">Alternative Python Setup</a>
   <ul class="collapse">
-  <li><a href="#brief-cheatsheet" id="toc-brief-cheatsheet" class="nav-link" data-scroll-target="#brief-cheatsheet">Brief Cheatsheet</a></li>
-  <li><a href="#downloading-a-project-repository-from-github" id="toc-downloading-a-project-repository-from-github" class="nav-link" data-scroll-target="#downloading-a-project-repository-from-github">Downloading a Project Repository from Github</a>
+  <li><a href="#visual-studio-code-with-pip-venv-option" id="toc-visual-studio-code-with-pip-venv-option" class="nav-link" data-scroll-target="#visual-studio-code-with-pip-venv-option">Visual Studio Code with pip + venv Option</a></li>
+  <li><a href="#step-1a-install-python" id="toc-step-1a-install-python" class="nav-link" data-scroll-target="#step-1a-install-python">Step 1a: Install Python</a>
   <ul class="collapse">
-  <li><a href="#option-1-download-as-zip" id="toc-option-1-download-as-zip" class="nav-link" data-scroll-target="#option-1-download-as-zip">Option 1: Download as ZIP</a></li>
-  <li><a href="#option-2-using-git-advanced" id="toc-option-2-using-git-advanced" class="nav-link" data-scroll-target="#option-2-using-git-advanced">Option 2: Using Git (Advanced)</a></li>
+  <li><a href="#download-and-install-python-following-the-instructions-below." id="toc-download-and-install-python-following-the-instructions-below." class="nav-link" data-scroll-target="#download-and-install-python-following-the-instructions-below.">Download and install Python following the instructions below.</a></li>
   </ul></li>
-  <li><a href="#setting-up-the-python-environment" id="toc-setting-up-the-python-environment" class="nav-link" data-scroll-target="#setting-up-the-python-environment">Setting Up the Python Environment</a>
+  <li><a href="#step-1b-install-visual-studio-code" id="toc-step-1b-install-visual-studio-code" class="nav-link" data-scroll-target="#step-1b-install-visual-studio-code">Step 1b: Install Visual Studio Code</a></li>
+  <li><a href="#step-2-getting-a-project-started-in-visual-studio-code" id="toc-step-2-getting-a-project-started-in-visual-studio-code" class="nav-link" data-scroll-target="#step-2-getting-a-project-started-in-visual-studio-code">Step 2: Getting a Project Started in Visual Studio Code</a>
   <ul class="collapse">
-  <li><a href="#step-1-open-project-in-vsc" id="toc-step-1-open-project-in-vsc" class="nav-link" data-scroll-target="#step-1-open-project-in-vsc">Step 1: Open Project in VSC</a></li>
-  <li><a href="#step-2-create-virtual-environment-and-install-dependencies" id="toc-step-2-create-virtual-environment-and-install-dependencies" class="nav-link" data-scroll-target="#step-2-create-virtual-environment-and-install-dependencies">Step 2: Create Virtual Environment and Install Dependencies</a></li>
+  <li><a href="#open-visual-studio-code-vsc" id="toc-open-visual-studio-code-vsc" class="nav-link" data-scroll-target="#open-visual-studio-code-vsc">Open Visual Studio Code (VSC)</a></li>
+  <li><a href="#open-a-project-folder" id="toc-open-a-project-folder" class="nav-link" data-scroll-target="#open-a-project-folder">Open a project folder</a></li>
+  <li><a href="#exploring-folder-structure" id="toc-exploring-folder-structure" class="nav-link" data-scroll-target="#exploring-folder-structure">Exploring folder structure</a></li>
+  <li><a href="#installing-extensions-in-vs-code-1-python-extension" id="toc-installing-extensions-in-vs-code-1-python-extension" class="nav-link" data-scroll-target="#installing-extensions-in-vs-code-1-python-extension">Installing Extensions in VS Code 1: Python extension</a></li>
+  <li><a href="#installing-extensions-in-vs-code-1-jupyter-extensionsee-fn.-1" id="toc-installing-extensions-in-vs-code-1-jupyter-extensionsee-fn.-1" class="nav-link" data-scroll-target="#installing-extensions-in-vs-code-1-jupyter-extensionsee-fn.-1">Installing Extensions in VS Code 1: Jupyter extension(see fn. 1)</a></li>
   </ul></li>
-  <li><a href="#configuring-visual-studio-code" id="toc-configuring-visual-studio-code" class="nav-link" data-scroll-target="#configuring-visual-studio-code">Configuring Visual Studio Code</a>
-  <ul class="collapse">
-  <li><a href="#step-1-open-the-project" id="toc-step-1-open-the-project" class="nav-link" data-scroll-target="#step-1-open-the-project">Step 1: Open the Project</a></li>
-  <li><a href="#step-2-select-python-interpreter" id="toc-step-2-select-python-interpreter" class="nav-link" data-scroll-target="#step-2-select-python-interpreter">Step 2: Select Python Interpreter</a></li>
-  <li><a href="#step-3-configure-jupyter" id="toc-step-3-configure-jupyter" class="nav-link" data-scroll-target="#step-3-configure-jupyter">Step 3: Configure Jupyter</a></li>
-  </ul></li>
-  <li><a href="#verifying-your-setup" id="toc-verifying-your-setup" class="nav-link" data-scroll-target="#verifying-your-setup">Verifying Your Setup</a>
-  <ul class="collapse">
-  <li><a href="#manual-verification" id="toc-manual-verification" class="nav-link" data-scroll-target="#manual-verification">Manual Verification</a></li>
-  </ul></li>
-  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
-  <ul class="collapse">
-  <li><a href="#issue-uv-command-not-found" id="toc-issue-uv-command-not-found" class="nav-link" data-scroll-target="#issue-uv-command-not-found">Issue: <code>uv: command not found</code></a></li>
-  <li><a href="#issue-python-version-x.y-required-but-x.z-found" id="toc-issue-python-version-x.y-required-but-x.z-found" class="nav-link" data-scroll-target="#issue-python-version-x.y-required-but-x.z-found">Issue: “Python version X.Y required but X.Z found”</a></li>
-  <li><a href="#issue-package-installation-fails-with-compilation-errors" id="toc-issue-package-installation-fails-with-compilation-errors" class="nav-link" data-scroll-target="#issue-package-installation-fails-with-compilation-errors">Issue: Package installation fails with compilation errors</a></li>
-  <li><a href="#issue-vs-code-doesnt-recognize-the-.venv-interpreter" id="toc-issue-vs-code-doesnt-recognize-the-.venv-interpreter" class="nav-link" data-scroll-target="#issue-vs-code-doesnt-recognize-the-.venv-interpreter">Issue: VS Code doesn’t recognize the .venv interpreter</a></li>
-  <li><a href="#issue-jupyter-notebooks-wont-run" id="toc-issue-jupyter-notebooks-wont-run" class="nav-link" data-scroll-target="#issue-jupyter-notebooks-wont-run">Issue: Jupyter notebooks won’t run</a></li>
-  <li><a href="#issue-import-could-not-be-resolved-warnings-in-vs-code" id="toc-issue-import-could-not-be-resolved-warnings-in-vs-code" class="nav-link" data-scroll-target="#issue-import-could-not-be-resolved-warnings-in-vs-code">Issue: “Import could not be resolved” warnings in VS Code</a></li>
-  <li><a href="#issue-cannot-write-to-.venv-directory-permission-errors" id="toc-issue-cannot-write-to-.venv-directory-permission-errors" class="nav-link" data-scroll-target="#issue-cannot-write-to-.venv-directory-permission-errors">Issue: Cannot write to <code>.venv</code> directory (permission errors)</a></li>
-  <li><a href="#issue-uv-sync-is-very-slow" id="toc-issue-uv-sync-is-very-slow" class="nav-link" data-scroll-target="#issue-uv-sync-is-very-slow">Issue: <code>uv sync</code> is very slow</a></li>
-  </ul></li>
-  <li><a href="#best-practices-for-this-course" id="toc-best-practices-for-this-course" class="nav-link" data-scroll-target="#best-practices-for-this-course">Best Practices for This Course</a>
-  <ul class="collapse">
-  <li><a href="#file-organization" id="toc-file-organization" class="nav-link" data-scroll-target="#file-organization">File Organization</a></li>
-  <li><a href="#naming-conventions" id="toc-naming-conventions" class="nav-link" data-scroll-target="#naming-conventions">Naming Conventions</a></li>
-  <li><a href="#running-python-code" id="toc-running-python-code" class="nav-link" data-scroll-target="#running-python-code">Running Python Code</a></li>
-  </ul></li>
+  <li><a href="#step-3-setting-up-a-virtual-environment-in-vsc" id="toc-step-3-setting-up-a-virtual-environment-in-vsc" class="nav-link" data-scroll-target="#step-3-setting-up-a-virtual-environment-in-vsc">Step 3: Setting Up a Virtual Environment in VSC</a></li>
+  <li><a href="#step-4-getting-started-with-python-in-vsc" id="toc-step-4-getting-started-with-python-in-vsc" class="nav-link" data-scroll-target="#step-4-getting-started-with-python-in-vsc">Step 4: Getting Started with Python in VSC</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -361,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Import Python Project Tutorial with UV</h1>
+<h1 class="title">Alternative Python Setup: pip + venv</h1>
 </div>
 
 
@@ -385,7 +363,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 13, 2026</p>
+      <p class="date">December 31, 2023</p>
     </div>
   </div>
   
@@ -397,341 +375,189 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="importing-an-existing-python-project-with-vsc-and-uv" class="level1">
-<h1>Importing an existing Python Project with VSC and UV</h1>
-<p>This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the <a href="00_setup-slides.html">00_setup_slides</a> and completed the installation of Visual Studio Code and Python using uv by following <a href="../setup/01_python_setup.html">Setup Notebook 01</a>.</p>
-<p>These coding notebooks and other materials are stored in the <a href="https://github.com/Dartmouth-Libraries/python-setup"><strong>python-setup</strong></a> repository in Dartmouth Libraries Github.</p>
-<section id="brief-cheatsheet" class="level2">
-<h2 class="anchored" data-anchor-id="brief-cheatsheet">Brief Cheatsheet</h2>
-<p>the brief, no-explanation-needed version:</p>
-<ol type="1">
-<li><p>Import an existing Python project. Common options:</p>
-<ol type="1">
-<li><p>most users: Download static copy from Github: <strong>Code</strong> –&gt; <strong>Download Zip</strong> –&gt; unzip –&gt; move into a logical place on our hard drive or cloud server, i.e.&nbsp;<code>~/Documents/python_projects/</code>.</p></li>
-<li><p>advanced users: Copy dynamic “clone” from Github: <strong>Code</strong> –&gt; Copy the SSH or HTTPs url –&gt; open a standalone terminal (outside of VSC), navigate to the root directory where you want to place this project, and run <code>git clone [REPO-URL]</code>.</p></li>
-</ol></li>
-<li><p>In standalone terminal, navigate to your imported project folder using <code>cd folder/to/project</code>.</p></li>
-<li><p>Install package dependencies</p>
-<ol type="1">
-<li>If the project has a <code>uv.lock</code> page (which indicates it is a uv project with its dependencies stored in this file):
-<ol type="1">
-<li>In the terminal (make sure the current working directory is your project folder), run: <code>uv sync</code>.</li>
-</ol></li>
-<li>If the project has a <code>requirements.txt</code> file instead:
-<ol type="1">
-<li>run <code>uv sync</code> and then <code>uv add -r requirements.txt</code>.</li>
-</ol></li>
-<li>Otherwise, install each needed package independently using <code>uv add [package_name]</code>.</li>
-</ol></li>
-<li><p>Open VSC Code and configure:</p>
-<ol type="1">
-<li><strong>File</strong> –&gt; <strong>Open Folder</strong> –&gt; select project folder</li>
-<li>Select Python Interpreter:
-<ol type="1">
-<li>Open Command Palette (Ctrl+Shift+P on Windows/Linux, Cmd+Shift+P on macOS)</li>
-<li>Type “Python: Select Interpreter”</li>
-<li>Choose the interpreter from .venv (it should show up as ./venv/bin/python or similar)</li>
-<li>when you first open or create a new Jupyter notebook (<code>.ipynb</code>) you may be prompted to choose an interpreter, choose the same <code>.venv</code> Python interpreter.</li>
-</ol></li>
-</ol></li>
-<li><p>Verify Set up: run <code>uv python --version</code> and <code>uv pip list</code> to see Python version and packages installed to the project environment</p></li>
-</ol>
-<hr>
-<p>More detailed instructions and explanations:</p>
+<section id="alternative-python-setup" class="level1">
+<h1>Alternative Python Setup</h1>
+<section id="visual-studio-code-with-pip-venv-option" class="level2">
+<h2 class="anchored" data-anchor-id="visual-studio-code-with-pip-venv-option">Visual Studio Code with pip + venv Option</h2>
+<p><em>Note: We now recommend the UV + VSC option outlined in Tutorials 1-3 on this webpage. However, for users most comfortable for our previous recommended approach, please follow the instructions below.</em></p>
 </section>
-<section id="downloading-a-project-repository-from-github" class="level2">
-<h2 class="anchored" data-anchor-id="downloading-a-project-repository-from-github">Downloading a Project Repository from Github</h2>
-<section id="option-1-download-as-zip" class="level3">
-<h3 class="anchored" data-anchor-id="option-1-download-as-zip">Option 1: Download as ZIP</h3>
-<p><em>This method is recommended for newer programmers not yet familiar with git and Github and for any user who only needs a static copy of the repository.</em></p>
-<ol type="1">
-<li><p>open the chosen GitHub repository. In this tutorial, we will import <a href="https://github.com/Dartmouth-Libraries/py-essentials_ws">the repository for Dartmouth Libraries’ Python Essential Workshop Series</a>.<!--Mrinank Bhowmick's ["Python Beginner Project"](https://github.com/Mrinank-Bhowmick/python-beginner-projects/tree/main#) repository. --><!--[the Github repository that supplements](https://github.com/DataScienceUB/introduction-datascience-python-book/tree/master) the book, Igual and Seguí, *Introduction to Data Science* (Springer, 2017).--></p></li>
-<li><p>Click the green “Code” button on the repository page</p></li>
-<li><p>Select “Download ZIP”</p></li>
-<li><p>Extract the ZIP file to a memorable location (e.g., <code>~/Documents/Python-Courses/</code>)</p></li>
-<li><p><strong>Important:</strong> To get updates, you’ll need to re-download</p></li>
-</ol>
-</section>
-<section id="option-2-using-git-advanced" class="level3">
-<h3 class="anchored" data-anchor-id="option-2-using-git-advanced">Option 2: Using Git (Advanced)</h3>
-<p>This method is recommended for users who:</p>
+<section id="step-1a-install-python" class="level2">
+<h2 class="anchored" data-anchor-id="step-1a-install-python">Step 1a: Install Python</h2>
+<section id="download-and-install-python-following-the-instructions-below." class="level3">
+<h3 class="anchored" data-anchor-id="download-and-install-python-following-the-instructions-below.">Download and install Python following the instructions below.</h3>
+<section id="instructions-for-macos-ventura-or-later" class="level4">
+<h4 class="anchored" data-anchor-id="instructions-for-macos-ventura-or-later">Instructions for MacOS (Ventura or later)</h4>
 <ul>
-<li><p>are familiar with git and Github</p></li>
-<li><p>have git installed</p></li>
-<li><p>have set up a Github account</p></li>
-<li><p>wish to create a dynamic copy (“clone”) of the repository.</p></li>
-</ul>
-<p>A clone allows you to update your local repo when its online counterpart as been updated (using the pull command in git). It also allows you to push any changes you made locally back up to the remote repository, but only if the repository administrator has given you these privileges.</p>
-<ol type="1">
-<li>open the chosen GitHub repository.</li>
-<li>Click the green “Code” button on the repository page</li>
-<li>Under <strong>Clone</strong> copy the HTTPS or SSH url (recommended option: set up an SSH Key with your Github account and use SSH; if you don’t have such a key then you will need to use HTTPS)</li>
-<li>Open a standalone terminal (outside VSC). Navigate to the root directory where you want to store this project. Run the following:</li>
-</ol>
-<pre class="{terminal}"><code># before cloning, move the current working directory to the folder where you want to clone this project
-#paste the https or ssh repo url below and run:
-git clone in VSC project
-# for example:
-# git clone git@github.com:Dartmouth-Libraries/py-essentials_ws.git</code></pre>
-<ol start="5" type="1">
-<li>To update the local version of the repository after the online version has been updated:</li>
-</ol>
-<pre class="{terminal}"><code>git pull origin main</code></pre>
-<ol start="6" type="1">
-<li>If you have permissions to edit the online repository you can use <code>git add</code>, <code>git commit</code>, and <code>git push</code> to push your local changes back to the online repo. This is for more advanced users and is outside the scope of this tutorial.</li>
-</ol>
-</section>
-</section>
-<section id="setting-up-the-python-environment" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-the-python-environment">Setting Up the Python Environment</h2>
-<section id="step-1-open-project-in-vsc" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-open-project-in-vsc">Step 1: Open Project in VSC</h3>
-<ol type="1">
-<li>Navigate to your new project folder within a standalone terminal using the <code>cd</code> command:</li>
-</ol>
-<pre class="{terminal}"><code>cd path/to/[repository-name]</code></pre>
-<ol start="2" type="1">
-<li>Tips
-<ol start="2" type="1">
-<li>to navigate to an absolute path: <code>cd C:/Users/myusername/Documents/python-projects/imported-project</code></li>
-<li>to navigate up one directory: <code>cd ..</code> or up three: <code>cd ../../..</code></li>
-<li>to navigate down one directory: <code>cd subfolder-name</code> or three <code>cd subfolder1/subfolder2/subfolder3</code>.</li>
-</ol></li>
-</ol>
-</section>
-<section id="step-2-create-virtual-environment-and-install-dependencies" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-create-virtual-environment-and-install-dependencies">Step 2: Create Virtual Environment and Install Dependencies</h3>
-<section id="a.-if-the-imported-project-is-a-uv-project" class="level4">
-<h4 class="anchored" data-anchor-id="a.-if-the-imported-project-is-a-uv-project">2a. If the Imported Project is a <strong>uv</strong> project</h4>
-<p>You can tell if a repository is set up for <strong>uv</strong> if it has a <code>uv.lock</code> file in its root folder.</p>
-<p>Run the following in the <strong>terminal</strong>:</p>
-<pre class="{terminal}"><code># This creates a .venv directory and installs all packages
-uv sync</code></pre>
-<p>This command:</p>
-<ul>
-<li><p>Creates a virtual environment in <code>.venv/</code></p></li>
-<li><p>Installs Python if the correct version isn’t available</p></li>
-<li><p>Installs all packages specified in <code>pyproject.toml</code></p></li>
-<li><p>Creates/updates <code>uv.lock</code> for reproducibility</p></li>
+<li>Using a web browser of your choice, navigate to www.python.org.</li>
+<li>In the <code>Downloads</code> menu, click on the gray button to download the latest stable version of Python.</li>
+<li>Install the downloaded <code>pkg</code> file with the default settings.</li>
+<li>In the <code>Finder</code> window that pops up after installation, double-click the file <code>Install Certificates.command</code>.</li>
+<li>Close the <code>Finder</code> window and the installer.</li>
+<li>Move the <code>pkg</code> file to the Trash</li>
+<li>Open the <code>Terminal</code> application (located under <code>Other</code> in the Launchpad)</li>
+<li>In the terminal, type the command <code>python3</code> and hit <code>return</code>.</li>
+<li>The terminal will show the version of Python just installed and a command prompt starting with <code>&gt;&gt;&gt;</code>.</li>
 </ul>
 </section>
-<section id="b.-if-the-imported-project-has-a-requirements.txt-file" class="level4">
-<h4 class="anchored" data-anchor-id="b.-if-the-imported-project-has-a-requirements.txt-file">2b. If the Imported Project has a <code>requirements.txt</code> file</h4>
-<p>Prior to <strong>uv</strong>, Python project dependencies were usually stored in a <code>requirements.txt</code> file. To install all dependencies from this file and convert the project to a uv project, run the following in the <strong>terminal</strong>:</p>
+<section id="instructions-for-windows-11" class="level4">
+<h4 class="anchored" data-anchor-id="instructions-for-windows-11">Instructions for Windows 11</h4>
+<ul>
+<li>Using a web browser of your choice, navigate to www.python.org.</li>
+<li>In the <code>Downloads</code> menu, click on the gray button to download the latest stable version of Python.</li>
+<li>Start the downloaded installer:
+<ul>
+<li>Check the box next to <code>Add python.exe to PATH</code>.</li>
+<li>Click <code>Install Now</code> and wait for installation to finish</li>
+<li>Click <code>Disable path length limit</code>.</li>
+<li>Close the installer</li>
+</ul></li>
+<li>From the Start Menu, open the Python executable (e.g.&nbsp;<code>Python 3.12 (64-bit)</code>).</li>
+<li>The terminal will show the version of Python just installed and a command prompt starting with “&gt;&gt;&gt;”.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="step-1b-install-visual-studio-code" class="level2">
+<h2 class="anchored" data-anchor-id="step-1b-install-visual-studio-code">Step 1b: Install Visual Studio Code</h2>
+<p><strong>Visual Studio Code</strong> (or VS Code) is a code editor developed by Microsoft and available on all major platforms (Linux, macOS, and Windows). It is entirely free and largely open-source. Essentially a text editor with superpowers, it supports not just Python but many other programming languages and is incredibly versatile thanks to a plethora of optional extensions. Since it can open, display, or run all kinds of different files, you rarely have to leave the program when working on a project, which makes it a great Integrated Development Environment (IDE).</p>
+<section id="macos-ventura-or-later" class="level4">
+<h4 class="anchored" data-anchor-id="macos-ventura-or-later">MacOS (Ventura or later)</h4>
+<ul>
+<li>Navigate to code.visualstudio.com.</li>
+<li>Download the latest stable version.</li>
+<li>Open your <code>Downloads</code> folder.</li>
+<li>Drag and drop the downloaded file <code>Visual Studio Code</code> into your <code>Applications</code> folder on the left pane.</li>
+</ul>
+</section>
+<section id="windows-11" class="level4">
+<h4 class="anchored" data-anchor-id="windows-11">Windows 11</h4>
+<ul>
+<li>Navigate to code.visualstudio.com.</li>
+<li>Download the latest stable version.</li>
+<li>Open the downloaded installer:</li>
+<li>Follow the instructions and click <code>Next</code> three times.</li>
+<li>When prompted, select (or leave selected) all checkboxes under <code>Other</code>.</li>
+<li>Click <code>Install</code>.</li>
+</ul>
+</section>
+</section>
+<section id="step-2-getting-a-project-started-in-visual-studio-code" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-getting-a-project-started-in-visual-studio-code">Step 2: Getting a Project Started in Visual Studio Code</h2>
+<section id="open-visual-studio-code-vsc" class="level3">
+<h3 class="anchored" data-anchor-id="open-visual-studio-code-vsc">Open Visual Studio Code (VSC)</h3>
+<p>When you open VS Code for the first time, you will be greeted by a Welcome screen. For now, choose a theme that you like and close it.</p>
+</section>
+<section id="open-a-project-folder" class="level3">
+<h3 class="anchored" data-anchor-id="open-a-project-folder">Open a project folder</h3>
+<ul>
+<li>VS Code works best if you open a folder that contains all files for a particular project (the one project - one folder - one environment approach).</li>
+<li>If you don’t have a project folder already, create one in your “Documents” folder (or wherever you keep your project files)</li>
+<li>Within VSC select File –&gt; Open Folder</li>
+<li>You should see this folder and its contents appear in the Explore window on the left panel of VSC</li>
+</ul>
+</section>
+<section id="exploring-folder-structure" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-folder-structure">Exploring folder structure</h3>
+<p>With the “Explorer” view open in the left-side pane of VS Code, experiment by right-clicking (Windows) or CTRL-click (Mac) inside the project folder and create a new folder called Notebooks. Then right/CTRL-click this new folder and select “New File”. When creating a new file this way, you need to give it a name and a proper file extension. For example, try creating a plain text file called Notes.txt, a Python file called test_code.py, and a Jupyter Notebook called test_notebook.ipynb.</p>
+<p>Note: in the VS Code Explorer window, there are two different ways to open a file:</p>
 <ol type="1">
-<li>First, initiate <strong>uv</strong> for this project:</li>
+<li><p>Selecting a file with a single click opens it in a new tab, but closes it again if you switch to another file (note the name in italics on the tab)</p></li>
+<li><p>Selecting a file with a double click opens it in a new tab and keeps it open until you close the tab (note the non-italicized name on the tab)</p></li>
 </ol>
-<pre class="{terminal}"><code>uv sync</code></pre>
-<ol start="2" type="1">
+</section>
+<section id="installing-extensions-in-vs-code-1-python-extension" class="level3">
+<h3 class="anchored" data-anchor-id="installing-extensions-in-vs-code-1-python-extension">Installing Extensions in VS Code 1: Python extension</h3>
+<ul>
+<li><p>Open the Extensions view on the left-side pane. You can add additional functionality to VS Code by installing extensions.</p></li>
+<li><p>To get started we will install the Python and Jupyter extensions.</p></li>
+<li><p>Search for Python.</p></li>
+<li><p>Click on “Install.”</p></li>
+<li><p>Close the “Welcome” tab that opens up</p></li>
+<li><p>To check that it works, we will write some Python code to a file and execute it:</p>
+<ul>
+<li><p>Open the test_code.py file you created above.</p></li>
+<li><p>Type the following lines of code in the .py file:</p>
+<p>print(“Hello World!”) 4 * 7 x = 26 / 4 print(“x =”, x)</p></li>
+<li><p>Run the code by clicking the ▶️ icon in the top right</p></li>
+<li><p>A Python terminal should open in the bottom pane of VS Code. Examine what the output that was produced after running your code file. What information was returned? What was omitted?</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="installing-extensions-in-vs-code-1-jupyter-extensionsee-fn.-1" class="level3">
+<h3 class="anchored" data-anchor-id="installing-extensions-in-vs-code-1-jupyter-extensionsee-fn.-1">Installing Extensions in VS Code 1: Jupyter extension(see fn. 1)</h3>
+<ul>
+<li><p>Python scripts always run from top to bottom in their entirety. This is great when you have a fully-formed program that you want to execute, but it is somewhat inconvenient when you want to have more of a back-and-forth, interactive experience. This is often the case when you are doing data analysis, create visualizations, or do any other kind of more iterative work.</p></li>
+<li><p>To support such use cases, there is an extension for Python called Jupyter. We can install Jupyter on VS Code’s <code>Extensions</code> tab:</p>
+<ul>
+<li><p>Choose the <code>Extensions</code> tab on the Primary Side Bar</p></li>
+<li><p>The <code>Jupyter</code> extension should be listed under the <code>Popular</code> heading, otherwise type <code>Jupyter</code> into the search box</p></li>
+<li><p>Click on <code>Install</code></p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="step-3-setting-up-a-virtual-environment-in-vsc" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-setting-up-a-virtual-environment-in-vsc">Step 3: Setting Up a Virtual Environment in VSC</h2>
+<!--[Explain more about importance of virtual environments]-->
+<ul>
+<li><p>Select the Search Bar at the top center of VS Code.</p></li>
+<li><p>Select <code>Show and Run Commands</code> –&gt; <code>Python: Create Environment</code> –&gt; <code>Venv</code>.</p></li>
+<li><p>Select the Python version you installed in Step 1b.</p></li>
+<li><p>In the Explorer view on the left you should now see a folder called “.venv”. Whenever you install new Python packages (also called “libraries”) to your local environment they will be installed in this folder.</p></li>
+<li><p>At the top right-hand corner of the notebook you should see a “Select Kernel” button. Click on it and select the <code>Python Environments</code> –&gt; select the .venv environment you just created.</p></li>
+</ul>
+</section>
+<section id="step-4-getting-started-with-python-in-vsc" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-getting-started-with-python-in-vsc">Step 4: Getting Started with Python in VSC</h2>
+<ol type="1">
+<li><p>Open the Jupyter notebook you created called test_notebook.ipynb.</p>
+<p>or you can create a new notebook by selecting: <code>File</code> –&gt; <code>New File</code> –&gt; <code>Jupyter Notebook</code>; Save the new notebook: <code>File</code> –&gt; <code>Save As</code></p></li>
+<li><p>Setup Python Kernel click on <code>Select Kernel</code> in the top right of the notebook. Select Python Environments and .venv.</p></li>
+<li><p>Experiment with the new notebook</p>
+<ul>
+<li>Add new cells using <code>ESC + B</code> or clicking on <code>+ Code</code> (to add a new code cell) or <code>+ Text</code> (to add a new text cell).</li>
+<li>try typing in some text in the markdown / text cells</li>
+<li>try running some basic code in the code cells upon running your first code cell, VSC may ask you if you want to install the ipykernel package. Select <code>Install</code>.</li>
+<li>try importing a Python package in a code cell, such as pandas running import pandas as pd Note: you will receive a <code>ModuleNotFoundError</code>. This is because we need to install pandas into the local virtual environment before importing it. To do that we need to return to the terminal in VSC:</li>
+</ul></li>
+<li><p>Install Python Packages to local virtual environment (.venv)</p>
+<ul>
+<li><p>Open a Terminal (select <code>Terminal</code> –&gt; <code>New Terminal</code>). You should see a new terminal pane open at the bottom of VS Code.</p></li>
+<li><p>You will need to activate your virtual environment in the terminal before you can install any packages to it. You willl know your virtual environment is activated in the terminal when you see (.venv) at the start of each new line in the terminal. If not type the following in the terminal:</p></li>
 <li></li>
-</ol>
-<pre class="{terminal}"><code>uv add -r requirements.txt</code></pre>
-<p>If this doesn’t provide desired results, review the <a href="https://docs.astral.sh/uv/guides/migration/pip-to-project/">documentation on this process</a> in the uv guide.</p>
-</section>
-<section id="c.-if-the-imported-project-has-no-dependencies-list" class="level4">
-<h4 class="anchored" data-anchor-id="c.-if-the-imported-project-has-no-dependencies-list">2c. If the Imported Project has no dependencies list</h4>
-<ol type="1">
-<li>As you encounter packages needed to run code in this project, you can install them one at a time or multiple at a time like this: <code>uv add package1 package2 package3</code>.</li>
-</ol>
-<!--
-### Step 3: Verify Installation
+<li><pre><code>#Windows
+.venv/Scripts/activate
 
-**Note:** This may take 5-10 minutes on first run.
-
-# Run the setup verification script
-uv run python scripts/00_setup.py
--->
-</section>
-</section>
-</section>
-<section id="configuring-visual-studio-code" class="level2">
-<h2 class="anchored" data-anchor-id="configuring-visual-studio-code">Configuring Visual Studio Code</h2>
-<section id="step-1-open-the-project" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-open-the-project">Step 1: Open the Project</h3>
-<ol type="1">
-<li><p>Launch VS Code</p></li>
-<li><p>File → Open Folder</p></li>
-<li><p>Select the course repository folder</p></li>
-</ol>
-</section>
-<section id="step-2-select-python-interpreter" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-select-python-interpreter">Step 2: Select Python Interpreter</h3>
-<ol type="1">
-<li><p>Open Command Palette (Ctrl+Shift+P on Windows/Linux, Cmd+Shift+P on macOS)</p></li>
-<li><p>Type “Python: Select Interpreter”</p></li>
-<li><p>Choose the interpreter from <code>.venv</code> (it should show up as <code>./venv/bin/python</code> or similar)</p></li>
-</ol>
-<p><strong>If the .venv interpreter doesn’t appear:</strong></p>
+#Mac: .venv/bin/activate</code></pre></li>
+<li><p>install a new package using pip. The most common syntax for installing packages in the terminal is: Windows: <code>pip install</code> [package-name] Macs: <code>pip3 install</code> [package-name] Note: Some Python packages require more specific instructions. You will want to find the online documentation for such packages.</p></li>
+<li><p>Install pandas, a popular package used for working with dataframes, by typing the following in the terminal: Windows: <code>pip install pandas</code> Macs: <code>pip3 install pandas</code></p></li>
+<li><p>Return to your notebook and run the cell importing pandas again import pandas as pd. It should work now.</p></li>
+</ul></li>
+<li><p>Create <code>requirements.txt</code> file for sharing package requirements</p>
 <ul>
-<li><p>Click “Enter interpreter path…”</p></li>
-<li><p>Navigate to: <code>.venv/Scripts/python.exe</code> (Windows) or <code>.venv/bin/python</code> (Mac/Linux)</p></li>
-</ul>
-</section>
-<section id="step-3-configure-jupyter" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-configure-jupyter">Step 3: Configure Jupyter</h3>
-<p>When you open a <code>.ipynb</code> file:</p>
-<ol type="1">
-<li><p>VS Code will prompt you to select a kernel</p></li>
-<li><p>Choose the same <code>.venv</code> Python interpreter</p></li>
+<li>After installing several packages into your virtual environment you can view what packages have been installed typing <code>pip freeze</code> (for Windows) or <code>pip3 freeze</code> (for Macs) in the terminal. Note: you will see far more than those packages you manually installed. This is because when you install a new package, pip automatically installs other packages that your requested package depends on.</li>
+<li>You can save the list of packages you have installed into a virtual environment by typing <code>pip freeze \&gt; requirements.txt</code> (for Windows) or <code>pip3 freeze \&gt; requirements.txt</code> (for Macs) into the terminal. You should see a new file called “requirements.txt” in the Explorer window on the left. Open the text file and review its contents. The requirements.txt will allow others to reproduce the exact same virtual environment on their computers and thus ensure they can run the same code as you.
+<ul>
+<li>Note: the requirements.txt file does not automatically update when you install new packages. Run <code>pip freeze \&gt; requirements.txt</code> (for Windows) and <code>pip3 freeze \&gt; requirements.txt</code> (for Macs) as needed before sharing the requirements.txt file with a collaborators.</li>
+</ul></li>
+</ul></li>
+<li><p>Recreating someone else’s virtual environment.</p>
+<ul>
+<li>If you wish to recreate someone else’s virtual environment or a virtual environment you used on another project, the requirements.txt file comes in handy.</li>
+<li>With the requirements.txt file moved into your project folder, type <code>pip install -r requirements.txt</code> (for Windows) or <code>pip3 install -r requirements.txt</code> (for Macs) into the terminal. This will install all packages (and their specific versions) listed in the .txt file.</li>
+</ul></li>
+<li><p>Deactivate the virtual environment</p>
+<ul>
+<li>if you ever need to deactivate your virtual environment from within the terminal just run <code>deactivate</code>.</li>
+</ul></li>
+<li><p>Customizing Visual Studio Code (VSC)</p>
+<ul>
+<li>Open the <code>Extensions panel</code> in the lefthand window of VSC</li>
+<li>Search for and install Jupyter and Python extensions</li>
+</ul></li>
 </ol>
-<!--
-### Step 4: Test in VS Code
-
-1.  Open `scripts/00_setup.py`
-
-2.  You should see the Python version in the bottom-right status bar
-
-3.  Right-click in the editor → "Run Python File in Terminal"
--->
-</section>
-</section>
-<section id="verifying-your-setup" class="level2">
-<h2 class="anchored" data-anchor-id="verifying-your-setup">Verifying Your Setup</h2>
-<!--
-### Quick Verification
-
-```usmsdp
-# Activate environment and run verification script
-uv run python scripts/00_setup.py
-```
--->
-<section id="manual-verification" class="level3">
-<h3 class="anchored" data-anchor-id="manual-verification">Manual Verification</h3>
-<p>To test your set up:</p>
-<pre class="{terminal}"><code># Check Python version
-uv run python --version      # should be the Python version assigned to your local environment
-
-# Test package imports
-uv run python -c "import pandas; import numpy; import matplotlib; print('All packages loaded successfully!')"
-
-# List installed packages
-uv pip list                  # should just list packages imported into this project's environment</code></pre>
-</section>
-</section>
-<section id="troubleshooting" class="level2">
-<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
-<section id="issue-uv-command-not-found" class="level3">
-<h3 class="anchored" data-anchor-id="issue-uv-command-not-found">Issue: <code>uv: command not found</code></h3>
-<p><strong>Solution:</strong> The installation directory isn’t in your PATH.</p>
-<p><strong>Windows:</strong><br>
-Add <code>%USERPROFILE%\.cargo\bin</code> to your PATH environment variable.</p>
-<p><strong>macOS/Linux:</strong><br>
-Add this to your <code>~/.bashrc</code>, <code>~/.zshrc</code>, or equivalent:</p>
-<pre class="{terminal}"><code>export PATH="$HOME/.cargo/bin:$PATH"</code></pre>
-<p>Then run: <code>source ~/.bashrc</code> (or <code>~/.zshrc</code>)</p>
-</section>
-<section id="issue-python-version-x.y-required-but-x.z-found" class="level3">
-<h3 class="anchored" data-anchor-id="issue-python-version-x.y-required-but-x.z-found">Issue: “Python version X.Y required but X.Z found”</h3>
-<p><strong>Solution:</strong> uv can install Python for you:</p>
-<pre class="{terminal}"><code>uv python install 3.11
-uv sync</code></pre>
-</section>
-<section id="issue-package-installation-fails-with-compilation-errors" class="level3">
-<h3 class="anchored" data-anchor-id="issue-package-installation-fails-with-compilation-errors">Issue: Package installation fails with compilation errors</h3>
-<p><strong>Solution 1:</strong> Ensure you have build tools installed</p>
-<p><strong>Windows:</strong></p>
-<ul>
-<li>Install <a href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022">Visual Studio Build Tools</a></li>
-</ul>
-<p><strong>macOS</strong>:</p>
-<pre class="{terminal}"><code>xcode-select --install</code></pre>
-<p>Linux (Ubuntu/Debian):</p>
-<pre class="{terminal}"><code>sudo apt-get install build-essential python3-dev</code></pre>
-<p><strong>Solution 2:</strong> Try installing pre-built wheels:</p>
-<pre class="{terminal}"><code>uv pip install --only-binary :all: [package-name]</code></pre>
-</section>
-<section id="issue-vs-code-doesnt-recognize-the-.venv-interpreter" class="level3">
-<h3 class="anchored" data-anchor-id="issue-vs-code-doesnt-recognize-the-.venv-interpreter">Issue: VS Code doesn’t recognize the .venv interpreter</h3>
-<p><strong>Solution:</strong></p>
-<ol type="1">
-<li><p>Make sure <code>.venv</code> folder exists in your project root</p></li>
-<li><p>Reload VS Code (Ctrl+Shift+P → “Developer: Reload Window”)</p></li>
-<li><p>Manually browse to the interpreter:</p></li>
-</ol>
-<pre><code>-   Windows: `.venv\Scripts\python.exe`
-
--   Mac/Linux: `.venv/bin/python`</code></pre>
-</section>
-<section id="issue-jupyter-notebooks-wont-run" class="level3">
-<h3 class="anchored" data-anchor-id="issue-jupyter-notebooks-wont-run">Issue: Jupyter notebooks won’t run</h3>
-<p><strong>Solution:</strong></p>
-<ol type="1">
-<li><p>Ensure Jupyter extension is installed</p></li>
-<li><p>Install ipykernel in your environment:</p></li>
-</ol>
-<pre class="{terminal}"><code>uv pip install ipykernel</code></pre>
-<ol type="1">
-<li><p>Select the <code>.venv</code> kernel when opening a notebook</p></li>
-<li><p>Restart VS Code if needed</p></li>
-</ol>
-</section>
-<section id="issue-import-could-not-be-resolved-warnings-in-vs-code" class="level3">
-<h3 class="anchored" data-anchor-id="issue-import-could-not-be-resolved-warnings-in-vs-code">Issue: “Import could not be resolved” warnings in VS Code</h3>
-<p><strong>Solution:</strong></p>
-<ol type="1">
-<li><p>Ensure you’ve selected the correct Python interpreter</p></li>
-<li><p>Check that <code>python.analysis.extraPaths</code> includes your project root</p></li>
-<li><p>Reload VS Code window</p></li>
-</ol>
-</section>
-<section id="issue-cannot-write-to-.venv-directory-permission-errors" class="level3">
-<h3 class="anchored" data-anchor-id="issue-cannot-write-to-.venv-directory-permission-errors">Issue: Cannot write to <code>.venv</code> directory (permission errors)</h3>
-<p><strong>Solution:</strong></p>
-<ul>
-<li><p>Don’t use <code>sudo</code> with uv commands</p></li>
-<li><p>Ensure you have write permissions to the project directory</p></li>
-<li><p>On Windows, run terminal as regular user (not administrator)</p></li>
-</ul>
-</section>
-<section id="issue-uv-sync-is-very-slow" class="level3">
-<h3 class="anchored" data-anchor-id="issue-uv-sync-is-very-slow">Issue: <code>uv sync</code> is very slow</h3>
-<p><strong>Possible causes:</strong></p>
-<ul>
-<li><p>First run always takes longer</p></li>
-<li><p>Slow internet connection</p></li>
-<li><p>Antivirus scanning</p></li>
-</ul>
-<p><strong>Solutions:</strong></p>
-<ul>
-<li><p>Be patient on first run</p></li>
-<li><p>Disable antivirus temporarily for <code>.venv</code> folder</p></li>
-<li><p>Use <code>uv sync --offline</code> if you’ve run it before</p></li>
-</ul>
-</section>
-</section>
-<section id="best-practices-for-this-course" class="level2">
-<h2 class="anchored" data-anchor-id="best-practices-for-this-course">Best Practices for This Course</h2>
-<section id="file-organization" class="level3">
-<h3 class="anchored" data-anchor-id="file-organization">File Organization</h3>
-<ul>
-<li><p>Keep all work within this project folder</p></li>
-<li><p>Use relative paths (or <code>pathlib</code>)</p></li>
-<li><p>Save scripts with descriptive names: <code>verb_noun.py</code> (e.g., <code>analyze_sales.py</code>)</p></li>
-</ul>
-</section>
-<section id="naming-conventions" class="level3">
-<h3 class="anchored" data-anchor-id="naming-conventions">Naming Conventions</h3>
-<p><strong>Good:</strong></p>
-<ul>
-<li><p><code>clean_data.py</code></p></li>
-<li><p><code>2024_01_15_sales_report.csv</code></p></li>
-<li><p><code>figure_01_scatterplot.png</code></p></li>
-</ul>
-<p><strong>Bad:</strong></p>
-<ul>
-<li><p><code>script1.py</code></p></li>
-<li><p><code>final FINAL (2) copy.py</code></p></li>
-<li><p><code>sales data.csv</code> (spaces can be problematic)</p></li>
-</ul>
-</section>
-<section id="running-python-code" class="level3">
-<h3 class="anchored" data-anchor-id="running-python-code">Running Python Code</h3>
-<p><strong>In Terminal:</strong></p>
-<pre class="{terminal}"><code># Always use uv run to ensure correct environment
-uv run python scripts</code></pre>
 
 
-</section>
 </section>
 </section>
 
