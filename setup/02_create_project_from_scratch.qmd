@@ -67,7 +67,7 @@ These coding notebooks and other materials are stored in the [**python-setup**](
 
 1.  Create a new folder for your sample project in a place which you can easily find again. Follow recommended file naming projects (outlined in [00_setup_slides](00_setup_slides.html)) such as using underscores `_` in place of whitespace, avoiding special characters, etc. i.e.:
 
-```{terminal}  
+```{terminal}
 ~/Users/your-user-name/Documents/python_code/sample_project
 ```
 
@@ -110,11 +110,11 @@ We will now use `uv` to create a virtual environment for our sample project.
 
 1.  In the **terminal**, you can test to see if VSC can find your Python and uv installations (just as we did in notebook 01) by running the following code:
 
-```{terminal}  
+```{terminal}
 uv --version
 ```
 
-```{terminal}  
+```{terminal}
 uv python list
 ```
 
@@ -133,7 +133,7 @@ If you are not in the project root directory you can navigate to it by using the
 
 Now, run the following in your project's root directory from the **terminal**:
 
-```{terminal}  
+```{terminal}
 # This initiaties a new uv environment for your project
 uv init
 ```
@@ -152,39 +152,37 @@ Initiating **uv** *may also create* a `uv.lock` file and a `'.venv` folder if yo
 
 Run in the terminal:
 
-```{terminal}  
+```{terminal}
 uv add requests
 ```
 
 Certainly, now you should see the following in your project's root directory:
 
-
 -   a `uv.lock` file which may be used by others (or by yourself in a different environment) to reproduce the exact same computing environment for your project.
 
 -   a `.venv` folder where the code for all projects added to the local environment are stored
 
-
 You can also install / add multiple packages at once:
 
-```{terminal}  
+```{terminal}
 uv add numpy pandas rich
 ```
 
 You can use `uv remove` to uninstall packages. We really didn't need **requests**. Let's uninstall it:
 
-```{terminal}  
+```{terminal}
 uv remove requests
 ```
 
 You can review what packages have been installed in multiple ways. You can open either the **pyproject.toml** or the **uv.lock** file. Or you can run the following in the terminal:
 
-```{terminal}  
+```{terminal}
 uv pip list
 ```
 
 You should see something like this:
 
-```  
+```         
 Package         Version
 --------------- -----------
 markdown-it-py  4.0.0
@@ -201,7 +199,7 @@ tzdata          2025.3
 
 \*Note: the `.toml` file and `uv pip list` return all packages installed including dependencies. For example, when we installed **rich**, UV also installed the packages rich depends on: markdown-it-py, mdurl, and pygments. In contrast, the `uv.lock` just lists the actual packages that you, the user, installed:
 
-``` 
+```         
 dependencies = [
     "numpy>=2.4.1",
     "pandas>=2.3.3",
@@ -213,7 +211,7 @@ This is because `uv.lock` serves as instructions for the re-creation of this env
 
 Now, try running this:
 
-```{terminal}  
+```{terminal}
 pip list
 ```
 
@@ -235,7 +233,7 @@ Notice any difference from the results returned by `uv pip list`? In my case thi
 
 Let's view which version of Python is being used by this project. Run the following in the **terminal**:
 
-```{terminal}  
+```{terminal}
 uv run python --version
 ```
 
@@ -290,7 +288,7 @@ Save the file.
         \*Note: using the correct extension is essential so the computer knows how to read it. A `.py` file is a plain text file containing Python code that can be run with software like VSC or from the command line.\*
 2.  Type / paste in the following code (modifying it to make it your own) in the **Python script**:
 
-```{python}
+```{py}
 # Get the user's name
 name = input("What's your name? ")
 
@@ -314,7 +312,7 @@ uv run code/greeting.py
 
 add to your **Python script**:
 
-```{python}
+```{py}
 # Get their favorite color
 color = input("What's your favorite color? ")
 
@@ -359,7 +357,7 @@ You can confirm the installation of this package to your local environment in mu
 
 Then paste / type the following into a **new Python script called `compliment_generator.py`**.
 
-```{python}
+```{py}
 import random
 from rich import print
 
