@@ -11,6 +11,8 @@ editor: visual
 
 This document provides detailed instructions for setting up your Python environment for this course/workshop. You should have already read the information in the [00_setup_slides](00_setup-slides.html) and completed the installation of Visual Studio Code and Python using uv by following [Setup Notebook 01](01_python-setup.qmd).
 
+These coding notebooks and other materials are stored in the **[python-setup](https://github.com/Dartmouth-Libraries/python-setup)** repository in Dartmouth Libraries Github.
+
 ## Brief Cheatsheet
 
 the brief, no-explanation-needed version:
@@ -32,15 +34,17 @@ the brief, no-explanation-needed version:
     3.  Otherwise, install each needed package independently using `uv add [package_name]`.
 
 4.  Open VSC Code and configure:
-    1.  **File** --> **Open Folder** --> select project folder
-    2.  Select Python Interpreter: 
+
+    1.  **File** --\> **Open Folder** --\> select project folder
+    2.  Select Python Interpreter:
         1.  Open Command Palette (Ctrl+Shift+P on Windows/Linux, Cmd+Shift+P on macOS)
         2.  Type "Python: Select Interpreter"
         3.  Choose the interpreter from .venv (it should show up as ./venv/bin/python or similar)
         4.  when you first open or create a new Jupyter notebook (`.ipynb`) you may be prompted to choose an interpreter, choose the same `.venv` Python interpreter.
+
 5.  Verify Set up: run `uv python --version` and `uv pip list` to see Python version and packages installed to the project environment
 
----  
+------------------------------------------------------------------------
 
 More detailed instructions and explanations:
 
@@ -198,6 +202,7 @@ When you open a `.ipynb` file:
 
 2.  Choose the same `.venv` Python interpreter
 
+```{=html}
 <!--
 ### Step 4: Test in VS Code
 
@@ -207,9 +212,11 @@ When you open a `.ipynb` file:
 
 3.  Right-click in the editor → "Run Python File in Terminal"
 -->
+```
 
 ## Verifying Your Setup
 
+````{=html}
 <!--
 ### Quick Verification
 
@@ -218,6 +225,7 @@ When you open a `.ipynb` file:
 uv run python scripts/00_setup.py
 ```
 -->
+````
 
 ### Manual Verification
 

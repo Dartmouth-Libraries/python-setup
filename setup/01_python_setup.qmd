@@ -10,7 +10,7 @@ toc: true
 
 # Install & Set up Python with Visual Studio Code and UV
 
-This document provides detailed instructions for installing and setting up Visual Studio Code and Python (via uv)
+This document provides detailed instructions for installing and setting up Visual Studio Code and Python (via uv). These coding notebooks and other materials are stored in the **[python-setup](https://github.com/Dartmouth-Libraries/python-setup)** repository in Dartmouth Libraries Github.
 
 # Brief Cheatsheet
 
