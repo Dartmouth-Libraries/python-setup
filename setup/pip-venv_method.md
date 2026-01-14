@@ -1,0 +1,161 @@
+# Alternative Python Setup
+## Visual Studio Code with pip + venv Option
+
+*Note: We now recommend the UV + VSC option outlined in Tutorials 1-3 on this webpage. However, for users most comfortable for our previous recommended approach, please follow the instructions below.*
+
+## Step 1a: Install Python
+
+### Download and install Python following the instructions below.
+
+#### Instructions for MacOS (Ventura or later)
+
++ Using a web browser of your choice, navigate to www.python.org.
++ In the `Downloads` menu, click on the gray button to download the latest stable version of Python.
++ Install the downloaded `pkg` file with the default settings.
++ In the `Finder` window that pops up after installation, double-click the file `Install Certificates.command`.
++ Close the `Finder` window and the installer.
++ Move the `pkg` file to the Trash
++ Open the `Terminal` application (located under `Other` in the Launchpad)
++ In the terminal, type the command `python3` and hit `return`.
++ The terminal will show the version of Python just installed and a command prompt starting with `>>>`.
+
+#### Instructions for Windows 11
+
+Using a web browser of your choice, navigate to www.python.org.
+In the `Downloads` menu, click on the gray button to download the latest stable version of Python.
+Start the downloaded installer:
+    Check the box next to `Add python.exe to PATH`.
+    Click `Install Now` and wait for installation to finish
+    Click `Disable path length limit`.
+    Close the installer
+From the Start Menu, open the Python executable (e.g. `Python 3.12 (64-bit)`).
+The terminal will show the version of Python just installed and a command prompt starting with ">>>".
+
+Step 1b: Install Visual Studio Code
+
+Visual Studio Code (or VS Code) is a code editor developed by Microsoft and available on all major platforms (Linux, macOS, and Windows). It is entirely free and largely open-source. Essentially a text editor with superpowers, it supports not just Python but many other programming languages and is incredibly versatile thanks to a plethora of optional extensions. Since it can open, display, or run all kinds of different files, you rarely have to leave the program when working on a project, which makes it a great Integrated Development Environment (IDE).
+MacOS (Ventura or later)
+
+    Navigate to code.visualstudio.com.
+    Download the latest stable version.
+    Open your `Downloads` folder.
+    Drag and drop the downloaded file `Visual Studio Code` into your `Applications` folder on the left pane.
+
+Windows 11
+
+    Navigate to code.visualstudio.com.
+    Download the latest stable version.
+    Open the downloaded installer:
+    Follow the instructions and click `Next` three times.
+    When prompted, select (or leave selected) all checkboxes under `Other`.
+    Click `Install`.
+
+Step 2: Getting a Project Started in Visual Studio Code
+
+    Open Visual Studio Code (VSC)
+        When you open VS Code for the first time, you will be greeted by a Welcome screen. For now, choose a theme that you like and close it.
+    Open a project folder
+        VS Code works best if you open a folder that contains all files for a particular project (the one project - one folder - one environment approach).
+        If you don't have a project folder already, create one in your "Documents" folder (or wherever you keep your project files)
+        Within VSC select File --> Open Folder
+        You should see this folder and its contents appear in the Explore window on the left panel of VSC
+    Exploring folder structure
+        With the "Explorer" view open in the left-side pane of VS Code, experiment by right-clicking (Windows) or CTRL-click (Mac) inside the project folder and create a new folder called Notebooks. Then right/CTRL-click this new folder and select "New File". When creating a new file this way, you need to give it a name and a proper file extension. For example, try creating a plain text file called Notes.txt, a Python file called test_code.py, and a Jupyter Notebook called test_notebook.ipynb.
+        Note: in the VS Code Explorer window, there are two different ways to open a file:
+
+            Selecting a file with a single click opens it in a new tab, but closes it again if you switch to another file (note the name in italics on the tab)
+
+            Selecting a file with a double click opens it in a new tab and keeps it open until you close the tab (note the non-italicized name on the tab)
+
+    Installing Extensions in VS Code 1: Python extension
+
+        Open the Extensions view on the left-side pane. You can add additional functionality to VS Code by installing extensions.
+
+        To get started we will install the Python and Jupyter extensions.
+
+        Search for Python.
+
+        Click on "Install."
+
+        Close the "Welcome" tab that opens up
+
+        To check that it works, we will write some Python code to a file and execute it:
+
+            Open the test_code.py file you created above.
+
+            Type the following lines of code in the .py file:
+
+            print("Hello World!")
+            4 * 7
+            x = 26 / 4
+            print("x = ", x)
+
+            Run the code by clicking the ▶️ icon in the top right
+
+            A Python terminal should open in the bottom pane of VS Code. Examine what the output that was produced after running your code file. What information was returned? What was omitted?
+
+    Installing Extensions in VS Code 1: Jupyter extension(see fn. 1)
+
+        Python scripts always run from top to bottom in their entirety. This is great when you have a fully-formed program that you want to execute, but it is somewhat inconvenient when you want to have more of a back-and-forth, interactive experience. This is often the case when you are doing data analysis, create visualizations, or do any other kind of more iterative work.
+
+        To support such use cases, there is an extension for Python called Jupyter. We can install Jupyter on VS Code's `Extensions` tab:
+
+            Choose the `Extensions` tab on the Primary Side Bar
+
+            The `Jupyter` extension should be listed under the `Popular` heading, otherwise type `Jupyter` into the search box
+
+            Click on `Install`
+
+Step 3: Setting Up a Virtual Environment in VSC
+
+[Explain more about importance of virtual environments]
+
+    Setup a Virtual Environment in Visual Studio Code (fn. 2)
+        Select the Search Bar at the top center of VS Code.
+        Select "Show and Run Commands" --> "Python: Create Environment" --> "Venv".
+        Select the Python version you installed in Step 1b.
+        In the Explorer view on the left you should now see a folder called ".venv". Whenever you install new Python packages (also called "libraries") to your local environment they will be installed in this folder.
+        At the top right-hand corner of the notebook you should see a "Select Kernel" button. Click on it and select the "Python Environments" --> select the .venv environment you just created.
+
+Step 4: Getting Started with Python in VSC
+
+    Open the Jupyter notebook you created called test_notebook.ipynb.
+        or you can create a new notebook by selecting: File --> New File --> Jupyter Notebook; Save the new notebook: File --> Save As
+    Setup Python Kernel
+        click on Select Kernel in the top right of the notebook. Select Python Environments and .venv.
+    Experiment with the new notebook
+        Add new cells using ESC + B or clicking on + Code (to add a new code cell) or + Text (to add a new text cell).
+        try typing in some text in the markdown / text cells
+        try running some basic code in the code cells
+            upon running your first code cell, VSC may ask you if you want to install the ipykernel package. Select Install.
+        try importing a Python package in a code cell, such as pandas running import pandas as pd
+            Note: you will receive a ModuleNotFoundError. This is because we need to install pandas into the local virtual environment before importing it. To do that we need to return to the terminal in VSC:
+    Install Python Packages to local virtual environment (.venv)
+        to install packages into the virtual environment you will want to:
+            Open a Terminal (select Terminal --> New Terminal). You should see a new terminal pane open at the bottom of VS Code.
+            You will need to activate your virtual environment in the terminal before you can install any packages to it. You willl know your virtual environment is activated in the terminal when you see (.venv) at the start of each new line in the terminal. If not type the following in the terminal:
+                Windows: .venv/Scripts/activate
+                Mac: .venv/bin/activate
+            install a new package using pip. The most common syntax for installing packages in the terminal is:
+                Windows: pip install [package-name]
+                Macs: pip3 install [package-name]
+                Note: Some Python packages require more specific instructions. You will want to find the online documentation for such packages.
+        Install pandas, a popular package used for working with dataframes, by typing the following in the terminal:
+            Windows: pip install pandas
+            Macs: pip3 install pandas
+        Return to your notebook and run the cell importing pandas again import pandas as pd. It should work now.
+    Create requirements.txt file for sharing package requirements
+        After installing several packages into your virtual environment you can view what packages have been installed typing pip freeze (for Windows) or pip3 freeze (for Macs) in the terminal. Note: you will see far more than those packages you manually installed. This is because when you install a new package, pip automatically installs other packages that your requested package depends on.
+        You can save the list of packages you have installed into a virtual environment by typing pip freeze > requirements.txt (for Windows) or pip3 freeze > requirements.txt (for Macs) into the terminal. You should see a new file called "requirements.txt" in the Explorer window on the left. Open the text file and review its contents. The requirements.txt will allow others to reproduce the exact same virtual environment on their computers and thus ensure they can run the same code as you.
+            Note: the requirements.txt file does not automatically update when you install new packages. Run pip freeze > requirements.txt (for Windows) and pip3 freeze > requirements.txt (for Macs) as needed before sharing the requirements.txt file with a collaborators.
+    Recreating someone else's virtual environment.
+        If you wish to recreate someone else's virtual environment or a virtual environment you used on another project, the requirements.txt file comes in handy.
+        With the requirements.txt file moved into your project folder, type pip install -r requirements.txt (for Windows) or pip3 install -r requirements.txt (for Macs) into the terminal. This will install all packages (and their specific versions) listed in the .txt file.
+    Deactivate the virtual environment
+        if you ever need to deactivate your virtual environment from within the terminal just run deactivate.
+    Customizing Visual Studio Code (VSC)
+        Open the Extensions pane in the lefthand window of VSC
+        Search for and install Jupyter and Python extensions
+
+
+

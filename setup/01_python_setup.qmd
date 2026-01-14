@@ -102,7 +102,7 @@ scoop install uv
 
 Type the following in a Mac/Linux terminal:
 
-```{terminal}  
+```{terminal}
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
@@ -130,7 +130,7 @@ uv --version
 
 ### Linux Installation
 
-```{terminal}  
+```{terminal}
 # Shell script (works on most distributions)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
@@ -146,7 +146,7 @@ uv --version
 
 Troubleshooting Linux:
 
-```{terminal}  
+```{terminal}
 If curl is not installed: sudo apt install curl (Ubuntu/Debian)
 Permission denied: The script installs to ~/.local/bin, which shouldn't require sudo
 ```
@@ -161,7 +161,7 @@ After installation completes:
 
 3.  Verify installation by running the following (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```{terminal}  
+```{terminal}
 uv --version
 ```
 
@@ -179,7 +179,7 @@ With `uv` we don't need to install Python separately. When we create our first p
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```{terminal}  
+```{terminal}
 uv python list
 ```
 
@@ -187,7 +187,7 @@ This shows all Python versions uv knows about. Don't worry if it's empty - uv wi
 
 We can install the latest version of Python with:
 
-```{terminal}  
+```{terminal}
 uv python install
 ```
 
@@ -197,7 +197,7 @@ Or we can specify an older version to install:
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```{terminal}  
+```{terminal}
 uv python install 3.12
 ```
 
@@ -205,7 +205,7 @@ Verify:
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```{terminal}  
+```{terminal}
 uv python list
 ```
 
