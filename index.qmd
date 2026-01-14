@@ -28,7 +28,7 @@ editor: visual
 
 ## 1. Overview
 
-This repository contains tutorials to walk you through installing Python and getting started with your first Python project on your own computer.
+This guide<!--repository in readme--> contains tutorials to walk you through installing Python and getting started with your first Python project on your own computer.
 
 There are many ways to install and run Python. Here, we provide instructions for **our recommended Python project set up** for new Python users that involves:
 
@@ -42,7 +42,14 @@ Followers of our previously recommended approach using **pip** and **venv** with
 
 These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in Dartmouth Libraries Github.
 
-## 2. Why UV?
+## 2. Recommended Use of this Guide
+
+1.  Users with some Python experience or new users in a hurry: follow the *cheatsheets* found at the top of Tutorials [1](setup/01_python_setup.qmd), [2](setup/02_create_project_from_scratch.qmd), and [3](setup/03_import_project.qmd).
+2.  Users needing some background about why program in Python and why set it up this way, review the [Slides](setup/00_setup_slides.qmd).
+3.  New users may want to follow the more detailed instructions found in Tutorials 1 - 3.
+4.  Users who have completed the tutorials can use the [UV Cheatsheet](setup/uv_cheatsheet.qmd) as a refresher and continue their learning with the [Complete UV Tutorial](setup/uv_detailed_instructions.qmd).
+
+## 3. Why UV?
 
 1.  installs packages 10-100x faster than **pip**
 2.  Single tool for everything (Python installation, resolving Python path conflicts, virtual enviroment set up, package installation and management)
@@ -50,14 +57,14 @@ These coding notebooks and other materials are stored in the [**python-setup**](
 4.  Cross-platform consistency
 5.  Create stable and transportable package dependencies with lockfile
 
-## 3. Designed for:
+## 4. Designed for:
 
 -   in-person / virtual instruction
 -   *or* asynchronous, self-paced learning
 
 ...for Python beginners and those who have used Python before but want to learn how to better create, import, and manage projects on their own computer.
 
-## 4. Learning Objectives
+## 5. Learning Objectives
 
 Upon completing the lessons offered here, the student will be able to:
 
@@ -67,11 +74,11 @@ Upon completing the lessons offered here, the student will be able to:
 -   write their first markdown file (`README.md`)
 -   write and run their first Python script and Python Jupyter notebook.
 
-## 5. Instructor(s) and Years Taught (if taught live)
+## 6. Instructor(s) and Years Taught (if taught live)
 
 -   Jeremy Mikecz, Research Facilitation (Python Setup, W2026)
 
-## 6. Other Instructional Information
+## 7. Other Instructional Information
 
 **Level:** Beginner (and Intermediate Users looking to establish better project practices)
 
@@ -83,7 +90,7 @@ Upon completing the lessons offered here, the student will be able to:
 1.  User is comfortable navigating through files on their computer
 ```
 
-## 7. Getting Started
+## 8. Getting Started
 
 To complete the set up tutorial, open the **setup/** folder and do the following in order:
 
@@ -99,7 +106,7 @@ To complete the set up tutorial, open the **setup/** folder and do the following
 
 6.  Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
 
-## 8. Required Software
+## 9. Required Software
 
 Instructions for installing the following are in the Set Up tutorials outlined in Step 6 above.
 
@@ -119,10 +126,10 @@ Instructions for installing the following are in the Set Up tutorials outlined i
 -->
 ```
 
-## 9. LICENSE
+## 10. LICENSE
 
 Instructional materials produced here are available under the [CC BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en). Review the license link and the [LICENSE](LICENSE) page in this repo. Code is available for reuse under the Open Source Initiative's [The MIT License](https://opensource.org/license/mit).
 
-## 10. Acknowledgements
+## 11. Acknowledgements
 
 **Template Information**: This repository was created using the [Python Tutorial Template](https://github.com/Dartmouth-Libraries/Python-tutorial-template) (created by Research Facilitation, Dartmouth Libraries).

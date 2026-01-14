@@ -60,7 +60,6 @@ These coding notebooks and other materials are stored in the [**python-setup**](
 
     3.  select your Python environment: top-right corner --\> **Select Kernel** --\> Choose "Python Environments" --\> select the one that says `.venv` or `uv`.
 
-    4.  See Steps 5e and 5f above for sample code.
 :::
 
 ## 1. Setup Project in Visual Studio Code
@@ -131,7 +130,7 @@ If you are not in the project root directory you can navigate to it by using the
 1.  to navigate up one directory type `cd ..`
 2.  to navigate up 3 directories type `cd ../../..`
 3.  to navigate from the current working directory into your code folder type `cd code`.
-4.  to navigate down two directories, type something like this: `cd code/scripts` (assuming the code folder is in your current working directory and a scripts folder is inside of that.
+4.  to navigate down two directories, type something like this: `cd code/scripts` (assuming the code folder is in your current working directory and a scripts folder is inside of that).
 
 Now, run the following in your project's root directory from the **terminal**:
 
@@ -217,7 +216,7 @@ Now, try running this:
 pip list
 ```
 
-Notice any difference from the results returned by `uv pip list`? In my case this second command returned many, many more packages? Why? It's because the **uv** command automatically just retrieves the names of packages installed to the local virtual environment, whereas **pip** is retrieving all packages installed. That is why, under the pip system, you need to activate your virtual environment with `.venv/Scripts/activate` (Windows) or `.venv/bin/activate` (Macs) every time you open a project. Fortunately, with **uv**, we are automatically using the virtual environment whenever we call uv within a project that has one.
+Notice any difference from the results returned by `uv pip list`? In my case this second command returned many, many more packages. Why? It's because the **uv** command automatically retrieves the names of packages installed to the local virtual environment, whereas **pip** retrieves all packages installed. That is why, under the pip system, you need to activate your virtual environment with `.venv/Scripts/activate` (Windows) or `.venv/bin/activate` (Macs) every time you open a project. Fortunately, with **uv**, we are automatically using the virtual environment whenever we call uv within a project that has one.
 
 ### 2e. Set up the Python Interpreter
 
