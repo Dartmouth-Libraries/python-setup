@@ -64,13 +64,13 @@ Or use the menu: Terminal → New Terminal
 
 Windows: Type in a Powershell terminal
 
-```         
+```{powershell}
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 If you get an error like this - `Error: Powershell requires an execution policy...` - then we need to temporarily bypass Powershell's policies by running:
 
-```         
+```{powershell}
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
@@ -80,13 +80,13 @@ If the above did not work you can also try:
 
 **winget option** 1. [install winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) 2. Run in the terminal from VSC:
 
-```         
+```{terminal}
 winget install --id=astral-sh.uv -e
 ```
 
 **scoop option** 1. [install scoop](https://scoop.sh/) 2. Run in the terminal from VSC:
 
-```         
+```{terminal}
 scoop install uv
 ```
 
@@ -102,7 +102,7 @@ scoop install uv
 
 Type the following in a Mac/Linux terminal:
 
-```         
+```{terminal}  
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
@@ -130,7 +130,7 @@ uv --version
 
 ### Linux Installation
 
-```         
+```{terminal}  
 # Shell script (works on most distributions)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
@@ -146,7 +146,7 @@ uv --version
 
 Troubleshooting Linux:
 
-```         
+```{terminal}  
 If curl is not installed: sudo apt install curl (Ubuntu/Debian)
 Permission denied: The script installs to ~/.local/bin, which shouldn't require sudo
 ```
@@ -161,7 +161,7 @@ After installation completes:
 
 3.  Verify installation by running the following (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```         
+```{terminal}  
 uv --version
 ```
 
@@ -179,7 +179,7 @@ With `uv` we don't need to install Python separately. When we create our first p
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```{bash}
+```{terminal}  
 uv python list
 ```
 
@@ -187,7 +187,7 @@ This shows all Python versions uv knows about. Don't worry if it's empty - uv wi
 
 We can install the latest version of Python with:
 
-```{bash}
+```{terminal}  
 uv python install
 ```
 
@@ -197,7 +197,7 @@ Or we can specify an older version to install:
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```{bash}
+```{terminal}  
 uv python install 3.12
 ```
 
@@ -205,7 +205,7 @@ Verify:
 
 Enter the following in the terminal (Mac/Linux or if Windows in Command Prompt or Git Bash):
 
-```{bash}
+```{terminal}  
 uv python list
 ```
 
