@@ -59,7 +59,6 @@ These coding notebooks and other materials are stored in the [**python-setup**](
     2.  Create a new Jupyter notebook in your `code`folder (with the extension `.ipynb`).
 
     3.  select your Python environment: top-right corner --\> **Select Kernel** --\> Choose "Python Environments" --\> select the one that says `.venv` or `uv`.
-
 :::
 
 ## 1. Setup Project in Visual Studio Code
@@ -97,7 +96,7 @@ Visual Studio Code and other IDEs allow you to load an entire project at once. T
 
 ## 2. Setting Up a Python Virtual Environment for your project
 
-As noted in the opening slides presentation ([html](00_setup_slides.html) or [pdf](00_setup_slides.pdf)) "A virtual environment keeps each project's packages separate and organized, preventing conflicts and making your code easy to share."
+As noted in the opening slides presentation: "A virtual environment keeps each project's packages separate and organized, preventing conflicts and making your code easy to share."
 
 We will now use `uv` to create a virtual environment for our sample project.
 

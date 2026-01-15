@@ -38,13 +38,13 @@ There are many ways to install and run Python. Here, we provide instructions for
 
 3.  following computational and coding best practices to set up a Python project.
 
-Followers of our previously recommended approach using **pip** and **venv** within VSC may still find review those [instruction](setup/pip-venv_method.qmd).
+Followers of our previously recommended approach (using **pip** and **venv** within VSC) may still find those [instructions here](setup/pip-venv_method.qmd).
 
-These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in Dartmouth Libraries Github.
+These coding notebooks and other materials are stored in the [**python-setup**](https://github.com/Dartmouth-Libraries/python-setup) repository in the Dartmouth Libraries Github.
 
 ## 2. Recommended Use of this Guide
 
-1.  Users with some Python experience or new users in a hurry: follow the *cheatsheets* found at the top of Tutorials [1](setup/01_python_setup.qmd), [2](setup/02_create_project_from_scratch.qmd), and [3](setup/03_import_project.qmd).
+1.  Users with some Python project experience or new users in a hurry: follow the *cheatsheets* found at the top of Tutorials [1](setup/01_python_setup.qmd), [2](setup/02_create_project_from_scratch.qmd), and [3](setup/03_import_project.qmd).
 2.  Users needing some background about why program in Python and why set it up this way, review the [Slides](setup/00_setup_slides.qmd).
 3.  New users may want to follow the more detailed instructions found in Tutorials 1 - 3.
 4.  Users who have completed the tutorials can use the [UV Cheatsheet](setup/uv_cheatsheet.qmd) as a refresher and continue their learning with the [Complete UV Tutorial](setup/uv_detailed_instructions.qmd).
@@ -74,7 +74,7 @@ Upon completing the lessons offered here, the student will be able to:
 -   write their first markdown file (`README.md`)
 -   write and run their first Python script and Python Jupyter notebook.
 
-## 6. Instructor(s) and Years Taught (if taught live)
+## 6. Instructor(s) and Years Taught
 
 -   Jeremy Mikecz, Research Facilitation (Python Setup, W2026)
 
@@ -82,7 +82,7 @@ Upon completing the lessons offered here, the student will be able to:
 
 **Level:** Beginner (and Intermediate Users looking to establish better project practices)
 
-**Duration:** Estimated time to complete: 2-3 hours (but could vary tremendously)
+**Duration:** Estimated time to complete: 1-3 hours (but could vary tremendously)
 
 **Pre-requisites:**
 

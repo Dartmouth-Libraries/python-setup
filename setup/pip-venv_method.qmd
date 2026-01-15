@@ -12,7 +12,7 @@ toc: true
 
 ## Visual Studio Code with pip + venv Option
 
-*Note: We now recommend the UV + VSC option outlined in Tutorials 1-3 on this webpage. However, for users most comfortable for our previous recommended approach, please follow the instructions below.*
+*Note: We now recommend the UV + VSC option outlined in Tutorials 1-3 on this webpage. However, for users most comfortable f our previous recommended approach, please follow the instructions below.*
 
 ## Step 1a: Install Python
 
@@ -156,15 +156,12 @@ Note: in the VS Code Explorer window, there are two different ways to open a fil
 
     -   You will need to activate your virtual environment in the terminal before you can install any packages to it. You willl know your virtual environment is activated in the terminal when you see (.venv) at the start of each new line in the terminal. If not type the following in the terminal:
 
-    -   
-
-    -   
-
         ```         
         #Windows
         .venv/Scripts/activate
 
-        #Mac: .venv/bin/activate
+        #Mac:
+        .venv/bin/activate
         ```
 
     -   install a new package using pip. The most common syntax for installing packages in the terminal is: Windows: `pip install` \[package-name\] Macs: `pip3 install` \[package-name\] Note: Some Python packages require more specific instructions. You will want to find the online documentation for such packages.
