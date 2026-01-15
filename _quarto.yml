@@ -24,11 +24,11 @@ website:
       - text: "additional guides"
         menu:
             - text: "uv cheatsheet"
-            - href: setup/uv_cheatsheet.qmd
+              href: setup/uv_cheatsheet.qmd
             - text: "detailed uv guide"
-            - href: setup/uv_detailed_instructions.qmd
+              href: setup/uv_detailed_instructions.qmd
             - text: "pip + venv guide"
-            - href: setup/pip-venv_method.qmd
+              href: setup/pip-venv_method.qmd
 
       # - text: Analysis
       #   menu:
