@@ -282,20 +282,17 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">additional guides</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-additional-guides">    
-        <li class="dropdown-header">uv cheatsheet</li>
         <li>
     <a class="dropdown-item" href="../setup/uv_cheatsheet.html">
- <span class="dropdown-text">UV Installation and Setup Cheatsheet</span></a>
+ <span class="dropdown-text">uv cheatsheet</span></a>
   </li>  
-        <li class="dropdown-header">detailed uv guide</li>
         <li>
     <a class="dropdown-item" href="../setup/uv_detailed_instructions.html">
- <span class="dropdown-text">Complete UV Tutorial: Python Development with UV and VS Code</span></a>
+ <span class="dropdown-text">detailed uv guide</span></a>
   </li>  
-        <li class="dropdown-header">pip + venv guide</li>
         <li>
     <a class="dropdown-item" href="../setup/pip-venv_method.html">
- <span class="dropdown-text">Alternative Python Setup: pip + venv</span></a>
+ <span class="dropdown-text">pip + venv guide</span></a>
   </li>  
     </ul>
   </li>
@@ -317,8 +314,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#why-uv" id="toc-why-uv" class="nav-link active" data-scroll-target="#why-uv">Why UV?</a></li>
+  <li><a href="#installing-uv-python" id="toc-installing-uv-python" class="nav-link" data-scroll-target="#installing-uv-python">Installing uv &amp; Python</a></li>
   <li><a href="#project-lifecycle-commands" id="toc-project-lifecycle-commands" class="nav-link" data-scroll-target="#project-lifecycle-commands">Project Lifecycle Commands</a></li>
   <li><a href="#vs-code-setup-checklist" id="toc-vs-code-setup-checklist" class="nav-link" data-scroll-target="#vs-code-setup-checklist">VS Code Setup Checklist</a></li>
+  <li><a href="#key-files-in-uv-projects" id="toc-key-files-in-uv-projects" class="nav-link" data-scroll-target="#key-files-in-uv-projects">Key Files in UV Projects</a></li>
   </ul>
 </nav>
     </div>
@@ -371,6 +370,9 @@ Single tool for everything
 Automatic virtual environment management
 Cross-platform consistency
 Deterministic builds with lockfile</code></pre>
+</section>
+<section id="installing-uv-python" class="level2">
+<h2 class="anchored" data-anchor-id="installing-uv-python">Installing uv &amp; Python</h2>
 <pre><code># Install uv (Windows PowerShell)
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
@@ -424,7 +426,9 @@ uv lock --upgrade-package requests  # Update specific package</code></pre>
  ✅ Open project folder
  ✅ Select interpreter: Ctrl+Shift+P → "Python: Select Interpreter" → .venv
  ✅ Configure terminal to use uv</code></pre>
-<p>Key Files in UV Projects</p>
+</section>
+<section id="key-files-in-uv-projects" class="level2">
+<h2 class="anchored" data-anchor-id="key-files-in-uv-projects">Key Files in UV Projects</h2>
 <pre><code>my-project/
 ├── .venv/              # Virtual environment (auto-created)
 ├── .python-version     # Python version pin

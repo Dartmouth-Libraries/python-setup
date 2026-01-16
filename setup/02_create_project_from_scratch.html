@@ -317,20 +317,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">additional guides</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-additional-guides">    
-        <li class="dropdown-header">uv cheatsheet</li>
         <li>
     <a class="dropdown-item" href="../setup/uv_cheatsheet.html">
- <span class="dropdown-text">UV Installation and Setup Cheatsheet</span></a>
+ <span class="dropdown-text">uv cheatsheet</span></a>
   </li>  
-        <li class="dropdown-header">detailed uv guide</li>
         <li>
     <a class="dropdown-item" href="../setup/uv_detailed_instructions.html">
- <span class="dropdown-text">Complete UV Tutorial: Python Development with UV and VS Code</span></a>
+ <span class="dropdown-text">detailed uv guide</span></a>
   </li>  
-        <li class="dropdown-header">pip + venv guide</li>
         <li>
     <a class="dropdown-item" href="../setup/pip-venv_method.html">
- <span class="dropdown-text">Alternative Python Setup: pip + venv</span></a>
+ <span class="dropdown-text">pip + venv guide</span></a>
   </li>  
     </ul>
   </li>
@@ -515,7 +512,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setting-up-a-python-virtual-environment-for-your-project" class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-a-python-virtual-environment-for-your-project">2. Setting Up a Python Virtual Environment for your project</h2>
-<p>As noted in the opening slides presentation (<a href="00_setup_slides.html">html</a> or <a href="00_setup_slides.pdf">pdf</a>) “A virtual environment keeps each project’s packages separate and organized, preventing conflicts and making your code easy to share.”</p>
+<p>As noted in the opening slides presentation: “A virtual environment keeps each project’s packages separate and organized, preventing conflicts and making your code easy to share.”</p>
 <p>We will now use <code>uv</code> to create a virtual environment for our sample project.</p>
 <section id="a.-open-the-command-line-in-vsc" class="level3">
 <h3 class="anchored" data-anchor-id="a.-open-the-command-line-in-vsc">2a. Open the command line in VSC</h3>
@@ -840,7 +837,7 @@ Welcome to my coding adventure! Today I'm learning about Jupyter notebooks.
 </section>
 <section id="cell-2-code-simple-math" class="level4">
 <h4 class="anchored" data-anchor-id="cell-2-code-simple-math">Cell 2: Code (Simple Math)</h4>
-<div id="1f5f6c8f" class="cell" data-execution_count="1">
+<div id="8ab40dc9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's do some calculations!</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"🧮 Quick Math Practice"</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
@@ -890,14 +887,14 @@ The cool thing about notebooks is that I can:
 <ol start="3" type="1">
 <li>In the first code cell in the new notebook, let’s install the necessary packages:</li>
 </ol>
-<div id="174be6f1" class="cell" data-execution_count="2">
+<div id="ddfe1dcb" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" type="1">
 <li>Next, we can import a preloaded dataset from <strong>seaborn</strong> and preview its data:</li>
 </ol>
-<div id="b2909144" class="cell" data-execution_count="3">
+<div id="531b4c99" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a built-in dataset (no files needed!)</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">'penguins'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -931,7 +928,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ol start="5" type="1">
 <li>Now, let’s create a pair plot of this data:</li>
 </ol>
-<div id="1e8250fd" class="cell" data-execution_count="4">
+<div id="b5fd1a93" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization in ONE line!</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(penguins, hue<span class="op">=</span><span class="st">'species'</span>, palette<span class="op">=</span><span class="st">'husl'</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -950,7 +947,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 </div>
 </div>
 <p>Or, we can create a scatterplot with additional customization:</p>
-<div id="7afd80be" class="cell" data-execution_count="5">
+<div id="8d8fb9be" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a colorful visualization</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -1012,7 +1009,7 @@ Species: ['Adelie' 'Chinstrap' 'Gentoo']</code></pre>
 <ul>
 <li><p>Make sure you ran the installation cell (Cell 6)</p></li>
 <li><p>Add this line before your plotting code:</p>
-<div id="1ba83071" class="cell" data-execution_count="6">
+<div id="a71564cc" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>Restart the kernel and run all cells again</code></pre></li>
@@ -1028,7 +1025,7 @@ If stuck, click "Interrupt" button at top, then try again</code></pre>
 <p>Solution:</p>
 <pre><code>Use pip instead:
 
-::: {#c420657d .cell execution_count=7}
+::: {#6679bb89 .cell execution_count=7}
 ``` {.python .cell-code}
 pip install matplotlib
 ```

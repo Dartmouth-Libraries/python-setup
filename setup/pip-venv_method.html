@@ -282,20 +282,17 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">additional guides</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-additional-guides">    
-        <li class="dropdown-header">uv cheatsheet</li>
         <li>
     <a class="dropdown-item" href="../setup/uv_cheatsheet.html">
- <span class="dropdown-text">UV Installation and Setup Cheatsheet</span></a>
+ <span class="dropdown-text">uv cheatsheet</span></a>
   </li>  
-        <li class="dropdown-header">detailed uv guide</li>
         <li>
     <a class="dropdown-item" href="../setup/uv_detailed_instructions.html">
- <span class="dropdown-text">Complete UV Tutorial: Python Development with UV and VS Code</span></a>
+ <span class="dropdown-text">detailed uv guide</span></a>
   </li>  
-        <li class="dropdown-header">pip + venv guide</li>
         <li>
     <a class="dropdown-item" href="../setup/pip-venv_method.html">
- <span class="dropdown-text">Alternative Python Setup: pip + venv</span></a>
+ <span class="dropdown-text">pip + venv guide</span></a>
   </li>  
     </ul>
   </li>
@@ -384,7 +381,7 @@ ul.task-list li input[type="checkbox"] {
 <h1>Alternative Python Setup</h1>
 <section id="visual-studio-code-with-pip-venv-option" class="level2">
 <h2 class="anchored" data-anchor-id="visual-studio-code-with-pip-venv-option">Visual Studio Code with pip + venv Option</h2>
-<p><em>Note: We now recommend the UV + VSC option outlined in Tutorials 1-3 on this webpage. However, for users most comfortable for our previous recommended approach, please follow the instructions below.</em></p>
+<p><em>Note: We now recommend the UV + VSC option outlined in Tutorials 1-3 on this webpage. However, for users most comfortable f our previous recommended approach, please follow the instructions below.</em></p>
 </section>
 <section id="step-1a-install-python" class="level2">
 <h2 class="anchored" data-anchor-id="step-1a-install-python">Step 1a: Install Python</h2>
@@ -528,12 +525,12 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Install Python Packages to local virtual environment (.venv)</p>
 <ul>
 <li><p>Open a Terminal (select <code>Terminal</code> –&gt; <code>New Terminal</code>). You should see a new terminal pane open at the bottom of VS Code.</p></li>
-<li><p>You will need to activate your virtual environment in the terminal before you can install any packages to it. You willl know your virtual environment is activated in the terminal when you see (.venv) at the start of each new line in the terminal. If not type the following in the terminal:</p></li>
-<li></li>
-<li><pre><code>#Windows
+<li><p>You will need to activate your virtual environment in the terminal before you can install any packages to it. You willl know your virtual environment is activated in the terminal when you see (.venv) at the start of each new line in the terminal. If not type the following in the terminal:</p>
+<pre><code>#Windows
 .venv/Scripts/activate
 
-#Mac: .venv/bin/activate</code></pre></li>
+#Mac:
+.venv/bin/activate</code></pre></li>
 <li><p>install a new package using pip. The most common syntax for installing packages in the terminal is: Windows: <code>pip install</code> [package-name] Macs: <code>pip3 install</code> [package-name] Note: Some Python packages require more specific instructions. You will want to find the online documentation for such packages.</p></li>
 <li><p>Install pandas, a popular package used for working with dataframes, by typing the following in the terminal: Windows: <code>pip install pandas</code> Macs: <code>pip3 install pandas</code></p></li>
 <li><p>Return to your notebook and run the cell importing pandas again import pandas as pd. It should work now.</p></li>
