@@ -16,7 +16,7 @@ These coding notebooks and other materials are stored in the [**python-setup**](
 ::: callout-tip
 ## Brief Cheatsheet
 
-\*the brief, no-explanation-needed version:
+*the brief, no-explanation-needed version*:
 
 1.  Import an existing Python project. Common options:
 

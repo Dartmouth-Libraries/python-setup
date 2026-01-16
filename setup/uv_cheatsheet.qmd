@@ -18,6 +18,8 @@ Cross-platform consistency
 Deterministic builds with lockfile
 ```
 
+## Installing uv & Python
+
 ```         
 # Install uv (Windows PowerShell)
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -78,7 +80,7 @@ uv lock --upgrade-package requests  # Update specific package
  ✅ Configure terminal to use uv
 ```
 
-Key Files in UV Projects
+## Key Files in UV Projects
 
 ```         
 my-project/

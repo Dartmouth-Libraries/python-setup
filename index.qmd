@@ -47,7 +47,7 @@ These coding notebooks and other materials are stored in the [**python-setup**](
 1.  Users with some Python project experience or new users in a hurry: follow the *cheatsheets* found at the top of Tutorials [1](setup/01_python_setup.qmd), [2](setup/02_create_project_from_scratch.qmd), and [3](setup/03_import_project.qmd).
 2.  Users needing some background about why program in Python and why set it up this way, review the [Slides](setup/00_setup_slides.qmd).
 3.  New users may want to follow the more detailed instructions found in Tutorials 1 - 3.
-4.  Users who have completed the tutorials can use the [UV Cheatsheet](setup/uv_cheatsheet.qmd) as a refresher and continue their learning with the [Complete UV Tutorial](setup/uv_detailed_instructions.qmd).
+4.  Users who have completed the tutorials can use the [UV Cheatsheet](setup/uv_cheatsheet.qmd) as a refresher and continue their learning about about using uv to manage Python projects with [Complete UV Tutorial](setup/uv_detailed_instructions.qmd).
 
 ## 3. Why UV?
 
@@ -90,6 +90,7 @@ Upon completing the lessons offered here, the student will be able to:
 1.  User is comfortable navigating through files on their computer
 ```
 
+<!--
 ## 8. Getting Started
 
 To complete the set up tutorial, open the **setup/** folder and do the following in order:
@@ -105,8 +106,9 @@ To complete the set up tutorial, open the **setup/** folder and do the following
 5.  Optional review: [UV Cheatsheet](setup/uv_cheatsheet.qmd)
 
 6.  Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
+-->
 
-## 9. Required Software
+## 8. Required Software
 
 Instructions for installing the following are in the Set Up tutorials outlined in Step 6 above.
 
@@ -126,10 +128,10 @@ Instructions for installing the following are in the Set Up tutorials outlined i
 -->
 ```
 
-## 10. LICENSE
+## 9. LICENSE
 
 Instructional materials produced here are available under the [CC BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/legalcode.en). Review the license link and the [LICENSE](LICENSE) page in this repo. Code is available for reuse under the Open Source Initiative's [The MIT License](https://opensource.org/license/mit).
 
-## 11. Acknowledgements
+## 10. Acknowledgements
 
 **Template Information**: This repository was created using the [Python Tutorial Template](https://github.com/Dartmouth-Libraries/Python-tutorial-template) (created by Research Facilitation, Dartmouth Libraries).
