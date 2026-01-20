@@ -47,7 +47,7 @@ These coding notebooks and other materials are stored in the [**python-setup**](
 1.  Users with some Python project experience or new users in a hurry: follow the *cheatsheets* found at the top of Tutorials [1](setup/01_python_setup.qmd), [2](setup/02_create_project_from_scratch.qmd), and [3](setup/03_import_project.qmd).
 2.  Users needing some background about why program in Python and why set it up this way, review the [Slides](setup/00_setup_slides.qmd).
 3.  New users may want to follow the more detailed instructions found in Tutorials 1 - 3.
-4.  Users who have completed the tutorials can use the [UV Cheatsheet](setup/uv_cheatsheet.qmd) as a refresher and continue their learning about about using uv to manage Python projects with [Complete UV Tutorial](setup/uv_detailed_instructions.qmd).
+4.  Users who have completed the tutorials can use the [UV Cheatsheet](setup/uv_cheatsheet.qmd) as a refresher and continue their learning about using uv to manage Python projects with [Complete UV Tutorial](setup/uv_detailed_instructions.qmd).
 
 ## 3. Why UV?
 

@@ -42,17 +42,17 @@ These coding notebooks and other materials are stored in the [**python-setup**](
     b.  Mac: `uv run which python`
     c.  *Note*: compare to the results if you run these commands without `uv run`. You can also check by comparing the results of `uv run python --version` and `python --version`.
 
-9.  Write code (see Step 4 above for an example script) and save your script.
+10. Write code (see Step 4 above for an example script) and save your script.
 
-10. Run your script with `uv run code/script-name.py` or by pressing the "Play" button.
+11. Run your script with `uv run code/script-name.py` or by pressing the "Play" button.
 
-11. To run code requiring external packages:
+12. To run code requiring external packages:
 
     1.  install packages with `uv add package_name`.
 
     2.  when needed, import a package with the code `import package_name` placed at the top of the document.
 
-12. To create a Jupyter notebook:
+13. To create a Jupyter notebook:
 
     1.  install Jupyter via the Terminal with `uv add jupyter`.
 
@@ -698,3 +698,13 @@ pip install matplotlib
 -   Close other programs to free up memory
 
 -   Save and reload VS Code
+   
+
+<!--
+1. Confirm `pip` is installed 
+   1.  Note 1: pip should be installed for users who have previously install Python on their computers; it may not be for new users
+   2.  Note 2: while `uv` is designed to replace `pip` some automated processes may automatically use pip to install new packages in VSC and elsewhere. Having pip installed will prevent these processes from raising errors.
+   3.  option 1: `uv init --seed`
+   4.  option 2: `uv pip install pip`
+   5.  option 3: `uv add jupyter` (does that resolve things?) 
+-->

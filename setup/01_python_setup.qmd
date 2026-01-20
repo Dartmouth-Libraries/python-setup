@@ -23,7 +23,7 @@ This document provides detailed instructions for installing and setting up Visua
     1.  in Windows Powershell: `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`
     2.  on Mac/Linux terminal: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 4.  Check installation with `uv --version`.
-5.  Install Python with `uv python install`.
+5.  Install Python with `uv python install` to get the latest version. If needed, you can install older versions of Python. I.e. for Python 3.13: `uv python install 3.13`
 :::
 
 ## Step 1: Install Visual Studio Code (10 minutes)
@@ -217,4 +217,3 @@ uv python list
 2.  don't need to worry about "Add to PATH" (a common error in Python installation, when a Python IDE like VSC cannot find Python or cannot find the version of Python you want to use)
 3.  don't need to worry about conflicting with other Python installations
 
-#
