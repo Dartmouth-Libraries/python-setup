@@ -90,6 +90,7 @@ Upon completing the lessons offered here, the student will be able to:
 1.  User is comfortable navigating through files on their computer
 ```
 
+```{=html}
 <!--
 ## 8. Getting Started
 
@@ -107,6 +108,7 @@ To complete the set up tutorial, open the **setup/** folder and do the following
 
 6.  Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
 -->
+```
 
 ## 8. Required Software
 

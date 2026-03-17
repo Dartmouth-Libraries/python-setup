@@ -32,6 +32,8 @@ These coding notebooks and other materials are stored in the [**python-setup**](
 
     2.  Create virtual environment: `uv init`
 
+    3.  To get this virtual environment to appear either run `uv sync` in the Terminal or add a package like "pandas" using `uv add pandas`.
+
 6.  Create a Python script in your `code` folder, giving it the extension: `.py`.
 
 7.  Select the Python Interpreter you want to use for this project by opening the "Show and Run Command Bars" (Windows: `CTRL + SHIFT + P`; Mac: `CMD + CTRL + SPACE`), select **Python: Select Interpreter**, and choose the version of Python installed to your local environment. I.e.: \`Python 3.14.2 (name-of-project) .venv/Scripts/python.exe Recommended"
@@ -42,17 +44,17 @@ These coding notebooks and other materials are stored in the [**python-setup**](
     b.  Mac: `uv run which python`
     c.  *Note*: compare to the results if you run these commands without `uv run`. You can also check by comparing the results of `uv run python --version` and `python --version`.
 
-10. Write code (see Step 4 above for an example script) and save your script.
+9.  Write code (see Step 4 above for an example script) and save your script.
 
-11. Run your script with `uv run code/script-name.py` or by pressing the "Play" button.
+10. Run your script with `uv run code/script-name.py` or by pressing the "Play" button.
 
-12. To run code requiring external packages:
+11. To run code requiring external packages:
 
     1.  install packages with `uv add package_name`.
 
     2.  when needed, import a package with the code `import package_name` placed at the top of the document.
 
-13. To create a Jupyter notebook:
+12. To create a Jupyter notebook:
 
     1.  install Jupyter via the Terminal with `uv add jupyter`.
 
@@ -134,8 +136,20 @@ If you are not in the project root directory you can navigate to it by using the
 Now, run the following in your project's root directory from the **terminal**:
 
 ```{terminal}
-# This initiaties a new uv environment for your project
+# This initiates a new uv environment for your project
 uv init
+```
+
+To get this new virtual environment to appear you often need to run the following:
+
+```{terminal}
+uv sync
+```
+
+Alternatively, you can add a package to your virtual environment and it will appear, i.e.:
+
+```{terminal}
+uv add requests
 ```
 
 You will see in the **Explorer pane** on the left side of VSC several new files and folders were created in your project's working directory. The above command:
@@ -698,8 +712,8 @@ pip install matplotlib
 -   Close other programs to free up memory
 
 -   Save and reload VS Code
-   
 
+```{=html}
 <!--
 1. Confirm `pip` is installed 
    1.  Note 1: pip should be installed for users who have previously install Python on their computers; it may not be for new users
@@ -708,3 +722,4 @@ pip install matplotlib
    4.  option 2: `uv pip install pip`
    5.  option 3: `uv add jupyter` (does that resolve things?) 
 -->
+```
