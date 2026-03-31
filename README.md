@@ -1,6 +1,6 @@
 [Python Setup github.io webpage](https://dartmouth-libraries.github.io/python-setup/)
 
-*Produced by the Research Facilitation team in the Dartmouth College Libraries*
+*Produced by Jeremy Mikecz and the Research Facilitation team in the Dartmouth College Libraries*
 
 ### Quick Links
 
@@ -40,7 +40,7 @@ Upon completing the lessons offered here, the student will be able to:
 -   write their first markdown file (`README.md`)
 -   write and run their first Python script and Python Jupyter notebook.
 
-## 4. Instructor(s) and Years Taught (if taught live)
+## 4. Instructor(s) and Years Taught
 
 -   Jeremy Mikecz, Research Facilitation (Python Setup, W2026)
 
@@ -72,6 +72,16 @@ To complete the set up tutorial, open the **setup/** folder and do the following
 
 6.  Further learning: Follow the lessons and activities in [Complete UV Tutorial: Python Development with UV and VS Code](setup/uv_detailed_instructions.qmd). *Note: this guide was mostly written by a non-human assistant, Claude Opus 4.5. It still needs human review and testing.*
 
+## 7. Other Instructional Information
+
+Level: Beginner (and Intermediate Users looking to establish better project practices)
+
+Duration: Estimated time to complete: 1-3 hours (but could vary tremendously)
+
+Pre-requisites:
+
+1.  User is comfortable navigating through files on their computer
+
 ## Required Software
 
 Instructions for installing the following are in the Set Up tutorials outlined in Step 6 above.
@@ -80,7 +90,6 @@ Instructions for installing the following are in the Set Up tutorials outlined i
 -   **Visual Studio Code**
 -   **uv** (package manager)
 
-```{=html}
 <!--
 ## 8. Overview of Materials
 
@@ -88,9 +97,7 @@ Instructions for installing the following are in the Set Up tutorials outlined i
 2. Slides
 3. Other instructional materials
 4. Data
-   
--->
-```
+
 
 ## LICENSE
 

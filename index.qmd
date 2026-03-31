@@ -8,7 +8,7 @@ format: html
 editor: visual
 ---
 
-*Produced by the Research Facilitation team in the Dartmouth College Libraries*
+*Produced by Jeremy Mikecz and the Research Facilitation team in the Dartmouth College Libraries*
 
 ### Quick Links
 
@@ -34,7 +34,7 @@ There are many ways to install and run Python. Here, we provide instructions for
 
 1.  installing and using the coding editor and IDE (Integrated Development Environment) software **Visual Studio Code** (VSC)
 
-2.  installing and using **uv** to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
+2.  installing and ugit stsing **uv** to assist in the installation of Python and the creation of reproducible and transportable coding projects (using something called "virtual environments").
 
 3.  following computational and coding best practices to set up a Python project.
 
@@ -86,9 +86,7 @@ Upon completing the lessons offered here, the student will be able to:
 
 **Pre-requisites:**
 
-```         
-1.  User is comfortable navigating through files on their computer
-```
+1\. User is comfortable navigating through files on their computer
 
 ```{=html}
 <!--
